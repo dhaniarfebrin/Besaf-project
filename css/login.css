@@ -1,0 +1,17 @@
+body {
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.modal-content {
+	width: 550px;
+	margin: 60px auto;
+}
+
+.header {
+	padding: 25px;
+}
+
+.header img {
+	width: 170px;
+}

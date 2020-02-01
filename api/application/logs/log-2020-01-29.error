@@ -1,0 +1,154 @@
+ERROR - 2020-01-29 06:03:08 --> Query error: Unknown column 'deskripsi' in 'field list' - Invalid query: 
+			SELECT 
+				komunitas.id as komunitas_id,
+				nama,
+				deskripsi,
+				kategori,
+				game_id,
+				nomor_telpon,
+				nomor_identitas,
+				foto_identitas,
+				count(member_komunitas.komunitas_id) as jumlah_member
+			FROM 
+				komunitas
+			LEFT JOIN 
+				member_komunitas on member_komunitas.komunitas_id = komunitas.id
+			GROUP BY 
+				komunitas.id
+			
+ERROR - 2020-01-29 06:03:09 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\laragon\www\Besaf\api\application\models\Komunitas_model.php 92
+ERROR - 2020-01-29 06:03:53 --> Query error: Unknown column 'deskripsi' in 'field list' - Invalid query: 
+			SELECT 
+				komunitas.id as komunitas_id,
+				nama,
+				deskripsi,
+				kategori,
+				game_id,
+				nomor_telpon,
+				nomor_identitas,
+				foto_identitas,
+				count(member_komunitas.komunitas_id) as jumlah_member
+			FROM 
+				komunitas
+			LEFT JOIN 
+				member_komunitas on member_komunitas.komunitas_id = komunitas.id
+			GROUP BY 
+				komunitas.id
+			
+ERROR - 2020-01-29 06:03:53 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\laragon\www\Besaf\api\application\models\Komunitas_model.php 92
+ERROR - 2020-01-29 06:06:36 --> Severity: Warning --> require(D:\laragon\www\Besaf\api\application\libraries/RestController.php): failed to open stream: No such file or directory D:\laragon\www\Besaf\api\application\controllers\User.php 3
+ERROR - 2020-01-29 06:06:36 --> Severity: Compile Error --> require(): Failed opening required 'D:\laragon\www\Besaf\api\application\libraries/RestController.php' (include_path='.;D:/laragon/etc/php/pear') D:\laragon\www\Besaf\api\application\controllers\User.php 3
+ERROR - 2020-01-29 06:06:46 --> Severity: Warning --> require(D:\laragon\www\Besaf\api\application\libraries/RestController.php): failed to open stream: No such file or directory D:\laragon\www\Besaf\api\application\controllers\User.php 3
+ERROR - 2020-01-29 06:06:46 --> Severity: Compile Error --> require(): Failed opening required 'D:\laragon\www\Besaf\api\application\libraries/RestController.php' (include_path='.;D:/laragon/etc/php/pear') D:\laragon\www\Besaf\api\application\controllers\User.php 3
+ERROR - 2020-01-29 06:10:05 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:10:06 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:10:07 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:10:08 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:10:12 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:10:12 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:10:13 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:10:46 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:10:48 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:10:48 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:10:49 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:10:49 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:10:50 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:13:19 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:13:20 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:13:20 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:13:21 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:13:22 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:13:22 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:13:23 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:13:24 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:13:28 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:13:29 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:17:03 --> Severity: error --> Exception: Class 'chriskacerguis\RestServer\Format' not found D:\laragon\www\Besaf\api\application\libraries\RestController.php 649
+ERROR - 2020-01-29 06:17:29 --> Query error: Unknown column 'deskripsi' in 'field list' - Invalid query: 
+			SELECT 
+				komunitas.id as komunitas_id,
+				komunitas.nama as komunitas_nama,
+				deskripsi,
+				kategori,
+				game_id,
+				nomor_telpon,
+				nomor_identitas,
+				foto_identitas,
+				count(member_komunitas.komunitas_id) as jumlah_member,
+				game.nama as game_nama
+			FROM 
+				komunitas
+			LEFT JOIN 
+				member_komunitas on member_komunitas.komunitas_id = komunitas.id
+			LEFT JOIN 
+				game on game.id = komunitas.game_id
+			WHERE 
+				komunitas.id = '1'
+			
+ERROR - 2020-01-29 06:17:29 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\laragon\www\Besaf\api\application\models\Komunitas_model.php 140
+ERROR - 2020-01-29 06:20:26 --> Query error: Column 'username' cannot be null - Invalid query: INSERT INTO `user` (`username`, `email`, `full_name`, `password`, `country`, `role_id`, `is_active`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+ERROR - 2020-01-29 06:20:26 --> Query error: Column 'email' cannot be null - Invalid query: INSERT INTO `user_token` (`email`, `token`) VALUES (NULL, 'GYgMunazV4iXff+b925J4mRSGOqk4Pz6u75lzQSsb0o=')
+ERROR - 2020-01-29 07:11:13 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf\api\vendor/autoload.php
+ERROR - 2020-01-29 07:18:47 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf\api\vendor/autoload.php
+ERROR - 2020-01-29 07:18:47 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf\api\vendor/autoload.php
+ERROR - 2020-01-29 07:18:48 --> Query error: Unknown column 'deskripsi' in 'field list' - Invalid query: 
+			SELECT 
+				komunitas.id as komunitas_id,
+				nama,
+				deskripsi,
+				kategori,
+				game_id,
+				nomor_telpon,
+				nomor_identitas,
+				foto_identitas,
+				count(member_komunitas.komunitas_id) as jumlah_member
+			FROM 
+				komunitas
+			LEFT JOIN 
+				member_komunitas on member_komunitas.komunitas_id = komunitas.id
+			GROUP BY 
+				komunitas.id
+			
+ERROR - 2020-01-29 07:18:48 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\laragon\www\Besaf\api\application\models\Komunitas_model.php 92
+ERROR - 2020-01-29 07:19:10 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf\api\vendor/autoload.php
+ERROR - 2020-01-29 07:19:10 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf\api\vendor/autoload.php
+ERROR - 2020-01-29 07:19:10 --> Query error: Unknown column 'deskripsi' in 'field list' - Invalid query: 
+			SELECT 
+				komunitas.id as komunitas_id,
+				nama,
+				deskripsi,
+				kategori,
+				game_id,
+				nomor_telpon,
+				nomor_identitas,
+				foto_identitas,
+				count(member_komunitas.komunitas_id) as jumlah_member
+			FROM 
+				komunitas
+			LEFT JOIN 
+				member_komunitas on member_komunitas.komunitas_id = komunitas.id
+			GROUP BY 
+				komunitas.id
+			
+ERROR - 2020-01-29 07:19:10 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\laragon\www\Besaf\api\application\models\Komunitas_model.php 92
+ERROR - 2020-01-29 07:20:05 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf\api\vendor/autoload.php
+ERROR - 2020-01-29 07:20:05 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf\api\vendor/autoload.php
+ERROR - 2020-01-29 07:20:05 --> Query error: Unknown column 'deskripsi' in 'field list' - Invalid query: 
+			SELECT 
+				komunitas.id as komunitas_id,
+				nama,
+				deskripsi,
+				kategori,
+				game_id,
+				nomor_telpon,
+				nomor_identitas,
+				foto_identitas,
+				count(member_komunitas.komunitas_id) as jumlah_member
+			FROM 
+				komunitas
+			LEFT JOIN 
+				member_komunitas on member_komunitas.komunitas_id = komunitas.id
+			GROUP BY 
+				komunitas.id
+			
+ERROR - 2020-01-29 07:20:05 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\laragon\www\Besaf\api\application\models\Komunitas_model.php 92
