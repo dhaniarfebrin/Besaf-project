@@ -11,7 +11,7 @@
 			</div>
 
 			<!-- Login -->
-			<div class="single-tab"  id="login">
+			<div class="single-tab" id="login">
 				<form action="" method="POST" class="p-5">
 					<div class="form-group">
 						<label for="Email">Username or Email</label>
@@ -31,7 +31,7 @@
 
 			<!-- register -->
 			<div class="single-tab" id="register">
-				<form action="" method="POST" class="p-5" >
+				<form action="" method="POST" class="p-5">
 					<div class="form-group">
 						<label for="Name">Name</label>
 						<input type="text" class="form-control bg-dark border-0 text-white" id="Name" placeholder="Name">

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ERROR - 2020-02-03 00:55:59 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf-local\api\vendor/autoload.php
 ERROR - 2020-02-03 00:56:14 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf-local\api\vendor/autoload.php
 ERROR - 2020-02-03 00:56:18 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf-local\api\vendor/autoload.php
@@ -52,3 +53,116 @@ ERROR - 2020-02-03 09:52:38 --> 404 Page Not Found: Discover/show
 ERROR - 2020-02-03 09:52:38 --> 404 Page Not Found: Img/komunitas
 ERROR - 2020-02-03 09:52:42 --> 404 Page Not Found: Discover/show
 ERROR - 2020-02-03 09:52:42 --> 404 Page Not Found: Img/komunitas
+=======
+ERROR - 2020-02-03 04:28:21 --> Could not find the specified $config['composer_autoload'] path: D:\Software\xampp\htdocs\Besaf-project\api\vendor/autoload.php
+ERROR - 2020-02-03 04:28:21 --> Could not find the specified $config['composer_autoload'] path: D:\Software\xampp\htdocs\Besaf-project\api\vendor/autoload.php
+ERROR - 2020-02-03 04:28:21 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+			SELECT 
+				member_komunitas.id,
+				user_id,
+				komunitas_id,
+				komunitas.foto_identitas as foto
+			FROM 
+				member_komunitas
+			INNER JOIN 
+				user ON user.id = member_komunitas.user_id
+			LEFT JOIN 
+				komunitas ON komunitas.id = member_komunitas.komunitas_id
+			WHERE 
+				user_id = '3'
+			
+ERROR - 2020-02-03 04:28:21 --> Query error: Unknown column 'deskripsi' in 'field list' - Invalid query: 
+			SELECT 
+				komunitas.id as komunitas_id,
+				nama,
+				deskripsi,
+				kategori,
+				game_id,
+				nomor_telpon,
+				nomor_identitas,
+				foto_identitas,
+				count(member_komunitas.komunitas_id) as jumlah_member
+			FROM 
+				komunitas
+			LEFT JOIN 
+				member_komunitas on member_komunitas.komunitas_id = komunitas.id
+			GROUP BY 
+				komunitas.id
+			
+ERROR - 2020-02-03 04:28:21 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Komunitas_model.php 205
+ERROR - 2020-02-03 04:28:21 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Komunitas_model.php 114
+ERROR - 2020-02-03 08:56:57 --> Could not find the specified $config['composer_autoload'] path: D:\Software\xampp\htdocs\Besaf-project\api\vendor/autoload.php
+ERROR - 2020-02-03 08:56:57 --> Could not find the specified $config['composer_autoload'] path: D:\Software\xampp\htdocs\Besaf-project\api\vendor/autoload.php
+ERROR - 2020-02-03 08:56:58 --> Query error: Unknown column 'deskripsi' in 'field list' - Invalid query: 
+			SELECT 
+				komunitas.id as komunitas_id,
+				nama,
+				deskripsi,
+				kategori,
+				game_id,
+				nomor_telpon,
+				nomor_identitas,
+				foto_identitas,
+				count(member_komunitas.komunitas_id) as jumlah_member
+			FROM 
+				komunitas
+			LEFT JOIN 
+				member_komunitas on member_komunitas.komunitas_id = komunitas.id
+			GROUP BY 
+				komunitas.id
+			
+ERROR - 2020-02-03 08:56:58 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+			SELECT 
+				member_komunitas.id,
+				user_id,
+				komunitas_id,
+				komunitas.foto_identitas as foto
+			FROM 
+				member_komunitas
+			INNER JOIN 
+				user ON user.id = member_komunitas.user_id
+			LEFT JOIN 
+				komunitas ON komunitas.id = member_komunitas.komunitas_id
+			WHERE 
+				user_id = '3'
+			
+ERROR - 2020-02-03 08:56:58 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Komunitas_model.php 205
+ERROR - 2020-02-03 08:56:58 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Komunitas_model.php 114
+ERROR - 2020-02-03 08:58:24 --> Could not find the specified $config['composer_autoload'] path: D:\Software\xampp\htdocs\Besaf-project\api\vendor/autoload.php
+ERROR - 2020-02-03 08:58:24 --> Could not find the specified $config['composer_autoload'] path: D:\Software\xampp\htdocs\Besaf-project\api\vendor/autoload.php
+ERROR - 2020-02-03 08:58:24 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+			SELECT 
+				member_komunitas.id,
+				user_id,
+				komunitas_id,
+				komunitas.foto_identitas as foto
+			FROM 
+				member_komunitas
+			INNER JOIN 
+				user ON user.id = member_komunitas.user_id
+			LEFT JOIN 
+				komunitas ON komunitas.id = member_komunitas.komunitas_id
+			WHERE 
+				user_id = '3'
+			
+ERROR - 2020-02-03 08:58:24 --> Query error: Unknown column 'deskripsi' in 'field list' - Invalid query: 
+			SELECT 
+				komunitas.id as komunitas_id,
+				nama,
+				deskripsi,
+				kategori,
+				game_id,
+				nomor_telpon,
+				nomor_identitas,
+				foto_identitas,
+				count(member_komunitas.komunitas_id) as jumlah_member
+			FROM 
+				komunitas
+			LEFT JOIN 
+				member_komunitas on member_komunitas.komunitas_id = komunitas.id
+			GROUP BY 
+				komunitas.id
+			
+ERROR - 2020-02-03 08:58:24 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Komunitas_model.php 205
+ERROR - 2020-02-03 08:58:24 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Komunitas_model.php 114
+>>>>>>> c00ee8b8f095c046e0770c52227955dd56903709
