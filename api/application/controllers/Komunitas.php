@@ -44,12 +44,6 @@ class Komunitas extends REST_Controller {
 		return $this->response($request);
 	}
 
-	public function admin_post()
-	{
-		$request = $this->Komunitas_model->admin($this->post());
-		return $this->response($request);
-	}
-
 	public function turnamen_post()
 	{
 		$request = $this->Komunitas_model->turnamen($this->post());

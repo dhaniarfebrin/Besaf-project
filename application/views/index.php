@@ -1,4 +1,6 @@
-﻿<?
+﻿<!DOCTYPE html>
+<html lang="en">
+<?
 $country = [
 	'Indonesia',
 	'Malaysia',
@@ -6,8 +8,6 @@ $country = [
 	'Singapura'
 ];
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
@@ -444,9 +444,10 @@ $country = [
 							notif("div.muncul-pesan", "warning", pesan)
 						} else {
 							$('div.muncul-pesan').html('')
+							user_id = req.data.id
 							role_id = req.data.role_id
 							username = req.data.username
-							window.location = "<?= base_url('auth/session/'); ?>" + role_id + "/" + username
+							window.location = "<?= base_url('auth/session/'); ?>" + role_id + "/" + username + "/" + user_id
 						}
 					})
 				return false

@@ -1,101 +1,70 @@
 <script>
 	$(document).ready(function() {
-		function show() {
-			jadwal = $('select.jadwal').val();
-			$.ajax({
-				url : "<?php echo base_url('api/Turnamen/show') ?>",
-				method : "POST",
-				async : true,
-				success : function (req) {
-					html = '';
-					if (req.error==true) {
-						html += '\
-						<div class="m-portlet m-portlet--mobile">\
-							<div class="m-portlet__body">\
-								<h5 class="text-center">'+req.message+'</h5>\
-							</div>\
-						</div>';
-						$('div.turnamen-terlaris').html('')
-					} else {
-						$.each(req.data,function(index,obj) {
-							terlaris();
-							html += '\
-							<a href="<?php echo base_url('turnamen') ?>" style="text-decoration: none">\
-								<div class="m-portlet m-portlet--mobile hover">\
-									<div class="row">\
-										<div class="col-md-3">\
-											<div style="padding: 5%; margin-top: 2px">\
-												<img src="<?php echo base_url('assets/app/media/img/products/'); ?>'+req.image+'" style="width: 100%" class="rounded border">\
-											</div>\
-										</div>\
-										<div class="col-md-9">\
-											<div class="m-portlet__head">\
-												<div class="m-portlet__head-caption">\
-													<div class="m-portlet__head-title">\
-														<h3 class="m-portlet__head-text">\
-															'+obj.nama+'\
-														</h3>\
-													</div>\
-												</div>\
-											</div>\
-											<div class="m-portlet__body">\
-												<div class="row">\
-													<div class="col-sm-2">\
-														ENTRY\
-														<br><b>'+obj.entry+'</b>\
-													</div>\
-													<div class="col-sm-2">\
-														SLOTS\
-														<br><b>'+obj.slots+'</b>\
-													</div>\
-													<div class="col-sm-2">\
-														TIME \
-														<br><b>'+obj.date_start+'</b>\
-													</div>\
-													<div class="col-sm-2">\
-														CLOSE IN \
-														<br>'+obj.date_end+'\
-													</div>\
-													<div class="col-sm-3" align="right">\
-														Cookies\
-														<br>'+obj.cookies+'\
-													</div>\
-														<i class="fa fa-cookie-bite text-warning" style="font-size: 30px"></i>\
-													<!-- </div> -->\
-												</div>\
-											</div>\
-										</div>\
-									</div>\
-								</div>\
-							</a>'; 
-						})
-					}
-					$('div.all-turnamen').html(html);
-				}
-			})
-		}
-		show()
 
-		function terlaris() {
+		function info() {
 			$.ajax({
-				url : "<?php echo base_url('api/Turnamen/terlaris'); ?>",
+				url : "<?php echo base_url('api/Turnamen/info') ?>",
 				method : "POST",
+				data : {
+					turnamen_id : <?php echo $this->session->userdata('turnamen_id'); ?>
+				},
 				async : true,
 				success : function(req) {
-					html = '';
-					$.each(req.data,function(index,obj) {
-						html += '\
-						<div class="col-sm-4">\
-							<a href="<?php echo base_url('turnamen') ?>">\
-								<div class="m-portlet m-portlet--mobile">\
-									<img class="hover" src="<?php echo base_url('assets/app/media/img/tournament/'); ?>'+obj.image+'" alt="" style="width: 100%" class="rounded border">\
-								</div>\
-							</a>\
-						</div>\
-						';
-					})
+					$('b.game_nama').html(req.data.game_nama);
+					// venue
+					if (req.data.venue == '1') {
+						venue = "online";
+					} else {
+						venue = "offline";
+					}
+
+					if (req.data.entry == '1') {
+						entry = "Free";
+					} else {
+						entry = "Group / Squad";
+					}
+
+					$('div.foto').html('\
+						<img src="<?php echo base_url('api/img/turnamen/'); ?>'+req.data.image+'" alt="'+req.data.nama+'.jpeg" style="height: 300px; max-width: 100%">\
+						');
+
+					$('div.keterangan').html('\
+						<div class="badge badge-danger" style="padding: 10px">Featured</div>\
+						<div class="badge badge-success" style="padding: 10px">Series</div>\
+						<hr>\
+						<h3>'+req.data.nama+'</h3>\
+						<small>'+req.data.date_start+' s/d '+req.data.date_end+'</small><br>\
+						<big><strong>'+entry+'</strong></big>\
+						<hr>\
+						<table class="table table-sm">\
+							<tr>\
+								<th>Hosted by</th>\
+								<td>'+req.data.komunitas_id+'</td>\
+							</tr>\
+							<tr>\
+								<th>Community</th>\
+								<td>'+req.data.komunitas_id+'</td>\
+							</tr>\
+							<tr>\
+								<th>Tournament mode</th>\
+								<td>'+req.data.mode+'</td>\
+							</tr>\
+							<tr>\
+								<th>Venue</th>\
+								<td>'+venue+'</td>\
+							</tr>\
+						</table>\
+						');
+
+					$('div.hadiah').html('\
+						<h1>Rp. '+req.data.hadiah+'</h1>\
+						')
+
+					$('p.aturan').html(req.data.rules);
+					$('p.how-join').html(req.data.how_to_join);
 				}
 			})
 		}
+		info();
 	})
 </script>

@@ -6,10 +6,12 @@
 	<div class="m-subheader ">
 		<h3>COMMUNITIES</h3>
 	</div>
-		<div class="message"></div>
+		<div class="message container">
+		</div>
 
 	<!-- END: Subheader -->
 	<div class="m-content">
+		<div class="pesan"></div>
 		<div class="m-portlet m-portlet--mobile ">
 			<div class="m-portlet__head">
 				<div class="m-portlet__head-caption">
@@ -20,9 +22,17 @@
 					</div>
 				</div>
 			</div>
-			<div class="m-portlet__body my-community">
+			<div class="m-portlet__body">
+				<div class="my-community row">
+				</div>
+				<div class="collapse" id="selengkapnya">
+					<div class="mt-3 my-community-selengkapnya row">
+					</div>
+				</div>
 				<div align="center">
-					<big>Memuat...</big>
+					<a href="#" data-toggle="collapse" data-target="#selengkapnya">
+						<b class="text-danger">Selengkapnya <i class="fa fa-angle-down"></i></b>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -46,47 +56,57 @@
 				<h3>Buat Komunitas</h3>
 				<button type="button" class="close" data-dismiss="modal">x</button>
 			</div>
-			<form id="create" action="">
+			<form class="buat-komunitas">
 				<div class="modal-body">
 					<div class="pesan-tambah"></div>
-					<div class="form-group">
-						<label for="">Nama Komunitas</label>
-						<input type="text" class="form-control nama">
+					<div class="form-group m-form__group">
+						<label>Nama</label>
+						<input type="text" class="form-control nama m-input m-input--air m-input--pill" placeholder="Nama Komunitas">
 					</div>
-					<div class="form-group">
-						<label for="">Deskripsi</label>
-						<textarea rows="3" class="form-control deskripsi" style="resize: none"></textarea>
+					<div class="form-group m-form__group">
+						<label>Deskripsi</label>
+						<textarea rows="3" class="form-control deskripsi m-input m-input--air m-input--pill" style="resize: none" placeholder="Deskripsi Komunitas"></textarea>
 					</div>
-					<div class="form-group">
-						<label for="">Kategori : </label>
-						<select class="form-control kategori">
+					<div class="form-group m-form__group">
+						<label>Kategori : </label>
+						<select class="form-control kategori m-input m-input--air m-input--pill">
 							<option value=""></option>
-							<option value="">Sekolah</option>
-							<option value="">Belum Diketahui</option>
+							<option value="1">Sekolah</option>
+							<option value="2">Belum Diketahui</option>
 						</select>
 					</div>
-					<div class="form-group">
+					<div class="form-group m-form__group">
 						<label for="">Pilihan Game : </label>
-						<select class="form-control game_id">
+						<select class="form-control game_id m-input m-input--air m-input--pill">
 							<option value=""></option>
 							<?php  
-							for ($no=1; $no <= 10; $no++) {
-							?>
-							<option value="">Produk <?php echo $no ?></option>
+							$cek = mysqli_connect("localhost","root","","besaf");
+							$query = mysqli_query($cek, "SELECT id, nama FROM game");
+							while ($game = mysqli_fetch_array($query)) { ?>
+							<option value="<?php echo $game[0] ?>"><?php echo $game[1]; ?></option>
 							<?php } ?>
 						</select>
 					</div>
-					<div class="form-group">
-						<label for="">Nomor Identitas</label>
-						<input type="text" class="form-control nomor_identitas" placeholder="KTP, SIM, Passpor">
+					<div class="form-group m-form__group">
+						<label>Nomor Identitas</label>
+						<input type="text" class="form-control nomor_identitas m-input m-input--air m-input--pill" placeholder="KTP, SIM, Passpor">
 					</div>
-					<div class="form-group">
+					<div class="form-group m-form__group">
 						<label for="">Foto Identitas</label>
-						<input type="file" class="form-control foto_identitas" id="foto_identitas">
+						<div class="custom-file shadow-sm">
+						  <input type="file" class="custom-file-input file" id="customFile" multiple>
+						  <label class="custom-file-label label-file" for="customFile">Choose file</label>
+						</div>
+						<input type="hidden" class="foto_identitas">
 					</div>
-					<div class="form-group">
+					<div class="form-group m-form__group">
+						<div class="shadow-sm" style="height: 250px; background: #C9C9C9" align="center">
+							<img class="foto_identitas rounded" style="padding: 10px; height: 100%;">
+						</div>
+					</div>
+					<div class="form-group m-form__group">
 						<label for="">No. Telepon</label>
-						<input type="text" class="form-control nomor_telpon">
+						<input type="text" class="form-control nomor_telpon m-input m-input--air m-input--pill" placeholder="Nomor telepon">
 					</div>
 				</div>
 				<div class="modal-footer">

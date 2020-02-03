@@ -14,6 +14,7 @@ class M_user extends CI_Model
 
         $cek_user = $this->db->query("
         SELECT
+        id,
         username,
         password,
         role_id
@@ -49,7 +50,8 @@ class M_user extends CI_Model
                         'message' => 'Success login!',
                         'data' => [
                             'role_id' => $user['role_id'],
-                            'username' => $user['username']
+                            'username' => $user['username'],
+                            'id' => $user['id']
                         ]
                     ];
                     goto output;
