@@ -61,3 +61,18 @@ body {
 	color: rgb(44, 146, 203);
 	cursor: pointer;
 }
+
+.fb {
+	margin: 0px auto;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-weight: bold;
+	border: none;
+}
+
+.ggl {
+	margin: 0px auto;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-weight: bold;
+}

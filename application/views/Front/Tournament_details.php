@@ -1,5 +1,5 @@
 <div class="d-block shadow" style="position: fixed; top: 16px; right: 24px;">
-    <button class="btn btn-primary rounded font-weight-bold" type="button" data-toggle="login-tip" data-placement="left" title="login to get more"><span class="fa fa-lock"></span></button>
+    <a href="<?= base_url('auth/login') ?>"><button class="btn btn-primary rounded font-weight-bold" type="button" data-toggle="login-tip" data-placement="left" title="login to get more"><span class="fa fa-lock"></span></button></a>
 </div>
 
 <div class="container text-white">

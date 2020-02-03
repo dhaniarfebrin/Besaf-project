@@ -215,7 +215,7 @@ $country = [
 				</div>
 			</div>
 
-			<a href="<?= base_url('user/tournament') ?>"><button class="btn btn-tour mt-5">See More Tournament</button></a>
+			<a href="<?= base_url('auth/tournament') ?>"><button class="btn btn-tour mt-5">See More Tournament</button></a>
 		</div>
 	</div>
 
@@ -315,8 +315,6 @@ $country = [
 		</div>
 	</div>
 
-
-
 	<!-- Modal -->
 	<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -343,7 +341,7 @@ $country = [
 							<input type="text" placeholder="Username or Email" name="" class="form-control mt-3 mb-4 usernameEmail" autocomplete="off">
 							<input type="password" name="" id="" placeholder="Password" class="form-control mb-4 password" autocomplete="off">
 							<div class="">
-								<a href="#" class="forgot">Forgot password</a>
+								<a href="<?= base_url('auth/forgot_password') ?>" class="forgot">Forgot password</a>
 							</div>
 							<button type="submit" class="btn btn-login text-center">Login</button>
 						</form>
