@@ -16,8 +16,7 @@
 						</div>
 						<div class="mt-3 text-center">
 							<h5 class="card-title text-center font-weight-bold">
-								<!--								<?= $this->session->userdata('username'); ?>-->
-								Dhaniar
+								<?= $this->session->userdata('username'); ?>
 							</h5>
 							<div class="card-text text-secondary">
 								Programmer | Super Admin
@@ -201,7 +200,7 @@
 						<input type="file" multiple class="custom-file-input " multiple id="customFile">
 						<label class="custom-file-label bg-dark border-0 text-white d-block mx-auto" for="customFile">Your Avatar</label>
 					</div>
-					
+
 					<div class="form-group">
 						<input type="text" placeholder="Bio" class="form-control d-block mx-auto bg-dark border-0 text-white  rounded-0 " value="Programmer | Super Admin">
 					</div>

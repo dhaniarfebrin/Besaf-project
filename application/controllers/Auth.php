@@ -29,6 +29,37 @@ class Auth extends CI_Controller
 		]);
 		cek_session($role_id);
 	}
+
+	// ================================================= Update 3 februari ===========================================================
+	public function Tournament()
+	{
+		//user tanpa login bisa melihat tournament dengan view di bawah
+		$this->load->view('Front/Tournament');
+		$this->load->view('Front/template/footer');
+	}
+
+	public function Tournament_details()
+	{
+		//user tanpa login bisa melihat tournament detail dengan view di bawah
+		$this->load->view('Front/template/header');
+		$this->load->view('Front/Tournament_details');
+		$this->load->view('Front/template/footer');
+	}
+	// =====================================================-=========================================================
+
+	public function Login()
+	{
+		$this->load->view('Front/template/header');
+		$this->load->view('Front/Login_page');
+		$this->load->view('Front/template/footer');
+	}
+
+	public function Forgot_password()
+	{
+		$this->load->view('Front/template/header');
+		$this->load->view('Front/Forgot_password');
+		$this->load->view('Front/template/footer');
+	}
 }
 
 

@@ -14,7 +14,7 @@
 			</div>
 			<div class="username my-auto col">
 				<p class="mx-auto text-center mb-0">
-					<!--					<?= $this->session->userdata('username'); ?>-->Dhaniar
+					<?= $this->session->userdata('username'); ?>
 				</p>
 			</div>
 		</div>
