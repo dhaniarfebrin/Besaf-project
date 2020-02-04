@@ -1,3 +1,59 @@
+<<<<<<< HEAD
+ERROR - 2020-02-03 00:55:59 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf-local\api\vendor/autoload.php
+ERROR - 2020-02-03 00:56:14 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf-local\api\vendor/autoload.php
+ERROR - 2020-02-03 00:56:18 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf-local\api\vendor/autoload.php
+ERROR - 2020-02-03 02:04:31 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf-local\api\vendor/autoload.php
+ERROR - 2020-02-03 02:04:35 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf-local\api\vendor/autoload.php
+ERROR - 2020-02-03 02:04:35 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf-local\api\vendor/autoload.php
+ERROR - 2020-02-03 02:08:07 --> Could not find the specified $config['composer_autoload'] path: D:\laragon\www\Besaf-local\api\vendor/autoload.php
+ERROR - 2020-02-03 07:41:18 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-03 07:41:50 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-03 07:43:18 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-03 07:43:20 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-03 07:43:20 --> Query error: Unknown column 'user.foto' in 'field list' - Invalid query: 
+			SELECT 
+				member_komunitas.id,
+				user_id,
+				user.username as user_username,
+				komunitas_id,
+				user.foto as user_foto,
+				user.nickname as user_nickname,
+				member_komunitas.role_id as user_role
+			FROM
+				member_komunitas
+			LEFT JOIN 
+				user ON user.id = member_komunitas.user_id
+			WHERE 
+				komunitas_id = '1'
+			
+ERROR - 2020-02-03 07:43:20 --> Query error: Unknown column 'user.nickname' in 'field list' - Invalid query: 
+			SELECT 
+				user_post.id,
+				user.nickname,
+				caption,
+				image,
+				likes,
+				comment,
+				create_date,
+				end_date,
+				komunitas_id
+			FROM 
+				user_post
+			RIGHT JOIN 
+				user ON user.id = user_post.user_id
+			WHERE 
+				komunitas_id = '1'
+			
+ERROR - 2020-02-03 07:43:20 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\laragon\www\Besaf-local\api\application\models\Komunitas_model.php 270
+ERROR - 2020-02-03 07:43:20 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\laragon\www\Besaf-local\api\application\models\Komunitas_model.php 381
+ERROR - 2020-02-03 07:51:45 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-03 07:52:21 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-03 09:52:34 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-03 09:52:38 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-03 09:52:38 --> 404 Page Not Found: Img/komunitas
+ERROR - 2020-02-03 09:52:42 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-03 09:52:42 --> 404 Page Not Found: Img/komunitas
+=======
 ERROR - 2020-02-03 04:28:21 --> Could not find the specified $config['composer_autoload'] path: D:\Software\xampp\htdocs\Besaf-project\api\vendor/autoload.php
 ERROR - 2020-02-03 04:28:21 --> Could not find the specified $config['composer_autoload'] path: D:\Software\xampp\htdocs\Besaf-project\api\vendor/autoload.php
 ERROR - 2020-02-03 04:28:21 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
@@ -109,6 +165,9 @@ ERROR - 2020-02-03 08:58:24 --> Query error: Unknown column 'deskripsi' in 'fiel
 			
 ERROR - 2020-02-03 08:58:24 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Komunitas_model.php 205
 ERROR - 2020-02-03 08:58:24 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Komunitas_model.php 114
+<<<<<<< HEAD
+>>>>>>> c00ee8b8f095c046e0770c52227955dd56903709
+=======
 ERROR - 2020-02-03 10:48:48 --> Could not find the specified $config['composer_autoload'] path: D:\Software\xampp\htdocs\Besaf-project\api\vendor/autoload.php
 ERROR - 2020-02-03 10:48:48 --> Could not find the specified $config['composer_autoload'] path: D:\Software\xampp\htdocs\Besaf-project\api\vendor/autoload.php
 ERROR - 2020-02-03 10:48:48 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
@@ -146,3 +205,4 @@ ERROR - 2020-02-03 10:48:48 --> Query error: Unknown column 'deskripsi' in 'fiel
 			
 ERROR - 2020-02-03 10:48:48 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Komunitas_model.php 114
 ERROR - 2020-02-03 10:48:48 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Komunitas_model.php 205
+>>>>>>> 6bc0b56f3070ade53834c8cce7f8edf6c7d4d4bd

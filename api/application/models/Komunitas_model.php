@@ -1,17 +1,29 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Komunitas_model extends CI_Model {
+class Komunitas_model extends CI_Model
+{
 
 	public function create($input)
 	{
-		function get_guid() {
-		    $data = PHP_MAJOR_VERSION < 7 ? openssl_random_pseudo_bytes(16) : random_bytes(16);
-		    $data[6] = chr(ord($data[6]) & 0x0f | 0x40);    // Set version to 0100
-		    $data[8] = chr(ord($data[8]) & 0x3f | 0x80);    // Set bits 6-7 to 10
-		    return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
+		$user_id = $input['user_id'];
+
+		if (empty($user_id)) {
+			$hasil = array(
+				'error' => true,
+				'message' => "'user_id' tidak boleh kosong."
+			);
+			goto output;
 		}
-		
+
+		function get_guid()
+		{
+			$data = PHP_MAJOR_VERSION < 7 ? openssl_random_pseudo_bytes(16) : random_bytes(16);
+			$data[6] = chr(ord($data[6]) & 0x0f | 0x40);    // Set version to 0100
+			$data[8] = chr(ord($data[8]) & 0x3f | 0x80);    // Set bits 6-7 to 10
+			return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
+		}
+
 		$nama = $input['nama'];
 		$deskripsi = $input['deskripsi'];
 		$kategori = $input['kategori'];
@@ -21,8 +33,8 @@ class Komunitas_model extends CI_Model {
 
 		$foto_identitas = $input['foto_identitas'];
 
-		mkdir(FCPATH.'img/', 0777);
-		mkdir(FCPATH.'img/komunitas/', 0777);
+		mkdir(FCPATH . 'img/', 0777);
+		mkdir(FCPATH . 'img/komunitas/', 0777);
 
 		$img = str_replace("data:image/jpeg;base64,", "", $foto_identitas);
 		$img = str_replace("data:image/png;base64,", "", $img);
@@ -30,11 +42,17 @@ class Komunitas_model extends CI_Model {
 
 		$base64 = base64_decode($img);
 
-		$nama_foto = get_guid().'.jpeg';
-		
-		file_put_contents(FCPATH.'img/komunitas/'.$nama_foto, $base64);
+		$nama_foto = get_guid() . '.jpeg';
 
-		if (empty($nama)) {
+		file_put_contents(FCPATH . 'img/komunitas/' . $nama_foto, $base64);
+
+		if (empty($user_id)) {
+			$hasil = array(
+				'error' => true,
+				'message' => "user_id tidak ditemukan."
+			);
+			goto output;
+		} else if (empty($nama)) {
 			$hasil = array(
 				'error' => true,
 				'message' => "'nama' harus diisi."
@@ -76,13 +94,21 @@ class Komunitas_model extends CI_Model {
 			'foto_identitas' => $nama_foto
 		));
 
+		$this->db->insert(
+			'member_komunitas',
+			array(
+				'user_id' => $user_id,
+				'komunitas_id' => $this->db->insert_id(),
+				'role_id' => 1
+			)
+		);
+
 		$hasil = array(
 			'error' => false,
 			'message' => "komunitas berhasil dibuat."
 		);
 
-		output:
-		return $hasil;
+		output: return $hasil;
 	}
 
 	public function show()
@@ -165,8 +191,7 @@ class Komunitas_model extends CI_Model {
 			$hasil['data'][$no++] = $key;
 		}
 
-		output:
-		return $hasil;
+		output: return $hasil;
 	}
 
 	public function my($input)
@@ -208,8 +233,7 @@ class Komunitas_model extends CI_Model {
 			$hasil['data'][$no++] = $key;
 		}
 
-		output:
-		return $hasil;
+		output: return $hasil;
 	}
 
 	public function member($input)
@@ -230,9 +254,9 @@ class Komunitas_model extends CI_Model {
 				user_id,
 				user.username as user_username,
 				komunitas_id,
-				user.foto as user_foto,
-				user.nickname as user_nickname,
-				user.role_id as user_role
+				user.image as user_foto,
+				user.full_name as user_nickname,
+				member_komunitas.role_id as user_role
 			FROM
 				member_komunitas
 			LEFT JOIN 
@@ -253,51 +277,7 @@ class Komunitas_model extends CI_Model {
 			$hasil['data'][$no++] = $key;
 		}
 
-		output:
-		return $hasil;
-	}
-
-	public function admin($input)
-	{
-		$komunitas_id = $input['komunitas_id'];
-
-		if (empty($komunitas_id)) {
-			$hasil = array(
-				'error' => true,
-				'message' => "'komunitas_id' tidak ditemukan."
-			);
-			goto output;
-		}
-
-		$admin = $this->db->query("
-			SELECT 
-				member_komunitas.id,
-				user_id,
-				user.username as user_username,
-				komunitas_id,
-				user.foto
-			FROM
-				member_komunitas
-			LEFT JOIN 
-				user ON user.id = member_komunitas.user_id
-			WHERE 
-				komunitas_id = '$komunitas_id' AND role_id = 1
-			");
-
-		$hasil['error'] = true;
-		$hasil['message'] = "tidak tersedia.";
-		$hasil['data'] = array();
-
-		$no = 0;
-
-		foreach ($admin->result_array() as $key) {
-			$hasil['error'] = false;
-			$hasil['message'] = "success.";
-			$hasil['data'][$no++] = $key;
-		}
-
-		output:
-		return $hasil;
+		output: return $hasil;
 	}
 
 	public function turnamen($input)
@@ -312,7 +292,8 @@ class Komunitas_model extends CI_Model {
 				tournament.slots as slots,
 				tournament.date_start as date_start,
 				tournament.date_end as date_end,
-				tournament.cookies as cookies
+				tournament.cookies as cookies,
+				tournament.image as image
 			FROM 
 				tournament
 			INNER JOIN
@@ -379,9 +360,9 @@ class Komunitas_model extends CI_Model {
 		$post = $this->db->query("
 			SELECT 
 				user_post.id,
-				user.nickname,
+				user.full_name,
 				caption,
-				image,
+				user_post.image,
 				likes,
 				comment,
 				create_date,
@@ -406,8 +387,7 @@ class Komunitas_model extends CI_Model {
 			$hasil['data'][$no++] = $key;
 		}
 
-		output:
-		return $hasil;
+		output: return $hasil;
 	}
 
 	public function join($input)
@@ -439,10 +419,8 @@ class Komunitas_model extends CI_Model {
 			'message' => "berhasil masuk kedalam komunitas."
 		);
 
-		output:
-		return $hasil;
+		output: return $hasil;
 	}
-
 }
 
 /* End of file Komunitas_model.php */

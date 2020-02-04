@@ -31,6 +31,12 @@ class Turnamen extends REST_Controller {
 		$request = $this->Turnamen_model->info($this->post());
 		return $this->response($request);
 	}
+
+	public function create_post()
+	{
+		$request = $this->Turnamen_model->create($this->post());
+		return $this->response($request);
+	}
 }
 
 /* End of file Turnamen.php */
