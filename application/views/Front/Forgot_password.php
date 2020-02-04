@@ -1,3 +1,7 @@
+<a href="<?= base_url('auth/login') ?>">
+	<img src="<?= base_url() ?>assets/Front/img/logo.png" alt="" class="mr-auto p-3" width="200px">
+</a>
+
 <div class="container">
 	<div class="card w-50 border-0 bg-black mx-auto text-white rounded-0">
 		<div class="card-body">

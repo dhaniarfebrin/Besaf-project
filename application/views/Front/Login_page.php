@@ -1,3 +1,6 @@
+<a href="<?= base_url() ?>">
+	<img src="<?= base_url() ?>assets/Front/img/logo.png" alt="" class="mr-auto p-3" width="200px">
+</a>
 <div class="container">
 	<div class="row no-gutters mx-auto">
 		<div class="col-3">
@@ -26,7 +29,7 @@
 						<form action="" method="POST" class="p-5 form">
 							<div class="form-group">
 								<label for="Email" class="font-weight-bold">Username or Email</label>
-								<input type="email" class="form-control bg-dark border-0 text-white" id="Email" aria-describedby="emailHelp" placeholder="Username or Email">
+								<input type="text" class="form-control bg-dark border-0 text-white" id="Email" aria-describedby="emailHelp" placeholder="Username or Email">
 							</div>
 							<div class="form-group">
 								<label for="Password" class="font-weight-bold">Password</label>
@@ -56,35 +59,35 @@
 								<input type="email" class="form-control bg-dark border-0 text-white" id="Email" placeholder="Email">
 							</div>
 							<div class="form-group">
-								<label for="" class="font-weight-bold">Country</label> 
+								<label for="" class="font-weight-bold">Country</label>
 								<select class="custom-select bg-dark border-0 text-white">
 									<option selected>Country..</option>
-									<option value="">Indonesia</option>
-									<option value="">Singapore</option>
-									<option value="">Malaysia</option>
-									<option value="">Thailand</option>
-									<option value="">Vietnam</option>
-									<option value="">Philipines</option>
-									<option value="">Myanmar</option>
-									<option value="">Brunei</option>
-									<option value="">Cambodia</option>
-									<option value="">Laos</option>
+									<option value="Indonesia">Indonesia</option>
+									<option value="Singapore">Singapore</option>
+									<option value="Malaysia">Malaysia</option>
+									<option value="Thailand">Thailand</option>
+									<option value="Vietnam">Vietnam</option>
+									<option value="Philipines">Philipines</option>
+									<option value="Myanmar">Myanmar</option>
+									<option value="Brunei">Brunei</option>
+									<option value="Cambodia">Cambodia</option>
+									<option value="Laos">Laos</option>
 								</select>
 							</div>
 							<div class="form-group">
 								<label for="Password" class="font-weight-bold">Password</label>
-								<input type="password" class="form-control bg-dark border-0 text-white" id="Password" placeholder="Password">
+								<input type="password" class="form-control bg-dark text-white" id="password" placeholder="Password" onchange="check_password()" required>
 							</div>
 							<div class="form-group">
 								<label for="ConfirmPassword" class="font-weight-bold">Confirm Password</label>
-								<input type="password" class="form-control bg-dark border-0 text-white" id="ConfirmPassword" placeholder="Confirm Password">
+								<input type="password" class="form-control bg-dark text-white" id="confirm_password" placeholder="Confirm Password" onchange="check_password()" required>
 							</div>
 							<button type="submit" class="btn btn-primary text-black font-weight-bold mt-4 w-100">Register</button>
 						</form>
 					</div>
 					<!-- akhir register -->
 
-					<div class="text-center text-white mt-3">or login width</div>
+					<div class="text-center text-white mt-3">or login with</div>
 					<div class="row p-5">
 						<!-- button facebook -->
 						<div class="col">
@@ -102,3 +105,23 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	function check_password() {
+		var password1 = document.getElementById('password')
+		var password2 = document.getElementById('confirm_password')
+		var valPassword1 = document.getElementById('password').value
+		var valPassword2 = document.getElementById('confirm_password').value
+
+		// pencocokan password
+		if (valPassword1 == valPassword2) {
+			password2.classList.remove("border-danger");
+			password2.classList.add("border");
+			password2.classList.add("border-success");
+		} else if (valPassword1 != valPassword2) {
+			password2.classList.remove("border-success");
+			password2.classList.add("border");
+			password2.classList.add("border-danger");
+		}
+	}
+</script>

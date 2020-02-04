@@ -4,72 +4,80 @@
 				<h2 class="p-3">Dashboard</h2>
 				<div class="row">
 					<div class="col-md col-xl mb-2">
-						<div class="card rounded border-left-primary shadow py-2">
-							<div class="card-body">
-								<div class="row no-gutters align-items-center">
-									<div class="col mr-2">
-										<div class="text-xs font-weight-bold text-primary mb-1">
-											Communities
+						<a href="#" class="text-decoration-none text-white">
+							<div class="card rounded border-left-primary shadow py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div class="text-xs font-weight-bold text-primary mb-1">
+												Communities
+											</div>
+											<div class="h5 mb-0 font-weight-bold">9929</div>
 										</div>
-										<div class="h5 mb-0 font-weight-bold text-gray-800">9929</div>
-									</div>
-									<div class="col-auto">
-										<i class="fas fa-table fa-2x text-gray-300"></i>
+										<div class="col-auto">
+											<i class="fas fa-table fa-2x text-gray-300"></i>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 					<div class="col-md col-xl mb-2">
-						<div class="card rounded border-left-primary shadow py-2">
-							<div class="card-body">
-								<div class="row no-gutters align-items-center">
-									<div class="col mr-2">
-										<div class="text-xs font-weight-bold text-primary mb-1">
-											Pending Requests
+						<a href="#" class="text-decoration-none text-white">
+							<div class="card rounded border-left-primary shadow py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div class="text-xs font-weight-bold text-primary mb-1">
+												Pending Requests
+											</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
 										</div>
-										<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-									</div>
-									<div class="col-auto">
-										<i class="fas fa-comments fa-2x text-gray-300"></i>
+										<div class="col-auto">
+											<i class="fas fa-comments fa-2x text-gray-300"></i>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 					<div class="col-md col-xl mb-2">
-						<div class="card rounded border-left-primary shadow py-2">
-							<div class="card-body">
-								<div class="row no-gutters align-items-center">
-									<div class="col mr-2">
-										<div class="text-xs font-weight-bold text-primary mb-1">
-											Users
+						<a href="" class="text-decoration-none text-white">
+							<div class="card rounded border-left-primary shadow py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div class="text-xs font-weight-bold text-primary mb-1">
+												Users
+											</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">9941229</div>
 										</div>
-										<div class="h5 mb-0 font-weight-bold text-gray-800">9941229</div>
-									</div>
-									<div class="col-auto">
-										<i class="fa fa-user fa-2x text-gray-300"></i>
+										<div class="col-auto">
+											<i class="fa fa-user fa-2x text-gray-300"></i>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 					<div class="col-md col-xl mb-2">
-						<div class="card rounded border-left-primary shadow py-2">
-							<div class="card-body">
-								<div class="row no-gutters align-items-center">
-									<div class="col mr-2">
-										<div class="text-xs font-weight-bold text-primary mb-1">
-											Teams
+						<a href="" class="text-decoration-none text-white">
+							<div class="card rounded border-left-primary shadow py-2">
+								<div class="card-body">
+									<div class="row no-gutters align-items-center">
+										<div class="col mr-2">
+											<div class="text-xs font-weight-bold text-primary mb-1">
+												Teams
+											</div>
+											<div class="h5 mb-0 font-weight-bold text-gray-800">1093</div>
 										</div>
-										<div class="h5 mb-0 font-weight-bold text-gray-800">1093</div>
-									</div>
-									<div class="col-auto">
-										<i class="fas fa-user-friends fa-2x text-gray-300"></i>
+										<div class="col-auto">
+											<i class="fas fa-user-friends fa-2x text-gray-300"></i>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						</a>
 					</div>
 				</div>
 				<!-- chart -->

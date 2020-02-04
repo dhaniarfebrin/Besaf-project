@@ -338,7 +338,7 @@ $country = [
 							<div class="col-md-12 muncul-pesan"></div>
 						</div>
 						<form action="<?= base_url('auth/login') ?>" method="post" class="form form-login">
-							<input type="text" placeholder="Username or Email" name="" class="form-control mt-3 mb-4 usernameEmail" autocomplete="off">
+							<input type="text" placeholder="Username or Email" name="" class="form-control mt-3 mb-4 usernameEmail" autocomplete="off" required>
 							<input type="password" name="" id="" placeholder="Password" class="form-control mb-4 password" autocomplete="off">
 							<div class="">
 								<a href="<?= base_url('auth/forgot_password') ?>" class="forgot">Forgot password</a>
@@ -368,9 +368,12 @@ $country = [
 									<option value="<?= $c; ?>"><?= $c; ?></option>
 								<? endforeach; ?>
 							</select>
-							<input type="password" name="" id="" placeholder="Password" autocomplete="none" class="form-control mt-3 mb-3 regpassword">
-							<input type="password" name="confirmpass" id="" placeholder="Confirm Password" autocomplete="none" class="form-control mt-3 mb-3 verifypassword">
-							<div class="form-group form-check pl-0">
+							<input type="password" name="" id="password" placeholder="Password" autocomplete="none" class="form-control mt-3 mb-3 regpassword" onchange="check_password()">
+							<input type="password" name="confirmpass" id="confirm_password" placeholder="Confirm Password" autocomplete="none" class="form-control mt-3 verifypassword" onchange="check_password()">
+							<span class="d-none text-right ml-auto mt-0 text-danger" id="pesan">
+								<small>not match</small>
+							</span>
+							<div class="form-group form-check pl-0 mt-3">
 								<div class="custom-control custom-checkbox">
 									<input type="checkbox" class="custom-control-input" id="exampleCheck1">
 									<label class="custom-control-label" for="exampleCheck1">I agree to the Terms of Service</label>
@@ -418,6 +421,35 @@ $country = [
 				current[0].className = current[0].className.replace(" active", "");
 				this.className += " active";
 			});
+		}
+
+		function check_password() {
+			var password1 = document.getElementById('password')
+			var password2 = document.getElementById('confirm_password')
+			var valPassword1 = document.getElementById('password').value
+			var valPassword2 = document.getElementById('confirm_password').value
+
+			// pencocokan password
+			if (valPassword1 == valPassword2) {
+				password2.classList.remove("border-danger");
+				password2.classList.add("border");
+				password2.classList.add("border-success");
+				document.getElementById("pesan").classList.remove("d-block");
+				document.getElementById("pesan").classList.add("d-none");
+			} else if (valPassword1 != valPassword2) {
+				password2.classList.remove("border-success");
+				password2.classList.add("border");
+				password2.classList.add("border-danger");
+				document.getElementById("pesan").classList.remove("d-none");
+				document.getElementById("pesan").classList.add("d-block");
+			} 
+			// else if (valPassword1 == "" && valPassword2 == "") {
+			// 	password2.classList.remove("border-success");
+			// 	password2.classList.add("border");
+			// 	password2.classList.add("border-danger");
+			// 	document.getElementById("pesan").classList.remove("d-none");
+			// 	document.getElementById("pesan").classList.add("d-block");
+			// }
 		}
 	</script>
 	<!-- formjs -->

@@ -34,6 +34,7 @@ class Auth extends CI_Controller
 	public function Tournament()
 	{
 		//user tanpa login bisa melihat tournament dengan view di bawah
+		$this->load->view('Front/template/header');
 		$this->load->view('Front/Tournament');
 		$this->load->view('Front/template/footer');
 	}
