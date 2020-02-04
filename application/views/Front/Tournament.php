@@ -55,7 +55,7 @@
                 <!-- Tournament List Card -->
                 <a href="<?= base_url('auth/tournament_details') ?>" class="text-decoration-none">
                     <div class="col-md col-xl mt-3">
-                        <div class="card bg-dark shadow border-0 rounded text-white">
+                        <div class="card bg-dark shadow rounded text-white">
                             <div class="row no-gutters">
 
                                 <!-- Image Tournament -->
@@ -69,7 +69,7 @@
                                         <div class="row no-gutters d-iniline-block border-bottom border-secondary">
 
                                             <!-- title tournament -->
-                                            <h5 class="card-title">Tournament</h5>
+                                            <h5 class="card-title">CODM Pro Challenge Series x Boom Esports</h5>
                                             <!-- end title tournament -->
 
                                             <!-- status -->

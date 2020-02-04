@@ -76,3 +76,21 @@ body {
 	margin-right: 10px;
 	font-weight: bold;
 }
+
+.form input {
+	background-color: #374453;
+	color: #6c757d;
+	border: none;
+	transition: .2s;
+}
+
+.form input:focus {
+	background-color: rgb(206, 206, 206) !important;
+	color: black !important;
+	border-color: transparent !important;
+	transition: .2s;
+}
+
+.back:hover {
+	background-color: rgb(73, 73, 73) !important;
+}

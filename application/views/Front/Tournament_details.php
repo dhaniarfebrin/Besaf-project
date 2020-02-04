@@ -5,7 +5,7 @@
 <div class="container text-white">
     <div class="col-md col-sm bg-dark shadow py-2">
         <!-- judul tournament -->
-        <h3 class="m-0 text-wrap">Nama Tournament</h3>
+        <h4 class="m-0 text-wrap p-2">CODM Pro Challenge Series x Boom Esports</h4>
         <!-- end judul tournament -->
     </div>
     <div class="row mt-3">
@@ -13,7 +13,7 @@
             <div class="card bg-dark shadow">
                 <!-- Gambar Tournament -->
                 <div class="card-image">
-                    <img src="http://res.cloudinary.com/yamisok/image/upload/h_400,f_auto/v1580459208/tournament/imoakushrkfurfc2inik.jpg" alt="" class="mw-100 img-fluid">
+                    <img src="http://res.cloudinary.com/yamisok/image/upload/h_400,f_auto/v1579580512/tournament/xbnkdevoxrx6tuul8wle.jpg" alt="" class="mw-100 img-fluid">
                 </div>
                 <!-- end Gambar Tournament -->
 
@@ -31,8 +31,8 @@
                         <h5 class="text-secondary text-md">Joined Teams</h5>
                         <p class="text-lg">0/32</p>
                     </div>
-                    <a href="#" class="font-italic text-white">how to join</a> | 
-                    <a href="#" class="font-italic text-white">view rules</a>
+                    <a href="#" class="font-italic text-white" data-toggle="modal" data-target="#how_to_join">how to join</a> |
+                    <a href="#" class="font-italic text-white" data-toggle="modal" data-target="#view_rules">view rules</a>
                 </div>
                 <!-- end data tentang tournament -->
             </div>
@@ -72,7 +72,7 @@
                         <!-- Prize total -->
                         <p class="text-md m-0">Rp 1.000.000</p>
                         <!-- end prize total -->
-                        <a href="#" class="text-sm ml-auto text-white font-italic">view all prizes</a>
+                        <a href="#" class="text-sm ml-auto text-white font-italic" data-toggle="modal" data-target="#prizes">view all prizes</a>
                     </div>
                 </div>
             </div>
@@ -94,3 +94,83 @@
         </div>
     </div>
 </div>
+
+<!-- Modal view rules -->
+<div class="modal fade" id="view_rules" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header border-dark">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Rules</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, a dolores cupiditate voluptatem ex ipsam ipsa natus earum molestiae itaque sapiente quos rem corporis assumenda dolor veritatis corrupti odit temporibus?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, odio. Dolor quaerat voluptatibus consequatur iusto corrupti eos debitis dolore! Aut praesentium ex quidem architecto, cupiditate fugiat perspiciatis ipsa temporibus voluptatibus.</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae fugit nostrum, soluta reprehenderit in quae magnam excepturi et obcaecati nulla. Odio, nisi veniam corrupti quisquam nulla velit aut in voluptatum?</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore culpa impedit necessitatibus voluptate vero dolorum ad reiciendis. Quo odit, porro minima saepe soluta quaerat commodi reprehenderit illum ducimus, illo earum.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos nesciunt sint delectus sapiente consequuntur similique aperiam quod at maiores? Magnam porro eligendi sit laudantium eos autem eius id tempora asperiores?</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end modal -->
+
+<!-- modal how to join -->
+<div class="modal fade" id="how_to_join" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header border-dark">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Rules</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore culpa impedit necessitatibus voluptate vero dolorum ad reiciendis. Quo odit, porro minima saepe soluta quaerat commodi reprehenderit illum ducimus, illo earum.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos nesciunt sint delectus sapiente consequuntur similique aperiam quod at maiores? Magnam porro eligendi sit laudantium eos autem eius id tempora asperiores?</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end modal -->
+
+<!-- modal prizes -->
+<div class="modal fade" id="prizes" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <div class="modal-content bg-dark text-white">
+            <div class="modal-header border-dark">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Rules</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-borderless text-white">
+                    <thead>
+                        <tr>
+                            <th>Position</th>
+                            <th>Prize</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1.000.000</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2.000.000</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>3.000.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end modal prizes -->
