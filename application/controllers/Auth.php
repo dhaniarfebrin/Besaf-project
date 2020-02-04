@@ -50,6 +50,7 @@ class Auth extends CI_Controller
 			redirect('admin');
 		}
 		//user tanpa login bisa melihat tournament dengan view di bawah
+		$this->load->view('Front/template/header');
 		$this->load->view('Front/Tournament');
 		$this->load->view('Front/template/footer');
 	}

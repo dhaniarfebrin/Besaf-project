@@ -14,7 +14,7 @@
 
 				<!--			table komunitas-->
 				<div id="com" class="single-tab d-flexbox">
-					<table class="table table-striped table-borderless text-white table-hover table-dark" id="example" style="">
+					<table class="table table-striped table-borderless text-white table-hover table-dark" id="example">
 						<thead class="thead-primary">
 							<tr>
 								<th>#</th>

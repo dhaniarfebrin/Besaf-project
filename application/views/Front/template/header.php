@@ -9,8 +9,8 @@
 	<link rel="stylesheet" href="<?= base_url() ?>assets/Front/css/bootstrap.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/Front/css/all.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/Front/css/Style.css">
-	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="shortcut icon" href="<?= base_url('favicon.ico') ?>">
 </head>
 
 <body>
-<img src="<?= base_url() ?>assets/Front/img/logo.png" alt="" class="mr-auto p-3" width="200px">
+	

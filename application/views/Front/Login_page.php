@@ -6,6 +6,9 @@ $country = [
 	'Singapura'
 ];
 ?>
+<a href="<?= base_url() ?>">
+	<img src="<?= base_url() ?>assets/Front/img/logo.png" alt="" class="mr-auto p-3" width="200px">
+</a>
 <div class="container">
 	<div class="row no-gutters mx-auto">
 		<div class="col-3">
@@ -88,18 +91,18 @@ $country = [
 							</div>
 							<div class="form-group">
 								<label for="Password" class="font-weight-bold">Password</label>
-								<input type="password" class="form-control bg-dark border-0 text-white regpassword" id="Password" placeholder="Password">
+								<input type="password" class="form-control bg-dark text-white password" id="password" placeholder="Password" onchange="check_password()" required>
 							</div>
 							<div class="form-group">
 								<label for="ConfirmPassword" class="font-weight-bold">Confirm Password</label>
-								<input type="password" class="form-control bg-dark border-0 text-white verifypassword" id="ConfirmPassword" placeholder="Confirm Password">
+								<input type="password" class="form-control bg-dark text-white verifypassword" id="confirm_password" placeholder="Confirm Password" onchange="check_password()" required>
 							</div>
 							<button type="submit" class="btn btn-primary text-black font-weight-bold mt-4 w-100">Register</button>
 						</form>
 					</div>
 					<!-- akhir register -->
 
-					<div class="text-center text-white mt-3">or login width</div>
+					<div class="text-center text-white mt-3">or login with</div>
 					<div class="row p-5">
 						<!-- button facebook -->
 						<div class="col">
@@ -117,3 +120,23 @@ $country = [
 		</div>
 	</div>
 </div>
+
+<script>
+	function check_password() {
+		var password1 = document.getElementById('password')
+		var password2 = document.getElementById('confirm_password')
+		var valPassword1 = document.getElementById('password').value
+		var valPassword2 = document.getElementById('confirm_password').value
+
+		// pencocokan password
+		if (valPassword1 == valPassword2) {
+			password2.classList.remove("border-danger");
+			password2.classList.add("border");
+			password2.classList.add("border-success");
+		} else if (valPassword1 != valPassword2) {
+			password2.classList.remove("border-success");
+			password2.classList.add("border");
+			password2.classList.add("border-danger");
+		}
+	}
+</script>
