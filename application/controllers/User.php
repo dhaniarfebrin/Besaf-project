@@ -6,6 +6,14 @@ class User extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+
+		//! cek login
+		if (!$this->session->userdata('user_id')) {
+			redirect('auth');
+		} elseif ($this->session->userdata('role_id') == 2) {
+			// s_admin
+			redirect('admin');
+		}
 	}
 
 	public function index()

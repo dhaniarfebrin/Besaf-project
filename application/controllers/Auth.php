@@ -12,6 +12,7 @@ class Auth extends CI_Controller
 
 	public function index()
 	{
+		// cek_login();
 		$this->load->view('index');
 	}
 
@@ -21,9 +22,10 @@ class Auth extends CI_Controller
 		redirect('auth');
 	}
 
-	public function session($role_id, $username)
+	public function session($role_id, $username, $id)
 	{
 		$this->session->set_userdata([
+			'user_id' => $id,
 			'role_id' => $role_id,
 			'username' => $username
 		]);
