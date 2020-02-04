@@ -79,15 +79,15 @@ class M_user extends CI_Model
 
     public function registrasi($post)
     {
-        // dengan asumsi role_id dan is_active sudah terisi otomatis di client side
-        $fullname = $post['fullname'];
-        $username = $post['username'];
-        $email = $post['email'];
-        $password = $post['password'];
-        $verifypassword = $post['verifypassword'];
-        $country = $post['country'];
+        // sudah di filter
+        $fullname = htmlspecialchars(trim(strip_tags($post['fullname'])));
+        $username = htmlspecialchars(trim(strip_tags($post['username'])));
+        $email = htmlspecialchars(trim(strip_tags($post['email'])));
+        $password = htmlspecialchars(trim(strip_tags($post['password'])));
+        $verifypassword = htmlspecialchars(trim(strip_tags($post['verifypassword'])));
+        $country = htmlspecialchars(trim(strip_tags($post['country'])));
         $role_id = 1; #user
-        $is_active = 0; #belum aktif
+        $is_active = 1; #belum aktif
 
         if (!$fullname) {
             $response = [
@@ -121,7 +121,7 @@ class M_user extends CI_Model
             goto output;
         }
 
-        // cek suer ada atau tidak
+        // cek user ada atau tidak
         $cek_username = $this->db->get_where('user', ['username' => $username]);
         if ($cek_username->num_rows() > 0) {
             $response = [
