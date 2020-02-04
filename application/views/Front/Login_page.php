@@ -1,3 +1,11 @@
+<?
+$country = [
+	'Indonesia',
+	'Malaysia',
+	'Brunei Darussalam',
+	'Singapura'
+];
+?>
 <div class="container">
 	<div class="row no-gutters mx-auto">
 		<div class="col-3">
@@ -23,18 +31,25 @@
 
 					<!-- Login -->
 					<div class="single-tab" id="login">
-						<form action="" method="POST" class="p-5 form">
+						<!-- //
+						// IKI NAR BENAKNO
+						// -->
+						<div class="row justify-content-center">
+							<div class="col-md-10 muncul-pesan"></div>
+						</div>
+						<!-- // • • • • • -->
+						<form action="<?= base_url('auth/login') ?>" method="POST" class="p-5 form form-login">
 							<div class="form-group">
 								<label for="Email" class="font-weight-bold">Username or Email</label>
-								<input type="email" class="form-control bg-dark border-0 text-white" id="Email" aria-describedby="emailHelp" placeholder="Username or Email">
+								<input type="text" class="form-control bg-dark border-0 text-white usernameEmail" id="Email" autocomplete="off" aria-describedby="emailHelp" placeholder="Username or Email">
 							</div>
 							<div class="form-group">
 								<label for="Password" class="font-weight-bold">Password</label>
-								<input type="password" class="form-control bg-dark border-0 text-white" id="Password" placeholder="Password">
+								<input type="password" class="form-control bg-dark border-0 text-white password" id="Password" placeholder="Password">
 							</div>
 
 							<button type="submit" class="btn btn-primary text-black font-weight-bold mt-4 w-100">Login</button>
-							<a href="<?= base_url('Auth/Forgot_password') ?>" class="text-white d-block text-right mt-3">forgot password</a>
+							<a href="#" class="text-white d-block text-right mt-3">forgot password</a>
 						</form>
 					</div>
 
@@ -42,42 +57,42 @@
 
 					<!-- register -->
 					<div class="single-tab" id="register">
-						<form action="" method="POST" class="p-5 form">
+						<!-- //
+						// IKI PISAN NAR
+						// -->
+						<div class="row justify-content-center">
+							<div class="col-md-10 muncul-pesan-daftar"></div>
+						</div>
+						<!-- // • • • • • -->
+						<form action="<?= base_url('auth/registrasi') ?>" method="POST" class="p-5 form form-daftar">
 							<div class="form-group">
 								<label for="Name" class="font-weight-bold">Fullname</label>
-								<input type="text" class="form-control bg-dark border-0 text-white" id="Name" placeholder="Fullname">
+								<input type="text" class="form-control bg-dark border-0 text-white fullname" autocomplete="off" id="Name" placeholder="Fullname">
 							</div>
 							<div class="form-group">
 								<label for="username" class="font-weight-bold">Username</label>
-								<input type="text" class="form-control bg-dark border-0 text-white" id="username" placeholder="Username">
+								<input type="text" autocomplete="off" class="form-control bg-dark border-0 text-white username" id="username" placeholder="Username">
 							</div>
 							<div class="form-group">
 								<label for="Email" class="font-weight-bold">Email</label>
-								<input type="email" class="form-control bg-dark border-0 text-white" id="Email" placeholder="Email">
+								<input type="email" class="form-control bg-dark border-0 text-white email" id="Email" placeholder="Email" autocomplete="off">
 							</div>
 							<div class="form-group">
-								<label for="" class="font-weight-bold">Country</label> 
-								<select class="custom-select bg-dark border-0 text-white">
-									<option selected>Country..</option>
-									<option value="">Indonesia</option>
-									<option value="">Singapore</option>
-									<option value="">Malaysia</option>
-									<option value="">Thailand</option>
-									<option value="">Vietnam</option>
-									<option value="">Philipines</option>
-									<option value="">Myanmar</option>
-									<option value="">Brunei</option>
-									<option value="">Cambodia</option>
-									<option value="">Laos</option>
+								<label for="" class="font-weight-bold">Country</label>
+								<select class="custom-select bg-dark border-0 text-white country">
+									<option selected disabled>Select your country...</option>
+									<? foreach ($country as $c) : ?>
+										<option value="<?= $c; ?>"><?= $c;  ?></option>
+									<? endforeach; ?>
 								</select>
 							</div>
 							<div class="form-group">
 								<label for="Password" class="font-weight-bold">Password</label>
-								<input type="password" class="form-control bg-dark border-0 text-white" id="Password" placeholder="Password">
+								<input type="password" class="form-control bg-dark border-0 text-white regpassword" id="Password" placeholder="Password">
 							</div>
 							<div class="form-group">
 								<label for="ConfirmPassword" class="font-weight-bold">Confirm Password</label>
-								<input type="password" class="form-control bg-dark border-0 text-white" id="ConfirmPassword" placeholder="Confirm Password">
+								<input type="password" class="form-control bg-dark border-0 text-white verifypassword" id="ConfirmPassword" placeholder="Confirm Password">
 							</div>
 							<button type="submit" class="btn btn-primary text-black font-weight-bold mt-4 w-100">Register</button>
 						</form>
