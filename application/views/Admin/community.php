@@ -24,13 +24,14 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php $no = 1; for($i = 1; $i <= 40; $i++){ ?>
-							<tr>
-								<td><?= $no++ ?></td>
-								<td>Mobel Lejen Community</td>
-								<td>Mobile Legends: Bang Bang</td>
-								<td><a href="<?= base_url('Admin/community_details') ?>">Details</a></td>
-							</tr>
+							<?php $no = 1;
+							for ($i = 1; $i <= 40; $i++) { ?>
+								<tr>
+									<td><?= $no++ ?></td>
+									<td>Mobel Lejen Community</td>
+									<td>Mobile Legends: Bang Bang</td>
+									<td><a href="<?= base_url('Admin/community_details') ?>">Details</a></td>
+								</tr>
 							<?php } ?>
 						</tbody>
 					</table>
@@ -38,7 +39,7 @@
 				<!--				end-->
 
 				<!--				Request-->
-				<div class="card bg-secondary mb-2 single-tab" id="req">
+				<div class="card bg-dark mb-2 single-tab shadow-none" id="req">
 					<div class="row no-gutters">
 						<div class="col-md-4">
 							<div class="card-image">
@@ -47,7 +48,7 @@
 						</div>
 						<div class="col-md">
 							<div class="card-body p-2">
-								<p class="card-title my-auto font-weight-bold">Icafe Tournament</p>
+								<p class="card-title my-auto font-weight-bold">Komunitas</p>
 							</div>
 						</div>
 					</div>
@@ -58,3 +59,10 @@
 		</div>
 	</div>
 </div>
+<script src="<?= base_url() ?>assets/Admin/js/jquery.js"></script>
+<script src="<?= base_url() ?>assets/Admin/js/bootstrap.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="<?= base_url() ?>assets/Admin/js/myscript.js"></script>

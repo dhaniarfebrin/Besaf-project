@@ -301,3 +301,80 @@ ERROR - 2020-02-04 09:14:56 --> 404 Page Not Found: Discover/show
 =======
 >>>>>>> 5b3b6b82ae44de95d8b6c8ac2e11476757c01d0b
 >>>>>>> 44faac0a8ff479a46fb44c3fceb2f5c9f6fbc24a
+ERROR - 2020-02-04 11:34:02 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+ERROR - 2020-02-04 11:35:21 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+ERROR - 2020-02-04 11:35:42 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+ERROR - 2020-02-04 11:35:56 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+ERROR - 2020-02-04 11:37:45 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+ERROR - 2020-02-04 11:37:51 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+ERROR - 2020-02-04 11:38:08 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        

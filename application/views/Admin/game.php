@@ -1,20 +1,21 @@
-<?php $game = ['Dota 2',
-		   	'Counter-Strike: Global Offensive',
-			'Mobile Legends: Bang Bang',
-			'Arena of Valor',
-			'Player Unknown Battleground',
-			'Point Blank',
-			'Player Unknown Battleground Mobile',
-			'Apex Legends',
-			'Free Fire',
-			'Fifa 20',
-			'Dota Underlords',
-			'Call of Duty Mobile',
-			'Cheese Rush',
-			'Lets Get Rich',
-			'Overwatch',
-			'Player Unknown Battleground Lite'
-		   ] ;
+<?php $game = [
+	'Dota 2',
+	'Counter-Strike: Global Offensive',
+	'Mobile Legends: Bang Bang',
+	'Arena of Valor',
+	'Player Unknown Battleground',
+	'Point Blank',
+	'Player Unknown Battleground Mobile',
+	'Apex Legends',
+	'Free Fire',
+	'Fifa 20',
+	'Dota Underlords',
+	'Call of Duty Mobile',
+	'Cheese Rush',
+	'Lets Get Rich',
+	'Overwatch',
+	'Player Unknown Battleground Lite'
+];
 ?>
 
 
@@ -42,13 +43,14 @@
 								</tr>
 							</thead>
 							<tbody class="table-striped">
-								<?php $no=1; foreach($game as $key){ ?>
+								<?php $no = 1;
+								foreach ($game as $key) { ?>
 
-								<tr>
-									<td><?= $no++ ?></td>
-									<td><?= $key ?></td>
-									<td><a href="<?= base_url('Admin/game_details') ?>" class="d-block mr-3 text-right">Details</a></td>
-								</tr>
+									<tr>
+										<td><?= $no++ ?></td>
+										<td><?= $key ?></td>
+										<td><a href="<?= base_url('Admin/game_details') ?>" class="d-block mr-3 text-right">Details</a></td>
+									</tr>
 
 								<?php } ?>
 							</tbody>
@@ -97,3 +99,10 @@
 	</div>
 </div>
 <!--end MOdal-->
+<script src="<?= base_url() ?>assets/Admin/js/jquery.js"></script>
+<script src="<?= base_url() ?>assets/Admin/js/bootstrap.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="<?= base_url() ?>assets/Admin/js/myscript.js"></script>
