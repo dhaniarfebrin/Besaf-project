@@ -533,7 +533,7 @@ $config['rest_ajax_only'] = false;
 | Language file to load from the language directory
 |
 */
-$config['rest_language'] = 'english';
+$config['rest_language'] = 'indonesia';
 
 /*
 |--------------------------------------------------------------------------
@@ -545,7 +545,7 @@ $config['rest_language'] = 'english';
 | will access it through a browser
 |
 */
-$config['check_cors'] = false;
+$config['check_cors'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

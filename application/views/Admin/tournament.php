@@ -43,7 +43,7 @@
 						Tournaments
 					</div>
 					<div class="card-body">
-						<table class="table table-striped table-dark text-white table-hover" id="example">
+						<table class="table table-striped table-dark text-white table-hover" id="tournament" style="width: 100%">
 							<thead class="thead-primary">
 								<tr>
 									<th>#</th>
@@ -67,3 +67,53 @@
 		</div>
 	</div>
 </div>
+<script src="<?= base_url() ?>assets/Admin/js/jquery.js"></script>
+<script src="<?= base_url() ?>assets/Admin/js/bootstrap.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="<?= base_url() ?>assets/Admin/js/myscript.js"></script>
+<script>
+	$(document).ready(function() {
+		function get_tournament() {
+			$('table#tournament').DataTable({
+				"processing" : true,
+				"serverSide" : true,
+				"deferRender" : true,
+				"ajax" : {
+					url : "<?php echo base_url('api/Tournament/show'); ?>",
+					method : "POST",
+					dataSrc : "data"
+				},
+				"columns" : [
+					{
+						data : null,
+						render : function(data,type,row,meta) {
+							return meta.row + meta.settings._iDisplayStart+1;
+						}
+					},
+					{
+						data : "tournament_nama"
+					},
+					{
+						data : "game_nama"
+					},
+					{
+						data : null,
+						render : function(req) {
+							var d = new Date();
+							if (req.date_end >= '<?php echo date('Y-m-d') ?>') {
+								status = '<span class="badge badge-dark">Upcoming</span>';
+							} else {
+								status = '<span class="badge badge-light">End</span>';
+							}
+							return status;
+						}
+					}
+				]
+			})
+		}
+		get_tournament();
+	})
+</script>
