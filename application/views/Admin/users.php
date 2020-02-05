@@ -87,7 +87,7 @@
 											</div>
 										</td>
 										<td>albed</td>
-										<td  class="text-right"><a href="<?= base_url('Admin/user_details') ?>">Details</a></td>
+										<td class="text-right"><a href="<?= base_url('Admin/user_details') ?>">Details</a></td>
 									</tr>
 								</tbody>
 							</table>
@@ -130,9 +130,9 @@
 								<input type="password" class="form-control bg-dark text-white border-0" placeholder="password">
 							</div>
 
-							
-								<button type="button" class="btn btn-primary d-block ml-auto mt-5">Add</button>
-							
+
+							<button type="button" class="btn btn-primary d-block ml-auto mt-5">Add</button>
+
 						</form>
 					</div>
 				</div>
@@ -142,3 +142,10 @@
 
 	</div>
 </div>
+<script src="<?= base_url() ?>assets/Admin/js/jquery.js"></script>
+<script src="<?= base_url() ?>assets/Admin/js/bootstrap.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="<?= base_url() ?>assets/Admin/js/myscript.js"></script>

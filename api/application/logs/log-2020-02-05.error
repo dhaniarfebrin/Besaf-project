@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ERROR - 2020-02-05 06:52:15 --> 404 Page Not Found: Discover/show
 ERROR - 2020-02-05 06:52:22 --> 404 Page Not Found: Discover/show
 ERROR - 2020-02-05 06:52:56 --> 404 Page Not Found: Discover/show
@@ -13,3 +14,500 @@ ERROR - 2020-02-05 07:04:15 --> Severity: Warning --> mkdir(): File exists D:\la
 ERROR - 2020-02-05 07:04:17 --> 404 Page Not Found: Discover/show
 ERROR - 2020-02-05 07:04:22 --> 404 Page Not Found: Discover/show
 ERROR - 2020-02-05 07:04:57 --> 404 Page Not Found: Discover/show
+=======
+ERROR - 2020-02-05 04:50:00 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+ERROR - 2020-02-05 05:07:27 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+ERROR - 2020-02-05 07:51:31 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:31 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:33 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:33 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:33 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:33 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:34 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:34 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:34 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:34 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:34 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:34 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:34 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:34 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:34 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:34 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:35 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:35 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:35 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:35 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:35 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:35 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:35 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:35 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:35 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:35 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:36 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:36 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:36 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:36 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:36 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:36 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:36 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:36 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:36 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:36 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:37 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:37 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:38 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:38 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:39 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:39 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:39 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:39 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:39 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:39 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:39 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:39 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:39 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:39 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:39 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:39 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:40 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:40 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:51:40 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:51:40 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:52:20 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:52:20 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:52:23 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:52:23 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:52:23 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:52:23 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:52:23 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:52:23 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:53:00 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:53:00 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:53:02 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:53:02 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:53:02 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:53:02 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:53:02 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:53:02 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:53:02 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:53:02 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 07:53:03 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'admin' OR email = 'admin'
+        
+ERROR - 2020-02-05 07:53:03 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 08:13:12 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-05 08:13:13 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-05 09:32:40 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-05 09:32:47 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-05 09:32:50 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-05 09:32:53 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-05 09:32:55 --> 404 Page Not Found: Discover/show
+>>>>>>> responsive
