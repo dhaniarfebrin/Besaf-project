@@ -14,7 +14,7 @@
 
 				<!--			table komunitas-->
 				<div id="com" class="single-tab d-flexbox">
-					<table class="table table-striped table-borderless text-white table-hover table-dark" id="example">
+					<table class="table table-striped table-borderless text-white table-hover table-dark" id="community" style="width: 100%">
 						<thead class="thead-primary">
 							<tr>
 								<th>#</th>
@@ -58,3 +58,49 @@
 		</div>
 	</div>
 </div>
+<script src="<?= base_url() ?>assets/Admin/js/jquery.js"></script>
+<script src="<?= base_url() ?>assets/Admin/js/bootstrap.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="<?= base_url() ?>assets/Admin/js/myscript.js"></script>
+<script>
+	$(document).ready(function() {
+		$('table#community').DataTable({
+			"serverSide" : true,
+			"processing" : true,
+			"deferRender" : true,
+			"ajax" : {
+				url : "<?php echo base_url('api/Community/show'); ?>",
+				method : "POST",
+				dataSrc : "data"
+			},
+			"language" : {
+				"zeroRecordsFiltered" : "belum"
+			},
+			"columns" : [
+				{
+					data : null,
+					render : function(data,type,row,meta) {
+						return meta.row + meta.settings._iDisplayStart+1;
+					}
+				},
+				{
+					data : "komunitas_nama"
+				},
+				{
+					data : "game_nama"
+				},
+				{
+					data : null,
+					render : function(req) {
+						return '\
+						<a href="<?php echo base_url('Admin/community_details/') ?>'+req.komunitas_id+'" class="text-primary">Details</a>\
+						'
+					}
+				}
+			]
+		})
+	})
+</script>

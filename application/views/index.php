@@ -369,7 +369,7 @@ $country = [
 								<? endforeach; ?>
 							</select>
 							<input type="password" name="" id="password" placeholder="Password" autocomplete="none" class="form-control mt-3 mb-3 regpassword" onchange="check_password()">
-							<input type="password" name="confirmpass" id="confirm_password" placeholder="Confirm Password" autocomplete="none" class="form-control mt-3 verifypassword" onchange="check_password()">
+							<input type="password" name="confirmpass" id="confirm_password" placeholder="Confirm Password" autocomplete="none" class="form-control mt-3 verifypassword" onkeyup="check_password()">
 							<span class="d-none text-right ml-auto mt-0 text-danger" id="pesan">
 								<small>not match</small>
 							</span>
@@ -515,7 +515,7 @@ $country = [
 							$('input.email').val('')
 							$('input.regpassword').val('')
 							$('input.verifypassword').val('')
-							changeTab('login')
+							changeTab('login');
 						}
 					})
 				return false
