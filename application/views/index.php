@@ -81,122 +81,123 @@ $country = [
 		<div class="container">
 
 			<h1 class="display-5 title1 text-center mb-5">THE EVENTS</h1>
-
-			<div class="event mb-5 mt-5">
-				<div class="row">
-					<div class="col-md-2 img">
-						<img src="<?= base_url('img/cosplay.jpg') ?>" alt="" width="100%" height="100%">
-					</div>
-					<div class="col-md body-event w-100">
-						<div class="">
-							<div class="judul-event mx-0 my-0">
-								<div class="w-100">
-									<div class="judul">
-										<h5 class="judev">Cosplay Competition</h5>
-										<div class="ml-auto mr-3">
-											<label class="badge badge-danger">Ongoing</label>
+			<div class="tournament">
+				<div class="event mb-5 mt-5">
+					<div class="row">
+						<div class="col-md-2 img">
+							<img src="<?= base_url('img/cosplay.jpg') ?>" alt="" width="100%" height="100%">
+						</div>
+						<div class="col-md body-event w-100">
+							<div class="">
+								<div class="judul-event mx-0 my-0">
+									<div class="w-100">
+										<div class="judul">
+											<h5 class="judev">Cosplay Competition</h5>
+											<div class="ml-auto mr-3">
+												<label class="badge badge-danger">Ongoing</label>
+											</div>
 										</div>
 									</div>
 								</div>
+								<table class="table table-borderless">
+									<thead>
+										<tr class="text-grey">
+											<th scope="col-md-3">PRIZE</th>
+											<th scope="col-md-3">SLOTS</th>
+											<th scope="col-md-3">DATE</th>
+											<th scope="col-md-3">TIME</th>
+										</tr>
+									</thead>
+									<tbody class="text-white">
+										<tr class="mb-0">
+											<td class="col-md-3">IDR 2.000.000</td>
+											<td class="col-md-3">6/320</td>
+											<td class="col-md-3">13 Jan 2020</td>
+											<td class="col-md-3">09:00 GMT +7</td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
-							<table class="table table-borderless">
-								<thead>
-									<tr class="text-grey">
-										<th scope="col-md-3">PRIZE</th>
-										<th scope="col-md-3">SLOTS</th>
-										<th scope="col-md-3">DATE</th>
-										<th scope="col-md-3">TIME</th>
-									</tr>
-								</thead>
-								<tbody class="text-white">
-									<tr class="mb-0">
-										<td class="col-md-3">IDR 2.000.000</td>
-										<td class="col-md-3">6/320</td>
-										<td class="col-md-3">13 Jan 2020</td>
-										<td class="col-md-3">09:00 GMT +7</td>
-									</tr>
-								</tbody>
-							</table>
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="event mb-5">
-				<div class="row">
-					<div class="col-md-2 img">
-						<img src="<?= base_url('img/logocompe.jpg') ?>" alt="" width="100%" height="100%">
-					</div>
-					<div class="col-md body-event w-100">
-						<div class="">
-							<div class="judul-event mx-0 my-0">
-								<div class="w-100">
-									<div class="judul">
-										<h5 class="judev">DBklik Logo Design Competition</h5>
-										<div class="ml-auto mr-3">
-											<label class="badge badge-warning">Upcoming</label>
+				<div class="event mb-5">
+					<div class="row">
+						<div class="col-md-2 img">
+							<img src="<?= base_url('img/logocompe.jpg') ?>" alt="" width="100%" height="100%">
+						</div>
+						<div class="col-md body-event w-100">
+							<div class="">
+								<div class="judul-event mx-0 my-0">
+									<div class="w-100">
+										<div class="judul">
+											<h5 class="judev">DBklik Logo Design Competition</h5>
+											<div class="ml-auto mr-3">
+												<label class="badge badge-warning">Upcoming</label>
+											</div>
 										</div>
 									</div>
 								</div>
+								<table class="table table-borderless">
+									<thead>
+										<tr class="text-grey">
+											<th scope="col-md-3">PRIZE</th>
+											<th scope="col-md-3">SLOTS</th>
+											<th scope="col-md-3">DATE</th>
+											<th scope="col-md-3">TIME</th>
+										</tr>
+									</thead>
+									<tbody class="text-white">
+										<tr class="mb-0">
+											<td class="col-md-3">1 UNIT MONITOR GAMING</td>
+											<td class="col-md-3">54/64</td>
+											<td class="col-md-3">18 Jan 2020</td>
+											<td class="col-md-3">08:00 GMT +7</td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
-							<table class="table table-borderless">
-								<thead>
-									<tr class="text-grey">
-										<th scope="col-md-3">PRIZE</th>
-										<th scope="col-md-3">SLOTS</th>
-										<th scope="col-md-3">DATE</th>
-										<th scope="col-md-3">TIME</th>
-									</tr>
-								</thead>
-								<tbody class="text-white">
-									<tr class="mb-0">
-										<td class="col-md-3">1 UNIT MONITOR GAMING</td>
-										<td class="col-md-3">54/64</td>
-										<td class="col-md-3">18 Jan 2020</td>
-										<td class="col-md-3">08:00 GMT +7</td>
-									</tr>
-								</tbody>
-							</table>
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="event mb-5">
-				<div class="row">
-					<div class="col-md-2 img">
-						<img src="<?= base_url('img/dignity.jpg') ?>" alt="" width="100%" height="100%">
-					</div>
-					<div class="col-md body-event w-100">
-						<div class="">
-							<div class="judul-event mx-0 my-0">
-								<div class="w-100">
-									<div class="judul">
-										<h5 class="judev">Besaf Digital Neo-Society Festival</h5>
-										<div class="ml-auto mr-3">
-											<label class="badge badge-secondary">Over</label>
+				<div class="event mb-5">
+					<div class="row">
+						<div class="col-md-2 img">
+							<img src="<?= base_url('img/dignity.jpg') ?>" alt="" width="100%" height="100%">
+						</div>
+						<div class="col-md body-event w-100">
+							<div class="">
+								<div class="judul-event mx-0 my-0">
+									<div class="w-100">
+										<div class="judul">
+											<h5 class="judev">Besaf Digital Neo-Society Festival</h5>
+											<div class="ml-auto mr-3">
+												<label class="badge badge-secondary">Over</label>
+											</div>
 										</div>
 									</div>
 								</div>
+								<table class="table table-borderless">
+									<thead>
+										<tr class="text-grey">
+											<th scope="col-md-3">PRIZE</th>
+											<th scope="col-md-3">SLOTS</th>
+											<th scope="col-md-3">DATE</th>
+											<th scope="col-md-3">TIME</th>
+										</tr>
+									</thead>
+									<tbody class="text-white">
+										<tr class="mb-0">
+											<td class="col-md-3">IDR 10.000.000</td>
+											<td class="col-md-3">325/432</td>
+											<td class="col-md-3">6 Des 2019</td>
+											<td class="col-md-3">07:00 GMT +7</td>
+										</tr>
+									</tbody>
+								</table>
 							</div>
-							<table class="table table-borderless">
-								<thead>
-									<tr class="text-grey">
-										<th scope="col-md-3">PRIZE</th>
-										<th scope="col-md-3">SLOTS</th>
-										<th scope="col-md-3">DATE</th>
-										<th scope="col-md-3">TIME</th>
-									</tr>
-								</thead>
-								<tbody class="text-white">
-									<tr class="mb-0">
-										<td class="col-md-3">IDR 10.000.000</td>
-										<td class="col-md-3">325/432</td>
-										<td class="col-md-3">6 Des 2019</td>
-										<td class="col-md-3">07:00 GMT +7</td>
-									</tr>
-								</tbody>
-							</table>
 						</div>
 					</div>
 				</div>
@@ -530,6 +531,66 @@ $country = [
 			    </div>\
 			    ');
 			}
+
+			$.ajax({
+				url : '<?php echo base_url('api/Turnamen/show') ?>',
+				method : "POST",
+				success : function(req) {
+					html = '';
+					$.each(req.data, function(index,obj) {
+						if (obj.date_end >= '<?php echo date('Y-m-d') ?>') {
+							status = '<label class="badge badge-danger">On going</label>';
+						} else {
+							status = '<label class="badge badge-secondary">End</label>'
+						}
+						if (index < 3) {
+							console.log(obj);
+							html += '\
+							<div class="event mb-5 mt-5">\
+								<div class="row">\
+									<div class="col-md-2 img">\
+										<img src="<?= base_url('api/img/turnamen/') ?>'+obj.image+'" alt="" style="width: 100%;">\
+									</div>\
+									<div class="col-md body-event w-100">\
+										<div class="">\
+											<div class="judul-event mx-0 my-0">\
+												<div class="w-100">\
+													<div class="judul">\
+														<h5 class="judev">'+obj.nama+'</h5>\
+														<div class="ml-auto mr-3">\
+															'+status+'\
+														</div>\
+													</div>\
+												</div>\
+											</div>\
+											<table class="table table-borderless">\
+												<thead>\
+													<tr class="text-grey">\
+														<th class="col-md-3">PRIZE</th>\
+														<th class="col-md-3">SLOTS</th>\
+														<th class="col-md-3">DATE</th>\
+														<th class="col-md-3">TIME</th>\
+													</tr>\
+												</thead>\
+												<tbody class="text-white">\
+													<tr class="mb-0">\
+														<td class="col-md-3">'+obj.hadiah+'</td>\
+														<td class="col-md-3">'+obj.slots+'</td>\
+														<td class="col-md-3">'+obj.date_start+'</td>\
+														<td class="col-md-3">'+obj.time+'</td>\
+													</tr>\
+												</tbody>\
+											</table>\
+										</div>\
+									</div>\
+								</div>\
+							</div>\
+							';
+						}
+					})
+					$('div.tournament').html(html);
+				}
+			})
 		});
 	</script>
 </body>
