@@ -1,4 +1,4 @@
-    <div class="d-block shadow" style="position: fixed; top: 16px; right: 24px;">
+    <div class="d-block shadow login-button" style="position: fixed; top: 16px; right: 24px;">
         <a href="<?= base_url('auth/login') ?>"><button class="btn btn-primary rounded font-weight-bold" type="button" data-toggle="login-tip" data-placement="left" title="login to get more"><span class="fa fa-lock"></span></button></a>
     </div>
 
@@ -6,12 +6,12 @@
         <img src="<?= base_url() ?>assets/Front/img/logo.png" alt="" class="mr-auto p-3" width="200px">
     </a>
 
-    <div class="container bg-dark text-white pb-5">
+    <div class="container bg-dark text-white pb-5 warna-transparan-di-mobile">
         <div class="row no-gutters ml-2 p-4">
-            <h3 class="border-bottom border-light">Tournament</h3>
+            <h3 class="border-bottom border-light width-di-mobile-title">Tournament</h3>
 
             <!-- Search bar -->
-            <form action="" method="post" class="ml-auto">
+            <form action="" method="post" class="ml-auto width-di-mobile-search">
                 <div class="form-group shadow">
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -19,7 +19,7 @@
                                 <span class="fa fa-search text-white"></span>
                             </div>
                         </div>
-                        <input type="text" name="" id="" placeholder="" class="form-control bg-secondary border-secondary text-white border-bottom border-0">
+                        <input type="text" class="form-control bg-secondary border-secondary text-white border-bottom border-0">
                     </div>
                 </div>
             </form>
@@ -54,34 +54,34 @@
                                             <div class="row no-gutters d-iniline-block border-bottom border-secondary">
 
                                                 <!-- title tournament -->
-                                                <h5 class="card-title">CODM Pro Challenge Series x Boom Esports</h5>
+                                                <h5 class="card-title title-di-mobile-tournament">CODM Pro Challenge Series x Boom Esports</h5>
                                                 <!-- end title tournament -->
 
                                                 <!-- status -->
                                                 <div class="ml-auto">
-                                                    <span class="badge badge-secondary">Upcoming</span>
+                                                    <span class="badge badge-secondary badge-di-mobile-tournament">Upcoming</span>
                                                 </div>
                                                 <!-- end status -->
 
                                             </div>
                                             <div class="p-0 m-0">
-                                                <div class="row no-gutters pt-3">
+                                                <div class="row no-gutters pt-3 text-mobile-sm">
 
                                                     <!-- list -->
-                                                    <div class="col-md col-sm">
-                                                        <h5 class="text-secondary">Prize</h5>
+                                                    <div class="col-md col">
+                                                        <h5 class="text-secondary text-mobile">Prize</h5>
                                                         <p>1000000</p>
                                                     </div>
-                                                    <div class="col-md col-sm">
-                                                        <h5 class="text-secondary">Slots</h5>
+                                                    <div class="col-md col">
+                                                        <h5 class="text-secondary text-mobile">Slots</h5>
                                                         <p>8/16</p>
                                                     </div>
-                                                    <div class="col-md col-sm">
-                                                        <h5 class="text-secondary">Date</h5>
+                                                    <div class="col-md col">
+                                                        <h5 class="text-secondary text-mobile">Date</h5>
                                                         <p>09 Feb</p>
                                                     </div>
-                                                    <div class="col-md col-sm">
-                                                        <h5 class="text-secondary">Time</h5>
+                                                    <div class="col-md col">
+                                                        <h5 class="text-secondary text-mobile">Time</h5>
                                                         <p>14:00 WIB</p>
                                                     </div>
                                                     <!-- end list -->

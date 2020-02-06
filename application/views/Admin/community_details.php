@@ -83,3 +83,4 @@
 		community_details()
 	})
 </script>
+<script src="<?= base_url() ?>assets/Admin/js/myscript.js"></script>

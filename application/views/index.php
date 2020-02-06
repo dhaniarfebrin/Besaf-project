@@ -369,10 +369,10 @@ $country = [
 									<option value="<?= $c; ?>"><?= $c; ?></option>
 								<? endforeach; ?>
 							</select>
-							<input type="password" name="" id="password" placeholder="Password" autocomplete="none" class="form-control mt-3 mb-3 regpassword" onchange="check_password()">
+							<input type="password" name="" id="password" placeholder="Password" autocomplete="none" class="form-control mt-3 mb-3 regpassword" onkeyup="check_password()">
 							<input type="password" name="confirmpass" id="confirm_password" placeholder="Confirm Password" autocomplete="none" class="form-control mt-3 verifypassword" onkeyup="check_password()">
-							<span class="d-none text-right ml-auto mt-0 text-danger" id="pesan">
-								<small>not match</small>
+							<span class="d-block text-right ml-auto mt-0">
+								<small id="pesan"></small>
 							</span>
 							<div class="form-group form-check pl-0 mt-3">
 								<div class="custom-control custom-checkbox">
@@ -435,22 +435,15 @@ $country = [
 				password2.classList.remove("border-danger");
 				password2.classList.add("border");
 				password2.classList.add("border-success");
-				document.getElementById("pesan").classList.remove("d-block");
-				document.getElementById("pesan").classList.add("d-none");
+				document.getElementById("pesan").innerHTML = "Match";
+				document.getElementById("pesan").className = "text-success";
 			} else if (valPassword1 != valPassword2) {
 				password2.classList.remove("border-success");
 				password2.classList.add("border");
 				password2.classList.add("border-danger");
-				document.getElementById("pesan").classList.remove("d-none");
-				document.getElementById("pesan").classList.add("d-block");
-			} 
-			// else if (valPassword1 == "" && valPassword2 == "") {
-			// 	password2.classList.remove("border-success");
-			// 	password2.classList.add("border");
-			// 	password2.classList.add("border-danger");
-			// 	document.getElementById("pesan").classList.remove("d-none");
-			// 	document.getElementById("pesan").classList.add("d-block");
-			// }
+				document.getElementById("pesan").innerHTML = "Not Match";
+				document.getElementById("pesan").className = "text-danger";
+			}
 		}
 	</script>
 	<!-- formjs -->
