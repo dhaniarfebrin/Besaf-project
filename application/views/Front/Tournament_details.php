@@ -1,14 +1,14 @@
 <a href="<?= base_url('auth/tournament') ?>">
     <img src="<?= base_url() ?>assets/Front/img/logo.png" alt="" class="mr-auto p-3" width="200px">
 </a>
-<div class="d-block shadow" style="position: fixed; top: 16px; right: 24px;">
+<div class="d-block shadow login-button" style="position: fixed; top: 16px; right: 24px;">
     <a href="<?= base_url('auth/login') ?>"><button class="btn btn-primary rounded font-weight-bold" type="button" data-toggle="login-tip" data-placement="left" title="login to get more"><span class="fa fa-lock"></span></button></a>
 </div>
 
 <div class="container text-white">
     <div class="col-md col-sm bg-dark shadow py-2">
         <!-- judul tournament -->
-        <h4 class="m-0 text-wrap p-2">CODM Pro Challenge Series x Boom Esports</h4>
+        <h4 class="m-0 text-wrap p-2 title-di-mobile-tournament-detail">CODM Pro Challenge Series x Boom Esports</h4>
         <!-- end judul tournament -->
     </div>
     <div class="row mt-3">
@@ -86,7 +86,7 @@
                 <div class="card-header bg-secondary font-weight-bold">
                     Description
                 </div>
-                <div class="card-body">
+                <div class="card-body deskripsi-di-mobile">
                     <div>
                         <p class="text-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores aperiam eaque odit quis sit repellendus suscipit ea repudiandae voluptatum, nobis, eius ipsa tempore, quaerat deserunt illo dicta commodi doloribus cum.</p>
                         <p class="text-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae mollitia et possimus ducimus aliquid a explicabo exercitationem qui rerum nisi atque nesciunt, aliquam laboriosam eum facilis! Quasi temporibus earum itaque?</p>
@@ -125,7 +125,7 @@
     <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content bg-dark text-white">
             <div class="modal-header border-dark">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">Rules</h5>
+                <h5 class="modal-title" id="exampleModalScrollableTitle">How to Join</h5>
                 <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

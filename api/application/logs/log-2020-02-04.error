@@ -1,0 +1,383 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+ERROR - 2020-02-04 05:08:50 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:08:50 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 05:08:52 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:08:52 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 05:08:53 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:08:53 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 05:08:54 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:08:54 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 05:08:54 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:08:54 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 05:08:54 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:08:54 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 05:08:56 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:08:56 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 05:08:56 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:08:56 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 05:08:57 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:08:57 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 05:08:57 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:08:57 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 05:08:57 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:08:57 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 05:08:57 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:08:57 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 05:09:21 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:09:21 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 05:09:24 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:09:24 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 05:09:25 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:09:25 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 05:09:25 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:09:25 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 05:09:26 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = 'kaliwa' OR email = 'kaliwa'
+        
+ERROR - 2020-02-04 05:09:26 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 43
+ERROR - 2020-02-04 09:46:12 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: SELECT *
+FROM `user`
+WHERE `username` = 'Mamank_Garox'
+ERROR - 2020-02-04 09:46:12 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 126
+ERROR - 2020-02-04 09:48:48 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: SELECT *
+FROM `user`
+WHERE `username` = 'd'
+ERROR - 2020-02-04 09:48:48 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\M_user.php 126
+ERROR - 2020-02-04 09:50:15 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+ERROR - 2020-02-04 10:42:39 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+ERROR - 2020-02-04 10:43:57 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+=======
+ERROR - 2020-02-04 03:24:57 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 03:24:59 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 03:24:59 --> 404 Page Not Found: Img/komunitas
+ERROR - 2020-02-04 03:25:02 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 03:25:02 --> 404 Page Not Found: Img/komunitas
+ERROR - 2020-02-04 03:35:20 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 03:35:20 --> 404 Page Not Found: Img/komunitas
+ERROR - 2020-02-04 03:37:21 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 03:38:15 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 03:38:27 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 03:46:08 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 03:47:23 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 03:47:35 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 03:47:38 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 03:47:40 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 03:47:43 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 04:05:16 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 04:08:20 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 04:12:03 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 04:12:06 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 04:12:31 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 04:12:38 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 04:14:20 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 04:14:28 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 04:23:56 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 04:24:03 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 04:24:25 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 04:25:09 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 04:25:13 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 06:21:37 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 06:23:37 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 06:23:39 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 06:23:42 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 06:23:48 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 06:25:41 --> 404 Page Not Found: Discover/show
+<<<<<<< HEAD
+ERROR - 2020-02-04 08:38:00 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 08:48:20 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 08:48:50 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 08:49:13 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 08:49:25 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 08:51:15 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 08:51:31 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 08:52:05 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 08:52:24 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 08:54:58 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 08:55:07 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 08:55:11 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 08:55:19 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 09:12:28 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 09:14:37 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 09:14:49 --> 404 Page Not Found: Discover/show
+ERROR - 2020-02-04 09:14:56 --> 404 Page Not Found: Discover/show
+=======
+>>>>>>> 5b3b6b82ae44de95d8b6c8ac2e11476757c01d0b
+>>>>>>> 44faac0a8ff479a46fb44c3fceb2f5c9f6fbc24a
+ERROR - 2020-02-04 11:34:02 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+ERROR - 2020-02-04 11:35:21 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+ERROR - 2020-02-04 11:35:42 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+ERROR - 2020-02-04 11:35:56 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+ERROR - 2020-02-04 11:37:45 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+ERROR - 2020-02-04 11:37:51 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+ERROR - 2020-02-04 11:38:08 --> Query error: Table 'besaf.user' doesn't exist - Invalid query: 
+        SELECT
+        id,
+        username,
+        password,
+        role_id
+        FROM
+            user
+        WHERE
+            username = '' OR email = ''
+        
+>>>>>>> responsive
