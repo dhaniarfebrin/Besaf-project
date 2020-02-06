@@ -17,7 +17,6 @@ class Turnamen_model extends CI_Model {
 				$where = "WHERE date_end < '".date('Y-m-d')."'";
 			}
 		}
-
 		$turnamen = $this->db->query("
 			SELECT 
 				id,
