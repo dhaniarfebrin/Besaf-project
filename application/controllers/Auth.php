@@ -35,7 +35,7 @@ class Auth extends CI_Controller
 			'role_id' => $role_id,
 			'username' => $username
 		]);
-		cek_session($role_id);
+		cek_session($this->session->userdata('role_id'));
 	}
 
 	public function verify($verificationcode)
