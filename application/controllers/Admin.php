@@ -108,4 +108,12 @@ class Admin extends CI_Controller
 		$this->load->view('Admin/users_details');
 		$this->load->view('Admin/template/footer');
 	}
+
+	public function tournament_details()
+	{
+		$this->load->view('Admin/template/header');
+		$this->load->view('Admin/template/sidebar');
+		$this->load->view('Admin/tournament_details');
+		$this->load->view('Admin/template/footer');
+	}
 }

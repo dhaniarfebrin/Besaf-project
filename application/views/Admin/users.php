@@ -14,7 +14,7 @@
 		<!--		table users-->
 		<div class="card w-75 mx-auto single-tab" id="user">
 			<div class="card-body">
-				<table id="example" class="table table-dark">
+				<table id="example" class="table table-dark w-100">
 					<thead class="thead-primary">
 						<tr>
 							<th>Username</th>

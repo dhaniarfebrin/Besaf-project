@@ -54,6 +54,7 @@
 									<th>Name</th>
 									<th>Game</th>
 									<th>Status</th>
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -62,6 +63,7 @@
 									<td>Mobile Legends Bang Bang Professional League</td>
 									<td>Mobile Legends Bang Bang</td>
 									<td><span class="badge badge-secondary">Upcoming</span></td>
+									<td><a href="<?= base_url('admin/tournament_details') ?>" class="text-decoration-none">details</a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -125,10 +127,12 @@
 						data: null,
 						render: function(req) {
 							var d = new Date();
-							if (req.date_end >= '<?php echo date('Y-m-d') ?>') {
-								status = '<span class="badge badge-dark">Upcoming</span>';
+							if ('<?php echo date('Y-m-d') ?>' >= req.date_start && '<?= date('Y-m-d') ?>' <= req.date_end) {
+								status = '<span class="badge badge-danger">Ongoing</span>';
+							} else if ('<?= date('Y-m-d') ?>' < req.date_start) {
+								status = '<span class="badge badge-primary">Upcoming</span>'
 							} else {
-								status = '<span class="badge badge-light">End</span>';
+								status = '<span class="badge badge-secondary">Over</span>';
 							}
 							return status;
 						}

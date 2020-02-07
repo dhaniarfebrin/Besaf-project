@@ -75,8 +75,7 @@
         // notifikasi
         function notif(element, type, message) {
             $(element).html('\
-				<div class="alert alert-' + type + ' mb-4 mt-0" role="alert">\
-			        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>\
+				<div class="alert alert-' + type + ' mb-4 mt-0 w-100 shadow rounded-0" role="alert">\
 			        ' + message + '\
 			    </div>\
 			    ');
