@@ -12,12 +12,15 @@ class M_user extends CI_Model
         $usemail = $post['usernameEmail'];
         $password = $post['password'];
 
+        // untuk diproses disini
         $cek_user = $this->db->query("
         SELECT
         id,
         username,
+        email,
         password,
-        role_id
+        role_id,
+        is_active
         FROM
             user
         WHERE
@@ -45,9 +48,19 @@ class M_user extends CI_Model
             foreach ($cek_user->result_array() as $user) {
                 if (password_verify($password, $user['password'])) {
                     // password benar
+
+                    // periksa kalau user belum aktif
+                    if ($user['is_active'] == 0) {
+                        $response = [
+                            'error' => true,
+                            'message' => 'Akun anda ' . $user['email'] . ' belum diverifikasi. Silahkan cek email anda.'
+                        ];
+                        goto output;
+                    }
                     $response = [
                         'error' => false,
                         'message' => 'Success login!',
+                        // dikirim untuk session
                         'data' => [
                             'role_id' => $user['role_id'],
                             'username' => $user['username'],
@@ -172,12 +185,12 @@ class M_user extends CI_Model
 
         $this->load->library('email', $config);
 
-        $this->email->from('albedrizki013@gmail.com', 'Besaf Management');
+        $this->email->from('albedrizki013@gmail.com', 'BESAF');
         $this->email->to($email);
 
         if ($type == 'verify') {
-            $message = 'Akun anda ' . $email . ' telah diverifikasi! Silahkan <a href="' . $_SERVER['SERVER_NAME'] . '/auth/verify/' . urlencode($token) . '">login</a>.';
-            $this->email->subject('Account Verification');
+            $message = 'Terimakasih sudah mendaftarkan Akun anda ' . $email . ' di BESAF. Silahkan verifikasi akun anda untuk login ke akun BESAF anda, dengan meng-klik tombol <a href="https://' . $_SERVER['SERVER_NAME'] . '/auth/verify/' . urlencode($token) . '">verifikasi</a>.';
+            $this->email->subject('BESAF Account Verification');
             $this->email->message($message);
         } elseif ($type == 'forgot') {
             $message = 'developer salah alamat';
