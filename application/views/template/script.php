@@ -328,57 +328,51 @@
 				method : "POST",
 				async : true,
 				success : function(req) {
-					discover = '';
-					more_discover = '';
-					if (req.data == '') {
-						discover += '\
-						<div class="col-md-12" align="center">\
-							'+req.message+'\
-						</div>\
-						';
-						$('more_discover').html('');
+					console.log(req);
+					if (req.data=='') {
+						first_discover = '\
+						<div class="col-sm-12 mb-5">\
+							<p align="center">'+req.message+'</p>\
+						</div>';
 					} else {
-						$.each(req.data, function(index,obj) {
-							if (index < 4) {
-								discover += '\
-								<div class="col-sm-3 mb-5">\
-									<a href="#lihat" class="text-dark" data-toggle="modal" style="text-decoration: none">\
-										<div class="m-portlet m-portlet--mobile hover" style="width: 100%;">\
-										  	<img class="card-img-top" src="<?php echo base_url('assets/app/media/img/products/product').$no.'.jpg'; ?>" alt="Card image cap" class="hover">\
-										  	<div class="card-body">\
-										    	<p class="card-text">\
-										    		<strong>User <?php echo $no; ?></strong> <br>\
-										    		<small><?php echo ($no*4)." minutes ago"; ?></small>\
-										    	</p>\
-										  	</div>\
-										</div>\
-									</a>\
-								</div>';
-							} else if (index >= 4) {
-								more_discover += '\
-								<div class="col-sm-3 mb-5">\
-									<a href="#lihat" class="text-dark" data-toggle="modal" style="text-decoration: none">\
-										<div class="m-portlet m-portlet--mobile hover" style="width: 100%;">\
-										  	<img class="card-img-top" src="<?php echo base_url('assets/app/media/img/products/product').$no.'.jpg'; ?>" alt="Card image cap" class="hover">\
-										  	<div class="card-body">\
-										    	<p class="card-text">\
-										    		<strong>User <?php echo $no; ?></strong> <br>\
-										    		<small><?php echo ($no*4)." minutes ago"; ?></small>\
-										    	</p>\
-										  	</div>\
-										</div>\
-									</a>\
-								</div>';
-							}
+						first_discover = '';
+						$.each(req.data,function(index,obj) {
+							first_discover += '\
+							<div class="col-sm-3 mb-5">\
+								<a href="#lihat_post" class="text-dark lihat_post" data-toggle="modal" style="text-decoration: none" data-id="'+obj.id+'" data-user="'+obj.user_nama+'" data-user-image="'+obj.user_image+'" data-date="'+obj.create_date+'" data-like="'+obj.likes+'" data-image="'+obj.image+'">\
+									<div class="m-portlet m-portlet--mobile hover" style="width: 100%;">\
+									  	<img class="card-img-top" src="<?php echo base_url('api/img/user_post/'); ?>'+obj.image+'" alt="Card image cap" class="hover">\
+									  	<div class="card-body">\
+									    	<p class="card-text">\
+									    		<strong>'+obj.user_nama+'</strong> <br>\
+									    		<small>'+obj.create_date+'</small>\
+									    	</p>\
+									  	</div>\
+									</div>\
+								</a>\
+							</div>';
 						})
 					}
-					$('div.more_discover').html(more_discover);
-					$('div.discover').html(discover);
+					$('div.first_discover').html(first_discover);
 				}
 			})
 		}
 
 		get_discover();
+
+		$(document).on('click','a.lihat_post',function() {
+			id = $(this).data('id');
+			user = $(this).data('user');
+			user_image = $(this).data('user_image');
+			post_image = $(this).data('image');
+			date = $(this).data('date');
+			like = $(this).data('like');
+			$('img.post-image').attr('src','<?php echo base_url('api/img/user_post/') ?>'+post_image)
+			$('img.user-image').attr('src','<?php echo base_url('api/img/user_post/') ?>'+user_image)
+			$('b.user-name').html(user)
+			$('small.date').html(date)
+			$('i.likes').html(' '+like)
+		})
 
 		function notif(data,type,message) {
 			$(data).html('\
