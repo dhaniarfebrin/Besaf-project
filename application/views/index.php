@@ -32,7 +32,7 @@ $country = [
 					<h5 class="subtitle1">EVERYDAY, EVERY WEEK, EVERYTIME</h5>
 					<p class="lead desc">Play more to win prizes with tons and activities inside.
 						Create your own team to join tournaments and level up!</p>
-					<button type="button" class="btn btn-reg reg col-sm" data-toggle="modal" data-target="#staticBackdrop">Register or Login<div class="col-sm"></div></button>
+					<button type="button" class="btn btn-reg reg col-sm" data-toggle="modal" data-target="#staticBackdrop" onclick="load()">Register or Login<div class="col-sm"></div></button>
 				</div>
 				<div class="col-sm">
 					<img src="<?= base_url('img/img1.png') ?>" alt="" width="600px" class="img2">
@@ -445,6 +445,11 @@ $country = [
 				document.getElementById("pesan").className = "text-danger";
 			}
 		}
+
+		// progress bar saat pindah halaman
+		window.addEventListener("beforeunload", function(e) {
+			document.body.className = "loading-halaman";
+		}, false)
 	</script>
 	<!-- formjs -->
 	<script>

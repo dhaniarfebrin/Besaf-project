@@ -70,6 +70,30 @@ License: You must have a valid license purchased only from themeforest(the above
 		ga('send', 'pageview');
 	</script>
 	<link rel="stylesheet" href="<?php echo base_url('assets/app/css/app.css'); ?>">
+	<style>
+		.loading-halaman::before {
+			content: " ";
+			display: block;
+			position: fixed;
+			z-index: 99;
+			height: 3px;
+			width: 100%;
+			top: 0;
+			left: 0;
+			background-color: #2C92CB;
+			animation: load-halaman infinite ease-out 2s;
+		}
+
+		@keyframes load-halaman {
+			from {
+				background-color: #2C92CB;
+			}
+
+			to {
+				background-color: orange;
+			}
+		}
+	</style>
 </head>
 
 <!-- end::Head -->

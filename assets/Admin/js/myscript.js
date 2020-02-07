@@ -4,6 +4,11 @@ $(document).ready(function () {
 	bsCustomFileInput.init();
 });
 
+// progress bar saat pindah halaman
+window.addEventListener("beforeunload", function (e) {
+	document.body.className = "loading-halaman";
+}, false)
+
 function closeNav() {
 	//	document.getElementById('sidebar').style.width = "0px";
 	document.getElementById('sidebar').style.marginLeft = '-270px';
