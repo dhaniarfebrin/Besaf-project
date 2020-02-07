@@ -6,34 +6,38 @@
 				<div class="card">
 					<div class="card-header">Request</div>
 					<div class="card-body">
-						<div class="card bg-secondary mb-2">
-							<div class="row no-gutters">
-								<div class="col-md-4">
-									<div class="card-image">
-										<img src="https://screenshotlayer.com/images/assets/placeholder.png" alt="images" class="img-thumbnail rounded-circle img" style="width: 60px;">
+						<a href="#" class="text-decoration-none text-white" data-toggle="modal" data-target="#requestModal">
+							<div class="card bg-dark mb-2 shadow-none">
+								<div class="row no-gutters">
+									<div class="col-md-4">
+										<div class="card-image">
+											<img src="https://screenshotlayer.com/images/assets/placeholder.png" alt="images" class="img-thumbnail rounded-circle img" style="width: 60px;">
+										</div>
 									</div>
-								</div>
-								<div class="col-md">
-									<div class="card-body p-2">
-										<p class="card-title my-auto font-weight-bold">Icafe Tournament</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="card bg-secondary mb-2">
-							<div class="row no-gutters">
-								<div class="col-md-4">
-									<div class="card-image">
-										<img src="https://screenshotlayer.com/images/assets/placeholder.png" alt="images" class="img-thumbnail rounded-circle img" style="width: 60px;">
-									</div>
-								</div>
-								<div class="col-md">
-									<div class="card-body p-2">
-										<p class="card-title my-auto font-weight-bold">MPL season 5</p>
+									<div class="col-md">
+										<div class="card-body p-2">
+											<p class="card-title my-auto font-weight-bold">Icafe Tournament</p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						</a>
+						<a href="#" class="text-decoration-none text-white" data-toggle="modal" data-target="#requestModal">
+							<div class="card bg-dark mb-2 shadow-none">
+								<div class="row no-gutters">
+									<div class="col-md-4">
+										<div class="card-image">
+											<img src="https://screenshotlayer.com/images/assets/placeholder.png" alt="images" class="img-thumbnail rounded-circle img" style="width: 60px;">
+										</div>
+									</div>
+									<div class="col-md">
+										<div class="card-body p-2">
+											<p class="card-title my-auto font-weight-bold">MPL season 5</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -67,41 +71,59 @@
 		</div>
 	</div>
 </div>
+
+<!-- modal request -->
+<div class="modal fade" id="requestModal" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content rounded-0">
+			<div class="modal-header">
+				<h5 class="modal-title" id="staticBackdropLabel">Request</h5>
+				<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- end modal request -->
+
 <script src="<?= base_url() ?>assets/Admin/js/jquery.js"></script>
 <script src="<?= base_url() ?>assets/Admin/js/bootstrap.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<script src="<?= base_url() ?>assets/Admin/js/myscript.js"></script>
 <script>
 	$(document).ready(function() {
 		function get_tournament() {
 			$('table#tournament').DataTable({
-				"processing" : true,
-				"serverSide" : true,
-				"deferRender" : true,
-				"ajax" : {
-					url : "<?php echo base_url('api/Tournament/show'); ?>",
-					method : "POST",
-					dataSrc : "data"
+				"processing": true,
+				"serverSide": true,
+				"deferRender": true,
+				"ajax": {
+					url: "<?php echo base_url('api/Tournament/show'); ?>",
+					method: "POST",
+					dataSrc: "data"
 				},
-				"columns" : [
-					{
-						data : null,
-						render : function(data,type,row,meta) {
-							return meta.row + meta.settings._iDisplayStart+1;
+				"columns": [{
+						data: null,
+						render: function(data, type, row, meta) {
+							return meta.row + meta.settings._iDisplayStart + 1;
 						}
 					},
 					{
-						data : "tournament_nama"
+						data: "tournament_nama"
 					},
 					{
-						data : "game_nama"
+						data: "game_nama"
 					},
 					{
-						data : null,
-						render : function(req) {
+						data: null,
+						render: function(req) {
 							var d = new Date();
 							if (req.date_end >= '<?php echo date('Y-m-d') ?>') {
 								status = '<span class="badge badge-dark">Upcoming</span>';
@@ -117,3 +139,4 @@
 		get_tournament();
 	})
 </script>
+<script src="<?= base_url() ?>assets/Admin/js/myscript.js"></script>

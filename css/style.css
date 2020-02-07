@@ -2,6 +2,29 @@ html {
 	scroll-behavior: smooth;
 }
 
+.loading-halaman::before {
+	content: " ";
+	display: block;
+	position: fixed;
+	z-index: 999;
+	height: 3px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: #2C92CB;
+	animation: load-halaman infinite ease-out 2s;
+}
+
+@keyframes load-halaman {
+	from {
+		width: 0;
+	}
+
+	to {
+		width: 100%;
+	}
+}
+
 .section1 {
 	background-color: grey;
 	background-image: url('../img/background1.jpg');
@@ -135,8 +158,10 @@ tr td {
 }
 
 .btn-tour:hover {
-	border-color: rgb(35, 114, 160);;
-	background-color: rgb(35, 114, 160);;
+	border-color: rgb(35, 114, 160);
+	;
+	background-color: rgb(35, 114, 160);
+	;
 	color: black;
 }
 
@@ -214,7 +239,7 @@ tr td {
 }
 
 .form select {
-	background-color:#374453;
+	background-color: #374453;
 	color: #6c757d;
 	border: none;
 	transition: .2s;
@@ -324,7 +349,7 @@ tr td {
 		padding: 5px;
 	}
 
-	.judev{
+	.judev {
 		font-size: 12px;
 	}
 
@@ -334,7 +359,7 @@ tr td {
 	}
 
 	.table {
-		width : 230px;
+		width: 230px;
 		font-size: 10px;
 	}
 

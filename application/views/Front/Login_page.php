@@ -12,20 +12,20 @@ $country = [
 <div class="container">
 	<input type="hidden" class="kode" value="<?= $verificationcode; ?>">
 	<div class="row no-gutters mx-auto">
-		<div class="col-3">
+		<div class="col-3 col-xls">
 			<div class="d-flex position-relative" style="z-index: 2;">
-				<a href="<?= base_url() ?>" class="ml-auto">
-					<div class="btn back bg-dark py-3 px-4 rounded-circle shadow mt-2" style="margin-right: -16px;">
+				<a href="#" class="ml-auto back-button-login-page">
+					<div class="btn back bg-dark py-3 px-4 rounded-circle shadow mt-2" style="margin-right: -16px;" onclick="goBack()">
 						<span class="fas fa-chevron-left text-white"></span>
 					</div>
 				</a>
 			</div>
 		</div>
-		<div class="col">
-			<div class="card w-75 border-0 mx-left text-white rounded position-relative px-4 pt-4" style="z-index: 1; background-color: #1a2027">
+		<div class="col col-xls">
+			<div class="card w-75 border-0 mx-left text-white rounded position-relative px-4 pt-4 card-login-page" style="z-index: 1; background-color: #1a2027">
 				<div class="card-body">
 					<div class="row no-gutters" id="header">
-						<div>
+						<div class="margin-left-tambah-login-page">
 							<button class="btn text-secondary bg-transparent border-0 font-weight-bold active" onclick="changeTab('login')">Login</button>
 						</div>
 						<div>
@@ -35,21 +35,17 @@ $country = [
 
 					<!-- Login -->
 					<div class="single-tab" id="login">
-						<!-- //
-						// IKI NAR BENAKNO
-						// -->
-						<div class="row justify-content-center">
-							<div class="col-md-10 muncul-pesan"></div>
-						</div>
-						<!-- // • • • • • -->
 						<form action="<?= base_url('auth/login') ?>" method="POST" class="p-5 form form-login">
+							<div class="row justify-content-center">
+								<div class="col-md-10 muncul-pesan"></div>
+							</div>
 							<div class="form-group">
 								<label for="Email" class="font-weight-bold">Username or Email</label>
-								<input type="text" class="form-control bg-dark border-0 text-white usernameEmail" id="Email" autocomplete="off" aria-describedby="emailHelp" placeholder="Username or Email">
+								<input type="text" class="form-control bg-dark border-0 text-white usernameEmail col-sm" id="Email" autocomplete="off" aria-describedby="emailHelp" placeholder="Username or Email">
 							</div>
 							<div class="form-group">
 								<label for="Password" class="font-weight-bold">Password</label>
-								<input type="password" class="form-control bg-dark border-0 text-white password" id="Password" placeholder="Password">
+								<input type="password" class="form-control bg-dark border-0 text-white password col-sm" id="Password" placeholder="Password">
 							</div>
 
 							<button type="submit" class="btn btn-primary text-black font-weight-bold mt-4 w-100">Login</button>
@@ -61,14 +57,10 @@ $country = [
 
 					<!-- register -->
 					<div class="single-tab" id="register">
-						<!-- //
-						// IKI PISAN NAR
-						// -->
-						<div class="row justify-content-center">
-							<div class="col-md-10 muncul-pesan-daftar"></div>
-						</div>
-						<!-- // • • • • • -->
 						<form action="<?= base_url('auth/registrasi') ?>" method="POST" class="p-5 form form-daftar">
+							<div class="row justify-content-center">
+								<div class="col-md-10 muncul-pesan-daftar"></div>
+							</div>
 							<div class="form-group">
 								<label for="Name" class="font-weight-bold">Fullname</label>
 								<input type="text" class="form-control bg-dark border-0 text-white fullname" autocomplete="off" id="Name" placeholder="Fullname">
@@ -92,18 +84,21 @@ $country = [
 							</div>
 							<div class="form-group">
 								<label for="Password" class="font-weight-bold">Password</label>
-								<input type="password" class="form-control bg-dark text-white regpassword" id="password" placeholder="Password" onchange="check_password()" required>
+								<input type="password" class="form-control bg-dark text-white regpassword" id="password" placeholder="Password" onkeyup="check_password()" required>
 							</div>
 							<div class="form-group">
 								<label for="ConfirmPassword" class="font-weight-bold">Confirm Password</label>
-								<input type="password" class="form-control bg-dark text-white verifypassword" id="confirm_password" placeholder="Confirm Password" onchange="check_password()" required>
+								<input type="password" class="form-control bg-dark text-white verifypassword" id="confirm_password" placeholder="Confirm Password" onkeyup="check_password()" required>
+								<span class="d-block text-right ml-auto mt-0">
+									<small id="pesan"></small>
+								</span>
 							</div>
 							<button type="submit" class="btn btn-primary text-black font-weight-bold mt-4 w-100">Register</button>
 						</form>
 					</div>
 					<!-- akhir register -->
 
-					<div class="text-center text-white mt-3">or login with</div>
+					<div class="text-center text-white mt-3 text-mobile font-weight-bold">or login with</div>
 					<div class="row p-5">
 						<!-- button facebook -->
 						<div class="col">
@@ -129,15 +124,19 @@ $country = [
 		var valPassword1 = document.getElementById('password').value
 		var valPassword2 = document.getElementById('confirm_password').value
 
-		// pencocokan password
+		// pencocokan inputan password
 		if (valPassword1 == valPassword2) {
 			password2.classList.remove("border-danger");
 			password2.classList.add("border");
 			password2.classList.add("border-success");
+			document.getElementById("pesan").innerHTML = "Match";
+			document.getElementById("pesan").className = "text-success";
 		} else if (valPassword1 != valPassword2) {
 			password2.classList.remove("border-success");
 			password2.classList.add("border");
 			password2.classList.add("border-danger");
+			document.getElementById("pesan").innerHTML = "Not Match";
+			document.getElementById("pesan").className = "text-danger";
 		}
 	}
 </script>

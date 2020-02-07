@@ -9,6 +9,29 @@ body {
 	font-family: 'roboto', sans-serif;
 }
 
+.loading-halaman::before {
+	content: " ";
+	display: block;
+	position: fixed;
+	z-index: 999;
+	height: 3px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: #2C92CB;
+	animation: load-halaman infinite ease-out 2s;
+}
+
+@keyframes load-halaman {
+	from {
+		width: 0;
+	}
+
+	to {
+		width: 100%;
+	}
+}
+
 .sidebar {
 	display: block;
 	width: 250px;

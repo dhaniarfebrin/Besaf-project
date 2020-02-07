@@ -4,6 +4,11 @@ $(document).ready(function () {
 	bsCustomFileInput.init();
 });
 
+// progress bar saat pindah halaman
+window.addEventListener("beforeunload", function (e) {
+	document.body.className = "loading-halaman";
+}, false)
+
 function closeNav() {
 	//	document.getElementById('sidebar').style.width = "0px";
 	document.getElementById('sidebar').style.marginLeft = '-270px';
@@ -26,11 +31,11 @@ function addRole() {
 	li.className = "role d-block w-75 mx-auto bg-transparent pd-0";
 
 	if (inputValue === '') {
-		Swal.fire({
-			icon: 'warning',
-			title: 'Please type something',
-			themes: 'dark'
-		})
+		// Swal.fire({
+		// 	icon: 'warning',
+		// 	title: 'Please type something',
+		// 	themes: 'dark'
+		// })
 	} else {
 		var role = document.getElementById('roleList');
 		role.appendChild(li);
@@ -61,15 +66,14 @@ function changeTab(tab) {
 	}
 	document.getElementById(tab).style.display = "block";
 
-}
+	var header = document.getElementById("header");
+	var btns = header.getElementsByClassName("btn");
 
-var header = document.getElementById("header");
-var btns = header.getElementsByClassName("btn");
-
-for (var i = 0; i < btns.length; i++) {
-	btns[i].addEventListener('click', function () {
-		var current = document.getElementsByClassName('active');
-		current[0].className = current[0].className.replace(" active", "");
-		this.className += " active";
-	});
+	for (var i = 0; i < btns.length; i++) {
+		btns[i].addEventListener('click', function () {
+			var current = document.getElementsByClassName('active');
+			current[0].className = current[0].className.replace(" active", "");
+			this.className += " active";
+		});
+	}
 }

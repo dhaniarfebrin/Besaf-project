@@ -10,15 +10,39 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+.loading-halaman::before {
+	content: " ";
+	display: block;
+	position: fixed;
+	z-index: 999;
+	height: 3px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: #2C92CB;
+	animation: load-halaman infinite ease-out 2s;
+}
+
+@keyframes load-halaman {
+	from {
+		width: 0;
+	}
+
+	to {
+		width: 100%;
+	}
+}
+
 .container {
-    margin-top: 30px;
+	margin-top: 30px;
 }
 
 .bg-black {
-    background-color: rgb(27, 27, 27);
+	background-color: rgb(27, 27, 27);
 }
+
 .active {
-    color: rgb(39, 111, 194) !important;
+	color: rgb(39, 111, 194) !important;
 }
 
 #register {
@@ -103,4 +127,90 @@ body {
 	box-shadow: 1px 2px 20px rgb(41, 41, 41);
 	transition: .3s;
 	transform: translateY(-2px);
+}
+
+.login-button {
+	z-index: 99 !important;
+}
+
+/* for mobile device or for screen with width less than 600px */
+@media only screen and (max-width: 600px) {
+	.w-75 {
+		width: 100% !important;
+	}
+
+	.card-login-page {
+		padding: 0px !important;
+	}
+
+	.form-login {
+		padding: 16px !important;
+		font-size: 12px;
+	}
+
+	.form-daftar {
+		font-size: 12px !important;
+		padding: 16px !important;
+	}
+
+	.text-mobile {
+		font-size: 12px !important;
+	}
+
+	.text-mobile-sm {
+		font-size: 8px;
+	}
+
+	.ggl {
+		margin-top: 8px;
+	}
+
+	.back-button-login-page {
+		margin-left: 0px !important;
+		margin-bottom: -35px !important;
+	}
+
+	.margin-left-tambah-login-page {
+		margin-left: 32px !important;
+	}
+
+	.width-mobile-forgot-password {
+		width: 100% !important;
+	}
+
+	.form-forgot-password-mobile {
+		font-size: 12px !important;
+		padding: 12px !important;
+	}
+
+	.width-di-mobile-title {
+		font-size: 16px !important;
+		display: none;
+	}
+
+	.width-di-mobile-search {
+		width: 100%;
+	}
+
+	.title-di-mobile-tournament {
+		font-size: 12px;
+		margin: 0px;
+	}
+
+	.badge-di-mobile-tournament {
+		width: auto;
+		font-size: 8px;
+	}
+
+	.title-di-mobile-tournament-detail {
+		font-size: 16px;
+	}
+
+	.deskripsi-di-mobile {
+		font-size: 12px;
+	}
+
+	.warna-transparan-di-mobile {
+		background-color: transparent !important;
+	}
 }
