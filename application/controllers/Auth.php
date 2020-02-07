@@ -55,7 +55,7 @@ class Auth extends CI_Controller
 		$this->load->view('Front/template/footer');
 	}
 
-	public function Tournament_details()
+	public function Tournament_details($id)
 	{
 		//! cek login
 		if ($this->session->userdata('role_id') == 1) {
@@ -65,6 +65,7 @@ class Auth extends CI_Controller
 			// admin
 			redirect('admin');
 		}
+		$this->session->set_userdata('tournament_id',$id);
 		//user tanpa login bisa melihat tournament detail dengan view di bawah
 		$this->load->view('Front/template/header');
 		$this->load->view('Front/Tournament_details');
