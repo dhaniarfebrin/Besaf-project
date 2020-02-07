@@ -38,6 +38,14 @@ class Auth extends CI_Controller
 		cek_session($role_id);
 	}
 
+	public function verify($verificationcode)
+	{
+		$data['verificationcode'] = $verificationcode;
+		$this->load->view('Front/template/header');
+		$this->load->view('Front/Login_page', $data);
+		$this->load->view('Front/template/footer');
+	}
+
 	// ================================================= Update 4 februari ===========================================================
 	public function Tournament()
 	{

@@ -442,7 +442,7 @@ $country = [
 				password2.classList.add("border-danger");
 				document.getElementById("pesan").classList.remove("d-none");
 				document.getElementById("pesan").classList.add("d-block");
-			} 
+			}
 			// else if (valPassword1 == "" && valPassword2 == "") {
 			// 	password2.classList.remove("border-success");
 			// 	password2.classList.add("border");

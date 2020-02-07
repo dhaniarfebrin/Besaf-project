@@ -29,4 +29,11 @@ class User extends REST_Controller
 
 		$this->response($response);
 	}
+
+	public function Verify_post()
+	{
+		$response = $this->user->verify($this->post());
+
+		$this->response($response);
+	}
 }
