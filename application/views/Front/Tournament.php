@@ -35,68 +35,11 @@
             <!-- end Iklan jumbotron -->
 
             <div class="col-md col-xl mt-5">
-                <?php for ($i = 1; $i <= 3; $i++) { ?>
 
                     <!-- Tournament List Card -->
-                    <a href="<?= base_url('auth/tournament_details') ?>" class="text-decoration-none">
-                        <div class="col-md col-xl mt-3">
-                            <div class="card bg-dark rounded text-white card-hover">
-                                <div class="row no-gutters">
-
-                                    <!-- Image Tournament -->
-                                    <div class="col-md-4 col-xl-3">
-                                        <img src="http://res.cloudinary.com/yamisok/image/upload/h_400,f_auto/v1579580512/tournament/xbnkdevoxrx6tuul8wle.jpg" alt="" class="w-100 h-100 rounded-left">
-                                    </div>
-                                    <!-- end Image Tournament -->
-
-                                    <div class="col-md col-xl">
-                                        <div class="card-body">
-                                            <div class="row no-gutters d-iniline-block border-bottom border-secondary">
-
-                                                <!-- title tournament -->
-                                                <h5 class="card-title title-di-mobile-tournament">CODM Pro Challenge Series x Boom Esports</h5>
-                                                <!-- end title tournament -->
-
-                                                <!-- status -->
-                                                <div class="ml-auto">
-                                                    <span class="badge badge-secondary badge-di-mobile-tournament">Upcoming</span>
-                                                </div>
-                                                <!-- end status -->
-
-                                            </div>
-                                            <div class="p-0 m-0">
-                                                <div class="row no-gutters pt-3 text-mobile-sm">
-
-                                                    <!-- list -->
-                                                    <div class="col-md col">
-                                                        <h5 class="text-secondary text-mobile">Prize</h5>
-                                                        <p>1000000</p>
-                                                    </div>
-                                                    <div class="col-md col">
-                                                        <h5 class="text-secondary text-mobile">Slots</h5>
-                                                        <p>8/16</p>
-                                                    </div>
-                                                    <div class="col-md col">
-                                                        <h5 class="text-secondary text-mobile">Date</h5>
-                                                        <p>09 Feb</p>
-                                                    </div>
-                                                    <div class="col-md col">
-                                                        <h5 class="text-secondary text-mobile">Time</h5>
-                                                        <p>14:00 WIB</p>
-                                                    </div>
-                                                    <!-- end list -->
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <!-- end Tournament List Card -->
-
-                <?php } ?>
+                    <div class="col-md col-xl mt-3 tournament">
+                        Memuat...
+                    </div>
 
             </div>
         </div>
