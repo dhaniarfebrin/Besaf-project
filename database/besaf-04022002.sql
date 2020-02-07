@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 03 Feb 2020 pada 09.47
+-- Waktu pembuatan: 05 Feb 2020 pada 02.53
 -- Versi server: 10.4.11-MariaDB-log
 -- Versi PHP: 7.4.1
 
@@ -186,7 +186,8 @@ INSERT INTO `user` (`id`, `username`, `email`, `password`, `gender`, `full_name`
 (1, 'sunda lur', 'Akuraweroh@gmail.com', 'werea', '2', 'saddasdasdasdsa', '', 'Brunei Darussalam', 'MALANG', 'Pluto anf the mars electric\n', '1999-09-19', '0812345566789', 'isi', 2, 1),
 (2, 'kaliwa', 'anjay.mabar@co.id', 'werea', '2', 'Anjay Mabarrr Kuyyy', '', 'Indonesia', 'Luar kota', 'Jalan MArs no 99999999', '2020-01-08', '089098890099', 'HAhahahahahhahhahahahahhahhahahahahahhahahaha', 1, 1),
 (3, 'admin', 'teslur@jad.cop', '$2y$10$WkfnxBmJhtoCELw0bqu5iO83t3KN/y0RGesKXVjssG26UBD56g3yW', '1', 'tes', '', 'Indonesia', '', '', '0000-00-00', '', '', 2, 1),
-(13, 'user', 'user1@gui.io', '$2y$10$9pMDy0chUWhWALYUnN4DfOjrRGMXdZkDrsUiB9nbPJy5xKEGeeF5G', '1', 'user', '', 'Indonesia', '', '', '0000-00-00', '', '', 1, 0);
+(13, 'user', 'user1@gui.io', '$2y$10$9pMDy0chUWhWALYUnN4DfOjrRGMXdZkDrsUiB9nbPJy5xKEGeeF5G', '1', 'user', '', 'Indonesia', '', '', '0000-00-00', '', '', 1, 0),
+(14, 'rizki', 'rizki@rizki.op', '$2y$10$bbVcGRjwlDF4aFBkA1YbI.iy17wc4B7Ti11k/m.KraLl5MSA/yGJa', '1', 'rizki', '', 'Malaysia', '', '', '0000-00-00', '', '', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -346,7 +347,8 @@ INSERT INTO `user_token` (`id`, `email`, `token`) VALUES
 (8, 'adas@adsda.hb', 0),
 (9, 'asdsad@dasd.hv', 0),
 (10, 'asdd@das.chc', 0),
-(11, 'user1@gui.io', 0);
+(11, 'user1@gui.io', 0),
+(12, 'rizki@rizki.op', 0);
 
 --
 -- Indexes for dumped tables
@@ -529,7 +531,7 @@ ALTER TABLE `tournament`
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_access`
@@ -577,7 +579,7 @@ ALTER TABLE `user_skill`
 -- AUTO_INCREMENT untuk tabel `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

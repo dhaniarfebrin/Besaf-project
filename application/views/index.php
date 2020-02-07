@@ -452,6 +452,7 @@ $country = [
 		}, false)
 	</script>
 	<!-- formjs -->
+
 	<script>
 		$(document).ready(function() {
 			// LOGIN ajax
@@ -531,11 +532,11 @@ $country = [
 			}
 
 			$.ajax({
-				url : '<?php echo base_url('api/Turnamen/show') ?>',
-				method : "POST",
-				success : function(req) {
+				url: '<?php echo base_url('api/Turnamen/show') ?>',
+				method: "POST",
+				success: function(req) {
 					html = '';
-					$.each(req.data, function(index,obj) {
+					$.each(req.data, function(index, obj) {
 						if (obj.date_end >= '<?php echo date('Y-m-d') ?>') {
 							status = '<label class="badge badge-danger">On going</label>';
 						} else {
@@ -547,16 +548,16 @@ $country = [
 							<div class="event mb-5 mt-5">\
 								<div class="row">\
 									<div class="col-md-2 img">\
-										<img src="<?= base_url('api/img/turnamen/') ?>'+obj.image+'" alt="" style="width: 100%;">\
+										<img src="<?= base_url('api/img/turnamen/') ?>' + obj.image + '" alt="" style="width: 100%;">\
 									</div>\
 									<div class="col-md body-event w-100">\
 										<div class="">\
 											<div class="judul-event mx-0 my-0">\
 												<div class="w-100">\
 													<div class="judul">\
-														<h5 class="judev">'+obj.nama+'</h5>\
+														<h5 class="judev">' + obj.nama + '</h5>\
 														<div class="ml-auto mr-3">\
-															'+status+'\
+															' + status + '\
 														</div>\
 													</div>\
 												</div>\
@@ -572,10 +573,10 @@ $country = [
 												</thead>\
 												<tbody class="text-white">\
 													<tr class="mb-0">\
-														<td class="col-md-3">'+obj.hadiah+'</td>\
-														<td class="col-md-3">'+obj.slots+'</td>\
-														<td class="col-md-3">'+obj.date_start+'</td>\
-														<td class="col-md-3">'+obj.time+'</td>\
+														<td class="col-md-3">' + obj.hadiah + '</td>\
+														<td class="col-md-3">' + obj.slots + '</td>\
+														<td class="col-md-3">' + obj.date_start + '</td>\
+														<td class="col-md-3">' + obj.time + '</td>\
 													</tr>\
 												</tbody>\
 											</table>\

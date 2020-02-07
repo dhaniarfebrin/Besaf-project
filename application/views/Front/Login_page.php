@@ -10,6 +10,7 @@ $country = [
 	<img src="<?= base_url() ?>assets/Front/img/logo.png" alt="" class="mr-auto p-3" width="200px">
 </a>
 <div class="container">
+	<input type="hidden" class="kode" value="<?= $verificationcode; ?>">
 	<div class="row no-gutters mx-auto">
 		<div class="col-3 col-xls">
 			<div class="d-flex position-relative" style="z-index: 2;">
@@ -83,7 +84,7 @@ $country = [
 							</div>
 							<div class="form-group">
 								<label for="Password" class="font-weight-bold">Password</label>
-								<input type="password" class="form-control bg-dark text-white password" id="password" placeholder="Password" onkeyup="check_password()" required>
+								<input type="password" class="form-control bg-dark text-white regpassword" id="password" placeholder="Password" onkeyup="check_password()" required>
 							</div>
 							<div class="form-group">
 								<label for="ConfirmPassword" class="font-weight-bold">Confirm Password</label>

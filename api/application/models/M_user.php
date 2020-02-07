@@ -87,7 +87,7 @@ class M_user extends CI_Model
         $verifypassword = htmlspecialchars(trim(strip_tags($post['verifypassword'])));
         $country = htmlspecialchars(trim(strip_tags($post['country'])));
         $role_id = 1; #user
-        $is_active = 1; #belum aktif
+        $is_active = 0; #belum aktif
 
         if (!$fullname) {
             $response = [
@@ -132,7 +132,7 @@ class M_user extends CI_Model
         }
 
         // verification
-        $token = base64_encode(random_bytes(32));
+        $token = base64_encode($email);
         $user_token = [
             'email' => $email,
             'token' => $token
@@ -144,14 +144,84 @@ class M_user extends CI_Model
         ];
 
         // insert
-        $this->db->insert('user', $data);
-        $this->db->insert('user_token', $user_token);
+        $this->db->insert('user', $data); // user
+        $this->db->insert('user_token', $user_token); //user_token
+        $this->_sendEmail($email, $token, 'verify');
+
         $response = [
             'error' => false,
-            'message' => 'Akun anda sudah dibuat. Silahkan login...'
+            'message' => 'Akun anda sudah dibuat. Silahkan aktivasi akun anda!'
         ];
         goto output;
 
+        output: return $response;
+    }
+
+    private function _sendEmail($email, $token, $type)
+    {
+        $config = [
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_user' => 'albedrizki013@gmail.com',
+            'smtp_pass' => 'pojareaku13',
+            'smtp_port' => 465,
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'newline' => "\r\n"
+        ];
+
+        $this->load->library('email', $config);
+
+        $this->email->from('albedrizki013@gmail.com', 'Besaf Management');
+        $this->email->to($email);
+
+        if ($type == 'verify') {
+            $message = 'Akun anda ' . $email . ' telah diverifikasi! Silahkan <a href="' . $_SERVER['SERVER_NAME'] . '/auth/verify/' . urlencode($token) . '">login</a>.';
+            $this->email->subject('Account Verification');
+            $this->email->message($message);
+        } elseif ($type == 'forgot') {
+            $message = 'developer salah alamat';
+            $this->email->subject('Reset Password');
+            $this->email->message($message);
+        }
+
+        if ($this->email->send()) {
+            return true;
+        } else {
+            echo $this->email->print_debugger();
+            die;
+        }
+    }
+
+    public function verify($post)
+    {
+        // * Verifikasi email user
+        $verifycode = urldecode($post['verificationcode']);
+
+        $email = base64_decode($verifycode);
+        $user = $this->db->get_where('user_token', ['token' => $verifycode])->row_array();
+
+        if ($user) {
+            // kalau token cocok
+            $this->db->delete('user_token', ['token' => $verifycode]);
+            // update is_active
+            $this->db->update('user', ['is_active' => 1], ['email' => $email]);
+
+            $response = [
+                'error' => false,
+                'message' => "Akun $email berhasil diaktivasi. Silahkan login untuk lanjutkan...!"
+            ];
+            goto output;
+        } else {
+            // kalau token tidak cocok
+            $this->db->delete('user_token', ['token' => $verifycode]);
+
+            $response = [
+                'error' => true,
+                'message' => "Akun $email sebelumnya sudah diaktivasi. Silahkan login untuk lanjutkan...!"
+            ];
+            goto output;
+        }
         output: return $response;
     }
 }

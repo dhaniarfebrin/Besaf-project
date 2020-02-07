@@ -6,6 +6,28 @@
 <!-- formjs -->
 <script>
     $(document).ready(function() {
+        // ! VERIFIKASI EMAIL
+        data = $('input.kode').val();
+        if (data !== '') {
+
+            $.ajax({
+                method: "POST",
+                url: "<?= base_url('api/user/verify') ?>",
+                data: {
+                    verificationcode: data
+                },
+                success: function(response) {
+                    pesan = response.message
+                    if (response.error == true) {
+                        notif("div.muncul-pesan", 'warning', pesan)
+                    } else {
+                        $('div.muncul-pesan').html('')
+                        notif('div.muncul-pesan', 'success', pesan)
+                    }
+                }
+            });
+        }
+
         // LOGIN ajax
         $(document).on('submit', 'form.form-login', function() {
             usernameEmail = $('input.usernameEmail').val()
