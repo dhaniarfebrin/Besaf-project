@@ -18,14 +18,11 @@
 			</div>
 		</div>
 			<div class="m-portlet__body">
-				<div class="row">
-					<?php
-					for ($no=1; $no <= 8; $no++) {
-					?>
+				<div class="row first_discover">
 					<div class="col-sm-3 mb-5">
 						<a href="#lihat" class="text-dark" data-toggle="modal" style="text-decoration: none">
 							<div class="m-portlet m-portlet--mobile hover" style="width: 100%;">
-							  	<img class="card-img-top" src="<?php echo base_url('assets/app/media/img/products/product').$no.'.jpg'; ?>" alt="Card image cap" class="hover">
+							  	<img class="card-img-top" src="<?php echo base_url('assets/app/media/img/products/product7.jpg'); ?>" alt="Card image cap" class="hover">
 							  	<div class="card-body">
 							    	<p class="card-text">
 							    		<strong>User <?php echo $no; ?></strong> <br>
@@ -35,13 +32,10 @@
 							</div>
 						</a>
 					</div>
-					<?php 
-					} for ($no=9; $no <= 10; $no++) { 
-					?> 
 					<div class="col-sm-3 mb-5 collapse" id="more">
 						<a href="#lihat" class="text-dark" data-toggle="modal" style="text-decoration: none">
 							<div class="m-portlet m-portlet--mobile hover" style="width: 100%;">
-							  	<img class="card-img-top" src="<?php echo base_url('assets/app/media/img/products/product').$no.'.jpg'; ?>" alt="Card image cap" class="hover">
+							  	<img class="card-img-top" src="<?php echo base_url('assets/app/media/img/products/product7.jpg'); ?>" alt="Card image cap" class="hover">
 							  	<div class="card-body">
 							    	<p class="card-text">
 							    		<strong>User <?php echo $no; ?></strong> <br>
@@ -51,7 +45,6 @@
 							</div>
 						</a>
 					</div>
-					<?php } ?>
 					<div class="col-md-12" align="center">
 						<button class="btn btn-primary btn-lg" data-toggle="collapse" data-target="#more">More</button>
 					</div>
@@ -60,30 +53,30 @@
 		</div>
 	</div>
 </div>
-<div class="modal fade" id="lihat">
+<div class="modal fade" id="lihat_post">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-md-7">
-						<img src="<?php echo base_url('assets/app/media/img/products/product7.jpg'); ?>" alt="" style="width: 100%">
+						<img src="<?php echo base_url('assets/app/media/img/products/product7.jpg'); ?>" alt="" style="width: 100%" class="post-image">
 					</div>
 					<div class="col">
 						<div class="card">
 							<div class="row" style="padding: 5px">
 								<div class="col-md-3">
-									<img src="<?php echo base_url('assets/app/media/img/users/100_1.jpg'); ?>" class="rounded rounded-circle" style="width: 50px">
+									<img src="<?php echo base_url('assets/app/media/img/users/100_1.jpg'); ?>" class="rounded rounded-circle user-image" style="width: 50px">
 								</div>
 								<div class="col-md-7">
-									<big><b>Kacang</b></big><br>
-									<small>3 minutes ago</small>
+									<big><b class="user-name">Kacang</b></big><br>
+									<small class="date">3 minutes ago</small>
 								</div>
 								<div class="col-md-2">
 									<button class="close" data-dismiss="modal" type="button">x</button>
 								</div>
 								<div class="col-md-2 mt-4">
 									<button class="btn btn-danger btn-sm" data-container="body" data-toggle="m-popover" data-content="Sukai" data-placement="bottom">
-										<i class="la la-heart"></i>
+										<i class="la la-heart likes"></i>
 									</button>
 								</div>
 								<div class="col-md-10 mt-4">

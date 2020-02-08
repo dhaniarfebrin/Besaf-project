@@ -360,6 +360,7 @@ $country = [
 		}, false);
 	</script>
 	<!-- formjs -->
+
 	<script>
 		$(document).ready(function() {
 			// LOGIN ajax
