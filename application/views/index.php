@@ -14,6 +14,7 @@ $country = [
 	<title>BESAF</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="assets/css/all.css">
 	<link rel="shortcut icon" href="<?= base_url() ?>/favicon.ico" />
 </head>
 
@@ -32,7 +33,7 @@ $country = [
 					<h5 class="subtitle1">EVERYDAY, EVERY WEEK, EVERYTIME</h5>
 					<p class="lead desc">Play more to win prizes with tons and activities inside.
 						Create your own team to join tournaments and level up!</p>
-					<button type="button" class="btn btn-reg reg col-sm" data-toggle="modal" data-target="#staticBackdrop" onclick="load()">Register or Login<div class="col-sm"></div></button>
+					<button type="button" class="btn btn-reg reg col-sm" data-toggle="modal" data-target="#staticBackdrop">Get Started<div class="col-sm"></div></button>
 				</div>
 				<div class="col-sm">
 					<img src="<?= base_url('img/img1.png') ?>" alt="" width="600px" class="img2">
@@ -80,127 +81,9 @@ $country = [
 	<div class="jumbotron jumbotron-fluid mb-0" style="background: url('<?= base_url('img/background2.jpg') ?>');">
 		<div class="container">
 
-			<h1 class="display-5 title1 text-center mb-5">THE EVENTS</h1>
+			<h1 class="display-5 title1 text-center mb-5">LATEST TOURNAMENT</h1>
 			<div class="tournament">
-				<div class="event mb-5 mt-5">
-					<div class="row">
-						<div class="col-md-2 img">
-							<img src="<?= base_url('img/cosplay.jpg') ?>" alt="" width="100%" height="100%">
-						</div>
-						<div class="col-md body-event w-100">
-							<div class="">
-								<div class="judul-event mx-0 my-0">
-									<div class="w-100">
-										<div class="judul">
-											<h5 class="judev">Cosplay Competition</h5>
-											<div class="ml-auto mr-3">
-												<label class="badge badge-danger">Ongoing</label>
-											</div>
-										</div>
-									</div>
-								</div>
-								<table class="table table-borderless">
-									<thead>
-										<tr class="text-grey">
-											<th scope="col-md-3">PRIZE</th>
-											<th scope="col-md-3">SLOTS</th>
-											<th scope="col-md-3">DATE</th>
-											<th scope="col-md-3">TIME</th>
-										</tr>
-									</thead>
-									<tbody class="text-white">
-										<tr class="mb-0">
-											<td class="col-md-3">IDR 2.000.000</td>
-											<td class="col-md-3">6/320</td>
-											<td class="col-md-3">13 Jan 2020</td>
-											<td class="col-md-3">09:00 GMT +7</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
 
-				<div class="event mb-5">
-					<div class="row">
-						<div class="col-md-2 img">
-							<img src="<?= base_url('img/logocompe.jpg') ?>" alt="" width="100%" height="100%">
-						</div>
-						<div class="col-md body-event w-100">
-							<div class="">
-								<div class="judul-event mx-0 my-0">
-									<div class="w-100">
-										<div class="judul">
-											<h5 class="judev">DBklik Logo Design Competition</h5>
-											<div class="ml-auto mr-3">
-												<label class="badge badge-warning">Upcoming</label>
-											</div>
-										</div>
-									</div>
-								</div>
-								<table class="table table-borderless">
-									<thead>
-										<tr class="text-grey">
-											<th scope="col-md-3">PRIZE</th>
-											<th scope="col-md-3">SLOTS</th>
-											<th scope="col-md-3">DATE</th>
-											<th scope="col-md-3">TIME</th>
-										</tr>
-									</thead>
-									<tbody class="text-white">
-										<tr class="mb-0">
-											<td class="col-md-3">1 UNIT MONITOR GAMING</td>
-											<td class="col-md-3">54/64</td>
-											<td class="col-md-3">18 Jan 2020</td>
-											<td class="col-md-3">08:00 GMT +7</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="event mb-5">
-					<div class="row">
-						<div class="col-md-2 img">
-							<img src="<?= base_url('img/dignity.jpg') ?>" alt="" width="100%" height="100%">
-						</div>
-						<div class="col-md body-event w-100">
-							<div class="">
-								<div class="judul-event mx-0 my-0">
-									<div class="w-100">
-										<div class="judul">
-											<h5 class="judev">Besaf Digital Neo-Society Festival</h5>
-											<div class="ml-auto mr-3">
-												<label class="badge badge-secondary">Over</label>
-											</div>
-										</div>
-									</div>
-								</div>
-								<table class="table table-borderless">
-									<thead>
-										<tr class="text-grey">
-											<th scope="col-md-3">PRIZE</th>
-											<th scope="col-md-3">SLOTS</th>
-											<th scope="col-md-3">DATE</th>
-											<th scope="col-md-3">TIME</th>
-										</tr>
-									</thead>
-									<tbody class="text-white">
-										<tr class="mb-0">
-											<td class="col-md-3">IDR 10.000.000</td>
-											<td class="col-md-3">325/432</td>
-											<td class="col-md-3">6 Des 2019</td>
-											<td class="col-md-3">07:00 GMT +7</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 
 			<div class="">
@@ -216,7 +99,7 @@ $country = [
 				</div>
 			</div>
 
-			<a href="<?= base_url('auth/tournament') ?>"><button class="btn btn-tour mt-5">See More Tournament</button></a>
+			<a href="<?= base_url('auth/tournament') ?>" class="text-decoration-none"><button class="btn btn-tour mt-5">See More Tournament</button></a>
 		</div>
 	</div>
 
@@ -321,31 +204,41 @@ $country = [
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<div class="row" id="head">
-						<div class="col-md lgn">
-							<button type="button" class="btn text-white font-weight-bold lgn active" onclick="changeTab('login')">LOGIN</button>
-						</div>
-						<div class="col-md rgs">
-							<button type="button" class="btn text-white font-weight-bold rgs" onclick="changeTab('register')">REGISTER</button>
-						</div>
-					</div>
 					<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body">
+				<div class="modal-body px-5">
 					<div class="single-tab log" id="login">
-						<div class="row">
-							<div class="col-md-12 muncul-pesan"></div>
+						<h3 class="text-center font-weight-bold">Sign in to Besaf</h3>
+						<p class="m-0 text-secondary text-center mb-3">
+							Is this your first time? <a href="#" onclick="changeTab('register')" style="color: white">Register now</a>
+						</p>
+						<div class="">
+							<div class="w-100 muncul-pesan"></div>
 						</div>
-						<form action="<?= base_url('auth/login') ?>" method="post" class="form form-login">
-							<input type="text" placeholder="Username or Email" name="" class="form-control mt-3 mb-4 usernameEmail" autocomplete="off" required>
-							<input type="password" name="" id="" placeholder="Password" class="form-control mb-4 password" autocomplete="off">
-							<div class="">
-								<a href="<?= base_url('auth/forgot_password') ?>" class="forgot">Forgot password</a>
+						<form action="<?= base_url('auth/login') ?>" method="post" class="form form-login mt-4">
+							<input type="text" placeholder="Username or Email here" name="" class="form-control mt-3 mb-4 usernameEmail text-white" autocomplete="off">
+
+							<div class="input-group mb-3">
+								<input type="password" name="" id="Password" placeholder="Password" class="form-control password text-white	" autocomplete="off">
+								<div class="input-group-append">
+									<button type="button" class="btn btn-secondary border-0" id="eye" style="background-color: #6c757d"><span class="far fa-eye"></span></button>
+								</div>
 							</div>
-							<button type="submit" class="btn btn-login text-center">Login</button>
+
+
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" id="exampleCheck2">
+								<label class="custom-control-label" for="exampleCheck2">Keep me in</label>
+							</div>
+							<button type="submit" class="btn btn-login text-center">Let me in</button>
 						</form>
+						<div class="d-block text-center mt-1">
+							<p class="m-0 text-secondary">
+								Lost your password? <a href="<?= base_url('auth/forgot_password') ?>" class="forgot" style="color: white">Click here</a>
+							</p>
+						</div>
 
 						<p>or login with</p>
 						<div class="row alternate">
@@ -354,8 +247,12 @@ $country = [
 						</div>
 					</div>
 
-
-					<div class="single-tab" id="register">
+					<!-- Register -->
+					<div class="single-tab mt-3" id="register">
+						<h4 class="text-center font-weight-bold">Create your Account</h4>
+						<div class="d-block text-center mb-3">
+							<p class="text-secondary">Already have an account? <a href="#" class="text-white" onclick="changeTab('login')">Go Back</a></p>
+						</div>
 						<div class="row">
 							<div class="col-md-12 muncul-pesan-daftar"></div>
 						</div>
@@ -384,14 +281,16 @@ $country = [
 									<label class="custom-control-label" for="exampleCheck2">I want to receive newsletter email from Besaf</label>
 								</div>
 							</div>
-							<button type="submit" class="btn btn-login text-center">Register</button>
+							<button type="submit" class="btn btn-login text-center">Create my account</button>
 						</form>
+
 						<p class="text-center">or login with</p>
 						<div class="row alternate">
 							<div class="col-md fb btn btn-primary">Facebook</div>
 							<div class="col-md ggl btn btn-danger">Google</div>
 						</div>
 					</div>
+					<!-- akhir register -->
 
 
 				</div>
@@ -412,17 +311,6 @@ $country = [
 			document.getElementById(tab).style.display = 'block';
 		}
 
-		//active button
-		var header = document.getElementById('head');
-		var btns = header.getElementsByClassName('btn');
-
-		for (var i = 0; i < btns.length; i++) {
-			btns[i].addEventListener('click', function() {
-				var current = document.getElementsByClassName('active');
-				current[0].className = current[0].className.replace(" active", "");
-				this.className += " active";
-			});
-		}
 
 		function check_password() {
 			var password1 = document.getElementById('password')
@@ -430,26 +318,46 @@ $country = [
 			var valPassword1 = document.getElementById('password').value
 			var valPassword2 = document.getElementById('confirm_password').value
 
-			// pencocokan password
-			if (valPassword1 == valPassword2) {
-				password2.classList.remove("border-danger");
-				password2.classList.add("border");
-				password2.classList.add("border-success");
-				document.getElementById("pesan").innerHTML = "Match";
-				document.getElementById("pesan").className = "text-success";
-			} else if (valPassword1 != valPassword2) {
-				password2.classList.remove("border-success");
-				password2.classList.add("border");
-				password2.classList.add("border-danger");
-				document.getElementById("pesan").innerHTML = "Not Match";
-				document.getElementById("pesan").className = "text-danger";
+			if (valPassword1 == "" && valPassword2 == "") {
+				password2.classList.remove("border");
+				document.getElementById("pesan").className = "d-none";
+			} else {
+				// pencocokan password
+				if (valPassword1 == valPassword2) {
+					password2.classList.remove("border-danger");
+					password2.classList.add("border");
+					password2.classList.add("border-success");
+					document.getElementById("pesan").innerHTML = "Match";
+					document.getElementById("pesan").className = "text-success";
+				} else if (valPassword1 != valPassword2) {
+					password2.classList.remove("border-success");
+					password2.classList.add("border");
+					password2.classList.add("border-danger");
+					document.getElementById("pesan").innerHTML = "Not Match";
+					document.getElementById("pesan").className = "text-danger";
+				}
 			}
+
+
 		}
+
+		var passwordField = document.getElementById('Password');
+		var eyeIcon = document.getElementById('eye');
+
+		eyeIcon.addEventListener("mousedown", function() {
+			passwordField.setAttribute("type", "text");
+		});
+		eyeIcon.addEventListener("mouseup", function() {
+			passwordField.setAttribute("type", "password");
+		});
+		eyeIcon.addEventListener("mouseleave", function() {
+			passwordField.setAttribute("type", "password");
+		})
 
 		// progress bar saat pindah halaman
 		window.addEventListener("beforeunload", function(e) {
 			document.body.className = "loading-halaman";
-		}, false)
+		}, false);
 	</script>
 	<!-- formjs -->
 
@@ -524,8 +432,7 @@ $country = [
 			// notifikasi
 			function notif(element, type, message) {
 				$(element).html('\
-				<div class="alert alert-' + type + '" role="alert">\
-			        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>\
+				<div class="alert alert-' + type + ' mb-0 shadow rounded-0" role="alert">\
 			        ' + message + '\
 			    </div>\
 			    ');
@@ -537,20 +444,22 @@ $country = [
 				success: function(req) {
 					html = '';
 					$.each(req.data, function(index, obj) {
-						if (obj.date_end >= '<?php echo date('Y-m-d') ?>') {
+						if ('<?php echo date('Y-m-d') ?>' <= obj.date_end && '<?= date('Y-m-d') ?>' >= obj.date_start) {
 							status = '<label class="badge badge-danger">On going</label>';
+						} else if ('<?= date('Y-m-d') ?>' < obj.date_start) {
+							status = '<label class="badge badge-primary">Upcoming</label>';
 						} else {
-							status = '<label class="badge badge-secondary">End</label>'
+							status = '<label class="badge badge-secondary">Over</label>';
 						}
 						if (index < 3) {
 							console.log(obj);
 							html += '\
-							<div class="event mb-5 mt-5">\
-								<div class="row">\
-									<div class="col-md-2 img">\
-										<img src="<?= base_url('api/img/turnamen/') ?>' + obj.image + '" alt="" style="width: 100%;">\
+							<div class="event card mb-5 mt-5 shadow">\
+								<div class="row no-gutters">\
+									<div class="col-md-3 col-xl-2 img card-image">\
+										<img src="<?= base_url('api/img/turnamen/') ?>' + obj.image + '" alt="" class="img-fluid">\
 									</div>\
-									<div class="col-md body-event w-100">\
+									<div class="col-md col-xl body-event w-100 px-4">\
 										<div class="">\
 											<div class="judul-event mx-0 my-0">\
 												<div class="w-100">\
@@ -564,19 +473,19 @@ $country = [
 											</div>\
 											<table class="table table-borderless">\
 												<thead>\
-													<tr class="text-grey">\
-														<th class="col-md-3">PRIZE</th>\
-														<th class="col-md-3">SLOTS</th>\
-														<th class="col-md-3">DATE</th>\
-														<th class="col-md-3">TIME</th>\
+													<tr class="text-grey row">\
+														<th class="col">PRIZE</th>\
+														<th class="col">SLOTS</th>\
+														<th class="col">DATE</th>\
+														<th class="col">TIME</th>\
 													</tr>\
 												</thead>\
 												<tbody class="text-white">\
-													<tr class="mb-0">\
-														<td class="col-md-3">' + obj.hadiah + '</td>\
-														<td class="col-md-3">' + obj.slots + '</td>\
-														<td class="col-md-3">' + obj.date_start + '</td>\
-														<td class="col-md-3">' + obj.time + '</td>\
+													<tr class="mb-0 row">\
+														<td class="col"><span class="text-grey">Rp. </span>' + obj.hadiah + '</td>\
+														<td class="col">' + obj.slots + '</td>\
+														<td class="col">' + obj.date_start + '</td>\
+														<td class="col">' + obj.time + '</td>\
 													</tr>\
 												</tbody>\
 											</table>\
