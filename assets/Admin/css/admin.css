@@ -35,15 +35,14 @@ body {
 .sidebar {
 	display: block;
 	width: 250px;
-	height: 100vh;
+	margin-left: -270px;
+	height: 100VH;
 	background-color: #262626;
-	float: left;
 	position: sticky;
+	float: left; 
 	box-shadow: 1px 1px 10px black;
-	/*	border-radius: 0px;*/
 	transition: .5s;
 	top: 0px;
-	z-index: 99 !important;
 }
 
 .nav-item {
@@ -134,6 +133,8 @@ body {
 
 .main {
 	padding: 20px;
+	position: static;
+	transition: .5s;
 }
 
 .mainNavbar {

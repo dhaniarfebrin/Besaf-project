@@ -18,10 +18,11 @@
 
 <body>
 
+
+<div>
 	<!-- Main Navbar -->
 	<nav class="navbar mainNavbar fixed">
-		<div class="row w-100">
-
+		<div class="row">
 			<div class="d-block p-2 pl-4 pr-4">
 				<button class="d-block bg-transparent border-0 ml-3 mt-2" onclick="openNav()">
 					<h5 class="fas fa-stream"></h5>

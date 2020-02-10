@@ -100,14 +100,16 @@
                 success : function(req) {
                     html = '';
                     $.each(req.data, function(index,obj) {
-                        if (obj.date_end >= '<?php echo date('Y-m-d') ?>') {
-                            status = '<label class="badge badge-danger">On going</label>';
-                        } else {
-                            status = '<label class="badge badge-secondary">End</label>'
-                        }
+                        if ('<?php echo date('Y-m-d') ?>' <= obj.date_end && '<?= date('Y-m-d') ?>' >= obj.date_start) {
+							status = '<label class="badge badge-danger">On going</label>';
+						} else if ('<?= date('Y-m-d') ?>' < obj.date_start) {
+							status = '<label class="badge badge-primary">Upcoming</label>';
+						} else {
+							status = '<label class="badge badge-secondary">Over</label>';
+						}
                             html += '\
                             <a href="<?= base_url('auth/tournament_details/') ?>'+obj.id+'" class="text-decoration-none">\
-                            <div class="card bg-dark rounded text-white card-hover">\
+                            <div class="card bg-dark rounded text-white card-hover mt-3">\
                                 <div class="row no-gutters">\
                                     <div class="col-md-4 col-xl-3" align="center">\
                                         <img src="<?php echo base_url('api/img/turnamen/') ?>'+obj.image+'" alt="" class="rounded-left" style="max-width: 200px; max-height: 200px">\
@@ -199,6 +201,14 @@
 			    ');
         }
     });
+
+    $(document).ajaxStart(function () {
+        // document.getElementById('loader').style.display = "block";
+        $('#loader').fadeIn();
+    }).ajaxComplete(function () {
+        // document.getElementById('loader').style.display = "none";
+        $('#loader').fadeOut();
+    })
 </script>
 </body>
 

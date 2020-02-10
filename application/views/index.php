@@ -19,6 +19,9 @@ $country = [
 </head>
 
 <body>
+	<div class="w-100 h-100 bg-dark loader" id="loader">
+		<img src="<?= base_url() ?>assets/img/loader.svg" alt="" class="d-block m-auto loaderIcon">
+	</div>
 	<div class="jumbotron jumbotron-fluid section1">
 		<div class="container">
 			<div class="row">
@@ -99,7 +102,7 @@ $country = [
 				</div>
 			</div>
 
-			<a href="<?= base_url('auth/tournament') ?>" class="text-decoration-none"><button class="btn btn-tour mt-5">See More Tournament</button></a>
+			<a href="<?= base_url('Auth/Tournament') ?>" class="text-decoration-none"><button class="btn btn-tour mt-5">See More Tournament</button></a>
 		</div>
 	</div>
 
@@ -153,7 +156,7 @@ $country = [
 					<h5 class="display-5 title1 mt-5 mb-4">SOCIAL MEDIA</h5>
 					<img src="http://yamisok.com/assets/images/landing/new/packed/SOCIAL-MEDIA.jpg" alt="" class="mb-4" width="80%">
 					<p class="lead desc">Social and interaction media for every
-						player available in Yamisok.</p>
+						player available in Besaf.</p>
 				</div>
 				<div class="col-md-3">
 					<h5 class="display-5 title1 mt-5 mb-4">STREAMING</h5>
@@ -358,6 +361,16 @@ $country = [
 		window.addEventListener("beforeunload", function(e) {
 			document.body.className = "loading-halaman";
 		}, false);
+
+		// loader
+		$(document).ajaxStart(function() {
+			// document.getElementById('loader').style.display = "block";
+			$('#loader').fadeIn();
+		}).ajaxComplete(function() {
+			// document.getElementById('loader').style.display = "none";
+			$('#loader').fadeOut();
+		})
+		// end loader
 	</script>
 	<!-- formjs -->
 

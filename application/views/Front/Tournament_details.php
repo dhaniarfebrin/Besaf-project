@@ -8,7 +8,7 @@
 <div class="container text-white">
     <div class="col-md col-sm bg-dark shadow py-2">
         <!-- judul tournament -->
-        <h4 class="m-0 text-wrap p-2 title-di-mobile-tournament-detail nama">CODM Pro Challenge Series x Boom Esports</h4>
+        <h4 class="m-0 text-wrap p-2 title-di-mobile-tournament-detail nama">-</h4>
         <!-- end judul tournament -->
     </div>
     <div class="row mt-3">
@@ -16,7 +16,7 @@
             <div class="card bg-dark shadow">
                 <!-- Gambar Tournament -->
                 <div class="card-image p-3" align="center">
-                    <img src="http://res.cloudinary.com/yamisok/image/upload/h_400,f_auto/v1579580512/tournament/xbnkdevoxrx6tuul8wle.jpg" alt="" class="mw-100 img-fluid turnamen_image">
+                    <img src="" alt="" class="mw-100 img-fluid turnamen_image">
                 </div>
                 <!-- end Gambar Tournament -->
 
@@ -24,15 +24,15 @@
                 <div class="card-body">
                     <div>
                         <h5 class="text-secondary text-md">Registration Open</h5>
-                        <p class="text-sm date_start">Until Fri, 7 Feb 2020 - 2:00 pm, GMT +7</p>
+                        <p class="text-sm date_start">-</p>
                     </div>
                     <div>
                         <h5 class="text-secondary text-md">Tournament Start</h5>
-                        <p class="text-sm date_start">Begin on Fri, 7 Feb 2020 - 3:00 pm, GMT +7</p>
+                        <p class="text-sm date_start">-</p>
                     </div>
                     <div>
                         <h5 class="text-secondary text-md">Joined Teams</h5>
-                        <p class="text-lg slots">0/32</p>
+                        <p class="text-lg slots"></p>
                     </div>
                     <a href="#" class="font-italic text-white" data-toggle="modal" data-target="#how_to_join">how to join</a> |
                     <a href="#" class="font-italic text-white" data-toggle="modal" data-target="#view_rules">view rules</a>
@@ -56,11 +56,11 @@
                         </div>
                         <!-- Tournament Details -->
                         <div class="col text-sm">
-                            <p class="hover host">Yamisok</p>
-                            <p class="hover host">Yamisok</p>
-                            <p class="text-secondary mode">Single Elimination</p>
-                            <p class="text-secondary">Amount</p>
-                            <p class="text-secondary venue">Online Tournament</p>
+                            <p class="hover host">-</p>
+                            <p class="hover host">-</p>
+                            <p class="text-secondary mode">-</p>
+                            <p class="text-secondary">-</p>
+                            <p class="text-secondary venue">-</p>
                         </div>
                         <!-- End tounament details -->
                     </div>
@@ -73,7 +73,7 @@
                 <div class="card-body">
                     <div class="row no-gutters">
                         <!-- Prize total -->
-                        <p class="text-md m-0 hadiah">Rp 1.000.000</p>
+                        <p class="text-md m-0 hadiah">Rp -</p>
                         <!-- end prize total -->
                         <a href="#" class="text-sm ml-auto text-white font-italic" data-toggle="modal" data-target="#prizes">view all prizes</a>
                     </div>
@@ -88,8 +88,7 @@
                 </div>
                 <div class="card-body deskripsi-di-mobile deskripsi">
                     <div>
-                        <p class="text-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores aperiam eaque odit quis sit repellendus suscipit ea repudiandae voluptatum, nobis, eius ipsa tempore, quaerat deserunt illo dicta commodi doloribus cum.</p>
-                        <p class="text-wrap">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae mollitia et possimus ducimus aliquid a explicabo exercitationem qui rerum nisi atque nesciunt, aliquam laboriosam eum facilis! Quasi temporibus earum itaque?</p>
+                        -
                     </div>
                 </div>
             </div>
@@ -109,11 +108,7 @@
                 </button>
             </div>
             <div class="modal-body rules">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, a dolores cupiditate voluptatem ex ipsam ipsa natus earum molestiae itaque sapiente quos rem corporis assumenda dolor veritatis corrupti odit temporibus?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, odio. Dolor quaerat voluptatibus consequatur iusto corrupti eos debitis dolore! Aut praesentium ex quidem architecto, cupiditate fugiat perspiciatis ipsa temporibus voluptatibus.</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae fugit nostrum, soluta reprehenderit in quae magnam excepturi et obcaecati nulla. Odio, nisi veniam corrupti quisquam nulla velit aut in voluptatum?</p>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore culpa impedit necessitatibus voluptate vero dolorum ad reiciendis. Quo odit, porro minima saepe soluta quaerat commodi reprehenderit illum ducimus, illo earum.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos nesciunt sint delectus sapiente consequuntur similique aperiam quod at maiores? Magnam porro eligendi sit laudantium eos autem eius id tempora asperiores?</p>
+               -
             </div>
         </div>
     </div>
@@ -131,8 +126,7 @@
                 </button>
             </div>
             <div class="modal-body to_join">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore culpa impedit necessitatibus voluptate vero dolorum ad reiciendis. Quo odit, porro minima saepe soluta quaerat commodi reprehenderit illum ducimus, illo earum.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos nesciunt sint delectus sapiente consequuntur similique aperiam quod at maiores? Magnam porro eligendi sit laudantium eos autem eius id tempora asperiores?</p>
+                -
             </div>
         </div>
     </div>

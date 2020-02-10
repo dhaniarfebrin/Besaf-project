@@ -11,12 +11,13 @@ window.addEventListener("beforeunload", function (e) {
 
 function closeNav() {
 	//	document.getElementById('sidebar').style.width = "0px";
-	document.getElementById('sidebar').style.marginLeft = '-270px';
+	document.getElementById('sidebar').style.marginLeft = '-250px';
+	document.getElementById('main').style.marginLeft = "0px";
 }
-
 
 function openNav() {
 	document.getElementById('sidebar').style.marginLeft = "0px";
+	document.getElementById('main').style.marginLeft = "250px";
 }
 
 function addRole() {

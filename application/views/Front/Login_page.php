@@ -11,21 +11,12 @@ $country = [
 </a>
 <div class="container">
 	<input type="hidden" class="kode" value="<?= $verificationcode; ?>">
-	<div class="row no-gutters mx-auto">
-		<div class="col-3 col-xls">
-			<div class="d-flex position-relative" style="z-index: 2;">
-				<a href="#" class="ml-auto back-button-login-page">
-					<div class="btn back bg-dark py-3 px-4 rounded-circle shadow mt-2" style="margin-right: -16px;" onclick="goBack()">
-						<span class="fas fa-chevron-left text-white"></span>
-					</div>
-				</a>
-			</div>
-		</div>
+	<div class="mx-auto">
 		<div class="col col-xls">
-			<div class="card border-0 mx-auto text-white rounded position-relative px-4 pt-4 card-login-page" style="z-index: 1; background-color: #1a2027">
+			<div class="card border-0 mx-auto text-white rounded position-relative px-4 pt-4 pb-4 card-login-page" style="z-index: 1; background-color: #1a2027">
 				<div class="card-header bg-transparent border-bottom-0 p-0">
 					<div class="d-flex position-relative" style="z-index: 2;">
-						<a href="#" class="mr-auto back-button-login-page" onclick="goBack()">
+						<a class="mr-auto back-button-login-page" onclick="goBack()">
 							<div class="btn back bg-transparent py-3 px-4 rounded-0 shadow m-0" style="margin-right: -16px;">
 								<span class="fas fa-chevron-left text-white"></span>
 							</div>
@@ -38,7 +29,7 @@ $country = [
 					<div class="single-tab" id="login">
 						<h3 class="text-center font-weight-bold">Sign in to Besaf</h3>
 						<p class="m-0 text-secondary text-center mb-0">
-							Is this your first time? <a href="#" onclick="changeTab('register')" style="color: white">Register now</a>
+							Is this your first time? <a onclick="changeTab('register')" style="color: white">Register now</a>
 						</p>
 						<form action="<?= base_url('auth/login') ?>" method="POST" class="p-5 form form-login">
 							<div class="justify-content-center">
@@ -77,7 +68,7 @@ $country = [
 					<div class="single-tab" id="register">
 						<h4 class="text-center font-weight-bold">Create your Account</h4>
 						<div class="d-block text-center mb-3">
-							<p class="text-secondary">Already have an account? <a href="#" class="text-white" onclick="changeTab('login')">Go Back</a></p>
+							<p class="text-secondary">Already have an account? <a class="text-white" onclick="changeTab('login')">Go Back</a></p>
 						</div>
 						<form action="<?= base_url('auth/registrasi') ?>" method="POST" class="p-5 form form-daftar">
 							<div class="justify-content-center">

@@ -219,3 +219,18 @@ body {
 		background-color: transparent !important;
 	}
 }
+
+.loader {
+	position: fixed;
+	z-index: 999 !important;
+	opacity: .8;
+}
+
+.loaderIcon {
+	position: absolute;
+    top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+/* end animasi */
