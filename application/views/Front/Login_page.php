@@ -11,39 +11,42 @@ $country = [
 </a>
 <div class="container">
 	<input type="hidden" class="kode" value="<?= $verificationcode; ?>">
-	<div class="col col-xls">
-		<div class="card border-0 mx-auto text-white rounded position-relative px-4 pt-4 card-login-page" style="z-index: 1; background-color: #1a2027">
-			<div class="card-header bg-transparent border-bottom-0 p-0">
-				<div class="d-flex position-relative" style="z-index: 2;">
-					<a href="#" class="mr-auto back-button-login-page" onclick="goBack()">
-						<div class="btn back bg-transparent py-3 px-4 rounded-0 shadow m-0" style="margin-right: -16px;">
-							<span class="fas fa-chevron-left text-white"></span>
-						</div>
-					</a>
+	<div class="mx-auto">
+		<div class="col col-xls">
+			<div class="card border-0 mx-auto text-white rounded position-relative px-4 pt-4 pb-4 card-login-page" style="z-index: 1; background-color: #1a2027">
+				<div class="card-header bg-transparent border-bottom-0 p-0">
+					<div class="d-flex position-relative" style="z-index: 2;">
+						<a class="mr-auto back-button-login-page" onclick="goBack()">
+							<div class="btn back bg-transparent py-3 px-4 rounded-0 m-0" style="margin-right: -16px;">
+								<span class="fas fa-chevron-left"></span>
+							</div>
+						</a>
+					</div>
 				</div>
 			</div>
 			<div class="card-body">
 
-				<!-- Login -->
-				<div class="single-tab" id="login">
-					<h3 class="text-center font-weight-bold">Sign in to Besaf</h3>
-					<p class="m-0 text-secondary text-center mb-0">
-						Is this your first time? <a href="#" onclick="changeTab('register')" style="color: white">Register now</a>
-					</p>
-					<form action="<?= base_url('auth/login') ?>" method="POST" class="p-5 form form-login">
-						<div class="justify-content-center">
-							<div class="muncul-pesan"></div>
-						</div>
-						<div class="form-group">
-							<label for="Email" class="font-weight-bold">Username or Email</label>
-							<input type="text" class="form-control bg-dark border-0 text-white usernameEmail col-sm" id="Email" autocomplete="off" aria-describedby="emailHelp" placeholder="Username or Email">
-						</div>
-						<div class="form-group">
-							<label for="Password" class="font-weight-bold">Password</label>
-							<div class="input-group">
-								<input type="password" class="form-control bg-dark border-0 text-white password col-sm" id="Password" placeholder="Password">
-								<div class="input-group-append">
-									<button type="button" class="btn btn-secondary bg-dark border-0" id="eye"><span class="far fa-eye"></span></button>
+					<!-- Login -->
+					<div class="single-tab" id="login">
+						<h3 class="text-center font-weight-bold">Sign in to Besaf</h3>
+						<p class="m-0 text-secondary text-center mb-0">
+							Is this your first time? <a onclick="changeTab('register')" class="text-white hover">Register now</a>
+						</p>
+						<form action="<?= base_url('auth/login') ?>" method="POST" class="p-5 form form-login">
+							<div class="justify-content-center">
+								<div class="muncul-pesan"></div>
+							</div>
+							<div class="form-group">
+								<label for="Email" class="font-weight-bold">Username or Email</label>
+								<input type="text" class="form-control bg-dark border-0 text-white usernameEmail col-sm" id="Email" autocomplete="off" aria-describedby="emailHelp" placeholder="Username or Email">
+							</div>
+							<div class="form-group">
+								<label for="Password" class="font-weight-bold">Password</label>
+								<div class="input-group">
+									<input type="password" class="form-control bg-dark border-0 text-white password col-sm" id="Password" placeholder="Password">
+									<div class="input-group-append">
+										<button type="button" class="btn btn-secondary bg-dark border-0" id="eye"><span class="far fa-eye"></span></button>
+									</div>
 								</div>
 							</div>
 						</div>

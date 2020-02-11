@@ -1,5 +1,5 @@
-<div class="main">
-	<div class="container mt-5">
+<div class="main" id="main">
+	<div class="container-sm mt-5">
 		<h2>Community Details</h2>
 		<div class="row">
 			<div class="col-md-4">
