@@ -97,7 +97,7 @@ $country = [
 							</div>
 							<div class="form-group">
 								<label for="Password" class="font-weight-bold">Password</label>
-								<input type="password" class="form-control bg-dark text-white password" id="password" placeholder="Password" onkeyup="check_password()">
+								<input type="password" class="form-control bg-dark text-white regpassword" id="password" placeholder="Password" onkeyup="check_password()">
 							</div>
 							<div class="form-group">
 								<label for="ConfirmPassword" class="font-weight-bold">Confirm Password</label>

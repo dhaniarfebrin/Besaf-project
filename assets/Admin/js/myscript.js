@@ -11,13 +11,13 @@ window.addEventListener("beforeunload", function (e) {
 
 function closeNav() {
 	//	document.getElementById('sidebar').style.width = "0px";
-	document.getElementById('sidebar').style.marginLeft = '-250px';
-	document.getElementById('main').style.marginLeft = "0px";
+	document.getElementById('sidebar').classList.remove('sidebar-open');
+	document.getElementById('main').classList.remove('main-open');
 }
 
 function openNav() {
-	document.getElementById('sidebar').style.marginLeft = "0px";
-	document.getElementById('main').style.marginLeft = "250px";
+	document.getElementById('sidebar').classList.add('sidebar-open');
+	document.getElementById('main').classList.add('main-open');
 }
 
 function addRole() {
