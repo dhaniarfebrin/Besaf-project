@@ -107,6 +107,7 @@ class M_user extends CI_Model
         $country = htmlspecialchars(trim(strip_tags($post['country'])));
         $role_id = 1; #user
         $is_active = 0; #belum aktif
+        $cek_email = $this->db->get_where('user', ['email' => $email])->row_array();
 
         if (!$fullname) {
             $response = [
@@ -116,6 +117,11 @@ class M_user extends CI_Model
         } elseif (!$username) {
             $response = [
                 'error' => true, 'message' => 'Username belum diisi!'
+            ];
+            goto output;
+        } elseif ($cek_email) {
+            $response = [
+                'error' => true, 'message' => 'Email sudah dipakai! ganti gan...'
             ];
             goto output;
         } elseif (!$email) {
@@ -216,43 +222,6 @@ class M_user extends CI_Model
         }
     }
 
-    // private function _sendEmail($email, $token, $type)
-    // {
-    //     $config = [
-    //         'protocol' => 'smtp',
-    //         'smtp_host' => 'ssl://smtp.googlemail.com',
-    //         'smtp_user' => 'albedrizki013@gmail.com',
-    //         'smtp_pass' => 'pojareaku13',
-    //         'smtp_port' => 465,
-    //         'mailtype' => 'html',
-    //         'charset' => 'utf-8',
-    //         'newline' => "\r\n"
-    //     ];
-
-    //     $this->load->library('email', $config);
-
-    //     $this->email->from('albedrizki013@gmail.com', 'BESAF');
-    //     $this->email->to($email);
-
-    //     if ($type == 'verify') {
-    //         $message = 'Terimakasih sudah mendaftarkan Akun anda ' . $email . ' di BESAF. Silahkan verifikasi akun anda untuk login ke akun BESAF anda, dengan meng-klik tombol <a href="https://' . $_SERVER['SERVER_NAME'] . '/auth/verify/' . urlencode($token) . '">verifikasi</a>.';
-    //         $this->email->subject('BESAF Account Verification');
-    //         $this->email->message($message);
-    //     } elseif ($type == 'forgot') {
-    //         $message = 'Apakah anda kehilangan kata sandi akun ' . $email . ' anda? . Silahkan ganti kata sandi akun anda untuk login ke akun BESAF anda, dengan meng-klik tombol <a href="https://' . $_SERVER['SERVER_NAME'] . '/auth/resetpassword/' . urlencode($token) . '">Change my password</a>.';
-    //         $this->email->subject('Reset Password');
-    //         $this->email->message($message);
-    //     }
-
-    //     if ($this->email->send()) {
-    //         return true;
-    //     } else {
-    //         echo $this->email->print_debugger();
-    //         return false;
-    //         die;
-    //     }
-    // }
-
     public function verify($post)
     {
         // * Verifikasi email user
@@ -287,7 +256,6 @@ class M_user extends CI_Model
 
     public function forgotpassword($post)
     {
-        $this->load->library('email');
         // * Verifikasi email user
         $email = $post['email'];
         $user = $this->db->get_where('user', ['email' => $email])->row_array();
@@ -295,6 +263,9 @@ class M_user extends CI_Model
             'token' => base64_encode($email),
             'email' => $email
         ];
+        // session
+        $this->session->set_userdata(['email' => $email]);
+
         if (!$email) {
             // belum diisi
             $response = [
@@ -328,6 +299,43 @@ class M_user extends CI_Model
                 goto output;
             }
         }
+        output: return $response;
+    }
+
+    public function changePassword($post)
+    {
+        $password = $post['password'];
+        $newpassword = $post['verifypassword'];
+        $email = $post['email'];
+
+        if (!$password) {
+            $response = [
+                'error' => true,
+                'message' => 'Password kosong!'
+            ];
+            goto output;
+        } elseif (!$newpassword) {
+            $response = [
+                'error' => true,
+                'message' => 'Lengkapi password anda!'
+            ];
+            goto output;
+        } elseif ($password !== $newpassword) {
+            $response = [
+                'error' => true,
+                'message' => 'Password tidak sama!'
+            ];
+            goto output;
+        }
+
+        $this->db->delete('user_token', ['email' => $email]);
+        $this->db->update('user', ['password' => password_hash($newpassword, PASSWORD_DEFAULT)], ['email' => $email]);
+        $response = [
+            'error' => false,
+            'message' => "User dengan email: " . $email . " password berhasil di-update! Silahkan <a href=https://" . $_SERVER['SERVER_NAME'] . '/auth/login' . ">login</a>"
+        ];
+        goto output;
+
         output: return $response;
     }
 }

@@ -8,7 +8,33 @@
     $(document).ready(function() {
         data = $('input.kode').val()
 
-        // LUPA PASSWORD
+        // ! CHANGE PASSWORD
+        $(document).on('submit', 'form.form-change', function() {
+            password1 = $('input.newpassword').val()
+            password2 = $('input.newpassword2').val()
+
+            $.ajax({
+                method: 'POST',
+                url: "<?= base_url('api/user/changepassword') ?>",
+                data: {
+                    email: '<?= $email ?>',
+                    password: password1,
+                    verifypassword: password2
+                },
+                success: function(response) {
+                    pesan = response.message
+
+                    if (response.error == true) {
+                        notif('div.muncul-pesan', 'warning', pesan)
+                    } else {
+                        notif('div.muncul-pesan', 'success', pesan)
+                    }
+                }
+            })
+            return false
+        })
+
+        //! LUPA PASSWORD
         $(document).on('submit', 'form.form-forgot', function() {
             forgotemail = $('input.forgot-email').val()
             $.ajax({
