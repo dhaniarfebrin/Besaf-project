@@ -6,17 +6,22 @@
     <div class="card w-50 border-0 mx-auto text-white rounded-0 width-mobile-forgot-password" style="background-color: #1a2027">
         <div class="card-body">
             <h3 class="text-white text-center">Create new Password</h3>
-            <form action="" method="POST" class="px-5 pb-5 pt-4 form-forgot-password-mobile">
+            <div class="row">
+                <div class="col-md-5">
+                    Mengubah password untuk <?= $email; ?>
+                </div>
+            </div>
+            <form action="" method="POST" class="px-5 pb-5 pt-4 form-forgot-password-mobile form-change">
                 <div class="justify-content-center">
                     <div class="muncul-pesan"></div>
                 </div>
                 <div class="form-group">
                     <label for="1">Password</label>
-                    <input autocomplete="off" type="password" class="form-control bg-dark text-white" id="1" placeholder="New Password here.." onkeyup="check_password()">
+                    <input autocomplete="off" type="password" class="form-control bg-dark text-white newpassword" id="1" placeholder="New Password here.." onkeyup="check_password()">
                 </div>
                 <div class="form-group">
                     <label for="2">Confirm Password</label>
-                    <input autocomplete="off" type="password" class="form-control bg-dark text-white" id="2" placeholder="Retype your new password" onkeyup="check_password()">
+                    <input autocomplete="off" type="password" class="form-control bg-dark text-white newpassword2" id="2" placeholder="Retype your new password" onkeyup="check_password()">
                     <span class="d-block text-right ml-auto mt-0">
                         <small id="pesan"></small>
                     </span>

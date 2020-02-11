@@ -36,10 +36,10 @@
 
             <div class="col-md col-xl mt-5">
 
-                    <!-- Tournament List Card -->
-                    <div class="col-md col-xl mt-3 tournament">
-                        Memuat...
-                    </div>
+                <!-- Tournament List Card -->
+                <div class="col-md col-xl mt-3 tournament">
+                    Data kosong....
+                </div>
 
             </div>
         </div>

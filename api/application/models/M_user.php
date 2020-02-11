@@ -1,5 +1,11 @@
 <?
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+require FCPATH . 'vendor/autoload.php';
+
 class M_user extends CI_Model
 {
     public function __construct()
@@ -101,6 +107,7 @@ class M_user extends CI_Model
         $country = htmlspecialchars(trim(strip_tags($post['country'])));
         $role_id = 1; #user
         $is_active = 0; #belum aktif
+        $cek_email = $this->db->get_where('user', ['email' => $email])->row_array();
 
         if (!$fullname) {
             $response = [
@@ -110,6 +117,11 @@ class M_user extends CI_Model
         } elseif (!$username) {
             $response = [
                 'error' => true, 'message' => 'Username belum diisi!'
+            ];
+            goto output;
+        } elseif ($cek_email) {
+            $response = [
+                'error' => true, 'message' => 'Email sudah dipakai! ganti gan...'
             ];
             goto output;
         } elseif (!$email) {
@@ -159,50 +171,54 @@ class M_user extends CI_Model
         // insert
         $this->db->insert('user', $data); // user
         $this->db->insert('user_token', $user_token); //user_token
-        $this->_sendEmail($email, $token, 'verify');
 
-        $response = [
-            'error' => false,
-            'message' => 'Akun anda sudah dibuat. Silahkan aktivasi akun anda!'
-        ];
-        goto output;
+        if ($this->_sendEmail($email, $token, 'verify') == true) {
+            $response = [
+                'error' => false,
+                'message' => 'Akun anda sudah dibuat. Silahkan aktivasi akun anda!'
+            ];
+            goto output;
+        } else {
+            $response = [
+                'error' => true,
+                'message' => 'Ada kesalahan saat mengirim email.'
+            ];
+            goto output;
+        }
+
 
         output: return $response;
     }
 
     private function _sendEmail($email, $token, $type)
     {
-        $config = [
-            'protocol' => 'smtp',
-            'smtp_host' => 'ssl://smtp.googlemail.com',
-            'smtp_user' => 'albedrizki013@gmail.com',
-            'smtp_pass' => 'pojareaku13',
-            'smtp_port' => 465,
-            'mailtype' => 'html',
-            'charset' => 'utf-8',
-            'newline' => "\r\n"
-        ];
+        $mail = new PHPMailer(true);
 
-        $this->load->library('email', $config);
-
-        $this->email->from('albedrizki013@gmail.com', 'BESAF');
-        $this->email->to($email);
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->Port = 587;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->SMTPAuth = true;
+        $mail->Username = 'albedrizki013@gmail.com';
+        $mail->Password = 'pojareaku13';
+        $mail->setFrom('albedrizki013@gmail.com', 'BESAF');
+        $mail->addAddress($email);
+        $mail->isHTML(true);
 
         if ($type == 'verify') {
             $message = 'Terimakasih sudah mendaftarkan Akun anda ' . $email . ' di BESAF. Silahkan verifikasi akun anda untuk login ke akun BESAF anda, dengan meng-klik tombol <a href="https://' . $_SERVER['SERVER_NAME'] . '/auth/verify/' . urlencode($token) . '">verifikasi</a>.';
-            $this->email->subject('BESAF Account Verification');
-            $this->email->message($message);
+            $mail->Subject = 'BESAF Account Verification';
+            $mail->Body = $message;
         } elseif ($type == 'forgot') {
-            $message = 'developer salah alamat';
-            $this->email->subject('Reset Password');
-            $this->email->message($message);
+            $message = 'Apakah anda kehilangan kata sandi akun ' . $email . ' anda? . Silahkan ganti kata sandi akun anda untuk login ke akun BESAF anda, dengan meng-klik tombol <a href="https://' . $_SERVER['SERVER_NAME'] . '/auth/resetpassword/' . urlencode($token) . '">Change my password</a>.';
+            $mail->Subject = 'BESAF Reset Password';
+            $mail->Body = $message;
         }
 
-        if ($this->email->send()) {
-            return true;
+        if (!$mail->send()) {
+            return false;
         } else {
-            echo $this->email->print_debugger();
-            die;
+            return true;
         }
     }
 
@@ -235,6 +251,91 @@ class M_user extends CI_Model
             ];
             goto output;
         }
+        output: return $response;
+    }
+
+    public function forgotpassword($post)
+    {
+        // * Verifikasi email user
+        $email = $post['email'];
+        $user = $this->db->get_where('user', ['email' => $email])->row_array();
+        $token = [
+            'token' => base64_encode($email),
+            'email' => $email
+        ];
+        // session
+        $this->session->set_userdata(['email' => $email]);
+
+        if (!$email) {
+            // belum diisi
+            $response = [
+                'error' => true,
+                'message' => "Emailnya diisi dulu lurr..."
+            ];
+            goto output;
+        } elseif (!$user) {
+            // tidak ada user
+            $response = [
+                'error' => true,
+                'message' => "Akun $email belum terdaftar. Silahkan daftar dulu gan..."
+            ];
+            goto output;
+        } else {
+            // user ada
+            if ($this->_sendEmail($email, $token['token'], 'forgot') == true) {
+                $this->db->insert('user_token', $token);
+                $response = [
+                    'error' => false,
+                    'message' => "Akun $email terverifikasi. Silahkan cek email anda untuk mendapatkan link.",
+                ];
+                goto output;
+            } else {
+                $mail = new PHPMailer();
+                $response = [
+                    'error' => true,
+                    'message' => 'mailer error: ' . $mail->ErrorInfo
+                ];
+
+                goto output;
+            }
+        }
+        output: return $response;
+    }
+
+    public function changePassword($post)
+    {
+        $password = $post['password'];
+        $newpassword = $post['verifypassword'];
+        $email = $post['email'];
+
+        if (!$password) {
+            $response = [
+                'error' => true,
+                'message' => 'Password kosong!'
+            ];
+            goto output;
+        } elseif (!$newpassword) {
+            $response = [
+                'error' => true,
+                'message' => 'Lengkapi password anda!'
+            ];
+            goto output;
+        } elseif ($password !== $newpassword) {
+            $response = [
+                'error' => true,
+                'message' => 'Password tidak sama!'
+            ];
+            goto output;
+        }
+
+        $this->db->delete('user_token', ['email' => $email]);
+        $this->db->update('user', ['password' => password_hash($newpassword, PASSWORD_DEFAULT)], ['email' => $email]);
+        $response = [
+            'error' => false,
+            'message' => "User dengan email: " . $email . " password berhasil di-update! Silahkan <a href=https://" . $_SERVER['SERVER_NAME'] . '/auth/login' . ">login</a>"
+        ];
+        goto output;
+
         output: return $response;
     }
 }

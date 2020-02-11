@@ -1,23 +1,3 @@
-<?php $game = [
-	'Dota 2',
-	'Counter-Strike: Global Offensive',
-	'Mobile Legends: Bang Bang',
-	'Arena of Valor',
-	'Player Unknown Battleground',
-	'Point Blank',
-	'Player Unknown Battleground Mobile',
-	'Apex Legends',
-	'Free Fire',
-	'Fifa 20',
-	'Dota Underlords',
-	'Call of Duty Mobile',
-	'Cheese Rush',
-	'Lets Get Rich',
-	'Overwatch',
-	'Player Unknown Battleground Lite'
-];
-?>
-
 
 <div class="main" id="main">
 	<div class="container-sm mt-5">
@@ -27,33 +7,21 @@
 				<div class="card">
 					<div class="card-header text-center">Add Game</div>
 					<div class="card-body">
-						<button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#addGame"><span class="fa fa-plus"></span></button>
+						<button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#add-Gamebro"><span class="fa fa-plus"></span></button>
 					</div>
 				</div>
 			</div>
 			<div class="col-md">
 				<div class="card rounded-lg">
 					<div class="card-body">
-						<table id="example" class="table table-striped table-borderless table-hover table-dark table-sm" style="width:100%">
+						<table id="tabel-game" class="table table-striped table-borderless table-hover table-dark w-100 game" style="width:100%">
 							<thead class="thead-primary">
 								<tr>
 									<th>#</th>
-									<th>Name</th>
+									<th>Game</th>
 									<th>Action</th>
 								</tr>
 							</thead>
-							<tbody class="table-striped">
-								<?php $no = 1;
-								foreach ($game as $key) { ?>
-
-									<tr>
-										<td><?= $no++ ?></td>
-										<td><?= $key ?></td>
-										<td><a href="<?= base_url('Admin/game_details') ?>" class="d-block mr-3 text-right">Details</a></td>
-									</tr>
-
-								<?php } ?>
-							</tbody>
 						</table>
 					</div>
 				</div>
@@ -62,20 +30,22 @@
 	</div>
 </div>
 
+
+
 <!--MOdal-->
-<div class="modal fade" id="addGame" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content rounded-0">
+<div class="modal fade" id="add-Gamebro" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="staticBackdropLabel">Add Game</h5>
+				<h5 class="modal-title">Add Game</h5>
 				<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
-				<form action="" class="form mt-3">
+				<form class="form mt-3 add-game">
 					<div class="form-group">
-						<input type="text" placeholder="Name" class="form-control w-75 d-block mx-auto bg-dark border-0 text-white  rounded-0 ">
+						<input type="text" placeholder="Name" class="form-control w-75 d-block mx-auto bg-dark border-0 text-white  rounded-0 name">
 					</div>
 					<div class="form-group">
 						<div class="input-group w-75 mx-auto">
@@ -91,20 +61,122 @@
 						</ul>
 					</div>
 					<div class="custom-file">
-						<input type="file" multiple class="custom-file-input " multiple id="customFile">
-						<label class="custom-file-label bg-dark w-75 border-0 text-white d-block mx-auto" for="customFile">Image for game</label>
+						<label class="">Upload Image</label>
+							<div class="custom-file">
+								<input type="file" class="custom-file-input game_image" id="customFile">
+								<label class="custom-file-label filename" for="customFile">Choose file</label>
+							</div>
+							<input type="hidden" class="game_image_hidden">
 					</div>
-					<button type="submit" class="d-block btn btn-primary ml-auto mt-5">Add</button>
+					<button type="submit" class="btn btn-primary mt-5 ml-auto">Add</button>
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
 <!--end MOdal-->
+	
 <script src="<?= base_url() ?>assets/Admin/js/jquery.js"></script>
+<script src="<?php echo base_url('assets/plugins/compress-image/jquery.exif.js'); ?>"></script>	
+<script src="<?php echo base_url('assets/plugins/compress-image/jquery.canvasResize.js'); ?>"></script>
+<script src="<?php echo base_url('assets/plugins/compress-image/zepto.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/plugins/compress-image/binaryajax.js'); ?>"></script>
+<script src="<?php echo base_url('assets/plugins/compress-image/exif.js'); ?>"></script>
+<script src="<?php echo base_url('assets/plugins/compress-image/canvasResize.js'); ?>"></script>
 <script src="<?= base_url() ?>assets/Admin/js/bootstrap.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatable/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatable/js/dataTables.bootstrap4.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="<?= base_url() ?>assets/Admin/js/myscript.js"></script>
+
+<script>
+	$(document).ready(function(){
+
+		$(document).on('change', 'input.game_image', function(e) {
+			file =  e.target.files[0];
+			$('label.filename').html(file.name);
+			canvasResize(file, {
+				width: 400,
+				height: 400,
+				crop: true,
+				quality: 100,
+				callback: function(data) {
+					$("input.game_image_hidden").val(data);
+				}
+			})
+		})
+
+		$(document).on("submit", "form.add-game", function () {
+			role = $("input#role-list").val();
+			role_array = new Array();
+			$("input#role-list").each(function (req) {
+				role_array.push({"name": $(this).val()});
+			})
+			name = $("input.name").val();
+			image = $("input.game_image_hidden").val();
+			
+			$.ajax({
+				url: "<?= base_url('Api/Super_admin/Add_game'); ?>",
+				type: "POST",
+				data: {
+					nama : name,
+					role : role_array,
+					image : image
+				},
+				success: function (req) {
+					$("input.name").val('');
+					$("input#role-list").val('');
+					$("div#add-Gamebro").modal('hide');
+					Read_game();
+				}
+			})
+			return false;
+		})
+
+		function Read_game(){
+			$('table#tabel-game').DataTable().destroy();
+			$("table#tabel-game").DataTable({
+				"serverside": true,
+				"processing": true,
+				"deferRender": true,
+				"ajax": {
+					"url": "<?= base_url('Api/Super_admin/Read_game'); ?>",
+					"method": "POST",
+					"dataSrc": "data"
+				},
+				"columns": [
+					{
+						data: null,
+						render: function(data, type, row, meta) {
+							return meta.row + meta.settings._iDisplayStart + 1 + '.';
+						}
+					},
+					{
+						data: "game_name"
+					},
+					{
+						data: null,
+						render: function(req) {
+							return '<a href="<?= base_url('Admin/game_details/') ?>'+req.id+'">Details</a>'
+						}
+					}
+				]
+			});
+		}
+		Read_game();
+
+
+
+		function notif(element, type, message) {
+			$(element).html('\
+			<div class="alert alert-'+type+'" role="alert">\
+		        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true" style="margin-top: -20px">&times;</span></button>\
+		        '+message+'\
+		    </div>\
+	    	');
+		}
+
+
+	})
+</script>

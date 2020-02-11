@@ -1,119 +1,94 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends CI_Controller
-{
-	public function __construct()
-	{
-		parent::__construct();
+class Admin extends CI_Controller{
+    public function __construct() {
+        parent::__construct();
+    }
 
-		//! cek login
-		if (!$this->session->userdata('user_id')) {
-			redirect('auth');
-		} elseif ($this->session->userdata('role_id') == 1) {
-			// user
-			redirect('user');
-		}
-	}
+    public function index() {
+        $this->dashboard();
+    }
 
-	public function index()
-	{
-		$this->dashboard();
-	}
-
-	public function dashboard()
-	{
+	public function dashboard() {
 		$this->load->view('Admin/template/header');
 		$this->load->view('Admin/template/sidebar');
-		$this->load->view('Admin/dashboard');
+        $this->load->view('Admin/dashboard');
 		$this->load->view('Admin/template/footer');
 	}
-
-	public function game()
-	{
+	
+	public function game() {
 		$this->load->view('Admin/template/header');
 		$this->load->view('Admin/template/sidebar');
-		$this->load->view('Admin/game');
+        $this->load->view('Admin/game');
 		$this->load->view('Admin/template/footer');
 	}
-
-	public function game_details()
-	{
+	
+	public function game_details($id) {
+		$this->session->set_userdata('game_id',$id);
 		$this->load->view('Admin/template/header');
 		$this->load->view('Admin/template/sidebar');
-		$this->load->view('Admin/game_details');
+        $this->load->view('Admin/game_details');
 		$this->load->view('Admin/template/footer');
 	}
-
-	public function community()
-	{
+	
+	public function community() {
 		$this->load->view('Admin/template/header');
 		$this->load->view('Admin/template/sidebar');
-		$this->load->view('Admin/community');
+        $this->load->view('Admin/community');
 		$this->load->view('Admin/template/footer');
 	}
-
-	public function community_details($id) {
-		$this->session->set_userdata('komunitas_id', $id);
+	
+	public function community_details() {
 		$this->load->view('Admin/template/header');
 		$this->load->view('Admin/template/sidebar');
         $this->load->view('Admin/community_details');
 		$this->load->view('Admin/template/footer');
 	}
-
-	public function tournament()
-	{
+	
+	public function tournament() {
 		$this->load->view('Admin/template/header');
 		$this->load->view('Admin/template/sidebar');
-		$this->load->view('Admin/tournament');
+        $this->load->view('Admin/tournament');
 		$this->load->view('Admin/template/footer');
 	}
-
-	public function profile()
-	{
+	
+	public function profile() {
 		$this->load->view('Admin/template/header');
 		$this->load->view('Admin/template/sidebar');
-		$this->load->view('Admin/profile');
+        $this->load->view('Admin/profile');
 		$this->load->view('Admin/template/footer');
 	}
-
-	public function team()
-	{
+	
+	public function team() {
 		$this->load->view('Admin/template/header');
 		$this->load->view('Admin/template/sidebar');
-		$this->load->view('Admin/teams');
+        $this->load->view('Admin/teams');
 		$this->load->view('Admin/template/footer');
 	}
-
-	public function team_details()
-	{
+	
+	public function team_details() {
 		$this->load->view('Admin/template/header');
 		$this->load->view('Admin/template/sidebar');
-		$this->load->view('Admin/teams_details');
+        $this->load->view('Admin/teams_details');
 		$this->load->view('Admin/template/footer');
 	}
-
-	public function user()
-	{
+	
+	public function user() {
 		$this->load->view('Admin/template/header');
 		$this->load->view('Admin/template/sidebar');
-		$this->load->view('Admin/users');
+        $this->load->view('Admin/users');
 		$this->load->view('Admin/template/footer');
 	}
-
-	public function user_details()
-	{
+	
+	public function user_details($user_id) {
+		$this->session->set_userdata('user_id', $user_id);
 		$this->load->view('Admin/template/header');
 		$this->load->view('Admin/template/sidebar');
-		$this->load->view('Admin/users_details');
+        $this->load->view('Admin/users_details');
 		$this->load->view('Admin/template/footer');
 	}
+	
+} 
 
-	public function tournament_details()
-	{
-		$this->load->view('Admin/template/header');
-		$this->load->view('Admin/template/sidebar');
-		$this->load->view('Admin/tournament_details');
-		$this->load->view('Admin/template/footer');
-	}
-}
+?>

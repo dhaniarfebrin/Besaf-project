@@ -13,6 +13,17 @@ class Profile extends REST_Controller
 		$this->load->model('Profile_model', 'Profile');
 	}
 
+	// add photo controllers
+	public function Add_photo_post()
+	{
+		$req = $this->Profile->Add_photo($this->post());
+		return $this->response($req);
+	}
+	// add photo controllers
+
+	
+
+	
 	// Setting Controllers
 	public function Change_password_post()
 	{
@@ -67,6 +78,11 @@ class Profile extends REST_Controller
 		$req = $this->Profile->Read_Career_experience($this->post());
 		return $this->response($req);
 	}
+	public function Show_games_post()
+	{
+		$req = $this->Profile->Show_games();
+		return $this->response($req);
+	}
 	public function Update_Career_experience_post()
 	{
 		$req = $this->Profile->Update_Career_experience($this->post());
@@ -75,6 +91,11 @@ class Profile extends REST_Controller
 	public function Delete_Career_experience_post()
 	{
 		$req = $this->Profile->Delete_Career_experience($this->post());
+		return $this->response($req);
+	}
+	public function Role_game_post()
+	{
+		$req = $this->Profile->Role_game($this->post());
 		return $this->response($req);
 	}
 	// end Controller of Career Experience
