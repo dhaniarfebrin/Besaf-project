@@ -82,7 +82,7 @@ body {
 }
 
 .hover:hover {
-	color: rgb(44, 146, 203);
+	color: rgb(44, 146, 203) !important;
 	cursor: pointer;
 }
 
@@ -115,8 +115,12 @@ body {
 	transition: .2s;
 }
 
+.back {
+	color: white;
+}
+
 .back:hover {
-	background-color: rgb(73, 73, 73) !important;
+	color: rgb(44, 146, 203) !important;
 }
 
 .card-hover {
@@ -228,9 +232,10 @@ body {
 
 .loaderIcon {
 	position: absolute;
-    top: 0;
+	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
 }
+
 /* end animasi */

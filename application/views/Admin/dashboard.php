@@ -1,6 +1,6 @@
 		<!--			content-->
 		<div class="main" id="main">
-			<div class="container mt-5">
+			<div class="container-sm mt-5">
 				<div class="col-md">
 					<h2 class="p-3">Dashboard</h2>
 				</div>

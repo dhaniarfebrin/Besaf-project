@@ -6,10 +6,17 @@
 </div>
 
 <div class="container text-white">
-    <div class="col-md col-sm bg-dark shadow py-2">
-        <!-- judul tournament -->
-        <h4 class="m-0 text-wrap p-2 title-di-mobile-tournament-detail nama">-</h4>
-        <!-- end judul tournament -->
+    <div class="row no-gutters">
+        <a class="hover" onclick="goBack()" class="col">
+            <div class="bg-dark shadow p-4">
+                <span class="fa fa-arrow-left"></span>
+            </div>
+        </a>
+        <div class="col-md col-sm col bg-dark shadow py-2">
+            <!-- judul tournament -->
+            <h4 class="m-0 text-wrap text-left px-4 mt-3 pb-0 title-di-mobile-tournament-detail nama">-</h4>
+            <!-- end judul tournament -->
+        </div>
     </div>
     <div class="row mt-3">
         <div class="col-md-4 mt-3">
@@ -108,7 +115,7 @@
                 </button>
             </div>
             <div class="modal-body rules">
-               -
+                -
             </div>
         </div>
     </div>

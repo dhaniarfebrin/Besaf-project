@@ -36,13 +36,14 @@ body {
 	display: block;
 	width: 250px;
 	margin-left: -270px;
-	height: 100VH;
+	height: 100vh;
 	background-color: #262626;
-	position: sticky;
+	position: fixed;
 	float: left; 
 	box-shadow: 1px 1px 10px black;
 	transition: .5s;
 	top: 0px;
+	z-index: 3;
 }
 
 .nav-item {
@@ -147,7 +148,7 @@ body {
 	color: white;
 	box-shadow: 1px 2px 10px #080808;
 	position: fixed;
-	z-index: 98;
+	z-index: 2;
 }
 
 .nav-item {

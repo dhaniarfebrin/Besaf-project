@@ -17,8 +17,8 @@ $country = [
 				<div class="card-header bg-transparent border-bottom-0 p-0">
 					<div class="d-flex position-relative" style="z-index: 2;">
 						<a class="mr-auto back-button-login-page" onclick="goBack()">
-							<div class="btn back bg-transparent py-3 px-4 rounded-0 shadow m-0" style="margin-right: -16px;">
-								<span class="fas fa-chevron-left text-white"></span>
+							<div class="btn back bg-transparent py-3 px-4 rounded-0 m-0" style="margin-right: -16px;">
+								<span class="fas fa-chevron-left"></span>
 							</div>
 						</a>
 					</div>
@@ -29,7 +29,7 @@ $country = [
 					<div class="single-tab" id="login">
 						<h3 class="text-center font-weight-bold">Sign in to Besaf</h3>
 						<p class="m-0 text-secondary text-center mb-0">
-							Is this your first time? <a onclick="changeTab('register')" style="color: white">Register now</a>
+							Is this your first time? <a onclick="changeTab('register')" class="text-white hover">Register now</a>
 						</p>
 						<form action="<?= base_url('auth/login') ?>" method="POST" class="p-5 form form-login">
 							<div class="justify-content-center">
@@ -68,7 +68,7 @@ $country = [
 					<div class="single-tab" id="register">
 						<h4 class="text-center font-weight-bold">Create your Account</h4>
 						<div class="d-block text-center mb-3">
-							<p class="text-secondary">Already have an account? <a class="text-white" onclick="changeTab('login')">Go Back</a></p>
+							<p class="text-secondary">Already have an account? <a class="text-white hover" onclick="changeTab('login')">Go Back</a></p>
 						</div>
 						<form action="<?= base_url('auth/registrasi') ?>" method="POST" class="p-5 form form-daftar">
 							<div class="justify-content-center">

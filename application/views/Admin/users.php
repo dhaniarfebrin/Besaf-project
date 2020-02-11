@@ -1,15 +1,15 @@
-<div class="main">
-	<div class="container mt-5">
+<div class="main" id="main">
+	<div class="container-sm mt-5">
 		<h2 class="p-2">Users</h2>
 
-		<div class="row no-gutters" id="header">
+		<!-- <div class="row no-gutters" id="header">
 			<div class="p-3">
 				<button type="button" class="btn active" onclick="changeTab('user')">Users</button>
 			</div>
 			<div class="p-3">
 				<button type="button" class="btn" onclick="changeTab('admin')">Super Admin</button>
 			</div>
-		</div>
+		</div> -->
 
 		<!--		table users-->
 		<div class="card w-75 mx-auto single-tab" id="user">
@@ -54,8 +54,8 @@
 			</div>
 		</div>
 		<!--		end table users-->
-
-		<!--	table admin	-->
+<!-- 
+			table admin	
 		<div class="single-tab" id="admin">
 			<div class="row">
 				<div class="col-3">
@@ -95,11 +95,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!--end table admin-->
 
 		<!--		modal add admin-->
-		<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<!-- <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content rounded-0">
 					<div class="modal-header">
@@ -137,8 +137,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<!--	modal add admin-->
+		</div> -->
+		<!--	modal add admin -->
 
 	</div>
 </div>

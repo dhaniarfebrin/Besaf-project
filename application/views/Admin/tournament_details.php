@@ -1,5 +1,5 @@
-<div class="main">
-    <div class="container mt-5">
+<div class="main" id="main">
+    <div class="container-sm mt-5">
         <h3 class="p-3">Tournament Details</h3>
         <div class="text-white">
             <div class="col-md col-sm bg-dark shadow py-2">
@@ -20,11 +20,11 @@
                         <div class="card-body">
                             <div>
                                 <h5 class="text-secondary text-md">Registration Open</h5>
-                                <p class="text-sm">Until Fri, 7 Feb 2020 - 2:00 pm, GMT +7</p>
+                                <p class="text-sm">Until Fri, 7 Feb 2020 - 2:00 pm, WIB</p>
                             </div>
                             <div>
                                 <h5 class="text-secondary text-md">Tournament Start</h5>
-                                <p class="text-sm">Begin on Fri, 7 Feb 2020 - 3:00 pm, GMT +7</p>
+                                <p class="text-sm">Begin on Fri, 7 Feb 2020 - 3:00 pm, WIB</p>
                             </div>
                             <div>
                                 <h5 class="text-secondary text-md">Joined Teams</h5>
