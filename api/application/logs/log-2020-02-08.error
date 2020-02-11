@@ -1,0 +1,6 @@
+ERROR - 2020-02-08 03:31:58 --> Severity: Warning --> mkdir(): File exists D:\laragon\www\Besaf-local\api\application\models\Komunitas_model.php 36
+ERROR - 2020-02-08 03:31:58 --> Severity: Warning --> mkdir(): File exists D:\laragon\www\Besaf-local\api\application\models\Komunitas_model.php 37
+ERROR - 2020-02-08 03:37:35 --> Severity: Warning --> mkdir(): File exists D:\laragon\www\Besaf-local\api\application\models\Turnamen_model.php 176
+ERROR - 2020-02-08 03:37:35 --> Severity: Warning --> mkdir(): File exists D:\laragon\www\Besaf-local\api\application\models\Turnamen_model.php 177
+ERROR - 2020-02-08 03:38:22 --> Severity: Warning --> mkdir(): File exists D:\laragon\www\Besaf-local\api\application\models\Turnamen_model.php 176
+ERROR - 2020-02-08 03:38:22 --> Severity: Warning --> mkdir(): File exists D:\laragon\www\Besaf-local\api\application\models\Turnamen_model.php 177

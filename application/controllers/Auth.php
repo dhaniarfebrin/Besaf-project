@@ -38,7 +38,7 @@ class Auth extends CI_Controller
 		cek_session($this->session->userdata('role_id'));
 	}
 
-	public function verify($verificationcode)
+	public function Verify($verificationcode)
 	{
 		$data['verificationcode'] = $verificationcode;
 		$this->load->view('Front/template/header');
@@ -73,7 +73,7 @@ class Auth extends CI_Controller
 			// admin
 			redirect('admin');
 		}
-		$this->session->set_userdata('tournament_id',$id);
+		$this->session->set_userdata('tournament_id', $id);
 		//user tanpa login bisa melihat tournament detail dengan view di bawah
 		$this->load->view('Front/template/header');
 		$this->load->view('Front/Tournament_details');
@@ -96,7 +96,7 @@ class Auth extends CI_Controller
 		$this->load->view('Front/template/footer');
 	}
 
-	public function Forgot_password()
+	public function Forgotpassword()
 	{
 		//! cek login
 		if ($this->session->userdata('role_id') == 1) {
@@ -106,9 +106,17 @@ class Auth extends CI_Controller
 			// admin
 			redirect('admin');
 		}
+
 		$this->load->view('Front/template/header');
 		$this->load->view('Front/Forgot_password');
 		$this->load->view('Front/template/footer');
+	}
+
+	public function Resetpassword($email)
+	{
+		$email = base64_decode(urldecode($email));
+		var_dump($email);
+		die;
 	}
 }
 

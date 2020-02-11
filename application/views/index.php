@@ -217,7 +217,7 @@ $country = [
 						<div class="">
 							<div class="w-100 muncul-pesan"></div>
 						</div>
-						<form action="<?= base_url('auth/login') ?>" method="post" class="form form-login mt-4">
+						<form action="" method="post" class="form form-login mt-4">
 							<input type="text" placeholder="Username or Email here" name="" class="form-control mt-3 mb-4 usernameEmail text-white" autocomplete="off">
 
 							<div class="input-group mb-3">
@@ -236,7 +236,7 @@ $country = [
 						</form>
 						<div class="d-block text-center mt-1">
 							<p class="m-0 text-secondary">
-								Lost your password? <a href="<?= base_url('auth/forgot_password') ?>" class="forgot" style="color: white">Click here</a>
+								Lost your password? <a href="<?= base_url('auth/forgotpassword') ?>" class="forgot" style="color: white">Click here</a>
 							</p>
 						</div>
 
@@ -256,7 +256,7 @@ $country = [
 						<div class="row">
 							<div class="col-md-12 muncul-pesan-daftar"></div>
 						</div>
-						<form action="<?= base_url('auth/registrasi') ?>" method="post" class="form form-daftar">
+						<form action="" method="post" class="form form-daftar">
 							<input type="text" name="" id="" placeholder="Fullname" class="form-control mt-3 mb-3 fullname" autocomplete="off">
 							<input type="text" name="" id="" placeholder="Username" class="form-control mt-3 mb-3 username" autocomplete="off">
 							<input type="email" name="" id="" placeholder="Email" class="form-control mt-3 mb-3 email" autocomplete="off">
