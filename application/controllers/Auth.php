@@ -114,9 +114,11 @@ class Auth extends CI_Controller
 
 	public function Resetpassword($email)
 	{
-		$email = base64_decode(urldecode($email));
-		var_dump($email);
-		die;
+
+		$data['email'] = base64_decode(urldecode($email));
+		$this->load->view('Front/template/header');
+		$this->load->view('Front/Create_password', $data);
+		$this->load->view('Front/template/footer', $data);
 	}
 }
 

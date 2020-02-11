@@ -43,4 +43,11 @@ class User extends REST_Controller
 
 		$this->response($response);
 	}
+
+	public function Changepassword_post()
+	{
+		$response = $this->user->changePassword($this->post());
+
+		$this->response($response);
+	}
 }
