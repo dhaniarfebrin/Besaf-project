@@ -110,6 +110,21 @@ class Auth extends CI_Controller
 		$this->load->view('Front/Forgot_password');
 		$this->load->view('Front/template/footer');
 	}
+	
+	public function Create_password()
+	{
+			//! cek login
+		if ($this->session->userdata('role_id') == 1) {
+			// user
+			redirect('user');
+		} elseif ($this->session->userdata('role_id') == 2) {
+			// admin
+			redirect('admin');
+		}
+		$this->load->view('Front/template/header');
+		$this->load->view('Front/Create_password');
+		$this->load->view('Front/template/footer');
+	}
 }
 
 

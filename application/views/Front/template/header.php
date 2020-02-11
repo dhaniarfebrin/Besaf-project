@@ -12,5 +12,7 @@
 	<link rel="shortcut icon" href="<?= base_url('favicon.ico') ?>">
 </head>
 
-<body>
-	
+<body class="pb-5">
+	<div class="w-100 h-100 bg-dark loader" id="loader">
+		<img src="<?= base_url() ?>assets/img/loader.svg" alt="" class="d-block m-auto loaderIcon">
+	</div>
