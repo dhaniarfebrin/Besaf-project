@@ -6,10 +6,35 @@
 <!-- formjs -->
 <script>
     $(document).ready(function() {
+        data = $('input.kode').val()
+
+        // LUPA PASSWORD
+        $(document).on('submit', 'form.form-forgot', function() {
+            forgotemail = $('input.forgot-email').val()
+            $.ajax({
+                url: "<?= base_url('api/user/forgotpassword') ?>",
+                method: "POST",
+                data: {
+                    email: forgotemail
+                },
+                success: function(response) {
+                    pesan = response.message
+                    if (response.error == true) {
+                        notif('div.muncul-pesan', 'warning', pesan)
+                    } else {
+                        notif('div.muncul-pesan', 'success', pesan)
+                        $('input.forgot-email').val('')
+                        console.log(response)
+                    }
+                }
+            })
+            return false
+        })
         // ! VERIFIKASI EMAIL
-        data = $('input.kode').val();
+
         if (data) {
             if (data !== '') {
+                // VERIFIKASI EMAIL REGISTRASI
                 $.ajax({
                     method: "POST",
                     url: "<?= base_url('api/user/verify') ?>",
@@ -27,7 +52,6 @@
                     }
                 });
             }
-
         }
 
         // LOGIN ajax
