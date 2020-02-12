@@ -263,8 +263,6 @@ class M_user extends CI_Model
             'token' => base64_encode($email),
             'email' => $email
         ];
-        // session
-        $this->session->set_userdata(['email' => $email]);
 
         if (!$email) {
             // belum diisi
