@@ -2,14 +2,13 @@
     <img src="<?= base_url() ?>assets/Front/img/logo.png" alt="" class="mr-auto p-3" width="200px">
 </a>
 
-<div class="container">
-    <div class="card w-50 border-0 mx-auto text-white rounded-0 width-mobile-forgot-password" style="background-color: #1a2027">
-        <div class="card-body">
-            <h3 class="text-white text-center">Create new Password</h3>
-            <div class="row">
-                <div class="col-md-5">
-                    Mengubah password untuk <?= $email; ?>
-                </div>
+<div class="container-sm">
+    <div class="card w-50 border-0 pb-3 mx-auto text-white rounded-0 width-mobile-forgot-password" style="background-color: #1a2027">
+        <div class="card-body px-5">
+            <div class="mx-auto text-center border-bottom border-dark pb-3 pt-3 text-wrap">
+                <h5>Mengubah password untuk
+                    <div class="text-primary"><?= $email; ?></div>
+                </h5>
             </div>
             <form action="" method="POST" class="px-5 pb-5 pt-4 form-forgot-password-mobile form-change">
                 <div class="justify-content-center">
