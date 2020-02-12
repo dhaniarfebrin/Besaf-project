@@ -12,15 +12,6 @@ $country = [
 <div class="container">
 	<input type="hidden" class="kode" value="<?= $verificationcode; ?>">
 	<div class="row no-gutters mx-auto">
-		<div class="col-3 col-xls">
-			<div class="d-flex position-relative" style="z-index: 2;">
-				<a href="#" class="ml-auto back-button-login-page">
-					<div class="btn back bg-dark py-3 px-4 rounded-circle shadow mt-2" style="margin-right: -16px;" onclick="goBack()">
-						<span class="fas fa-chevron-left text-white"></span>
-					</div>
-				</a>
-			</div>
-		</div>
 		<div class="col col-xls">
 			<div class="card border-0 mx-auto text-white rounded position-relative px-4 pt-4 card-login-page" style="z-index: 1; background-color: #1a2027">
 				<div class="card-header bg-transparent border-bottom-0 p-0">

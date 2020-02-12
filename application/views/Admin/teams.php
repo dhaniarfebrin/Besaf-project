@@ -3,32 +3,17 @@
 		<h2 class="p-2">Teams</h2>
 		<div class="card">
 			<div class="card-body">
-				<table class="table table-striped table-borderless text-white table-dark" id="example">
+				<table class="table table-striped table-borderless text-white table-dark data-team" style="width: 100%">
 					<thead class="thead-primary">
 						<tr>
+							<th>No</th>
 							<th>Name</th>
 							<th>Tag</th>
 							<th>Game</th>
-							<th></th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
-						<?php $no = 1;
-						for ($i = 1; $i <= 40; $i++) { ?>
-							<tr>
-								<td>
-									<div class="row">
-										<div class="col-2">
-											<img src="https://esportsnesia.com/wp-content/uploads/2018/06/evos-esports.jpg" alt="" class="img-thumbnail rounded-circle p-0" width="60px">
-										</div>
-										<div class="col">EVOS ESPORTs</div>
-									</div>
-								</td>
-								<td>EVOS</td>
-								<td>Mobile Legends: Bang Bang</td>
-								<td><a href="<?= base_url('Admin/team_details') ?>">Details</a></td>
-							</tr>
-						<?php } ?>
 					</tbody>
 				</table>
 			</div>
@@ -42,3 +27,52 @@
 <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="<?= base_url() ?>assets/Admin/js/myscript.js"></script>
+<script>
+	$(document).ready(function() {
+		
+		function show() {
+			$('table.data-team').DataTable({
+				"deferRender" : true,
+				"processing" : true,
+				"serverSide" : true,
+				"ajax" : {
+					url : "<?php echo base_url('api/Admin_team/show') ?>",
+					method : "POST",
+					dataSrc : "data"
+				},
+				"columns" : [
+					{
+						data : null,
+						render : function(data,type,row,meta) {
+							return meta.row + meta.settings._iDisplayStart + 1;
+						}
+					},
+					{
+						data : null,
+						render : function(req) {
+							return '\
+								<img src="<?php echo base_url('api/img/team/') ?>'+req.gambar+'" style="width: 50px" class="rounded rounded-circle">\
+								<span>'+req.nama+'</span>\
+							';
+						}
+					},
+					{
+						data : "alias"
+					},
+					{
+						data : "game_nama"
+					},
+					{
+						data : null,
+						render : function(req) {
+							return '<a href="<?php echo base_url('Admin/team_details/') ?>'+req.id+'">Details</a>';
+						}
+					}
+				]
+			})
+		}
+
+		show();
+
+	})
+</script>

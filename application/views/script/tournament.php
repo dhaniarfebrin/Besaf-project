@@ -10,6 +10,7 @@
 				},
 				async : true,
 				success : function(req) {
+					console.log(req)
 					$('b.game_nama').html(req.data.game_nama);
 					// venue
 					if (req.data.venue == '1') {
@@ -19,9 +20,15 @@
 					}
 
 					if (req.data.entry == '1') {
-						entry = "Free";
+						entry = "Person";
 					} else {
 						entry = "Group / Squad";
+					}
+
+					if (req.data.mode == '1') {
+						mode = "Group stage";
+					} else {
+						mode = "Knock out";
 					}
 
 					$('div.foto').html('\
@@ -38,16 +45,12 @@
 						<hr>\
 						<table class="table table-sm">\
 							<tr>\
-								<th>Hosted by</th>\
-								<td>'+req.data.komunitas_id+'</td>\
-							</tr>\
-							<tr>\
 								<th>Community</th>\
-								<td>'+req.data.komunitas_id+'</td>\
+								<td>'+req.data.komunitas_nama+'</td>\
 							</tr>\
 							<tr>\
 								<th>Tournament mode</th>\
-								<td>'+req.data.mode+'</td>\
+								<td>'+mode+'</td>\
 							</tr>\
 							<tr>\
 								<th>Venue</th>\
@@ -59,6 +62,10 @@
 					$('div.hadiah').html('\
 						<h1>Rp. '+req.data.hadiah+'</h1>\
 						')
+
+					$('td.hadiah-1').html('Rp. '+req.data.hadiah * (45/100))
+					$('td.hadiah-2').html('Rp. '+req.data.hadiah * (30/100))
+					$('td.hadiah-3').html('Rp. '+req.data.hadiah * (15/100))
 
 					$('p.aturan').html(req.data.rules);
 					$('p.how-join').html(req.data.how_to_join);

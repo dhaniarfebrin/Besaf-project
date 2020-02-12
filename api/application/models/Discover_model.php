@@ -134,6 +134,36 @@ class Discover_model extends CI_Model {
 		return $hasil;
 	}
 
+	public function likes($input)
+	{
+		$id = $input['id'];
+
+		if (empty($id)) {
+			$hasil = array(
+				'error' => true,
+				'message' => "id tidak ditemukan."
+			);
+			goto output;
+		}
+
+		$this->db->query("
+			UPDATE 
+				user_post
+			SET 
+				likes = (likes + 1)
+			WHERE 
+				id = '$id'
+			");
+
+		$hasil = array(
+			'error' => false,
+			'message' => "sukses."
+		);
+
+		output:
+		return $hasil;
+	}
+
 }
 
 /* End of file Discover_model.php */
