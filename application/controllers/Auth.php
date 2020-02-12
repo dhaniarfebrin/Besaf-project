@@ -11,6 +11,7 @@ class Auth extends CI_Controller
 
 	public function index()
 	{
+		$this->session->unset_userdata('reset');
 		//! cek login
 		if ($this->session->userdata('role_id') == 1) {
 			// user
@@ -107,6 +108,8 @@ class Auth extends CI_Controller
 			redirect('admin');
 		}
 
+		$this->session->set_userdata(['reset' => true]);
+
 		$this->load->view('Front/template/header');
 		$this->load->view('Front/Forgot_password');
 		$this->load->view('Front/template/footer');
@@ -114,7 +117,9 @@ class Auth extends CI_Controller
 
 	public function Resetpassword($email)
 	{
-
+		if (!$this->session->userdata('reset')) {
+			redirect('auth/login');
+		}
 		$data['email'] = base64_decode(urldecode($email));
 		$this->load->view('Front/template/header');
 		$this->load->view('Front/Create_password', $data);
