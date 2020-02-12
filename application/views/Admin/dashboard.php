@@ -1,7 +1,9 @@
 		<!--			content-->
-		<div class="main">
-			<div class="container mt-5">
-				<h2 class="p-3">Dashboard</h2>
+		<div class="main" id="main">
+			<div class="container-sm mt-5">
+				<div class="col-md">
+					<h2 class="p-3">Dashboard</h2>
+				</div>
 				<div class="row">
 					<div class="col-md col-xl mb-2">
 						<a href="#" class="text-decoration-none text-white">
@@ -81,7 +83,7 @@
 					</div>
 				</div>
 				<!-- chart -->
-				<div class="col-md col-sm col-xl">
+				<div class="col-md col-sm col col-xl">
 					<div class="card rounded shadow mt-5">
 						<canvas id="chart"></canvas>
 					</div>
@@ -89,6 +91,7 @@
 				<!-- end chart -->
 			</div>
 		</div>
+
 		<!--			end content-->
 		<script src="<?= base_url() ?>assets/Admin/js/jquery.js"></script>
 		<script src="<?= base_url() ?>assets/Admin/js/bootstrap.js"></script>

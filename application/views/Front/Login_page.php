@@ -11,25 +11,26 @@ $country = [
 </a>
 <div class="container">
 	<input type="hidden" class="kode" value="<?= $verificationcode; ?>">
+
 	<div class="row no-gutters mx-auto">
+
 		<div class="col col-xls">
-			<div class="card border-0 mx-auto text-white rounded position-relative px-4 pt-4 card-login-page" style="z-index: 1; background-color: #1a2027">
+			<div class="card border-0 mx-auto text-white rounded position-relative px-4 pt-4 pb-4 card-login-page" style="z-index: 1; background-color: #1A2027">
 				<div class="card-header bg-transparent border-bottom-0 p-0">
 					<div class="d-flex position-relative" style="z-index: 2;">
-						<a href="#" class="mr-auto back-button-login-page" onclick="goBack()">
-							<div class="btn back bg-transparent py-3 px-4 rounded-0 shadow m-0" style="margin-right: -16px;">
-								<span class="fas fa-chevron-left text-white"></span>
+						<a class="mr-auto back-button-login-page" onclick="goBack()">
+							<div class="btn back bg-transparent py-3 px-4 rounded-0 m-0" style="margin-right: -16px;">
+								<span class="fas fa-chevron-left"></span>
 							</div>
 						</a>
 					</div>
 				</div>
 				<div class="card-body">
-
 					<!-- Login -->
 					<div class="single-tab" id="login">
 						<h3 class="text-center font-weight-bold">Sign in to Besaf</h3>
 						<p class="m-0 text-secondary text-center mb-0">
-							Is this your first time? <a href="#" onclick="changeTab('register')" style="color: white">Register now</a>
+							Is this your first time? <a onclick="changeTab('register')" class="text-white hover">Register now</a>
 						</p>
 						<form action="<?= base_url('auth/login') ?>" method="POST" class="p-5 form form-login">
 							<div class="justify-content-center">
@@ -52,23 +53,20 @@ $country = [
 								<input type="checkbox" class="custom-control-input" id="exampleCheck2">
 								<label class="custom-control-label" for="exampleCheck2">Keep me in</label>
 							</div>
-
 							<button type="submit" class="btn btn-primary text-black font-weight-bold mt-4 w-100">Let me in</button>
 						</form>
 						<div class="d-block text-center mt-1">
 							<p class="m-0 text-secondary">
-								Lost your password? <a href="<?= base_url('auth/forgot_password') ?>" class="forgot" style="color: white">Click here</a>
+								Lost your password? <a href="<?= base_url('auth/forgotpassword') ?>" class="forgot" style="color: white">Click here</a>
 							</p>
 						</div>
 					</div>
-
 					<!-- AKhir login -->
-
 					<!-- register -->
 					<div class="single-tab" id="register">
 						<h4 class="text-center font-weight-bold">Create your Account</h4>
 						<div class="d-block text-center mb-3">
-							<p class="text-secondary">Already have an account? <a href="#" class="text-white" onclick="changeTab('login')">Go Back</a></p>
+							<p class="text-secondary">Already have an account? <a class="text-white hover" onclick="changeTab('login')">Go Back</a></p>
 						</div>
 						<form action="<?= base_url('auth/registrasi') ?>" method="POST" class="p-5 form form-daftar">
 							<div class="justify-content-center">
@@ -97,7 +95,7 @@ $country = [
 							</div>
 							<div class="form-group">
 								<label for="Password" class="font-weight-bold">Password</label>
-								<input type="password" class="form-control bg-dark text-white password" id="password" placeholder="Password" onkeyup="check_password()">
+								<input type="password" class="form-control bg-dark text-white regpassword" id="password" placeholder="Password" onkeyup="check_password()">
 							</div>
 							<div class="form-group">
 								<label for="ConfirmPassword" class="font-weight-bold">Confirm Password</label>
@@ -120,7 +118,6 @@ $country = [
 						</form>
 					</div>
 					<!-- akhir register -->
-
 					<div class="text-center text-secondary mt-4 mb-3 text-mobile font-weight-bold">or login with</div>
 					<div class="row px-5">
 						<!-- button facebook -->
@@ -139,14 +136,12 @@ $country = [
 		</div>
 	</div>
 </div>
-
 <script>
 	function check_password() {
 		var password1 = document.getElementById('password')
 		var password2 = document.getElementById('confirm_password')
 		var valPassword1 = document.getElementById('password').value
 		var valPassword2 = document.getElementById('confirm_password').value
-
 		if (valPassword1 == "" && valPassword2 == "") {
 			password2.classList.remove("border");
 			document.getElementById("pesan").className = "d-none";
@@ -166,13 +161,9 @@ $country = [
 				document.getElementById("pesan").className = "text-danger";
 			}
 		}
-
-
 	}
-
 	var passwordField = document.getElementById('Password');
 	var eyeIcon = document.getElementById('eye');
-
 	eyeIcon.addEventListener("mousedown", function() {
 		passwordField.setAttribute("type", "text");
 	});

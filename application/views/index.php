@@ -19,6 +19,9 @@ $country = [
 </head>
 
 <body>
+	<div class="w-100 h-100 bg-dark loader" id="loader">
+		<img src="<?= base_url() ?>assets/img/loader.svg" alt="" class="d-block m-auto loaderIcon">
+	</div>
 	<div class="jumbotron jumbotron-fluid section1">
 		<div class="container">
 			<div class="row">
@@ -99,7 +102,7 @@ $country = [
 				</div>
 			</div>
 
-			<a href="<?= base_url('auth/tournament') ?>" class="text-decoration-none"><button class="btn btn-tour mt-5">See More Tournament</button></a>
+			<a href="<?= base_url('Auth/Tournament') ?>" class="text-decoration-none"><button class="btn btn-tour mt-5">See More Tournament</button></a>
 		</div>
 	</div>
 
@@ -153,7 +156,7 @@ $country = [
 					<h5 class="display-5 title1 mt-5 mb-4">SOCIAL MEDIA</h5>
 					<img src="http://yamisok.com/assets/images/landing/new/packed/SOCIAL-MEDIA.jpg" alt="" class="mb-4" width="80%">
 					<p class="lead desc">Social and interaction media for every
-						player available in Yamisok.</p>
+						player available in Besaf.</p>
 				</div>
 				<div class="col-md-3">
 					<h5 class="display-5 title1 mt-5 mb-4">STREAMING</h5>
@@ -217,7 +220,7 @@ $country = [
 						<div class="">
 							<div class="w-100 muncul-pesan"></div>
 						</div>
-						<form action="<?= base_url('auth/login') ?>" method="post" class="form form-login mt-4">
+						<form action="" method="post" class="form form-login mt-4">
 							<input type="text" placeholder="Username or Email here" name="" class="form-control mt-3 mb-4 usernameEmail text-white" autocomplete="off">
 
 							<div class="input-group mb-3">
@@ -236,7 +239,7 @@ $country = [
 						</form>
 						<div class="d-block text-center mt-1">
 							<p class="m-0 text-secondary">
-								Lost your password? <a href="<?= base_url('auth/forgot_password') ?>" class="forgot" style="color: white">Click here</a>
+								Lost your password? <a href="<?= base_url('auth/forgotpassword') ?>" class="forgot" style="color: white">Click here</a>
 							</p>
 						</div>
 
@@ -256,7 +259,7 @@ $country = [
 						<div class="row">
 							<div class="col-md-12 muncul-pesan-daftar"></div>
 						</div>
-						<form action="<?= base_url('auth/registrasi') ?>" method="post" class="form form-daftar">
+						<form action="" method="post" class="form form-daftar">
 							<input type="text" name="" id="" placeholder="Fullname" class="form-control mt-3 mb-3 fullname" autocomplete="off">
 							<input type="text" name="" id="" placeholder="Username" class="form-control mt-3 mb-3 username" autocomplete="off">
 							<input type="email" name="" id="" placeholder="Email" class="form-control mt-3 mb-3 email" autocomplete="off">
@@ -358,6 +361,16 @@ $country = [
 		window.addEventListener("beforeunload", function(e) {
 			document.body.className = "loading-halaman";
 		}, false);
+
+		// loader
+		$(document).ajaxStart(function() {
+			// document.getElementById('loader').style.display = "block";
+			$('#loader').fadeIn();
+		}).ajaxComplete(function() {
+			// document.getElementById('loader').style.display = "none";
+			$('#loader').fadeOut();
+		})
+		// end loader
 	</script>
 	<!-- formjs -->
 

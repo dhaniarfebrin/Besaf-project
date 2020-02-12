@@ -102,7 +102,9 @@
 														</div>
 													</div>
 													<div class="m-portlet__body">
-														<p align="center">No Data</p>
+														<div class="row show_career">
+
+														</div>
 													</div>
 												</div>
 												<!--end::Portlet-->
@@ -169,6 +171,36 @@
 				</div>
 
 
+				<!-- start modal add photo-->
+				<div class="modal fade photo" id="Add_photo">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Image Upload</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body" style="height: 75%">
+								<div class="muncul_notif6"></div>
+								<div class="form-group m-form__group">
+									<label class="">Upload Image</label>
+									<form class="Add_photo">
+										<div class="custom-file">
+											<input type="file" class="custom-file-input user_image" id="customFile">
+											<label class="custom-file-label user_image" for="customFile">Choose file</label>
+											<input type="hidden" class="hidden_photo">
+										</div>
+								</div>
+								<button type="submit" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px">Done</button>
+								<button type="reset" class="btn btn-secondary btn-sm" style="float: right;">Reset</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--end::Modal-->
+
 
 
 				<!--begin::Modal settings-->
@@ -230,14 +262,10 @@
 											</div>
 											<div class="form-group m-form__group">
 												<button type="submit" class="btn btn-sm btn-primary float-right" style="margin-left: 5px"> Change Password</button>
-												<button type="reset" class="btn btn-sm btn-secondary float-right">Reset</button>
 											</div>
 
 										</form>
 										<!--end::Form-->
-									</div>
-									<div class="m-portlet__foot m--hide">
-										<button type="submit" class="btn btn-primary btn-sm">Change Password</button>
 									</div>
 								</div>
 							</div>
@@ -377,7 +405,7 @@
 								<div class="muncul_notif3"></div>
 								<!--begin::Form-->
 								<form class="m-form m-form--fit m-form--label-align-right About_me_form">
-									<input type="hidden" class="About_me_id">
+									<input type="hidden" class="About_me_id" value="<?= $this->session->userdata('user_id'); ?>">
 									<!-- <div class="form-group m-form__group"> -->
 									<textarea style="resize: none; height: auto;" class="form-control m-input m-input--air m-input--pill About_me_text" rows="5" placeholder="Write About You Here....."></textarea>
 									<!-- </div> --><br>
@@ -407,14 +435,7 @@
 									<div class="m-portlet__body">
 										<div class="form-group m-form__group">
 											<label for="">Select Game</label>
-											<?php
-											$game = array(1 => 'CSGO', 2 => 'PUBG MOBILE', 3 => 'PUBG', 4 => 'POINT BLANK', 5 => 'FREE FIRE', 6 => 'DOTA 2', 7 =>  'MOBILE LEGENDS BANG BANG');
-											?>
-											<select class="form-control m-input m-input--air m-input--pill">
-												<option value="">Choose Your Game</option>
-												<?php for ($i = 1; $i <= 7; $i++) { ?>
-													<option value="<?php echo $negara[$i]; ?>"><?php echo $game[$i]; ?></option>
-												<?php } ?>
+											<select class="form-control m-input m-input--air m-input--pill select-game">
 											</select>
 										</div>
 										<div class="form-group m-form__group">
@@ -429,10 +450,7 @@
 										</div>
 										<div class="form-group m-form__group">
 											<label for="exampleSelect2">Role in Game</label>
-											<select class="form-control m-input m-input--air m-input--pill" name="">
-												<option value=""></option>
-												<option value=""></option>
-												<option value=""></option>
+											<select class="form-control m-input m-input--air m-input--pill role-game">
 											</select>
 										</div>
 									</div><br>
@@ -447,7 +465,7 @@
 				<!-- end modal skill and role -->
 
 
-				<!-- start modal career experience -->
+				<!-- start modal add career experience -->
 				<div class="modal fade Career" id="career_experience">
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
@@ -474,11 +492,6 @@
 											<label for="">Add Game to Endorse</label>
 											<select class="form-control m-input m-input--air m-input--pill Career_select_game">
 												<option value="">Choose Your Game</option>
-												<option value="1">CSGO</option>
-												<option value="2">MOBILE LEGENDS BANG BANG</option>
-												<option value="3">PUBG MOBILE</option>
-												<option value="4">FIFA 2020</option>
-												<option value="5">FREE FIRE</option>
 											</select>
 										</div>
 										<div class="form-group m-form__group">
@@ -532,6 +545,87 @@
 					</div>
 				</div>
 				<!-- end modal career experience -->
+
+				<!-- start modal update career -->
+				<div class="modal fade Career" id="Update_career">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Add Your Career</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="muncul_notif5"></div>
+								<!--begin::Form-->
+								<form class="m-form m-form--fit m-form--label-align-right Insert_career">
+									<div class="m-portlet__body">
+										<div class="form-group m-form__group">
+											<label for="">Career Type</label>
+											<input type="text" class="form-control m-input m-input--air m-input--pill Career_type" maxlength="150" placeholder="e.g Professional Players, Coach, Captain etc">
+										</div>
+										<div class="form-group m-form__group">
+											<label for="">Team Name/In Game ID</label>
+											<input type="text" class="form-control m-input m-input--air m-input--pill Career_teamname_or_game_id" maxlength="150" placeholder="Your Team Name or Your Solo ID">
+										</div>
+										<div class="form-group m-form__group">
+											<label for="">Add Game to Endorse</label>
+											<select class="form-control m-input m-input--air m-input--pill Career_select_game">
+												<option value="" class=""></option>}
+											</select>
+										</div>
+										<div class="form-group m-form__group">
+											<label>Career Date</label>
+											<div class="row">
+												<div class="col-md-6">
+													<select class="form-control Career_months">
+														<option value="">Month</option>
+														<option value="January">January</option>
+														<option value="February">February</option>
+														<option value="March">March</option>
+														<option value="April">April</option>
+														<option value="May">May</option>
+														<option value="June">June</option>
+														<option value="July">July</option>
+														<option value="August">August</option>
+														<option value="September">September</option>
+														<option value="October">October</option>
+														<option value="November">November</option>
+														<option value="December">December</option>
+													</select>
+												</div>
+												<div class="col-md-6">
+													<select class="form-control Career_years">
+														<?php for ($i = 1990; $i <= date('Y'); $i++) { ?>
+															<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+														<?php } ?>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="form-group m-form__group">
+											<label class="">Upload Image</label>
+											<form class="">
+												<div class="custom-file">
+													<input type="file" class="custom-file-input Career_image" id="customFile">
+													<label class="custom-file-label image_label" for="customFile">Choose file</label>
+												</div>
+												<input type="hidden" class="hidden_image">
+										</div>
+										<div align="center" class="border rounded" style="height: 250px">
+											<img class="show_image" style="max-width: 100%; max-height: 100%; padding: 10px">
+										</div>
+									</div><br>
+									<button type="submit" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px">Done</button>
+									<button type="reset" class="btn btn-secondary btn-sm" style="float: right;">Reset</button>
+								</form>
+								<!--end::Form-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end modal update career experience -->
 
 
 				<!-- start modal ac -->

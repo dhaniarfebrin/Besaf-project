@@ -7,6 +7,67 @@ class Profile_model extends CI_Model
 		parent::__construct();
 	}
 
+	// add photo models
+	public function Add_photo($isi)
+	{
+		function get_guid()
+		{
+			$data = PHP_MAJOR_VERSION < 7 ? openssl_random_pseudo_bytes(16) : random_bytes(16);
+			$data[6] = chr(ord($data[6]) & 0x0f | 0x40);
+			$data[8] = chr(ord($data[8]) & 0x3f | 0x80);
+			return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
+		}
+
+		$photo = $isi['photo'];
+
+		mkdir(FCPATH . 'img/', 0777);
+		mkdir(FCPATH . 'img/user_profile/', 0777);
+
+		$img = str_replace("data:image/jpeg;base64", "", $photo);
+		$img = str_replace("data:image/jpg;base64", "", $img);
+		$img = str_replace("data:image/png;base64", "", $img);
+
+		$base64 = base64_decode($img);
+
+		$photo_name = get_guid() . '.jpeg';
+
+		file_put_contents(FCPATH . 'img/user_profile/' . $photo_name, $base64);
+
+		$id = $isi['id'];
+
+		if (empty($id)) {
+			$notif = array(
+				'error' => true,
+				'message' => 'Sorry!!!... The id column is required.'
+			);
+			goto output;
+		} else if (empty($photo_name)) {
+			$notif = array(
+				'error' => true,
+				'message' => 'Please upload your profile!!!.'
+			);
+			goto output;
+		}
+
+		$this->db->update('user', array(
+			'image' => $photo_name
+		), array(
+			'id' => $id
+		));
+		$notif = array(
+			'error' => false,
+			'message' => 'Success!!!... Your photo has been uploaded.'
+		);
+		goto output;
+
+		output: return $notif;
+	}
+	// add photo models
+
+
+
+
+
 	// setting models
 	public function Change_password($isi)
 	{
@@ -97,13 +158,15 @@ class Profile_model extends CI_Model
 			SELECT 
 				id,
 				full_name,
+				username,
 				country,
 				birth_date,
 				gender,
 				city,
 				phone_number,
 				email,
-				adress
+				adress,
+				image
 			FROM  
 				user
 			WHERE
@@ -234,6 +297,7 @@ class Profile_model extends CI_Model
 
 		$Read = $this->db->query("
 			SELECT
+				id,
 				about_me
 			FROM
 				user
@@ -245,16 +309,16 @@ class Profile_model extends CI_Model
 		$notif['message'] = "Sorry!!!... Data not Exist.";
 		$notif['data'] = array();
 
-		$no = 0;
 		foreach ($Read->result_array() as $key) {
 			$notif['error'] = false;
 			$notif['message'] = "Success.";
-			$notif['data'][$no++] = $key;
+			$notif['data'] = $key;
 		}
 		goto output;
 
 		output: return $notif;
 	}
+
 	public function Update_About_me($isi)
 	{
 		$id = $isi['id'];
@@ -387,44 +451,191 @@ class Profile_model extends CI_Model
 
 		output: return $notif;
 	}
-	// public function Read_Career_experience($isi)
-	// {
-	// 	$id = $isi['user_id'];
+	public function Read_Career_experience($isi)
+	{
+		$id = $isi['user_id'];
 
-	// 	if (empty($id)) {
-	// 		$notif = array(
-	// 			'error' => true,
-	// 			'message' => 'Sorry!!!... The id column is required.'
-	// 		);
-	// 		goto output;
-	// 	}
+		if (empty($id)) {
+			$notif = array(
+				'error' => true,
+				'message' => 'Sorry!!!... The id column is required.'
+			);
+			goto output;
+		}
 
-	// 	$career = $this->db->query("
-	// 		SELECT 
-	// 			id, 
-	// 			type,
-	// 			team_name_or_solo_id,
-	// 			image,
-	// 			career_months,
-	// 			career_years,
-	// 			user_id 
-	// 		FROM
-	// 			user_career
-	// 		WHERE 
-	// 			id = '$id'
-	// 	");
+		$career = $this->db->query("
+			SELECT 
+				user_career.id, 
+				user.full_name,
+				type,
+				game.name as game_name,
+				teamname_or_solo_id,
+				user_career.image,
+				game.name,
+				career_months,
+				career_years,
+				user_id 
+			FROM
+				user_career
+			INNER JOIN 
+				user on user.id = user_career.user_id
+			INNER JOIN 
+				game on game.id = user_career.game_id
+			WHERE 
+				user_id = '$id'
+		");
 
-	// 	$no = 0;
-	// 	foreach ($career as $key) {
-	// 		$notif['error'] = false;
-	// 		$notif['message'] = "Success.";
-	// 		$notif['data'][$no++] = $key;
-	// 	}
-	// 	$notif = array(
-	// 		'error' => true,
-	// 		'message' => 'Success.'
-	// 	);
-	// }
+		$notif['error'] = true;
+		$notif['message'] = "Sorry!!!... Data not exist.";
+		$notif['data'] = array();
+
+		$no = 0;
+		foreach ($career->result_array() as $key) {
+			$notif['error'] = false;
+			$notif['message'] = "Success.";
+			$notif['data'][$no++] = $key;
+		}
+		goto output;
+
+		output: return $notif;
+	}
+	public function Show_games()
+	{
+		$show_games = $this->db->query("
+			SELECT 
+				id,
+				name as game_name
+			FROM
+				game
+		");
+
+		$notif['error'] = false;
+		$notif['message'] = "Sorry!!!... Game is not exist.";
+		$notif['data'] = array();
+
+		$no = 0;
+		foreach ($show_games->result_array() as $key) {
+			$notif['error'] = false;
+			$notif['message'] = "Success.";
+			$notif['data'][$no++] = $key;
+		}
+		return $notif;
+	}
+	public function Update_Career_experience($isi)
+	{
+		function get_guid()
+		{
+			$data = PHP_MAJOR_VERSION < 7 ? openssl_random_pseudo_bytes(16) : random_bytes(16);
+			$data[6] = chr(ord($data[6]) & 0x0f | 0x40);
+			$data[8] = chr(ord($data[8]) & 0x3f | 0x80);
+			return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
+		}
+
+		$image = $isi['image'];
+
+		mkdir(FCPATH . 'img/', 0777);
+		mkdir(FCPATH . 'img/profile/', 0777);
+
+		$img = str_replace("data:image/jpeg;base64,", "", $image);
+		$img = str_replace("data:image/jpg;base64,", "", $img);
+		$img = str_replace("data:image/png;base64,", "", $img);
+
+		$base64 = base64_decode($img);
+
+		$image_name = get_guid() . '.jpeg';
+
+		file_put_contents(FCPATH . 'img/profile/' . $image_name, $base64);
+
+		$type = $isi['type'];
+		$team_name_or_solo_id = $isi['team_name_or_solo_id'];
+		$game_id = $isi['game'];
+		$career_months = $isi['months'];
+		$career_years = $isi['years'];
+		$user_id = $isi['user_id'];
+
+		if (empty($type)) {
+			$notif = array(
+				'error' => true,
+				'message' => 'Sorry!!!... Please insert your Career type!!!.'
+			);
+			goto output;
+		} else if (empty($team_name_or_solo_id)) {
+			$notif = array(
+				'error' => true,
+				'message' => 'Sorry!!!... Please insert your team_name_or_solo_id!!!.'
+			);
+			goto output;
+		} else if (empty($game_id)) {
+			$notif = array(
+				'error' => true,
+				'message' => 'Sorry!!!... Please Change your game!!!.'
+			);
+			goto output;
+		} else if (empty($career_months)) {
+			$notif = array(
+				'error' => true,
+				'message' => 'Sorry!!!... Please insert your Career months!!!.'
+			);
+			goto output;
+		} else if (empty($career_years)) {
+			$notif = array(
+				'error' => true,
+				'message' => 'Sorry!!!... Please insert your Career years!!!.'
+			);
+			goto output;
+		} else if (empty($image_name)) {
+			$notif = array(
+				'error' => true,
+				'message' => 'Please upload your Career image!!!.'
+			);
+			goto output;
+		} else if (empty($user_id)) {
+			$notif = array(
+				'error' => true,
+				'message' => 'Sorry!!!... The user_id column is required.'
+			);
+			goto output;
+		}
+
+		$this->db->update('user_career', array(
+			'type' => $type,
+			'teamname_or_solo_id' => $team_name_or_solo_id,
+			'game_id' => $game_id,
+			'career_months' => $career_months,
+			'career_years' => $career_years,
+			'image' => $image_name,
+			'user_id' => $user_id
+		));
+		$notif = array(
+			'error' => false,
+			'message' => 'Congrarts!!!... Data has been Updated.'
+		);
+		goto output;
+
+		output: return $notif;
+	}
+
+	public function Role_game($isi)
+	{
+		$game_id = $isi['game_id'];
+
+		$role = $this->db->query("
+			SELECT 
+				id,
+				name
+			FROM 
+				role_game
+			WHERE
+				game_id = '$game_id'
+			");
+
+		$no = 0;
+		foreach ($role->result_array() as $key) {
+			$hasil[$no++] = $key;
+		}
+		return $hasil;
+	}
+
 
 	// end model of career experience
 

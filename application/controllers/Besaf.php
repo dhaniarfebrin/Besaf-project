@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Besaf extends CI_Controller {
+class Besaf extends CI_Controller
+{
 
 	public function index()
 	{
@@ -17,7 +18,7 @@ class Besaf extends CI_Controller {
 		// $user1 = $this->db->get_where('tb_user', ['email' => $emailUsername]);
 
 		// if ($user) {
-			
+
 		// }
 
 		redirect('Besaf/admin');
@@ -50,7 +51,7 @@ class Besaf extends CI_Controller {
 		// } else {
 		// 	redirect('besaf/loginPage');
 		// }
-			redirect('Besaf/admin');
+		redirect('Besaf/admin');
 	}
 
 	public function loginPage()
@@ -69,7 +70,7 @@ class Besaf extends CI_Controller {
 
 	public function community()
 	{
-		$this->session->set_userdata('id','3');
+		$this->session->set_userdata('id', '3');
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar');
 		$this->load->view('community_view');
@@ -127,11 +128,10 @@ class Besaf extends CI_Controller {
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar');
 		$this->load->view('Tampilan_sidebar/Profile');
-		$this->load->view('template/footer');	
+		$this->load->view('template/footer');
 		$this->load->view('template/script');
-		$this->load->view('template/User_profile');
+		$this->load->view('script/User_profile');
 	}
-
 }
 
 /* End of file imsyak.php */

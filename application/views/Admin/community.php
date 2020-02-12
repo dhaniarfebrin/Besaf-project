@@ -1,5 +1,5 @@
-<div class="main">
-	<div class="container mt-5">
+<div class="main" id="main">
+	<div class="container-sm mt-5">
 		<h2 class="p-2">Communities in Besaf</h2>
 		<div class="row no-gutters" id="header">
 			<div class="p-3">

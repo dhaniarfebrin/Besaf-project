@@ -7,6 +7,7 @@ body {
 	background-color: rgb(27, 27, 27);
 	color: white;
 	font-family: 'roboto', sans-serif;
+	overflow: hidden;
 }
 
 .loading-halaman::before {
@@ -35,15 +36,21 @@ body {
 .sidebar {
 	display: block;
 	width: 250px;
+	margin-left: -250px;
 	height: 100vh;
 	background-color: #262626;
-	float: left;
-	position: sticky;
+	position: fixed;
+	float: left; 
 	box-shadow: 1px 1px 10px black;
-	/*	border-radius: 0px;*/
-	transition: .5s;
+	transition: all 0.5s ease-in-out;
 	top: 0px;
-	z-index: 99 !important;
+	z-index: 3;
+	transform: translateX(0);
+}
+
+.sidebar-open {
+	transform: translateX(250px);
+	transition: all 0.5s ease-in-out;
 }
 
 .nav-item {
@@ -134,6 +141,14 @@ body {
 
 .main {
 	padding: 20px;
+	position: static;
+	transition: all 0.5s ease-in-out;
+	transform: translateX(0);
+}
+
+.main-open {
+	transform: translateX(250px);
+	transition: all 0.5s ease-in-out;
 }
 
 .mainNavbar {
@@ -146,7 +161,7 @@ body {
 	color: white;
 	box-shadow: 1px 2px 10px #080808;
 	position: fixed;
-	z-index: 98;
+	z-index: 2;
 }
 
 .nav-item {

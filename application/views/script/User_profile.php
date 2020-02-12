@@ -1,6 +1,80 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 
+		function Show_game() {
+			$.ajax({
+				url: '<?php echo base_url('api/Profile/Show_games') ?>',
+				type: 'POST',
+				success: function(req) {
+					html = '<option value=""></option>';
+					$.each(req.data, function(index, obj) {
+						html += '<option value="' + obj.id + '">' + obj.game_name + '</option>'
+					});
+					$('select.select-game').html(html);
+				}
+			})
+		}
+		Show_game();
+
+		$(document).on('change', 'select.select-game', function() {
+			$.ajax({
+				url: '<?php echo base_url('api/Profile/Role_game') ?>',
+				type: 'POST',
+				data: {
+					game_id: this.value
+				},
+				success: function(req) {
+					html = '';
+					$.each(req, function(index, obj) {
+						html += '<option value="' + obj.id + '">' + obj.name + '</option>'
+					});
+					$('select.role-game').html(html)
+				}
+			})
+
+		})
+
+		$(document).on('change', 'input.user_image', function(e) {
+			file = e.target.files[0];
+			$('label.user_image').html(file.name);
+			canvasResize(file, {
+				width: 400,
+				height: 400,
+				crop: true,
+				quality: 100,
+				callback: function(data) {
+					$("input.hidden_photo").val(data);
+				}
+			})
+		})
+
+		$(document).on("submit", "form.Add_photo", function() {
+			$user_photo = $("input.hidden_photo").val();
+			$.ajax({
+				url: "<?= base_url('api/Profile/Add_photo'); ?>",
+				type: "POST",
+				data: {
+					id: '<?php echo $this->session->userdata('user_id'); ?>',
+					photo: $user_photo
+				},
+				success: function(req) {
+					pesan = req.message;
+					if (req.error == true) {
+						notif("div.muncul_notif6", "danger", pesan);
+					} else {
+						$("input.hidden_photo").val('');
+						$("input.user_photo").val('');
+						$("div.photo").modal('hide');
+						tampil_info();
+						notif("div.notif", "success", pesan);
+					}
+				}
+			})
+			return false;
+		})
+
+
+
 		// AJAX of Change Password
 		$(document).on("submit", "form.Change_password", function() {
 			id = $("input.Change_password_id").val();
@@ -12,7 +86,7 @@
 				url: "<?= base_url('api/Profile/Change_password'); ?>",
 				method: "POST",
 				data: {
-					id: 1,
+					id: '<?php echo $this->session->userdata('user_id'); ?>',
 					current_password: current_password,
 					new_password: new_password,
 					confirm_password: confirm_password
@@ -43,22 +117,29 @@
 				url: "<?php echo base_url('api/Profile/Read_Player_info'); ?>",
 				method: "POST",
 				data: {
-					id: 1
+					id: '<?php echo	$this->session->userdata('user_id') ?>'
 				},
 				async: true,
 				success: function(req) {
 					baris = "";
 					html = "";
 					$.each(req.data, function(index, obj) {
+						if (obj.gender == '1') {
+							gender = 'Laki-laki';
+						} else {
+							gender = 'Perempuan';
+						}
 						baris +=
-							'<div class="col-xs-3 profile">\
-								<div style="padding: 20px" align="center">\
-									<img style="width: 75%;" src="<?= base_url() ?>assets/img/profile.jpg" class="card-img rounded-circle border" alt="s...">\
+							'<div class="col-2 profile" align="center" >\
+								<div style="padding: 10px; margin-left: 15%">\
+									<a href="#Add_photo" data-toggle="modal" data-id="' + obj.id + '">\
+									<img style="width: 150px;" src="<?php echo base_url('api/img/user_profile/') ?>' + obj.image + '" class="card-img rounded-circle border">\
+									</a>\
 								</div>\
 								</div>\
-								<div class="col-xs-9">\
+								<div class="col-10">\
 									<div class="card-body">\
-										<h5 class="card-title">' + obj.full_name + '</h5>\
+										<h5 class="card-title">' + obj.username + '</h5>\
 										<small class="text-muted">\
 											<h6 style="font-family: sans-serif;">XP<h6>\
 											<div class="progress">\
@@ -90,7 +171,7 @@
 									<table class="table Info">\
 										<tbody>\
 											<tr>\
-												<td>Nama</td>\
+												<td>Name</td>\
 												<td style="text-align: right;">' + obj.full_name + '</td>\
 											</tr>\
 											<tr>\
@@ -103,7 +184,7 @@
 											</tr>\
 											<tr>\
 												<td>Gender</td>\
-												<td style="text-align: right;">' + obj.gender + '</td>\
+												<td style="text-align: right;">' + gender + '</td>\
 											</tr>\
 											<tr>\
 												<td>City</td>\
@@ -231,14 +312,12 @@
 				url: "<?= base_url('api/Profile/Read_About_me'); ?>",
 				method: "POST",
 				data: {
-					id: 1
+					id: '<?php echo $this->session->userdata('user_id'); ?>'
 				},
 				async: true,
 				success: function(req) {
-					About_me = "";
-					$.each(req.data, function(index, obj) {
-						About_me +=
-							'<div class="m-portlet m-portlet--mobile m-portlet--body-progress-">\
+					About_me =
+						'<div class="m-portlet m-portlet--mobile m-portlet--body-progress-">\
 									<div class="m-portlet__head">\
 										<div class="m-portlet__head-caption">\
 											<div class="m-portlet__head-title">\
@@ -250,16 +329,15 @@
 										<div class="m-portlet__head-tools">\
 											<ul class="m-portlet__nav">\
 												<li class="m-portlet__nav-item">\
-												<button class="btn btn-warning btn-sm update_About_me" data-toggle="modal" data-target="#about_me" data-id="' + obj.id + '" data-about_me="' + obj.about_me + '"><i class="fa fa-plus-circle"> add</i></button>\
+												<button class="btn btn-warning btn-sm update_About_me" data-toggle="modal" data-target="#about_me" data-id="' + req.data.id + '" data-about_me="' + req.data.about_me + '"><i class="fa fa-plus-circle"> add</i></button>\
 												</li>\
 											</ul>\
 										</div>\
 									</div>\
 									<div class="m-portlet__body" style="overflow-wrap: break-word;word-wrap: break-word; hyphens: auto;">\
-										<p class="text-center">' + obj.about_me + '</p>\
+										<p class="text-center">' + req.data.about_me + '</p>\
 									</div>\
-								</div>'
-					});
+								</div>';
 
 					$("div.about_me_div").html(About_me);
 				}
@@ -271,10 +349,7 @@
 
 		// AJAX of update about me
 		$(document).on("click", "button.update_About_me", function() {
-			id = $(this).data('id');
 			About_me = $(this).data('about_me');
-
-			$("input.About_me_id").val(id);
 			$("textarea.About_me_text").val(About_me);
 
 		})
@@ -290,10 +365,11 @@
 					url: "<?= base_url('api/Profile/Update_About_me'); ?>",
 					method: "POST",
 					data: {
-						id: 1,
+						id: '<?php echo $this->session->userdata('user_id'); ?>',
 						about_me: About_me
 					},
 					success: function(req) {
+						console.log(req);
 						pesan = req.message;
 						if (req.error == true) {
 							notif("div.muncul_notif3", 'danger', pesan);
@@ -335,7 +411,7 @@
 		})
 		// end of uploaf image
 
-
+		// insert 
 		$(document).on("submit", "form.Insert_career", function() {
 			Career_type = $("input.Career_type").val();
 			Career_teamname_or_game_id = $("input.Career_teamname_or_game_id").val();
@@ -388,22 +464,143 @@
 			return false;
 		})
 
+		// read
+		function Read_career_experience() {
+			$.ajax({
+				url: "<?= base_url('api/Profile/Read_Career_experience'); ?>",
+				method: "POST",
+				data: {
+					user_id: 2
+				},
+				async: true,
+				success: function(req) {
+					career = "";
+					$.each(req.data, function(index, obj) {
+						career +=
+							'<div class="col-md-2">\
+										<img style="width: 90%; float: left; " class="rounded" src="<?= base_url("api/img/"); ?>" ?>"\
+									</div>\
+									<div class="col-md-5">\
+											<h6 style="margin-toh6: 4%">' + obj.teamname_or_solo_id + '</h6>\
+											<h6 style="margin-toh6: 4%">' + obj.full_name + '</h6>\
+											<h6 style="margin-toh6: 4%">' + obj.name + '</h6>\
+									</div>\
+									<div class="col-md float-right text-right">\
+										<button class="btn btn-gray btn-sm update_career" data-toggle="modal" data-target="#Update_career" data-type="' + obj.type + '" data-team_or_id="' + obj.teamname_or_solo_id + '" data-game="' + obj.name + '" data-months="' + obj.career_months + '" data-years="' + obj.career_years + '"><i class="flaticon-edit"></i></button>\
+										<h6 style="margin-top: 7%">\
+											' + obj.career_months + '-' + obj.career_years + '\
+										</h6>\
+									</div>'
+					});
+					$("div.show_career").html(career);
+					$.each(req.data, function(index, obj) {
+						game = "";
+						''
+					});
+				}
+			})
+		}
+		Read_career_experience();
 
+
+		// update
+		$(document).on("click", "button.update_career", function() {
+			Career_type = $(this).data('type');
+			Career_teamname_or_game_id = $(this).data('teamname_or_solo_id');
+			Career_select_game = $(this).data('game');
+			Career_months = $(this).data('months');
+			Career_years = $(this).data('years');
+			Career_image = $(this).data('image	');
+		});
+		$("input.").data('type');
+		$(this).data('teamname_or_solo_id');
+		$(this).data('game');
+		$(this).data('months');
+		$(this).data('years');
+		$(this).data('image	');
+
+
+
+		// upload image
+		$(document).on('change', 'input.Career_image', function(e) {
+			file = e.target.files[0];
+			$('label.image_label').html(file.name);
+			canvasResize(file, {
+				width: 400,
+				height: 400,
+				crop: true,
+				quality: 100,
+				callback: function(data) {
+					$("input.hidden_image").val(data);
+					$("img.show_image").attr('src', data);
+				}
+			})
+		})
+		// end of uploaf image
+
+
+		$(document).on("submit", "form.Insert_career", function() {
+			Career_type = $("input.Career_type").val();
+			Career_teamname_or_game_id = $("input.Career_teamname_or_game_id").val();
+			Career_select_game = $("select.Career_select_game").val();
+			Career_months = $("select.Career_months").val();
+			Career_years = $("select.Career_years").val();
+			Career_image = $("input.hidden_image").val();
+
+			if (Career_type == "") {
+				notif("div.muncul_notif5", "danger", "Please insert your Career type!!!.");
+			} else if (Career_teamname_or_game_id == "") {
+				notif("div.muncul_notif5", "danger", "Please insert Your Team name or your Solo Id!!!.");
+			} else if (Career_select_game == "") {
+				notif("div.muncul_notif5", "danger", "Please select your Game!!!.");
+			} else if (Career_months == "") {
+				notif("div.muncul_notif5", "danger", "Please select your career Months!!!.");
+			} else if (Career_years == "") {
+				notif("div.muncul_notif5", "danger", "Please select your career Years!!!.");
+			} else {
+				$.ajax({
+					url: "<?= base_url('api/Profile/Update_Career_experience'); ?>",
+					method: "POST",
+					data: {
+						type: Career_type,
+						team_name_or_solo_id: Career_teamname_or_game_id,
+						game: Career_select_game,
+						months: Career_months,
+						years: Career_years,
+						image: Career_image,
+						user_id: 2
+					},
+					success: function(req) {
+						pesan = req.message;
+						if (req.error == true) {
+							notif("div.muncul_notif5", "danger", pesan);
+						} else {
+							$("input.Career_type").val('');
+							$("input.Career_teamname_or_game_id").val('');
+							$("select.Career_select_game").val('');
+							$("select.Career_months").val('');
+							$("select.Career_years").val('');
+							$("input.hidden_image").val();
+							$("div.Career").modal('hide');
+							tampil_info();
+							notif("div.notif", "success", pesan);
+						}
+					}
+				})
+			}
+			return false;
+		})
+		// end AJAX of Career experience
 
 		function notif(element, type, message) {
 			$(element).html('\
 					<div class="alert alert-' + type + '" role="alert">\
-				        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">x</span></button>\
+				        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true" style="margin-top: -20px">&times;</span></button>\
 				        ' + message + '\
 				    </div>\
 			    	');
 		}
-
-		$(document).on('change', 'input.Career_image', function(e) {
-			console.log
-		})
-
-	})
+	});
 </script>
 
 <!--end::Page Snippets -->
