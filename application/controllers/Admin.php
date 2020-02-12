@@ -66,8 +66,11 @@ class Admin extends CI_Controller{
         $this->load->view('Admin/teams');
 		$this->load->view('Admin/template/footer');
 	}
-	
-	public function team_details() {
+
+	public function team_details($team_id)
+	{
+		$this->session->set_userdata('team_id',$team_id);
+
 		$this->load->view('Admin/template/header');
 		$this->load->view('Admin/template/sidebar');
         $this->load->view('Admin/teams_details');
@@ -91,4 +94,13 @@ class Admin extends CI_Controller{
 	
 } 
 
-?>
+
+	public function tournament_details($tournament_id)
+	{
+		$this->session->set_userdata('tournament_id',$tournament_id);
+		$this->load->view('Admin/template/header');
+		$this->load->view('Admin/template/sidebar');
+		$this->load->view('Admin/tournament_details');
+		$this->load->view('Admin/template/footer');
+	}
+}

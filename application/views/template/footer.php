@@ -43,6 +43,114 @@
 					</div>
 				</footer>
 
+				<div class="m-portlet m-portlet--mobile" style="position: fixed;top: 0; right: 0; width: 400px; margin-top: 100px; height: 550px; margin-right: 5px" id="notification">
+					<div class="m-portlet__head">
+						<div class="m-portlet__head-caption">
+							<div class="m-portlet__head-title">
+								<h3 class="m-portlet__head-text">
+									Notification
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class="m-portlet__body">
+						<div class="m-scrollable" data-scrollable="true" style="height: 370px">
+							<!-- Notification -->
+						</div>
+					</div>
+				</div>
+
+				<div class="m-portlet m-portlet--mobile" style="position: fixed;top: 0; right: 0; width: 400px; margin-top: 100px; height: 550px; margin-right: 5px" id="update">
+					<div class="m-portlet__head">
+						<div class="m-portlet__head-caption">
+							<div class="m-portlet__head-title">
+								<h3 class="m-portlet__head-text">
+									Updates
+								</h3>
+							</div>
+						</div>
+					</div>
+					<div class="m-portlet__body">
+						<div class="m-scrollable" data-scrollable="true" style="height: 370px">
+							<!-- Notification -->
+						</div>
+					</div>
+				</div>
+
+				<div class="m-portlet m-portlet--mobile" style="position: fixed;top: 0; right: 0; width: 400px; margin-top: 100px; height: 550px; margin-right: 5px" id="team">
+					<div class="m-portlet__head">
+						<div class="m-portlet__head-caption">
+							<div class="m-portlet__head-title">
+								<h3 class="m-portlet__head-text">
+									Team
+								</h3>
+							</div>
+						</div>
+						<div class="m-portlet__tools">
+							<a href="#" class="close team mt-4">x</a>
+						</div>
+					</div>
+					<div class="m-portlet__body">
+						<div class="m-scrollable" data-scrollable="true" style="height: 370px">
+							<button class="btn btn-outline-info" data-toggle="modal" data-target="#create_team"><i class="fa fa-plus"></i> Create Team</button>
+							<div class="mt-3">
+								<table class="table table-hover my-team">
+									
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="m-portlet m-portlet--mobile" style="position: fixed;top: 0; right: 0; width: 100%; height: 100%; z-index: 9999; opacity: 0.9" id="loading">
+					<div class="loading" align="center" style="margin-top: 15%">
+						<img src="<?php echo base_url('assets/loading/loading.gif') ?>" style="width: 200px">
+					</div>
+				</div>
+
+
+				<div class="modal fade" id="create_team">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h3 class="modal-title">Create Team</h3>
+							</div>
+							<form class="create_team">
+								<div class="modal-body">
+									<div class="pesan-create-team"></div>
+									<div class="form-group">
+										<div class="custom-file shadow-sm">
+											<input type="file" class="custom-file-input team-avatar">
+											<label for="" class="custom-file-label team-avatar-name"></label>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="card bg-secondary shadow-sm p-3" style="height: 200px" align="center">
+											<img src="" class="team-avatar rounded" style="height: 100%">
+											<input type="hidden" class="team-avatar-name">
+										</div>
+									</div>
+									<div class="form-group">
+										<select class="form-control team-game m-input m-input--air team-game">
+											<option value="">Choose game</option>
+											<option value="1">PES 2020</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control m-input m-input--air m-input--pill team-name" placeholder="Team Name">
+									</div>
+									<div class="form-group">
+										<input type="text" class="form-control m-input m-input--air m-input--pill team-tag" maxlength="6" placeholder="Team's Tag (Max: 6 Char)">
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button class="btn btn-info btn-block btn-simpan-team" type="submit">Simpan</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
 				<!-- end::Footer -->
 				</div>
 				<!-- begin::Scroll Top -->
@@ -90,3 +198,35 @@
 				<!-- end::Body -->
 
 				</html>
+
+<script>
+
+	function Coba() {
+		$('div#loading').fadeOut(1000);
+	}
+
+	$(document).ready(function() {
+		
+		$('div#notification').hide();
+		$(document).on('click','a.notification',function() {
+			$('div#notification').slideToggle();
+			$('div#update').fadeOut();
+			$('div#team').fadeOut();
+		})
+
+		$('div#update').hide();
+		$(document).on('click','a.update',function() {
+			$('div#update').slideToggle();
+			$('div#notification').fadeOut();
+			$('div#team').fadeOut();
+		})
+
+		$('div#team').hide();
+		$(document).on('click','a.team',function() {
+			$('div#team').slideToggle();
+			$('div#notification').fadeOut();
+			$('div#update').fadeOut();
+		})
+
+	})
+</script>

@@ -32,6 +32,12 @@ class Discover extends REST_Controller {
 		return $this->response($request);
 	}
 
+	public function likes_post()
+	{
+		$request = $this->Discover_model->likes($this->post());
+		return $this->response($request);
+	}
+
 }
 
 /* End of file Discover.php */
