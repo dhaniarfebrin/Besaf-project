@@ -82,7 +82,7 @@
 															</div>
 														</div>
 														<div class="m-portlet__body">
-															<p align="center">This rating system based on how much another user voted your gaming skills. The more you have friends to play, the more chance you have to receive votes to stand out among other players. More votes means better chances at finding a good team to play.</p>
+															<div class="tampil_skill_role row" align="center"></div>
 														</div>
 													</div>
 												<!--end::Portlet-->
@@ -250,7 +250,6 @@
 						<div class="muncul_notif1"></div>
 						<!--begin::Form-->
 						<form class="m-form m-form--fit m-form--label-align-right Change_password">
-							<input type="hidden" class="Change_password_id">
 							<div class="form-group m-form__group">
 								<input type="text" class="form-control m-input m-input--air m-input--pill current_password" placeholder="Your Current Password">
 							</div>
@@ -405,7 +404,6 @@
 				<div class="muncul_notif3"></div>
 				<!--begin::Form-->
 				<form class="m-form m-form--fit m-form--label-align-right About_me_form">
-						<input type="hidden" class="About_me_id">
 						<!-- <div class="form-group m-form__group"> -->
 							<textarea style="resize: none; height: auto;" class="form-control m-input m-input--air m-input--pill About_me_text" rows="5" placeholder="Write About You Here....."></textarea>
 						<!-- </div> --><br>
@@ -430,28 +428,31 @@
 				</button>
 			</div>
 			<div class="modal-body">
+				<div class="muncul_notif9"></div>
 				<!--begin::Form-->
-				<form class="m-form m-form--fit m-form--label-align-right">
+				<form class="m-form m-form--fit m-form--label-align-right insert-skill-role">
 					<div class="m-portlet__body">
 						<div class="form-group m-form__group">
 							<label for="">Select Game</label>
-							<select class="form-control m-input m-input--air m-input--pill select-game">
+							<select class="form-control m-input m-input--air m-input--pill select-game" id="skill-in-game">
 							</select>
-						</div>
-						<div class="form-group m-form__group">
-							<label class="col-form-label">Upload Game and Poster</label>
-								<div class="m-dropzone dropzone" action="inc/api/dropzone/upload.php" id="m-dropzone-one">
-									<div class="m-dropzone__msg dz-message needsclick">
-										<h3 class="m-dropzone__msg-title">Drop Picture here or click to upload.</h3><br>
-										<img width="75px" src="<?= base_url(); ?>assets/img/upload.png" alt="">
-									</div>
-										<span class="text-small">Upload your picture</span>
-								</div>
 						</div>
 						<div class="form-group m-form__group">
 							<label for="exampleSelect2">Role in Game</label>
-							<select class="form-control m-input m-input--air m-input--pill role-game">
+							<select class="form-control m-input m-input--air m-input--pill role-game" id="role-in-game">
 							</select>
+						</div>
+						<div class="form-group m-form__group">
+							<label class="">Upload Image</label>
+							<form class="">
+								<div class="custom-file">
+									<input type="file" class="custom-file-input skill-image" id="customFile">
+									<label class="custom-file-label label-career-image" for="customFile">Choose your image</label>
+								</div>
+								<input type="hidden" class="hidden-skill-image">
+						</div>
+						<div align="center" class="border rounded" style="height: 250px">
+							<img class="show_image_skill" style="max-width: 100%; max-height: 100%; padding: 10px">
 						</div>
 					</div><br>
 						<button type="submit" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px">Done</button>
@@ -536,8 +537,8 @@
 							<img class="show_image" style="max-width: 100%; max-height: 100%; padding: 10px">
 						</div>
 					</div><br>
-							<button type="submit" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px">Done</button>
-							<button type="reset" class="btn btn-secondary btn-sm" style="float: right;">Reset</button>
+						<button type="submit" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px">Done</button>
+						<button type="reset" class="btn btn-secondary btn-sm" style="float: right;">Reset</button>
 				</form>
 				<!--end::Form-->
 			</div>
@@ -546,32 +547,35 @@
 </div>
 <!-- end modal career experience -->
 
-<!-- start modal update career -->
-<div class="modal fade Career" id="Update_career">
+
+<!-- start modal update career experience-->
+<div class="modal fade" id="Update_career">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Add Your Career</h5>
+				<h5 class="modal-title" id="exampleModalLabel">Edit Career</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
 			<div class="modal-body">
-				<div class="muncul_notif5"></div>
+				<div class="muncul_notif8"></div>
 				<!--begin::Form-->
-				<form class="m-form m-form--fit m-form--label-align-right Insert_career">
+				<form class="m-form m-form--fit m-form--label-align-right Update_career">
 					<div class="m-portlet__body">
 						<div class="form-group m-form__group">
+							<input type="hidden" class="hidden-update-career">
+							<input type="hidden" class="hidden-delete-career">
 							<label for="">Career Type</label>
-							<input type="text" class="form-control m-input m-input--air m-input--pill Career_type" maxlength="150" placeholder="e.g Professional Players, Coach, Captain etc">
+							<input type="text" class="form-control m-input m-input--air m-input--pill career_type" maxlength="150" placeholder="e.g Professional Players, Coach, Captain etc">
 						</div>
 						<div class="form-group m-form__group">
 							<label for="">Team Name/In Game ID</label>
-							<input type="text" class="form-control m-input m-input--air m-input--pill Career_teamname_or_game_id" maxlength="150" placeholder="Your Team Name or Your Solo ID">
+							<input type="text" class="form-control m-input m-input--air m-input--pill career_teamname_or_game_id" maxlength="150" placeholder="Your Team Name or Your Solo ID">
 						</div>
 						<div class="form-group m-form__group">
 							<label for="">Add Game to Endorse</label>
-							<select class="form-control m-input m-input--air m-input--pill Career_select_game">
+							<select class="form-control m-input m-input--air m-input--pill career_select_game">
 								<option value="" class=""></option>}
 							</select>
 						</div>
@@ -579,7 +583,7 @@
 							<label>Career Date</label>
 							<div class="row">
 								<div class="col-md-6">
-								<select class="form-control Career_months">
+								<select class="form-control career_months">
 									<option value="">Month</option>
 									<option value="January">January</option>
 									<option value="February">February</option>
@@ -596,7 +600,7 @@
 								</select>
 							</div>
 							<div class="col-md-6">
-								<select class="form-control Career_years">
+								<select class="form-control career_years">
 									<?php for ($i=1990; $i <= date('Y'); $i++) { ?>
 										<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
 									<?php } ?>
@@ -606,19 +610,19 @@
 						</div>
 						<div class="form-group m-form__group">
 							<label class="">Upload Image</label>
-							<form class="">
 								<div class="custom-file">
-									<input type="file" class="custom-file-input Career_image" id="customFile">
-									<label class="custom-file-label image_label" for="customFile">Choose file</label>
+									<input type="hidden" class="hidden-image-update">
+									<input type="file" class="custom-file-input career-image-update" id="customFile">
+									<label class="custom-file-label image-label-update" for="customFile">Choose file</label>
 								</div>
-								<input type="hidden" class="hidden_image">
 						</div>
 						<div align="center" class="border rounded" style="height: 250px">
-							<img class="show_image" style="max-width: 100%; max-height: 100%; padding: 10px">
+							<img class="show-image-update" style="max-width: 100%; max-height: 100%; padding: 10px">
 						</div>
 					</div><br>
-							<button type="submit" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px">Done</button>
-							<button type="reset" class="btn btn-secondary btn-sm" style="float: right;">Reset</button>
+					<div class="delete-game">
+							
+					</div>
 				</form>
 				<!--end::Form-->
 			</div>
@@ -628,7 +632,7 @@
 <!-- end modal update career experience -->
 
 
-<!-- start modal ac -->
+<!-- start modal user achievement -->
 <div class="modal fade" id="achievement">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -692,22 +696,23 @@
 							</div>
 						</div>
 						<div class="form-group m-form__group">
-							<label class="col-form-label">Upload Image</label>
-								<div class="m-dropzone dropzone" action="inc/api/dropzone/upload.php" id="m-dropzone-one">
-									<div class="m-dropzone__msg dz-message needsclick">
-										<h3 class="m-dropzone__msg-title">Drop Picture here or click to upload.</h3><br>
-										<img width="75px" src="<?= base_url(); ?>assets/img/upload.png" alt="">
-									</div>
-										<span class="text-small">Upload your picture</span>
+							<label class="">Upload Image</label>
+								<div class="custom-file">
+									<input type="hidden" class="hidden-image-update">
+									<input type="file" class="custom-file-input career-image-update" id="customFile">
+									<label class="custom-file-label image-label-update" for="customFile">Choose file</label>
 								</div>
 						</div>
+						<div align="center" class="border rounded" style="height: 250px">
+							<img class="show-image-update" style="max-width: 100%; max-height: 100%; padding: 10px">
+						</div>
 					</div><br>
-							<button type="submit" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px">Done</button>
-							<button type="reset" class="btn btn-secondary btn-sm" style="float: right;">Reset</button>
+						<button type="submit" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px">Done</button>
+						<button type="reset" class="btn btn-secondary btn-sm" style="float: right;">Reset</button>
 				</form>
-				<!--end::Form-->
+	<!--end::Form-->
 			</div>
 		</div>
 	</div>
 </div>
-<!-- end modal career experience -->
+	<!-- start modal user achievement -->

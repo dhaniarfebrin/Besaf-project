@@ -20,15 +20,16 @@ function openNav() {
 }
 
 function addRole() {
-	var li = document.createElement('li');
-	//	var input = (document.createElement('input'));
+	// var li = document.createElement('input');
+	var input = (document.createElement('input'));
 	var inputValue = document.getElementById('role').value;
-	var value = document.createTextNode(inputValue);
+	// var value = document.createTextNode(inputValue);
 
-	li.appendChild(value);
+	input.setAttribute('value', inputValue)
 	//	li.setAttribute('disabled', '');
-	li.setAttribute('name', 'role[]');
-	li.className = "role d-block w-75 mx-auto bg-transparent pd-0";
+	input.setAttribute('name', 'role[]');
+	input.setAttribute('id', 'role-list')
+	input.className = "role d-block w-75 mx-auto bg-transparent pd-0 text-white";
 
 	if (inputValue === '') {
 		// Swal.fire({
@@ -38,25 +39,25 @@ function addRole() {
 		// })
 	} else {
 		var role = document.getElementById('roleList');
-		role.appendChild(li);
+		role.appendChild(input);
 	}
 	var role = document.getElementById('roleList');
 	document.getElementById('role').value = "";
 
-	var span = document.createElement('span');
-	var iconClose = document.createTextNode("x");
+	// var span = document.createElement('span');
+	// var iconClose = document.createTextNode("x");
 
-	span.className = "close text-white my-auto";
-	span.appendChild(iconClose);
-	li.appendChild(span);
+	// span.className = "close text-white my-auto";
+	// span.appendChild(iconClose);
+	// input.appendChild(span);
 
-	var close = document.getElementsByClassName('close');
-	for (i = 0; i < close.length; i++) {
-		close[i].onclick = function () {
-			var parent = this.parentElement;
-			parent.className = "d-none";
-		}
-	}
+	// var close = document.getElementsByClassName('close');
+	// for (i = 0; i < close.length; i++) {
+	// 	close[i].onclick = function () {
+	// 		var parent = this.parentElement;
+	// 		parent.className = "d-none";
+	// 	}
+	// }
 }
 
 function changeTab(tab) {

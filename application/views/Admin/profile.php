@@ -14,7 +14,7 @@
 						</div>
 						<div class="mt-3 text-center">
 							<h5 class="card-title text-center font-weight-bold">
-								<!--<?= $this->session->userdata('username'); ?>-->
+								<?= $this->session->userdata('username'); ?>
 							</h5>
 							<div class="card-text text-secondary user_bio">
 								
@@ -111,8 +111,16 @@
 			<div class="modal-body mt-3">
 				<form class="edit_avatar">
 					<div class="custom-file mb-3">
+						<input type="hidden" class="hidden-avatar">
 						<input type="file" class="custom-file-input change-avatar">
 						<label class="custom-file-label bg-dark border-0 text-white d-block mx-auto avatar-name">Your Avatar</label>
+					</div>
+					<div class="form-group">
+						<div class="card bg-secondary" style="height: 300px">
+							<div class="card-body" align="center">
+								<img src="" class="show-profile-image rounded" style="height: 100%">
+							</div>
+						</div>
 					</div>
 					<div class="form-group">
 						<input type="text" placeholder="Write Your Bio" class="form-control d-block mx-auto bg-dark border-0 text-white  rounded-0 update-bio">
@@ -239,6 +247,7 @@
 				quality: 100,
 				callback: function(data) {
 					$("input.hidden-avatar").val(data);
+					$('img.show-profile-image').attr('src',data);
 				}
 			})
 		})
@@ -256,7 +265,7 @@
 				url: "<?= base_url('api/Super_admin/Update_avatar'); ?>",
 				type 	: "POST",
 				data: {
-					id: 2,
+					id: '<?php echo $this->session->userdata('user_id'); ?>',
 					avatar: avatar,
 					bio: bio
 				},
@@ -276,10 +285,10 @@
 				url: '<?= base_url('api/Super_admin/Read_avatar'); ?>',
 				type: 'POST',
 				data: {
-					id: /*<?= $this->session->userdata('') ?>*/ 2,	
+					id: '<?php echo $this->session->userdata('user_id'); ?>',
 				},
 				success: function(req){
-					$("img.avatar-admin").attr('src', "<?= base_url('api/img/Super_admin_profile/'); ?>"+req.data.avatar);
+					$("img.avatar-admin").attr('src', "<?= base_url('api/img/Super_admin_profile/'); ?>"+req.data.image);
 					$("div.user_bio").html(req.data.bio);
 				}
 			})
@@ -292,10 +301,10 @@
 				url: '<?= base_url('api/Super_admin/Read_info'); ?>',
 				type: 'POST',
 				data: {
-					id: 2
+					id: '<?php echo $this->session->userdata('user_id'); ?>'
 				},
 				success: function(req) {
-					if (req.gender == 1) {
+					if (req.data.gender == 1) {
 						gender = "laki-laki";
 					}
 					else{
@@ -352,7 +361,7 @@
 				url: '<?= base_url('api/Super_admin/Update_info'); ?>',
 				type: 'POST',
 				data: {
-					id: 2,
+					id: '<?php echo $this->session->userdata('user_id'); ?>',
 					full_name: full_name,
 					email: email,
 					country: country,
@@ -379,10 +388,10 @@
 
 		function Read_about_me(){
 			$.ajax({
-				url: '<?= base_url('api/Super_admin/Read_info'); ?>',
+				url: '<?php echo base_url('api/Super_admin/Read_info'); ?>',
 				type: 'POST',
 				data: {
-					id: 2
+					id: '<?php echo $this->session->userdata('user_id'); ?>'
 				},
 				success: function(req) {
 					$("div.about_user").html(req.data.about_me);
@@ -404,7 +413,7 @@
 				url: '<?= base_url('api/Super_admin/Update_about_me'); ?>',
 				type: 'POST',
 				data: {
-					id: 2,
+					id: '<?php echo $this->session->userdata('user_id'); ?>',
 					about_me: about_me
 				},
 				success: function(req) {

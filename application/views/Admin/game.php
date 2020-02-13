@@ -115,7 +115,7 @@
 			image = $("input.game_image_hidden").val();
 			
 			$.ajax({
-				url: "<?= base_url('Api/Super_admin/Add_game'); ?>",
+				url: "<?= base_url('api/Super_admin/Add_game'); ?>",
 				type: "POST",
 				data: {
 					nama : name,
@@ -123,10 +123,15 @@
 					image : image
 				},
 				success: function (req) {
-					$("input.name").val('');
-					$("input#role-list").val('');
-					$("div#add-Gamebro").modal('hide');
-					Read_game();
+					console.log(req)
+					if (req.error == true) {
+
+					} else {
+						$("input.name").val('');
+						$("input#role-list").val('');
+						$("div#add-Gamebro").modal('hide');
+						Read_game();
+					}
 				}
 			})
 			return false;
@@ -139,7 +144,7 @@
 				"processing": true,
 				"deferRender": true,
 				"ajax": {
-					"url": "<?= base_url('Api/Super_admin/Read_game'); ?>",
+					"url": "<?= base_url('api/Super_admin/Read_game'); ?>",
 					"method": "POST",
 					"dataSrc": "data"
 				},
