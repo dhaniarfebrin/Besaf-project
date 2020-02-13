@@ -114,7 +114,7 @@ class Turnamen_model extends CI_Model {
 			SELECT 
 				tournament.id,
 				tournament.nama as nama,
-				game.nama as game_nama,
+				game.name as game_nama,
 				rules,
 				hadiah,
 				informasi,

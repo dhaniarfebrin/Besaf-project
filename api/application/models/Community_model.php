@@ -32,7 +32,7 @@ class Community_model extends CI_Model {
 			SELECT 
 				komunitas.id as komunitas_id,
 				komunitas.nama as komunitas_nama,
-				game.nama as game_nama
+				game.name as game_nama
 			FROM 
 				komunitas 
 			LEFT JOIN 
@@ -89,7 +89,7 @@ class Community_model extends CI_Model {
 				komunitas.id,
 				komunitas.nama,
 				kategori,
-				game.nama AS game_nama,
+				game.name AS game_nama,
 				komunitas.foto_identitas
 			FROM 
 				komunitas 
@@ -98,6 +98,10 @@ class Community_model extends CI_Model {
 			WHERE 
 				komunitas.id = '$komunitas_id'
 			");
+
+		$hasil['error'] = false;
+		$hasil['message'] = "data tidak ditemukan.";
+		$hasil['data'] = array();
 
 		foreach ($query->result_array() as $key) {
 			$hasil['error'] = false;

@@ -239,20 +239,25 @@ class Team_model extends CI_Model {
 	public function cari_member($input)
 	{
 		$data = $input['data'];
+		$team_id = $input['team_id'];
 
 		$where = '';
 		if (!empty($data)) {
-			$where = "WHERE username LIKE '%$data%'";
+			$where = "WHERE user.username LIKE '%$data%' AND (user.role_id != '2' OR team_member.team_id != '$team_id')";
 		}
 
 		$user = $this->db->query("
 				SELECT 
-					id,
-					username,
-					image
+					user.id,
+					user.username,
+					user.image
 				FROM
 					user
+				LEFT JOIN
+					team_member ON team_member.user_id = user.id
 				$where
+				GROUP BY user.id
+				LIMIT 0,5
 			");
 
 		$hasil['error'] = false;
@@ -266,6 +271,11 @@ class Team_model extends CI_Model {
 		}
 
 		return $hasil;
+	}
+
+	public function undang($input)
+	{
+		
 	}
 }
 

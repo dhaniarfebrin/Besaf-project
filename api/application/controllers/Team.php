@@ -50,6 +50,12 @@ class Team extends REST_Controller {
 		return $this->response($request);
 	}
 
+	public function undang_post()
+	{
+		$request = $this->Team_model->undang($this->post());
+		return $this->response($request);
+	}
+
 }
 
 /* End of file Team.php */

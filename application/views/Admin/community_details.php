@@ -15,7 +15,7 @@
 								Community
 							</h5>
 							<div class="card-text text-secondary game">
-								Mobile legends: Bang Bang
+								Game Community
 							</div>
 						</div>
 					</div>
@@ -31,11 +31,11 @@
 								<tbody>
 									<tr>
 										<th>Name</th>
-										<td class="text-secondary nama_komunitas">Evos Esport</td>
+										<td class="text-secondary nama_komunitas">Community Name</td>
 									</tr>
 									<tr>
 										<th>Category</th>
-										<td class="text-secondary kategori">Umum</td>
+										<td class="text-secondary kategori">Kategori Community</td>
 									</tr>
 									<tr>
 										<th>Member(s)</th>
@@ -66,7 +66,9 @@
 					komunitas_id : '<?php echo $this->session->userdata('komunitas_id') ?>'
 				},
 				success : function(req) {
-					console.log(req);
+					if (req.data == null || req.data == '') {
+						window.location = '<?php echo base_url('') ?>';
+					}
 					$('img.komunitas_foto').attr('src','<?php echo base_url('api/img/komunitas/') ?>'+req.data.komunitas_foto);
 					$('div.game').html(req.data.komunitas_game);
 					$('td.nama_komunitas').html(req.data.komunitas_nama);
