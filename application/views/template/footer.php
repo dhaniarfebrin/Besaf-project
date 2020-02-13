@@ -47,15 +47,66 @@
 					<div class="m-portlet__head">
 						<div class="m-portlet__head-caption">
 							<div class="m-portlet__head-title">
-								<h3 class="m-portlet__head-text">
-									Notification
-								</h3>
+								<div class="row">
+									<h3 class="m-portlet__head-text">
+										Notification
+									</h3>
+								</div>
 							</div>
 						</div>
+						<div class="m-portlet__tools">
+							<button type="button" class="close notification mt-4">x</button>
+						</div>
 					</div>
-					<div class="m-portlet__body">
+					<div class="m-portlet__body p-0">
 						<div class="m-scrollable" data-scrollable="true" style="height: 370px">
-							<!-- Notification -->
+							<div class="card p-2" style="max-width: 100%; height: 120px">
+								<div class="row no-gutters">
+									<div class="col-md-2">
+										<img src="<?= base_url() ?>assets/img/profile.jpg" class="card-img rounded-circle" style="margin-top: 25%" alt="gambar">
+									</div>
+									<div class="col-md-10">
+										<div class="card-body">
+											<h5 class="card-title">Confirmation</h5>
+											<p class="card-text">...........</p>
+											<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card p-2" style="max-width: 100%; height: 120px">
+								<div class="row no-gutters">
+									<div class="col-md-2">
+										<img src="<?= base_url() ?>assets/img/profile.jpg" class="card-img rounded-circle" style="margin-top: 25%" alt="gambar">
+									</div>
+									<div class="col-md-10">
+										<div class="card-body">
+											<h5 class="card-title">Invitation</h5>
+											<p class="card-text">...........</p>
+											<div class="row no-gutters">
+												<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+												<div class="row no-gutters ml-auto mb-1">
+													<style>
+														.confirmation-btn-false:hover {
+															background-color: red !important;
+															cursor: pointer;
+															color: white !important;
+														}
+														
+														.confirmation-btn-true:hover {
+															background-color: green !important;
+															cursor: pointer;
+															color: white !important;
+														}
+													</style>
+													<button type="button" class="bg-transparent border-0 rounded-circle far fa-times-circle confirmation-btn-false" style="color: red"></button>
+													<button type="button" class="bg-transparent border-0 rounded-circle far fa-check-circle confirmation-btn-true" style="color:green"></button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -87,7 +138,7 @@
 							</div>
 						</div>
 						<div class="m-portlet__tools">
-							<a href="#" class="close team mt-4">x</a>
+							<button type="button" class="close team mt-4">x</button>
 						</div>
 					</div>
 					<div class="m-portlet__body">
@@ -95,7 +146,7 @@
 							<button class="btn btn-outline-info" data-toggle="modal" data-target="#create_team"><i class="fa fa-plus"></i> Create Team</button>
 							<div class="mt-3">
 								<table class="table table-hover my-team">
-									
+
 								</table>
 							</div>
 						</div>
@@ -199,34 +250,33 @@
 
 				</html>
 
-<script>
+				<script>
+					function Coba() {
+						$('div#loading').fadeOut(1000);
+					}
 
-	function Coba() {
-		$('div#loading').fadeOut(1000);
-	}
+					$(document).ready(function() {
 
-	$(document).ready(function() {
-		
-		$('div#notification').hide();
-		$(document).on('click','a.notification',function() {
-			$('div#notification').slideToggle();
-			$('div#update').fadeOut();
-			$('div#team').fadeOut();
-		})
+						$('div#notification').hide();
+						$(document).on('click', '.notification', function() {
+							$('div#notification').slideToggle();
+							$('div#update').fadeOut();
+							$('div#team').fadeOut();
+						})
 
-		$('div#update').hide();
-		$(document).on('click','a.update',function() {
-			$('div#update').slideToggle();
-			$('div#notification').fadeOut();
-			$('div#team').fadeOut();
-		})
+						$('div#update').hide();
+						$(document).on('click', '.update', function() {
+							$('div#update').slideToggle();
+							$('div#notification').fadeOut();
+							$('div#team').fadeOut();
+						})
 
-		$('div#team').hide();
-		$(document).on('click','a.team',function() {
-			$('div#team').slideToggle();
-			$('div#notification').fadeOut();
-			$('div#update').fadeOut();
-		})
+						$('div#team').hide();
+						$(document).on('click', '.team', function() {
+							$('div#team').slideToggle();
+							$('div#notification').fadeOut();
+							$('div#update').fadeOut();
+						})
 
-	})
-</script>
+					})
+				</script>
