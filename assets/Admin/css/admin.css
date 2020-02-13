@@ -7,7 +7,7 @@ body {
 	background-color: rgb(27, 27, 27);
 	color: white;
 	font-family: 'roboto', sans-serif;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 .loading-halaman::before {
