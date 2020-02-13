@@ -12,13 +12,18 @@ class Auth extends CI_Controller
 	public function index()
 	{
 		$this->session->unset_userdata('reset');
-		//! cek login
-		if ($this->session->userdata('role_id') == 1) {
-			// user
-			redirect('user');
-		} elseif ($this->session->userdata('role_id') == 2) {
-			// admin
-			redirect('admin');
+
+		//* CEK cookie, jika ada, langsung login
+		$login = get_cookie(sha1('besaf'));
+		if ($login) {
+			//! cek login
+			if ($this->session->userdata('role_id') == 1) {
+				// user
+				redirect('user');
+			} elseif ($this->session->userdata('role_id') == 2) {
+				// admin
+				redirect('admin');
+			}
 		}
 		$this->load->view('index');
 	}
@@ -26,16 +31,20 @@ class Auth extends CI_Controller
 	public function logout()
 	{
 		$this->session->sess_destroy();
+		delete_cookie(sha1('besaf'), $_SERVER['SERVER_NAME']);
 		redirect('auth');
 	}
 
-	public function session($role_id, $username, $id)
+	public function session($role_id, $username, $id, $rememberme)
 	{
 		$this->session->set_userdata([
 			'user_id' => $id,
 			'role_id' => $role_id,
 			'username' => $username
 		]);
+		if ($rememberme == 'true') {
+			set_cookie(sha1('besaf'), sha1($username), 3600 * 24 * 30, $_SERVER['SERVER_NAME']);
+		}
 		cek_session($this->session->userdata('role_id'));
 	}
 
@@ -50,13 +59,17 @@ class Auth extends CI_Controller
 	// ================================================= Update 4 februari ===========================================================
 	public function Tournament()
 	{
-		//! cek login
-		if ($this->session->userdata('role_id') == 1) {
-			// user
-			redirect('user');
-		} elseif ($this->session->userdata('role_id') == 2) {
-			// admin
-			redirect('admin');
+		//* CEK cookie, jika tidak ada, langsung tendang
+		$login = get_cookie(sha1('besaf'));
+		if ($login) {
+			//! cek login
+			if ($this->session->userdata('role_id') == 1) {
+				// user
+				redirect('user');
+			} elseif ($this->session->userdata('role_id') == 2) {
+				// admin
+				redirect('admin');
+			}
 		}
 		//user tanpa login bisa melihat tournament dengan view di bawah
 		$this->load->view('Front/template/header');
@@ -66,13 +79,17 @@ class Auth extends CI_Controller
 
 	public function Tournament_details($id)
 	{
-		//! cek login
-		if ($this->session->userdata('role_id') == 1) {
-			// user
-			redirect('user');
-		} elseif ($this->session->userdata('role_id') == 2) {
-			// admin
-			redirect('admin');
+		//* CEK cookie, jika tidak ada, langsung tendang
+		$login = get_cookie(sha1('besaf'));
+		if ($login) {
+			//! cek login
+			if ($this->session->userdata('role_id') == 1) {
+				// user
+				redirect('user');
+			} elseif ($this->session->userdata('role_id') == 2) {
+				// admin
+				redirect('admin');
+			}
 		}
 		$this->session->set_userdata('tournament_id', $id);
 		//user tanpa login bisa melihat tournament detail dengan view di bawah
@@ -84,13 +101,17 @@ class Auth extends CI_Controller
 
 	public function Login()
 	{
-		//! cek login
-		if ($this->session->userdata('role_id') == 1) {
-			// user
-			redirect('user');
-		} elseif ($this->session->userdata('role_id') == 2) {
-			// admin
-			redirect('admin');
+		//* CEK cookie, jika tidak ada, langsung tendang
+		$login = get_cookie(sha1('besaf'));
+		if ($login) {
+			//! cek login
+			if ($this->session->userdata('role_id') == 1) {
+				// user
+				redirect('user');
+			} elseif ($this->session->userdata('role_id') == 2) {
+				// admin
+				redirect('admin');
+			}
 		}
 		$this->load->view('Front/template/header');
 		$this->load->view('Front/Login_page');
