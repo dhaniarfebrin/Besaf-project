@@ -129,11 +129,14 @@ class Turnamen_model extends CI_Model {
 				date_start,
 				date_end,
 				komunitas_id,
-				cookies
+				cookies,
+				komunitas.nama AS komunitas_nama
 			FROM 
 				tournament
 			INNER JOIN 
 				game ON game.id = tournament.game_id
+			INNER JOIN 
+				komunitas ON komunitas.id = tournament.komunitas_id
 			WHERE 
 				tournament.id = '$turnamen_id'
 			");

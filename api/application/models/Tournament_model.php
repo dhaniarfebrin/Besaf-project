@@ -32,7 +32,7 @@ class Tournament_model extends CI_Model {
 
 		$tournament = $this->db->query("
 			SELECT 
-				tournament.id as tournament_id,
+				tournament.id,
 				tournament.nama as tournament_nama,
 				hadiah,
 				rules,
@@ -83,6 +83,61 @@ class Tournament_model extends CI_Model {
 			$hasil['data'][$no++] = $key;
 		}
 
+		return $hasil;
+	}
+
+	public function details($input)
+	{
+		$id = $input['id'];
+
+		if (empty($id)) {
+			$hasil = array(
+				'error' => true,
+				'message' => "id tidak ditemukan."
+			);
+			goto output;
+		}
+
+		$tournament = $this->db->query("
+			SELECT 
+				tournament.id,
+				tournament.nama,
+				game.nama AS game_nama,
+				rules,
+				hadiah,
+				informasi,
+				how_to_join,
+				venue,
+				mode,
+				tournament.image,
+				slots,
+				time,
+				entry,
+				winner,
+				date_start,
+				date_end,
+				komunitas.nama AS komunitas_nama,
+				cookies
+			FROM 
+				tournament
+			LEFT JOIN 
+				game ON game.id = tournament.game_id
+			LEFT JOIN 
+				komunitas ON komunitas.id = tournament.komunitas_id
+			WHERE 
+				tournament.id = '$id'
+			");
+
+		$hasil['error'] = false;
+		$hasil['message'] = "tournament tidak tersedia";
+		$hasil['data'] = array();
+
+		foreach ($tournament->result_array() as $key) {
+			$hasil['message'] = "success.";
+			$hasil['data'] = $key;
+		}
+
+		output:
 		return $hasil;
 	}
 

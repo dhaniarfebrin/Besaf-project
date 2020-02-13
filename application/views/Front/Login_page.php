@@ -11,7 +11,9 @@ $country = [
 </a>
 <div class="container">
 	<input type="hidden" class="kode" value="<?= $verificationcode; ?>">
-	<div class="mx-auto">
+
+	<div class="row no-gutters mx-auto">
+
 		<div class="col col-xls">
 			<div class="card border-0 mx-auto text-white rounded position-relative px-4 pt-4 pb-4 card-login-page" style="z-index: 1; background-color: #1A2027">
 				<div class="card-header bg-transparent border-bottom-0 p-0">

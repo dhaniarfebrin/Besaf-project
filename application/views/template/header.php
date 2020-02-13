@@ -72,7 +72,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<link rel="stylesheet" href="<?php echo base_url('assets/app/css/app.css'); ?>">
 	<style>
 		.loading-halaman::before {
-			content: " ";
+			content: "";
 			display: block;
 			position: fixed;
 			z-index: 99;
@@ -80,7 +80,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			width: 100%;
 			top: 0;
 			left: 0;
-			background-color: #2C92CB;
+			background-color: white;
 			animation: load-halaman infinite ease-out 2s;
 		}
 
@@ -100,7 +100,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- begin::Body -->
 
-<body class="m-content--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-light m-aside--offcanvas-default" style="background: url('<?php echo base_url('assets/img/bg.jpg') ?>'); background-size: 100%;">
+<body onload="Coba()" class="m-content--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-light m-aside--offcanvas-default" style="background: url('<?php echo base_url('assets/img/bg.jpg') ?>'); background-size: 100%;">
 
 	<!-- begin:: Page -->
 	<div class="m-grid m-grid--hor m-grid--root m-page">

@@ -136,6 +136,12 @@
 							}
 							return status;
 						}
+					},
+					{
+						data : null,
+						render : function(req) {
+							return '<a href="<?php echo base_url('Admin/tournament_details/') ?>'+req.id+'">Details</a>'
+						}
 					}
 				]
 			})

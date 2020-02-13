@@ -305,8 +305,15 @@ class M_user extends CI_Model
         $password = $post['password'];
         $newpassword = $post['verifypassword'];
         $email = $post['email'];
+        $cek_email = $this->db->get_where('user', ['email' => base64_decode(urldecode($email))])->row_array();
 
-        if (!$password) {
+        if ($email !== $cek_email) {
+            $response = [
+                'error' => 'undefined',
+                'message' => 'Anda mungkin tersesat! Silahkan pulang ke dashboard :) '
+            ];
+            goto output;
+        } elseif (!$password) {
             $response = [
                 'error' => true,
                 'message' => 'Password kosong!'

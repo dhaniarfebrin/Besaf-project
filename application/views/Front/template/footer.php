@@ -26,6 +26,17 @@
 
                     if (response.error == true) {
                         notif('div.muncul-pesan', 'warning', pesan)
+                        console.log(response)
+                    } else if (response.error = 'undefined') {
+                        notif('div.muncul-pesan', 'warning', pesan)
+                        $('input.newpassword').attr({
+                            'disabled': 'disabled',
+                            'placeholder': 'you lose...'
+                        })
+                        $('input.newpassword2').attr({
+                            'disabled': 'disabled',
+                            'placeholder': 'you lose...'
+                        })
                     } else {
                         notif('div.muncul-pesan', 'success', pesan)
                     }
