@@ -1,4 +1,4 @@
-<a href="<?= base_url('auth/login') ?>">
+<a href="<?= base_url() ?>">
     <img src="<?= base_url() ?>assets/Front/img/logo.png" alt="" class="mr-auto p-3" width="200px">
 </a>
 

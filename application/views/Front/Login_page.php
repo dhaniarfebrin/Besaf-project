@@ -49,8 +49,9 @@ $country = [
 									</div>
 								</div>
 							</div>
+							<input type="hidden" class="keep" value="true">
 							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input" id="exampleCheck2">
+								<input type="checkbox" class="custom-control-input keepme" id="exampleCheck2" onclick="check()">
 								<label class="custom-control-label" for="exampleCheck2">Keep me in</label>
 							</div>
 							<button type="submit" class="btn btn-primary text-black font-weight-bold mt-4 w-100">Let me in</button>

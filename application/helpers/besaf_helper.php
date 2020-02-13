@@ -2,7 +2,6 @@
 
 function cek_session($role_id)
 {
-    $ci = get_instance();
 
     if ($role_id == 1) {
         // user

@@ -5,6 +5,18 @@
 
 <!-- formjs -->
 <script>
+    keepme = 'false'
+
+    function check() {
+        if ($('input.keepme').prop('checked')) {
+            keepme = 'true'
+            console.log('true')
+        } else {
+            keepme = 'false'
+            console.log('false')
+        }
+    }
+
     $(document).ready(function() {
         data = $('input.kode').val()
 
@@ -113,7 +125,8 @@
                         user_id = req.data.id
                         role_id = req.data.role_id
                         username = req.data.username
-                        window.location = "<?= base_url('auth/session/'); ?>" + role_id + "/" + username + "/" + user_id
+                        rememberme = keepme
+                        window.location = "<?= base_url('auth/session/'); ?>" + role_id + "/" + username + "/" + user_id + '/' + rememberme
                     }
                 })
             return false

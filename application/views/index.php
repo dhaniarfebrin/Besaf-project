@@ -232,7 +232,7 @@ $country = [
 
 
 							<div class="custom-control custom-checkbox">
-								<input type="checkbox" class="custom-control-input" id="exampleCheck2">
+								<input type="checkbox" class="custom-control-input keepme" id="exampleCheck2" onclick="check()">
 								<label class="custom-control-label" for="exampleCheck2">Keep me in</label>
 							</div>
 							<button type="submit" class="btn btn-login text-center">Let me in</button>
@@ -375,6 +375,18 @@ $country = [
 	<!-- formjs -->
 
 	<script>
+		keepme = 'false'
+
+		function check() {
+			if ($('input.keepme').prop('checked')) {
+				keepme = 'true'
+				console.log('true')
+			} else {
+				keepme = 'false'
+				console.log('false')
+			}
+		}
+
 		$(document).ready(function() {
 			// LOGIN ajax
 			$(document).on('submit', 'form.form-login', function() {
@@ -398,7 +410,8 @@ $country = [
 							user_id = req.data.id
 							role_id = req.data.role_id
 							username = req.data.username
-							window.location = "<?= base_url('auth/session/'); ?>" + role_id + "/" + username + "/" + user_id
+							rememberme = keepme
+							window.location = "<?= base_url('auth/session/'); ?>" + role_id + "/" + username + "/" + user_id + '/' + rememberme
 						}
 					})
 				return false
