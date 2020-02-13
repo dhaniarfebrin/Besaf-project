@@ -125,6 +125,16 @@ class Auth extends CI_Controller
 		$this->load->view('Front/Create_password', $data);
 		$this->load->view('Front/template/footer', $data);
 	}
+
+	public function blocked()
+	{
+		$this->load->view('404');
+	}
+
+	public function forbidden()
+	{
+		$this->load->view('403');
+	}
 }
 
 
