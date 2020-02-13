@@ -35,7 +35,7 @@
 					404 Error!
 				</div>
 				<div class="text-secondary">
-					<h5>You type a wrong address.</h5>
+					<h5>Page not found</h5>
                 </div>
                 <button type="button" class="btn btn-secondary rounded-pill shadow mt-3 font-weight-bold" onclick="goBack()">Go Back</button>
 			</div>

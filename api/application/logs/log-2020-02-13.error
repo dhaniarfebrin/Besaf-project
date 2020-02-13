@@ -1,0 +1,44 @@
+ERROR - 2020-02-13 04:07:10 --> 404 Page Not Found: Besaf_project/Api
+ERROR - 2020-02-13 04:07:58 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				full_name,
+				email,
+				country,
+				city,
+				birth_date,
+				gender,
+				about_me,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-13 04:07:58 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				image as avatar,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-13 04:07:58 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				full_name,
+				email,
+				country,
+				city,
+				birth_date,
+				gender,
+				about_me,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-13 04:07:58 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 319
+ERROR - 2020-02-13 04:07:58 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 287
+ERROR - 2020-02-13 04:07:58 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 319
+ERROR - 2020-02-13 04:08:09 --> 404 Page Not Found: Besaf_project/Api
