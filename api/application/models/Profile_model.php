@@ -6,6 +6,55 @@ class Profile_model extends CI_Model
 	{
 		parent::__construct();
 	}
+	/* start model Show games and role game in select */
+	public function Show_games()
+	{
+		$show_games = $this->db->query("
+			SELECT 
+				id,
+				name as game_name
+			FROM
+				game
+		");
+
+		$notif['error'] = false;
+		$notif['message'] = "Sorry!!!... Game is not exist.";
+		$notif['data'] = array();
+
+		$no = 0;
+		foreach ($show_games->result_array() as $key) {
+			$notif['error'] = false;
+			$notif['message'] = "Success.";
+			$notif['data'][$no++] = $key;
+		}
+		return $notif;
+
+	}
+	public function Role_game($isi)
+	{
+		$game_id = $isi['game_id'];
+
+		$role = $this->db->query("
+			SELECT 
+				id,
+				name
+			FROM 
+				role_game
+			WHERE
+				game_id = '$game_id'
+			");
+
+		$no = 0;
+		foreach ($role->result_array() as $key) {
+			$hasil[$no++] = $key;
+		}
+		return $hasil;
+	}
+	/* end model Show games and role game in select */
+
+
+
+
 
 	// add photo models
 	public function Add_photo($isi)
@@ -285,9 +334,10 @@ class Profile_model extends CI_Model
 	// About me Model
 	public function Read_About_me($isi)
 	{
-		$id = $isi['id'];
 
-		if (empty($id)) {
+		$user_id = $isi['id'];
+		
+		if (empty($user_id)) {
 			$notif = array(
 				'error' => true,
 				'message' => 'Sorry!!!... The id column is required.'
@@ -302,7 +352,7 @@ class Profile_model extends CI_Model
 			FROM
 				user
 			WHERE
-				id = '$id'
+				id = '$user_id'
 		");
 
 		$notif['error'] = false;
@@ -310,9 +360,9 @@ class Profile_model extends CI_Model
 		$notif['data'] = array();
 
 		foreach ($Read->result_array() as $key) {
-			$notif['error'] = false;
-			$notif['message'] = "Success.";
-			$notif['data'] = $key;
+		$notif['error'] = false;
+		$notif['message'] = "Success.";
+		$notif['data'] = $key;
 		}
 		goto output;
 
@@ -357,6 +407,128 @@ class Profile_model extends CI_Model
 
 
 
+	// start model of Skill and role
+	public function Read_skill_role($isi)
+	{
+		$user_id = $isi['id'];
+
+		if (empty($user_id)) {
+			$notif = array(
+				'error' => true,
+				'message' => "Sorry!!!... The id column is required."
+			);
+			goto output;
+		}
+
+		$skill = $this->db->query("
+			SELECT
+				user_skill.id,
+				user_skill.game_id,
+				user_skill.role_game_id,
+				user_skill.user_id,
+				user_skill.info,
+				user_skill.image as image,
+				game.name as game_name,
+				role_game.name as role_name,
+				user.username as user_name
+			FROM
+				user_skill
+			LEFT JOIN
+				game on game.id = user_skill.game_id
+			LEFT JOIN
+				role_game on role_game.id = user_skill.role_game_id
+			LEFT JOIN
+				user on user.id = user_skill.user_id
+			WHERE
+				user_skill.user_id = '$user_id' 
+		");
+
+		$notif['error'] = false;
+		$notif['message'] = "Sorry!!!... Data is not exist.";
+		$notif['data'] = array();
+
+		$no = 0;
+		foreach ($skill->result_array() as $key) {
+			$notif['error'] = false;
+			$notif['message'] = "Success.";
+			$notif['data'][$no++] = $key;
+		}
+		goto output;
+
+		output: return $notif;
+	}
+	public function Insert_skill_and_role($isi)
+	{
+		function get_guid(){
+			$data = PHP_MAJOR_VERSION < 7 ? openssl_random_pseudo_bytes(16) : random_bytes(16);
+			$data[6] = chr(ord($data[6]) & 0x0f | 0x40);
+			$data[8] = chr(ord($data[8]) & 0x3f | 0x80);
+			return vsprintf("%s%s-%s-%s-%s-%s%s%s", str_split(bin2hex($data), 4));
+		}
+
+		$image = $isi['image'];
+
+		mkdir(FCPATH.'img/', 0777);
+		mkdir(FCPATH.'img/skill_and_role_image/', 0777);
+
+		$img = str_replace("data:image/jpeg;base64", "", $image);
+		$img = str_replace("data:image/jpg;base64", "", $img);
+		$img = str_replace("data:image/png;base64", "", $img);
+ 
+		$base64 = base64_decode($img);
+
+		$image_name = get_guid().'.jpeg';
+
+		file_put_contents(FCPATH.'img/skill_and_role_image/'.$image_name, $base64);
+
+
+		$game_id = $isi['game'];
+		$role_game_id = $isi['role'];
+		$user_id = $isi['id'];
+
+		if (empty($game_id)) {
+			$notif = array(
+				'error' => true,
+				'message' => "Sorry!!!... Please select your game."
+			);
+			goto output;
+		}
+		else if (empty($role_game_id)) {
+			$notif = array(
+				'error' => true,
+				'message' => "Sorry!!!... Please select your role."
+			);
+			goto output;	
+		}
+		else if (empty($image_name)) {
+			$notif = array(
+				'error' => true,
+				'message' => "Sorry!!!... Please change your image and upload it."
+			);
+			goto output;
+		}
+
+		$this->db->insert('user_skill', array(
+			'game_id' => $game_id,
+			'role_game_id' => $role_game_id,
+			'image' => $image_name,
+			'user_id' => $user_id
+		));	
+		$notif = array(
+			'error' => false,
+			'message' => "Congrats!!!... Your skill has been Added."
+		);
+		goto output;
+
+		output: 
+		return $notif;
+	}
+	// start model of Skill and role
+
+
+
+
+
 	// start model career experience
 	public function Insert_Career_experience($isi)
 	{
@@ -370,8 +542,8 @@ class Profile_model extends CI_Model
 
 		$image = $isi['image'];
 
-		mkdir(FCPATH . 'img/', 0777);
-		mkdir(FCPATH . 'img/profile/', 0777);
+		mkdir(FCPATH.'img/', 0777);
+		mkdir(FCPATH.'img/career/', 0777);
 
 		$img = str_replace("data:image/jpeg;base64,", "", $image);
 		$img = str_replace("data:image/jpg;base64,", "", $img);
@@ -381,8 +553,7 @@ class Profile_model extends CI_Model
 
 		$image_name = get_guid() . '.jpeg';
 
-		file_put_contents(FCPATH . 'img/profile/' . $image_name, $base64);
-
+		file_put_contents(FCPATH.'img/career/'.$image_name, $base64);
 		$type = $isi['type'];
 		$team_name_or_solo_id = $isi['team_name_or_solo_id'];
 		$game_id = $isi['game'];
@@ -453,9 +624,9 @@ class Profile_model extends CI_Model
 	}
 	public function Read_Career_experience($isi)
 	{
-		$id = $isi['user_id'];
+		$user_id = $isi['user_id'];
 
-		if (empty($id)) {
+		if (empty($user_id)) {
 			$notif = array(
 				'error' => true,
 				'message' => 'Sorry!!!... The id column is required.'
@@ -466,23 +637,24 @@ class Profile_model extends CI_Model
 		$career = $this->db->query("
 			SELECT 
 				user_career.id, 
-				user.full_name,
+				user.full_name as full_name,
 				type,
+				game.id as game_id,
 				game.name as game_name,
 				teamname_or_solo_id,
-				user_career.image,
-				game.name,
+				user_career.image as image,
+				game.name as game_name,
 				career_months,
 				career_years,
 				user_id 
 			FROM
 				user_career
-			INNER JOIN 
+			LEFT JOIN 
 				user on user.id = user_career.user_id
-			INNER JOIN 
+			LEFT JOIN 
 				game on game.id = user_career.game_id
 			WHERE 
-				user_id = '$id'
+				user_id = '$user_id'
 		");
 
 		$notif['error'] = true;
@@ -499,28 +671,7 @@ class Profile_model extends CI_Model
 
 		output: return $notif;
 	}
-	public function Show_games()
-	{
-		$show_games = $this->db->query("
-			SELECT 
-				id,
-				name as game_name
-			FROM
-				game
-		");
 
-		$notif['error'] = false;
-		$notif['message'] = "Sorry!!!... Game is not exist.";
-		$notif['data'] = array();
-
-		$no = 0;
-		foreach ($show_games->result_array() as $key) {
-			$notif['error'] = false;
-			$notif['message'] = "Success.";
-			$notif['data'][$no++] = $key;
-		}
-		return $notif;
-	}
 	public function Update_Career_experience($isi)
 	{
 		function get_guid()
@@ -533,8 +684,8 @@ class Profile_model extends CI_Model
 
 		$image = $isi['image'];
 
-		mkdir(FCPATH . 'img/', 0777);
-		mkdir(FCPATH . 'img/profile/', 0777);
+		mkdir(FCPATH.'img/', 0777);
+		mkdir(FCPATH.'img/career/', 0777);
 
 		$img = str_replace("data:image/jpeg;base64,", "", $image);
 		$img = str_replace("data:image/jpg;base64,", "", $img);
@@ -544,7 +695,9 @@ class Profile_model extends CI_Model
 
 		$image_name = get_guid() . '.jpeg';
 
-		file_put_contents(FCPATH . 'img/profile/' . $image_name, $base64);
+		file_put_contents(FCPATH.'img/career/'.$image_name, $base64);
+		
+		$id = $isi['id'];
 
 		$type = $isi['type'];
 		$team_name_or_solo_id = $isi['team_name_or_solo_id'];
@@ -562,7 +715,7 @@ class Profile_model extends CI_Model
 		} else if (empty($team_name_or_solo_id)) {
 			$notif = array(
 				'error' => true,
-				'message' => 'Sorry!!!... Please insert your team_name_or_solo_id!!!.'
+				'message' => 'Sorry!!!... Please insert your team name or solo id!!!.'
 			);
 			goto output;
 		} else if (empty($game_id)) {
@@ -597,46 +750,66 @@ class Profile_model extends CI_Model
 			goto output;
 		}
 
-		$this->db->update('user_career', array(
+		if (empty($image)) {
+			$this->db->update('user_career', array(
 			'type' => $type,
 			'teamname_or_solo_id' => $team_name_or_solo_id,
 			'game_id' => $game_id,
 			'career_months' => $career_months,
 			'career_years' => $career_years,
-			'image' => $image_name,
 			'user_id' => $user_id
-		));
+			), array(
+				'id' => $id
+			));	
+			$notif = array(
+				'error' => false,
+				'message' => 'Congrarts!!!... Data has been Updated.'
+			);
+			goto output;		
+		}
+		else{
+			$this->db->update('user_career', array(
+				'type' => $type,
+				'teamname_or_solo_id' => $team_name_or_solo_id,
+				'game_id' => $game_id, 
+				'career_months' => $career_months,
+				'career_years' => $career_years,
+				'image' => $image_name,
+				'user_id' => $user_id
+			), array(
+				'id' => $id
+			));
+			$notif = array(
+				'error' => false,
+				'message' => 'Congrarts!!!... Data has been Updated.'
+			);
+			goto output;
+		}
+
+
+		output: return $notif;
+	}
+	public function Delete_Career_experience($isi)
+	{
+		$career_id = $isi['id'];
+
+		if (empty($career_id)) {
+			$notif = array(
+				'error'=> true,
+				'message' => "Sorry!!!... The id column is required."
+			);
+			goto output;
+		}
+
+		$this->db->delete('user_career', array('id' => $career_id));
 		$notif = array(
 			'error' => false,
-			'message' => 'Congrarts!!!... Data has been Updated.'
+			'message' => "Congrats!!!... Data has been deleted."
 		);
 		goto output;
 
 		output: return $notif;
 	}
-
-	public function Role_game($isi)
-	{
-		$game_id = $isi['game_id'];
-
-		$role = $this->db->query("
-			SELECT 
-				id,
-				name
-			FROM 
-				role_game
-			WHERE
-				game_id = '$game_id'
-			");
-
-		$no = 0;
-		foreach ($role->result_array() as $key) {
-			$hasil[$no++] = $key;
-		}
-		return $hasil;
-	}
-
-
 	// end model of career experience
 
 }

@@ -77,8 +77,8 @@
 																</h3>
 															</div>
 														</div>
-														<div class="m-portlet__head-tools">
-															<button style="margin-left: 200px;" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#skill_and_role"><i class="fa fa-plus-circle"> add</i></button>
+														<div class="m-portlet__body">
+															<div class="tampil_skill_role row" align="center"></div>
 														</div>
 													</div>
 													<div class="m-portlet__body">
@@ -272,19 +272,19 @@
 							<!--end::Portlet-->
 						</div>
 					</div>
-				</div>
-				<!--end::Modal-->
 
-
-				<!-- start modal followers-->
-				<div class="modal fade" id="Followers">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">Followers</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
+					<div class="m-portlet__body" style="margin-bottom: 20px">
+						<div class="muncul_notif1"></div>
+						<!--begin::Form-->
+						<form class="m-form m-form--fit m-form--label-align-right Change_password">
+							<div class="form-group m-form__group">
+								<input type="text" class="form-control m-input m-input--air m-input--pill current_password" placeholder="Your Current Password">
+							</div>
+							<div class="form-group m-form__group">
+								<input type="Password" class="form-control m-input m-input--air m-input--pill new_password" placeholder="Your New Password">
+							</div>
+							<div class="form-group m-form__group">
+								<input type="Password" class="form-control m-input m-input--air m-input--pill confirm_password" placeholder="Confirm Your New Password">
 							</div>
 							<div class="modal-body" style="height: 75%">
 								<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-height="50">
@@ -294,23 +294,253 @@
 						</div>
 					</div>
 				</div>
-				<!--end::Modal-->
+			</div>
+			<!--end::Portlet-->
+		</div>
+	</div>
+</div>
+<!--end::Modal-->
 
 
-				<!-- start modal following-->
-				<div class="modal fade" id="Following">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">Following</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-height="50">
-									<p align="center">Not Following Anyone</p>
+<!-- start modal followers-->
+<div class="modal fade" id="Followers">
+	<div class="modal-dialog">  
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Followers</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body" style="height: 75%">
+				<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-height="50">
+					<p align="center">No Followers</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--end::Modal-->
+
+
+<!-- start modal following-->
+<div class="modal fade" id="Following">
+	<div class="modal-dialog">  
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Following</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="m-scrollable" data-scrollbar-shown="true" data-scrollable="true" data-height="50">
+					<p align="center">Not Following Anyone</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--end::Modal-->
+
+
+
+<!-- start modal user profile -->
+<div class="modal fade edit-profile" id="edit_profile">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Edit Your Profile</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+			<div class="muncul_notif2"></div>
+				<!--begin::Form-->
+				<form class="m-form m-form--fit m-form--label-align-right edit_profile">
+					<div class="m-portlet__body">
+						<input type="hidden" class="id">
+						<div class="form-group m-form__group">
+							<label for="">Realname</label>
+							<input type="text" class="form-control m-input m-input--air m-input--pill fullname" maxlength="25" placeholder="Enter Your Realname">
+						</div>
+						<div class="form-group m-form__group">
+							<label for="">Country</label>
+							<?php 
+							$negara = array(1 => 'Indonesia', 2 => 'Singapura', 3 => 'Brunei Darussalam', 4 => 'Tahiland', 5 => 'Malaysia', 6 => 'Filipina', 7 =>  'Myanmar', 8 => 'Vietnam', 9 => 'Laos', 10 => 'Kamboja', 11 => 'Timor Leste'  ); 
+							?>
+							<select class="form-control m-input m-input--air m-input--pill country">
+									<option value="">Choose Your Country</option>
+								<?php for ($i=1; $i <= 11; $i++) { ?>
+									<option value="<?php echo $negara[$i]; ?>"><?php echo $negara[$i]; ?></option>
+								<?php } ?>
+							</select>
+						</div>
+						<div class="form-group m-form__group">
+							<label for="">Date of Birth</label>
+							<input class="form-control m-input--air m-input--pill birth_date" type="date" placeholder="Enter Your Birth Date">
+						</div>
+						<div class="form-group m-form__group">
+							<label for="exampleSelect2">Gender</label>
+							<select class="form-control m-input m-input--air m-input--pill gender" name="">
+								<option value="">Choose Your Gender</option>
+								<option value="1">Laki-Laki</option>
+								<option value="2">Perempuan</option>
+							</select>
+						</div>
+						<div class="form-group m-form__group">
+							<label for="">City</label>
+							<input type="text" class="form-control m-input--air m-input--pill city" placeholder="Enter Your City" maxlength="20">
+						</div>
+						<div class="form-group m-form__group">
+							<label for="exampleTextarea">Adress</label>
+							<textarea style="resize: none;" class="form-control m-input m-input--air m-input--pill adress" rows="3" placeholder="Enter Your Adress HERE" maxlength="32"></textarea>
+						</div>
+						<div class="form-group m-form__group">
+							<label for="">Phone Number</label>
+							<input type="text" class="form-control m-input--air m-input--pill phone_number" placeholder="Enter Your Phone Number" maxlength="20">
+						</div>
+						<div class="form-group m-form__group">
+							<label for="">Email</label>
+							<input type="Email" class="form-control m-input--air m-input--pill email"  placeholder="Enter Your City" maxlength="50">
+						</div>
+					</div><br>
+							<button type="submit" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px">Done</button>
+							<button type="reset" class="btn btn-secondary btn-sm" style="float: right;">Reset</button>
+				</form>
+				<!--end::Form-->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end modal user profile -->
+
+
+<!-- start modal about me -->
+<div class="modal fade About_me_div" id="about_me">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Write Description About Yourself</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="muncul_notif3"></div>
+				<!--begin::Form-->
+				<form class="m-form m-form--fit m-form--label-align-right About_me_form">
+						<!-- <div class="form-group m-form__group"> -->
+							<textarea style="resize: none; height: auto;" class="form-control m-input m-input--air m-input--pill About_me_text" rows="5" placeholder="Write About You Here....."></textarea>
+						<!-- </div> --><br>
+						<button type="submit" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px">Done</button>
+						<button type="reset" class="btn btn-secondary btn-sm" style="float: right;">Reset</button>
+				</form>
+				<!--end::Form-->
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- start modal skill and role -->
+<div class="modal fade" id="skill_and_role">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Add Game to Endorse</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="muncul_notif9"></div>
+				<!--begin::Form-->
+				<form class="m-form m-form--fit m-form--label-align-right insert-skill-role">
+					<div class="m-portlet__body">
+						<div class="form-group m-form__group">
+							<label for="">Select Game</label>
+							<select class="form-control m-input m-input--air m-input--pill select-game" id="skill-in-game">
+							</select>
+						</div>
+						<div class="form-group m-form__group">
+							<label for="exampleSelect2">Role in Game</label>
+							<select class="form-control m-input m-input--air m-input--pill role-game" id="role-in-game">
+							</select>
+						</div>
+						<div class="form-group m-form__group">
+							<label class="">Upload Image</label>
+							<form class="">
+								<div class="custom-file">
+									<input type="file" class="custom-file-input skill-image" id="customFile">
+									<label class="custom-file-label label-career-image" for="customFile">Choose your image</label>
 								</div>
+								<input type="hidden" class="hidden-skill-image">
+						</div>
+						<div align="center" class="border rounded" style="height: 250px">
+							<img class="show_image_skill" style="max-width: 100%; max-height: 100%; padding: 10px">
+						</div>
+					</div><br>
+						<button type="submit" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px">Done</button>
+						<button type="reset" class="btn btn-secondary btn-sm" style="float: right;">Reset</button>
+				</form>
+				<!--end::Form-->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end modal skill and role -->
+
+
+<!-- start modal add career experience -->
+<div class="modal fade Career" id="career_experience">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Add Your Career</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="muncul_notif5"></div>
+				<!--begin::Form-->
+				<form class="m-form m-form--fit m-form--label-align-right Insert_career">
+					<div class="m-portlet__body">
+						<div class="form-group m-form__group">
+							<label for="">Career Type</label>
+							<input type="text" class="form-control m-input m-input--air m-input--pill Career_type" maxlength="150" placeholder="e.g Professional Players, Coach, Captain etc">
+						</div>
+						<div class="form-group m-form__group">
+							<label for="">Team Name/In Game ID</label>
+							<input type="text" class="form-control m-input m-input--air m-input--pill Career_teamname_or_game_id" maxlength="150" placeholder="Your Team Name or Your Solo ID">
+						</div>
+						<div class="form-group m-form__group">
+							<label for="">Add Game to Endorse</label>
+							<select class="form-control m-input m-input--air m-input--pill Career_select_game">
+								<option value="">Choose Your Game</option>
+							</select>
+						</div>
+						<div class="form-group m-form__group">
+							<label>Career Date</label>
+							<div class="row">
+								<div class="col-md-6">
+								<select class="form-control Career_months">
+									<option value="">Month</option>
+									<option value="January">January</option>
+									<option value="February">February</option>
+									<option value="March">March</option>
+									<option value="April">April</option>
+									<option value="May">May</option>
+									<option value="June">June</option>
+									<option value="July">July</option>
+									<option value="August">August</option>
+									<option value="September">September</option>
+									<option value="October">October</option>
+									<option value="November">November</option>
+									<option value="December">December</option>
+								</select>
 							</div>
 						</div>
 					</div>
@@ -386,20 +616,87 @@
 								<!--end::Form-->
 							</div>
 						</div>
-					</div>
-				</div>
-				<!-- end modal user profile -->
+						<div class="form-group m-form__group">
+							<label class="">Upload Image</label>
+							<form class="">
+								<div class="custom-file">
+									<input type="file" class="custom-file-input Career_image" id="customFile">
+									<label class="custom-file-label image_label" for="customFile">Choose file</label>
+								</div>
+								<input type="hidden" class="hidden_image">
+						</div>
+						<div align="center" class="border rounded" style="height: 250px">
+							<img class="show_image" style="max-width: 100%; max-height: 100%; padding: 10px">
+						</div>
+					</div><br>
+						<button type="submit" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px">Done</button>
+						<button type="reset" class="btn btn-secondary btn-sm" style="float: right;">Reset</button>
+				</form>
+				<!--end::Form-->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end modal career experience -->
 
 
-				<!-- start modal about me -->
-				<div class="modal fade About_me_div" id="about_me">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">Write Description About Yourself</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
+<!-- start modal update career experience-->
+<div class="modal fade" id="Update_career">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Edit Career</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="muncul_notif8"></div>
+				<!--begin::Form-->
+				<form class="m-form m-form--fit m-form--label-align-right Update_career">
+					<div class="m-portlet__body">
+						<div class="form-group m-form__group">
+							<input type="hidden" class="hidden-update-career">
+							<input type="hidden" class="hidden-delete-career">
+							<label for="">Career Type</label>
+							<input type="text" class="form-control m-input m-input--air m-input--pill career_type" maxlength="150" placeholder="e.g Professional Players, Coach, Captain etc">
+						</div>
+						<div class="form-group m-form__group">
+							<label for="">Team Name/In Game ID</label>
+							<input type="text" class="form-control m-input m-input--air m-input--pill career_teamname_or_game_id" maxlength="150" placeholder="Your Team Name or Your Solo ID">
+						</div>
+						<div class="form-group m-form__group">
+							<label for="">Add Game to Endorse</label>
+							<select class="form-control m-input m-input--air m-input--pill career_select_game">
+								<option value="" class=""></option>}
+							</select>
+						</div>
+						<div class="form-group m-form__group">
+							<label>Career Date</label>
+							<div class="row">
+								<div class="col-md-6">
+								<select class="form-control career_months">
+									<option value="">Month</option>
+									<option value="January">January</option>
+									<option value="February">February</option>
+									<option value="March">March</option>
+									<option value="April">April</option>
+									<option value="May">May</option>
+									<option value="June">June</option>
+									<option value="July">July</option>
+									<option value="August">August</option>
+									<option value="September">September</option>
+									<option value="October">October</option>
+									<option value="November">November</option>
+									<option value="December">December</option>
+								</select>
+							</div>
+							<div class="col-md-6">
+								<select class="form-control career_years">
+									<?php for ($i=1990; $i <= date('Y'); $i++) { ?>
+										<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+									<?php } ?>
+								</select>
 							</div>
 							<div class="modal-body">
 								<div class="muncul_notif3"></div>
@@ -415,50 +712,63 @@
 								<!--end::Form-->
 							</div>
 						</div>
+						<div class="form-group m-form__group">
+							<label class="">Upload Image</label>
+								<div class="custom-file">
+									<input type="hidden" class="hidden-image-update">
+									<input type="file" class="custom-file-input career-image-update" id="customFile">
+									<label class="custom-file-label image-label-update" for="customFile">Choose file</label>
+								</div>
+						</div>
+						<div align="center" class="border rounded" style="height: 250px">
+							<img class="show-image-update" style="max-width: 100%; max-height: 100%; padding: 10px">
+						</div>
+					</div><br>
+					<div class="delete-game">
+							
 					</div>
-				</div>
+				</form>
+				<!--end::Form-->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end modal update career experience -->
 
 
-				<!-- start modal skill and role -->
-				<div class="modal fade" id="skill_and_role">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">Add Game to Endorse</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<!--begin::Form-->
-								<form class="m-form m-form--fit m-form--label-align-right">
-									<div class="m-portlet__body">
-										<div class="form-group m-form__group">
-											<label for="">Select Game</label>
-											<select class="form-control m-input m-input--air m-input--pill select-game">
-											</select>
-										</div>
-										<div class="form-group m-form__group">
-											<label class="col-form-label">Upload Game and Poster</label>
-											<div class="m-dropzone dropzone" action="inc/api/dropzone/upload.php" id="m-dropzone-one">
-												<div class="m-dropzone__msg dz-message needsclick">
-													<h3 class="m-dropzone__msg-title">Drop Picture here or click to upload.</h3><br>
-													<img width="75px" src="<?= base_url(); ?>assets/img/upload.png" alt="">
-												</div>
-												<span class="text-small">Upload your picture</span>
-											</div>
-										</div>
-										<div class="form-group m-form__group">
-											<label for="exampleSelect2">Role in Game</label>
-											<select class="form-control m-input m-input--air m-input--pill role-game">
-											</select>
-										</div>
-									</div><br>
-									<button type="submit" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px">Done</button>
-									<button type="reset" class="btn btn-secondary btn-sm" style="float: right;">Reset</button>
-								</form>
-								<!--end::Form-->
-							</div>
+<!-- start modal user achievement -->
+<div class="modal fade" id="achievement">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Add Achievement</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<!--begin::Form-->
+				<form class="m-form m-form--fit m-form--label-align-right">
+					<div class="m-portlet__body">
+						<div class="form-group m-form__group">
+							<label for="">Event Name</label>
+							<input type="text" class="form-control m-input m-input--air m-input--pill" maxlength="25" placeholder="e.g FREE FIRE FFWC, PBNC TOURNAMENT">
+						</div>
+						<div class="form-group m-form__group">
+							<label for="">Role in Achievement</label>
+							<input type="text" class="form-control m-input m-input--air m-input--pill" maxlength="25" placeholder="e.g First Rank, As a Caster, Guest Star">
+						</div>
+						<div class="form-group m-form__group">
+							<label for="">Select Game</label>
+							<?php 
+								$game = array(1 => 'CSGO', 2 => 'PUBG MOBILE', 3 => 'PUBG', 4 => 'POINT BLANK', 5 => 'FREE FIRE', 6 => 'DOTA 2', 7 =>  'MOBILE LEGENDS BANG BANG' ); 
+							?>
+							<select class="form-control m-input m-input--air m-input--pill">
+								<option value="">Choose Your Game</option>
+							<?php for ($i=1; $i <= 7; $i++) { ?>
+								<option value="<?php echo $negara[$i]; ?>"><?php echo $game[$i]; ?></option>
+							<?php } ?>
+							</select>
 						</div>
 					</div>
 				</div>
@@ -623,91 +933,25 @@
 								<!--end::Form-->
 							</div>
 						</div>
-					</div>
-				</div>
-				<!-- end modal update career experience -->
 
-
-				<!-- start modal ac -->
-				<div class="modal fade" id="achievement">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLabel">Add Achievement</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<!--begin::Form-->
-								<form class="m-form m-form--fit m-form--label-align-right">
-									<div class="m-portlet__body">
-										<div class="form-group m-form__group">
-											<label for="">Event Name</label>
-											<input type="text" class="form-control m-input m-input--air m-input--pill" maxlength="25" placeholder="e.g FREE FIRE FFWC, PBNC TOURNAMENT">
-										</div>
-										<div class="form-group m-form__group">
-											<label for="">Role in Achievement</label>
-											<input type="text" class="form-control m-input m-input--air m-input--pill" maxlength="25" placeholder="e.g First Rank, As a Caster, Guest Star">
-										</div>
-										<div class="form-group m-form__group">
-											<label for="">Select Game</label>
-											<?php
-											$game = array(1 => 'CSGO', 2 => 'PUBG MOBILE', 3 => 'PUBG', 4 => 'POINT BLANK', 5 => 'FREE FIRE', 6 => 'DOTA 2', 7 =>  'MOBILE LEGENDS BANG BANG');
-											?>
-											<select class="form-control m-input m-input--air m-input--pill">
-												<option value="">Choose Your Game</option>
-												<?php for ($i = 1; $i <= 7; $i++) { ?>
-													<option value="<?php echo $negara[$i]; ?>"><?php echo $game[$i]; ?></option>
-												<?php } ?>
-											</select>
-										</div>
-										<div class="form-group m-form__group">
-											<label>Event Date</label>
-											<div class="row">
-												<div class="col-md-6">
-													<select class="form-control">
-														<option value="">Month</option>
-														<option value="January">January</option>
-														<option value="February">February</option>
-														<option value="March">March</option>
-														<option value="April">April</option>
-														<option value="May">May</option>
-														<option value="June">June</option>
-														<option value="July">July</option>
-														<option value="August">August</option>
-														<option value="September">September</option>
-														<option value="October">October</option>
-														<option value="November">November</option>
-														<option value="December">December</option>
-													</select>
-												</div>
-												<div class="col-md-6">
-													<select class="form-control">
-														<?php for ($i = 1990; $i <= date('Y'); $i++) { ?>
-															<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-														<?php } ?>
-													</select>
-												</div>
-											</div>
-										</div>
-										<div class="form-group m-form__group">
-											<label class="col-form-label">Upload Image</label>
-											<div class="m-dropzone dropzone" action="inc/api/dropzone/upload.php" id="m-dropzone-one">
-												<div class="m-dropzone__msg dz-message needsclick">
-													<h3 class="m-dropzone__msg-title">Drop Picture here or click to upload.</h3><br>
-													<img width="75px" src="<?= base_url(); ?>assets/img/upload.png" alt="">
-												</div>
-												<span class="text-small">Upload your picture</span>
-											</div>
-										</div>
-									</div><br>
-									<button type="submit" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px">Done</button>
-									<button type="reset" class="btn btn-secondary btn-sm" style="float: right;">Reset</button>
-								</form>
-								<!--end::Form-->
-							</div>
+						<div class="form-group m-form__group">
+							<label class="">Upload Image</label>
+								<div class="custom-file">
+									<input type="hidden" class="hidden-image-update">
+									<input type="file" class="custom-file-input career-image-update" id="customFile">
+									<label class="custom-file-label image-label-update" for="customFile">Choose file</label>
+								</div>
 						</div>
-					</div>
-				</div>
-				<!-- end modal career experience -->
+						<div align="center" class="border rounded" style="height: 250px">
+							<img class="show-image-update" style="max-width: 100%; max-height: 100%; padding: 10px">
+						</div>
+					</div><br>
+						<button type="submit" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px">Done</button>
+						<button type="reset" class="btn btn-secondary btn-sm" style="float: right;">Reset</button>
+				</form>
+	<!--end::Form-->
+			</div>
+		</div>
+	</div>
+</div>
+	<!-- start modal user achievement -->

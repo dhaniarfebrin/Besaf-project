@@ -193,6 +193,7 @@ class Super_admin_model extends CI_Model
 			goto output;
 		}
 		$this->db->delete('game', array('id' => $game_id));
+		$this->db->delete('role_game', array('game_id' => $game_id));
 		$notif = array(
 			'error' => false,
 			'message' => "Success!!!... The Game has been deleted."
@@ -211,29 +212,17 @@ class Super_admin_model extends CI_Model
 	// start model of Super admin profile
 	public function Update_avatar($isi)
 	{
-		function get_guid() {
+
+		function get_guid()
+		{	
 			$data = PHP_MAJOR_VERSION < 7 ? openssl_random_pseudo_bytes(16) : random_bytes(16);
-			$data[6] = chr(ord($data[6]) & 0x0f | 0x40); 
+			$data[6] = chr(ord($data[6]) & 0x0f | 0x40);
 			$data[8] = chr(ord($data[8]) & 0x3f | 0x80);
 			return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
 		}
-			
 
-			mkdir(FCPATH.'img/', 0777);
-			mkdir(FCPATH.'img/Super_admin_profile/', 0777);
-
-			$img = str_replace("data:image/jpeg;base64", "", $avatar);
-			$img = str_replace("data:image/jpg;base64", "", $img);
-			$img = str_replace("data:image/png;base64", "", $img);
-
-			$base64 = base64_decode($img);
-
-			$avatar_name = get_guid().'.jpeg';
-
-			file_put_contents(FCPATH.'img/Super_admin_profile/'.$avatar_name, $base64);
-
-		$user_id = $isi['id'];
 		$avatar = $isi['avatar'];
+		$user_id = $isi['id'];
 		$bio = $isi['bio'];
 
 		if (empty($user_id)) {
@@ -251,20 +240,49 @@ class Super_admin_model extends CI_Model
 			goto output;
 		}
 
-		$this->db->update('user', array(
-			'image' => $avatar_name,
-			'bio' => $bio
-		), array(
-			'id' => $user_id
-		));
-		$notif = array(
-			'error' => false,
-			'message' => "Congrats"
-		);
-		goto output;
+		if (empty($avatar)) {
+			$this->db->update('user', array(
+				'bio' => $bio 
+			), array(
+				'id' => $user_id
+			));
 
+			$notif = array(
+				'error' => false,
+				'message' => "Congrats"
+			);
+			goto output;
+		}
+		else{
+
+			mkdir(FCPATH.'img/', 0777);
+			mkdir(FCPATH.'img/Super_admin_profile', 0777);
+
+			$img = str_replace("data:image/jpeg;base64,", "", $avatar);
+			$img = str_replace("data:image/jpg;base64,", "", $img);
+			$img = str_replace("data:image/png;base64,", "", $img);
+
+			$base64 = base64_decode($img);
+
+			$avatar_name = get_guid().'.jpeg';
+
+			file_put_contents(FCPATH.'img/Super_admin_profile/'.$avatar_name, $base64);
+
+			$this->db->update('user', array(
+				'image' => $avatar_name,
+				'bio' => $bio
+			), array(
+				'id' => $user_id
+			));
+			$notif = array(
+				'error' => false,
+				'message' => "Congrats"
+			);
+			goto output;
+
+		}
 		output: 
-		return $notif;
+		return $notif;	
 	}
 	public function Read_avatar($isi)
 	{
@@ -272,7 +290,7 @@ class Super_admin_model extends CI_Model
 
 		$avatar = $this->db->query("
 			SELECT
-				image as avatar,
+				image,
 				bio
 			FROM
 				user
