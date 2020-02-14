@@ -158,12 +158,13 @@
 								<div style="padding: 10px; margin-left: 10%">\
 									<a href="#Add_photo" data-toggle="modal" data-id="'+obj.id+'">\
 									<img style="width: 150px;" src="<?php echo base_url('api/img/user_profile/') ?>'+image+'" class="card-img rounded-circle border">\
+
 									</a>\
 								</div>\
 								</div>\
 								<div class="col-10">\
 									<div class="card-body">\
-										<h5 class="card-title">'+obj.username+'</h5>\
+										<h5 class="card-title">' + obj.username + '</h5>\
 										<small class="text-muted">\
 											<h6 style="font-family: sans-serif;">XP<h6>\
 											<div class="progress">\
@@ -171,14 +172,14 @@
 												</div>\
 											</div>\
 										</small><br>\
-											<button type="button" class="btn btn-info btn-sm settings"><i class="flaticon-settings-1" data-toggle="modal" data-target="#settings" data-id="'+obj.id+'" data-password="'+obj.password+'"> Settings</i></button>\
+											<button type="button" class="btn btn-info btn-sm settings"><i class="flaticon-settings-1" data-toggle="modal" data-target="#settings" data-id="' + obj.id + '" data-password="' + obj.password + '"> Settings</i></button>\
 											<button type="button" class="btn btn-info btn-sm"><i data-toggle="modal" data-target="#Followers"> 0 <span>Follower</span></i></button>\
 											<button type="button" class="btn btn-info btn-sm"><i data-toggle="modal" data-target="#Following"> 0 <span>Following</span></i></button>\
 										</div>\
 									</div>\
 								</div>';
-								html += 
-								'<div class="m-portlet__head">\
+						html +=
+							'<div class="m-portlet__head">\
 									<div class="m-portlet__head-caption">\
 										<div class="m-portlet__head-title" style="display: block;">\
 											<h3 class="m-portlet__head-text" style="font-family: arial black;">\
@@ -186,6 +187,7 @@
 											</h3>\
 										</div>\
 										<div>\
+
 											<button style="margin-left: 200px" class="btn btn-warning btn-sm update" data-toggle="modal" data-target="#edit_profile" data-fullname="'+obj.full_name+'" data-country="'+obj.country+'" data-birth_date="'+obj.birth_date+'" data-gender="'+obj.gender+'" data-city="'+obj.city+'" data-adress="'+obj.adress+'" data-phone_number="'+obj.phone_number+'" data-email="'+obj.email+'"><i class="flaticon-edit"> Edit</i>\
 											</button>\
 										</div>\
@@ -196,42 +198,36 @@
 										<tbody>\
 											<tr>\
 												<td>Name</td>\
-												<td style="text-align: right;">'+obj.full_name+'</td>\
+												<td style="text-align: right;">' + obj.full_name + '</td>\
 											</tr>\
 											<tr>\
 												<td>Country</td>\
-												<td style="text-align: right;">'+obj.country+'</td>\
+												<td style="text-align: right;">' + obj.country + '</td>\
 											</tr>\
 											<tr>\
 												<td>Birth Date</td>\
-												<td style="text-align: right;">'+obj.birth_date+'</td>\
+												<td style="text-align: right;">' + obj.birth_date + '</td>\
 											</tr>\
 											<tr>\
 												<td>Gender</td>\
-												<td style="text-align: right;">'+gender+'</td>\
+												<td style="text-align: right;">' + gender + '</td>\
 											</tr>\
 											<tr>\
 												<td>City</td>\
-												<td style="text-align: right;">'+obj.city+'</td>\
+												<td style="text-align: right;">' + obj.city + '</td>\
 											</tr>\
 											<tr>\
 												<td>Phone Number</td>\
-												<td style="text-align: right;">'+obj.phone_number+'</td>\
+												<td style="text-align: right;">' + obj.phone_number + '</td>\
 											</tr>\
 											<tr>\
 												<td>Email</td>\
-												<td style="text-align: right;">'+obj.email+'</td>\
+												<td style="text-align: right;">' + obj.email + '</td>\
 											</tr>\
 										</tbody>\
 									</table>\
 								</div>';
-								
-							});
-							$('div.profile').html(baris);
-							$('div.data-user').html(html);
-						}
-					})
-				}
+
 
 				tampil_info();
 
@@ -347,6 +343,7 @@
 						success: function(req) {
 								About_me =
 								'<div class="m-portlet m-portlet--mobile m-portlet--body-progress-">\
+
 									<div class="m-portlet__head">\
 										<div class="m-portlet__head-caption">\
 											<div class="m-portlet__head-title">\
@@ -368,9 +365,7 @@
 									</div>\
 								</div>'
 
-							$("div.about_me_div").html(About_me);
-						}
-					})
+					$("div.about_me_div").html(About_me);
 				}
 				Read_About_me();
 
@@ -608,7 +603,7 @@
 									<div class="col-5 float-right text-right">\
 										<button class="btn btn-gray btn-sm update_career" data-toggle="modal" data-target="#Update_career" data-id="'+obj.id+'" data-type="'+obj.type+'" data-team_or_id="'+obj.teamname_or_solo_id+'" data-game="'+obj.game_id+'" data-months="'+obj.career_months+'" data-years="'+obj.career_years+'" data-image="'+obj.image+'"><i class="flaticon-edit"></i></button>\
 										<h6 style="margin-top: 7%">\
-											'+obj.career_months+'-'+obj.career_years+'\
+											' + obj.career_months + '-' + obj.career_years + '\
 										</h6>\
 									</div>'
 								});
@@ -724,15 +719,16 @@
 					$(element).html('\
 					<div class="alert alert-'+type+'" role="alert">\
 				        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true" style="margin-top: -20px">&times;</span></button>\
-				        '+message+'\
+				        ' + message + '\
 				    </div>\
 			    	');
-				}
-			});
-		</script>
+		}
+	});
+</script>
 
-		<!--end::Page Snippets -->
-	</body>
+<!--end::Page Snippets -->
+</body>
 
-	<!-- end::Body -->
+<!-- end::Body -->
+
 </html>

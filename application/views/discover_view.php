@@ -2,7 +2,7 @@
 
 	<!-- BEGIN: Subheader -->
 	<div class="m-subheader ">
-		<h3>DISCOVER</h3>
+		<h3>TEAM</h3>
 	</div>
 
 	<!-- END: Subheader -->

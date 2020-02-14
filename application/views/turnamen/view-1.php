@@ -98,15 +98,15 @@
 					</tr>
 					<tr>
 						<td>1</td>
-						<td>Rp. 500.000</td>
+						<td class="hadiah-1">Rp. 500.000</td>
 					</tr>
 					<tr>
 						<td>2</td>
-						<td>Rp. 300.000</td>
+						<td class="hadiah-2">Rp. 300.000</td>
 					</tr>
 					<tr>
 						<td>3</td>
-						<td>Rp. 200.000</td>
+						<td class="hadiah-3">Rp. 200.000</td>
 					</tr>
 				</table>
 			</div>

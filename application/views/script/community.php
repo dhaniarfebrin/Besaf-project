@@ -248,9 +248,9 @@
 						$.each(req.data, function(index, obj) {
 							html += '\
 							<p>' + obj.caption + '</p>\
-							<img src="<?php echo base_url('assets/app/media/img/postingan/') ?>' + obj.image + '" alt="" style="width: 100%">\
+							<img src="<?php echo base_url('api/img/user_post/') ?>' + obj.image + '" alt="" style="width: 100%">\
 							<div class="card">\
-								<button class="btn btn-light btn-block">\
+								<button class="btn btn-light btn-block btn-like" data-id="'+obj.id+'" data-like="'+obj.likes+'">\
 									<i class="la la-heart-o text-danger"></i>\
 									Likes\
 									<b>' + obj.likes + '</b>\
@@ -258,7 +258,6 @@
 								<button class="btn btn-light btn-block">\
 									<i class="flaticon-comment"></i>\
 									Comment\
-									' + obj.likes + '\
 								</button>\
 							</div>\
 							';
@@ -317,7 +316,7 @@
 				method: "POST",
 				data: {
 					user_id: '<?php $this->session->userdata('user_id'); ?>',
-					kategori_id: <?php echo $this->session->userdata('komunitas_id'); ?>
+					komunitas_id: '<?php echo $this->session->userdata('komunitas_id'); ?>'
 				},
 				success: function(req) {
 					if (req.error == true) {
@@ -329,11 +328,29 @@
 			})
 		})
 
+		$(document).on('click','button.btn-like',function() {
+			$.ajax({
+				url : "<?php echo base_url('api/Discover/likes') ?>",
+				method : "POST",
+				data : {
+					id : $(this).data('id')
+				},
+				success : function(req) {
+					if (req.error == true) {
+						notif('div.pesan','danger',req.message);
+					} else {
+						notif('div.pesan','success',req.message);
+						community_post();
+					}
+				}
+			})
+		})
+
 		function notif(data, type, pesan) {
 			$(data).html('\
-				<div class="alert alert-' + type + '">\
+				<div class="alert alert-' + type + '" style="position: fixed; top: 0; right: 0; z-index: 99; margin-top : 80px; width : 100%;">\
 					' + pesan + '\
-					<button class="close" data-dismiss="alert" type="button"></button>\
+					<button class="close" data-dismiss="alert" type="button" style="margin-top: -9px;"></button>\
 				</div>\
 				');
 		}

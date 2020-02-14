@@ -1,5 +1,5 @@
-<div class="main">
-	<div class="container mt-5">
+<div class="main" id="main">
+	<div class="container-sm mt-5">
 		<h2 class="p-3 te">Tournaments in Besaf</h2>
 		<div class="row">
 			<div class="col-md-4">
@@ -135,6 +135,12 @@
 								status = '<span class="badge badge-secondary">Over</span>';
 							}
 							return status;
+						}
+					},
+					{
+						data : null,
+						render : function(req) {
+							return '<a href="<?php echo base_url('Admin/tournament_details/') ?>'+req.id+'">Details</a>'
 						}
 					}
 				]

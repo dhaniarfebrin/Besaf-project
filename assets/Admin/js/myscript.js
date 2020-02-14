@@ -11,12 +11,13 @@ window.addEventListener("beforeunload", function (e) {
 
 function closeNav() {
 	//	document.getElementById('sidebar').style.width = "0px";
-	document.getElementById('sidebar').style.marginLeft = '-270px';
+	document.getElementById('sidebar').classList.remove('sidebar-open');
+	document.getElementById('main').classList.remove('main-open');
 }
 
-
 function openNav() {
-	document.getElementById('sidebar').style.marginLeft = "0px";
+	document.getElementById('sidebar').classList.add('sidebar-open');
+	document.getElementById('main').classList.add('main-open');
 }
 
 function addRole() {
@@ -50,7 +51,6 @@ function addRole() {
 	// span.className = "close text-white my-auto";
 	// span.appendChild(iconClose);
 	// input.appendChild(span);
-
 	// var close = document.getElementsByClassName('close');
 	// for (i = 0; i < close.length; i++) {
 	// 	close[i].onclick = function () {
@@ -78,3 +78,17 @@ function changeTab(tab) {
 		});
 	}
 }
+
+$(document).ready(function () {
+	function clock() {
+		var now = new Date();
+		var secs = ('0' + now.getSeconds()).slice(-2);
+		var mins = ('0' + now.getMinutes()).slice(-2);
+		var hours = now.getHours();
+		var watch = hours + ":" + mins + ":" + secs;
+
+		document.getElementById("watch").innerHTML = watch;
+		requestAnimationFrame(clock);
+	}
+	requestAnimationFrame(clock);
+});

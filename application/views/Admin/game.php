@@ -1,6 +1,6 @@
 
-<div class="main">
-	<div class="container mt-5">
+<div class="main" id="main">
+	<div class="container-sm mt-5">
 		<h2 class="p-3">Games</h2>
 		<div class="row">
 			<div class="col-md-3">
@@ -56,7 +56,9 @@
 								</div>
 							</div>
 						</div>
-						<ul id="roleList" class="mt-2"></ul>
+						<ul id="roleList" class="mt-2">
+							
+						</ul>
 					</div>
 					<div class="custom-file">
 						<label class="">Upload Image</label>

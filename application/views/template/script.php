@@ -328,7 +328,6 @@
 				method : "POST",
 				async : true,
 				success : function(req) {
-					console.log(req);
 					if (req.data=='') {
 						first_discover = '\
 						<div class="col-sm-12 mb-5">\
@@ -372,6 +371,85 @@
 			$('b.user-name').html(user)
 			$('small.date').html(date)
 			$('i.likes').html(' '+like)
+		})
+
+		$(document).on('change','input.team-avatar',function(e) {
+			file = e.target.files[0];
+			$('label.team-avatar-name').html(file.name);
+			canvasResize(file, {
+                width: 400,
+                height: 400,
+                crop: true,
+                quality: 100,
+                callback : function(data) {
+                	$('input.team-avatar-name').val(data);
+                	$('img.team-avatar').attr('src',data);
+                }
+    		});	
+		})
+
+		function my_team() {
+			$.ajax({
+				url : '<?php echo base_url('api/Team/myteam') ?>',
+				method : "POST",
+				data : {
+					user_id : '<?php echo $this->session->userdata('user_id'); ?>',
+				},
+				success : function (req) {
+					if (req.error == false) {
+						myteam = '';
+						$.each(req.data, function(index,obj) {
+							myteam += '\
+								<a class="hover row p-4 text-dark" href="<?php echo base_url('Team/info/') ?>'+obj.team_id+'">\
+									<div class="col-3">\
+										<img src="<?php echo base_url('api/img/team/') ?>'+obj.team_gambar+'" style="width : 50px; height: 50px;" class="rounded rounded-circle">\
+									</div>\
+									<div class="col">\
+										<big>'+obj.team_nama+'</big>\
+									</div>\
+								</a>\
+							';
+						})
+						$('table.my-team').html(myteam)
+					}
+				}
+			})
+		}
+
+		my_team();
+
+		$(document).on('submit','form.create_team',function() {
+			nama = $('input.team-name').val();
+			gambar = $('input.team-avatar-name').val();
+			game_id = $('select.team-game').val();
+			alias = $('input.team-tag').val();
+			$.ajax({
+				url : "<?php echo base_url('api/Team/create') ?>",
+				method : "POST",
+				data : {
+					user_id : '<?php echo $this->session->userdata('user_id'); ?>',
+					nama : nama,
+					gambar : gambar,
+					game_id : game_id,
+					alias : alias
+				},
+				success : function(req) {
+					if (req.error == true) {
+						notif('div.pesan-create-team','danger', req.message)
+					} else {
+						notif('div.pesan','success',req.message);
+						$('div#create_team').modal('hide');
+						$('input.team-name').val('');
+						$('input.team-avatar-name').val('');
+						$('select.team-game').val('');
+						$('input.team-tag').val('');
+						$('img.team-avatar').attr('src','');
+						$('label.team-avatar-name').html('');
+					}
+					my_team();
+				}
+			})
+			return false;
 		})
 
 		function notif(data,type,message) {

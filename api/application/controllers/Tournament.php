@@ -20,6 +20,12 @@ class Tournament extends REST_Controller {
 		return $this->response($request);
 	}
 
+	public function details_post()
+	{
+		$request = $this->Tournament_model->details($this->post());
+		return $this->response($request);
+	}
+
 }
 
 /* End of file Tournament.php */

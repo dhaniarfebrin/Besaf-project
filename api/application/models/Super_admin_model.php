@@ -102,9 +102,9 @@ class Super_admin_model extends CI_Model
 				game.id
 		");
 
-			$notif['error'] = false;
-			$notif['message'] = "Sorry!!!... Data is not exist.";
-			$notif['data'] = array();
+		$notif['error'] = false;
+		$notif['message'] = "Sorry!!!... Data is not exist.";
+		$notif['data'] = array();
 
 		$no = 0;
 		foreach ($read->result_array() as $key) {
