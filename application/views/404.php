@@ -43,7 +43,7 @@
 	</div>
 	<script> 
 		function goBack() {
-			window.history.back();
+			window.location = '<?php echo base_url('') ?>';
 		}
 	</script>
 </body>

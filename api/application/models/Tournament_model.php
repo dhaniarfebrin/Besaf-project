@@ -19,13 +19,13 @@ class Tournament_model extends CI_Model {
 
 		$where = '';
 		if (!empty($search)) {
-			$where = "WHERE tournament.nama LIKE '%$search%' OR game.nama LIKE '%$search%'";
+			$where = "WHERE tournament.nama LIKE '%$search%' OR game.name LIKE '%$search%'";
 		}
 
 		if ($column=='1') {
 			$order = "ORDER BY tournament.nama $dir";
 		} else if ($column=='2') {
-			$order = "ORDER BY game.nama $dir";
+			$order = "ORDER BY game.name $dir";
 		} else if ($column=='3') {
 			$order = "ORDER BY tournament.date_end $dir";
 		}
@@ -50,7 +50,7 @@ class Tournament_model extends CI_Model {
 				komunitas_id,
 				cookies,
 				game.id as game_id,
-				game.nama as game_nama,
+				game.name as game_nama,
 				game.image as game_image
 			FROM 
 				tournament
@@ -102,7 +102,7 @@ class Tournament_model extends CI_Model {
 			SELECT 
 				tournament.id,
 				tournament.nama,
-				game.nama AS game_nama,
+				game.name AS game_nama,
 				rules,
 				hadiah,
 				informasi,

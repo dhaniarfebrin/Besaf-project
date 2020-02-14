@@ -14,7 +14,7 @@ class Community_model extends CI_Model {
 
 		$where = '';
 		if (!empty($search)) {
-			$where = "WHERE komunitas.nama LIKE '%$search%' OR game.nama LIKE '%$search%'";
+			$where = "WHERE komunitas.nama LIKE '%$search%' OR game.name LIKE '%$search%'";
 		}
 
 		$limit = '';
@@ -25,7 +25,7 @@ class Community_model extends CI_Model {
 		if ($column == '1') {
 			$order = "ORDER BY komunitas.nama $dir";
 		} else if ($column == '2') {
-			$order = "ORDER BY game.nama $dir";
+			$order = "ORDER BY game.name $dir";
 		}
 
 		$community = $this->db->query("

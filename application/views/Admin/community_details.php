@@ -67,7 +67,7 @@
 				},
 				success : function(req) {
 					if (req.data == null || req.data == '') {
-						window.location = '<?php echo base_url('') ?>';
+						window.location = '<?php echo base_url('Auth/blocked') ?>';
 					}
 					$('img.komunitas_foto').attr('src','<?php echo base_url('api/img/komunitas/') ?>'+req.data.komunitas_foto);
 					$('div.game').html(req.data.komunitas_game);

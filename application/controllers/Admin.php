@@ -45,15 +45,9 @@ class Admin extends CI_Controller
 		$this->load->view('Admin/community');
 		$this->load->view('Admin/template/footer');
 	}
-<<<<<<< HEAD
 	
 	public function community_details($id) {
 		$this->session->set_userdata('komunitas_id',$id);
-=======
-
-	public function community_details()
-	{
->>>>>>> 51e8441bcfb06d96da340c5b885088f8f0d5a5c7
 		$this->load->view('Admin/template/header');
 		$this->load->view('Admin/template/sidebar');
 		$this->load->view('Admin/community_details');
@@ -87,7 +81,6 @@ class Admin extends CI_Controller
 	public function team_details($team_id)
 	{
 		$this->session->set_userdata('team_id', $team_id);
-
 		$this->load->view('Admin/template/header');
 		$this->load->view('Admin/template/sidebar');
 		$this->load->view('Admin/teams_details');
