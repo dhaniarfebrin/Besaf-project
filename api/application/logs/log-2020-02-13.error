@@ -1,44 +1,76 @@
-ERROR - 2020-02-13 04:07:10 --> 404 Page Not Found: Besaf_project/Api
-ERROR - 2020-02-13 04:07:58 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
-			SELECT
-				full_name,
-				email,
-				country,
-				city,
-				birth_date,
-				gender,
-				about_me,
-				bio
-			FROM
-				user
-			WHERE
-				id = '2'
-		
-ERROR - 2020-02-13 04:07:58 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
-			SELECT
-				image as avatar,
-				bio
-			FROM
-				user
-			WHERE
-				id = '2'
-		
-ERROR - 2020-02-13 04:07:58 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
-			SELECT
-				full_name,
-				email,
-				country,
-				city,
-				birth_date,
-				gender,
-				about_me,
-				bio
-			FROM
-				user
-			WHERE
-				id = '2'
-		
-ERROR - 2020-02-13 04:07:58 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 319
-ERROR - 2020-02-13 04:07:58 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 287
-ERROR - 2020-02-13 04:07:58 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 319
-ERROR - 2020-02-13 04:08:09 --> 404 Page Not Found: Besaf_project/Api
+ERROR - 2020-02-13 07:42:11 --> Query error: Unknown column 'game.nama' in 'field list' - Invalid query: 
+			SELECT 
+				tournament.id,
+				tournament.nama as tournament_nama,
+				hadiah,
+				rules,
+				informasi,
+				how_to_join,
+				venue,
+				mode,
+				tournament.image as tournament_image,
+				slots,
+				time,
+				entry,
+				winner,
+				date_start,
+				date_end,
+				komunitas_id,
+				cookies,
+				game.id as game_id,
+				game.nama as game_nama,
+				game.image as game_image
+			FROM 
+				tournament
+			INNER JOIN 
+				game ON game.id = tournament.game_id
+			
+			 
+			LIMIT 0, 10
+			
+ERROR - 2020-02-13 07:42:11 --> Severity: error --> Exception: Call to a member function result_array() on boolean D:\laragon\www\besaf-project\api\application\models\Tournament_model.php 80
+ERROR - 2020-02-13 07:42:39 --> Query error: Unknown column 'game.nama' in 'field list' - Invalid query: 
+			SELECT 
+				tournament.id,
+				tournament.nama as tournament_nama,
+				hadiah,
+				rules,
+				informasi,
+				how_to_join,
+				venue,
+				mode,
+				tournament.image as tournament_image,
+				slots,
+				time,
+				entry,
+				winner,
+				date_start,
+				date_end,
+				komunitas_id,
+				cookies,
+				game.id as game_id,
+				game.nama as game_nama,
+				game.image as game_image
+			FROM 
+				tournament
+			INNER JOIN 
+				game ON game.id = tournament.game_id
+			
+			 
+			LIMIT 0, 10
+			
+ERROR - 2020-02-13 07:42:39 --> Severity: error --> Exception: Call to a member function result_array() on boolean D:\laragon\www\besaf-project\api\application\models\Tournament_model.php 80
+ERROR - 2020-02-13 07:43:10 --> 404 Page Not Found: Img/turnamen
+ERROR - 2020-02-13 07:44:43 --> 404 Page Not Found: Img/turnamen
+ERROR - 2020-02-13 07:44:50 --> 404 Page Not Found: Img/turnamen
+ERROR - 2020-02-13 07:44:54 --> 404 Page Not Found: Img/turnamen
+ERROR - 2020-02-13 07:45:02 --> 404 Page Not Found: Img/turnamen
+ERROR - 2020-02-13 07:45:07 --> 404 Page Not Found: Img/turnamen
+ERROR - 2020-02-13 07:45:12 --> 404 Page Not Found: Img/turnamen
+ERROR - 2020-02-13 07:45:30 --> 404 Page Not Found: Img/turnamen
+ERROR - 2020-02-13 07:46:25 --> 404 Page Not Found: Img/turnamen
+ERROR - 2020-02-13 07:46:28 --> 404 Page Not Found: Img/turnamen
+ERROR - 2020-02-13 07:46:34 --> 404 Page Not Found: Img/turnamen
+ERROR - 2020-02-13 07:50:38 --> 404 Page Not Found: Img/komunitas
+ERROR - 2020-02-13 07:51:28 --> 404 Page Not Found: Img/team
+ERROR - 2020-02-13 07:52:21 --> 404 Page Not Found: Img/team

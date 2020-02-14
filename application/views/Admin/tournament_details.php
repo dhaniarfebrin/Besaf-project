@@ -187,6 +187,9 @@
                     id : '<?php echo $this->session->userdata('tournament_id'); ?>'
                 },
                 success : function(req) {
+                    if (req.data == '' || req.data == null) {
+                        window.location = '<?php echo base_url('Auth/blocked') ?>';
+                    }
                     if (req.error == false) {
                         $('h4.nama').html(req.data.nama);
                         $('p.date').html(req.data.date_start+' - '+req.data.date_end)

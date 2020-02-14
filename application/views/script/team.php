@@ -81,7 +81,7 @@
 							} else {
 								foto = req.user_image
 							}
-							return '<img src="<?php echo base_url('api/img/profile/') ?>'+foto+'" style="width: 50px;" class="rounded">';
+							return '<img src="<?php echo base_url('api/img/user_profile/') ?>'+foto+'" style="width: 50px;" class="rounded">';
 						}
 					},
 					{
@@ -149,7 +149,8 @@
 					url : "<?php echo base_url('api/Team/carimember') ?>",
 					method : "POST",
 					data : {
-						data : data
+						data : data,
+						team_id : '<?php echo $this->session->userdata('team_id'); ?>'
 					},
 					success : function(req) {
 						html = '';
@@ -169,7 +170,7 @@
 									<td><img src="<?php echo base_url('api/img/profile/') ?>'+image+'" class="rounded rounded-circle" style="width: 30px"></td>\
 									<td>'+obj.username+'</td>\
 									<td align="right">\
-										<button class="btn btn-primary btn-sm" type="button"><i class="fa fa-plus"></i></button>\
+										<button class="btn btn-primary btn-sm btn-undang" data-id="'+obj.id+'" type="button"><i class="fa fa-plus"></i></button>\
 									</td>\
 								</tr>'
 
@@ -179,6 +180,12 @@
 					}
 				})
 			}
+		})
+
+		$(document).on('click','button.btn-undang',function() {
+			user_id = $(this).data('id');
+			$('div#tambah').modal('hide');
+			notif('div.pesan','success',"menunggu konfirmasi user.");
 		})
 
 		function notif(element,type,message) {

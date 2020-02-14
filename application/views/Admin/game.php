@@ -141,7 +141,7 @@
 				"processing": true,
 				"deferRender": true,
 				"ajax": {
-					"url": "<?= base_url('Api/Super_admin/Read_game'); ?>",
+					"url": "<?= base_url('api/Super_admin/Read_game'); ?>",
 					"method": "POST",
 					"dataSrc": "data"
 				},

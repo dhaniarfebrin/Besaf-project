@@ -76,6 +76,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h3 class="modal-title">Tambah Member</h3>
+				<button class="close" data-dismiss="modal" type="button"></button>
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
