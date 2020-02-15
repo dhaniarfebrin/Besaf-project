@@ -1,15 +1,22 @@
 <!-- Sidebar -->
 
 <div class="sidebar" id="sidebar" style="overflow: hidden">
-    <div class="icon-close p-2">
-        <button class="btn btn-secondary bg-transparent border-0" onclick="closeNav()">
-            <h5 class="fa fa-times mb-0 my-auto"></h5>
-        </button></div>
-    <div class="nav-title mb-0 mt-4" style="opacity: 0">
-        <h2>haha</h2>
+    <div class="row no-gutters">
+        <div class="col">
+            <div class="p-3">
+                Super<span class="font-weight-bold">Admin</span>
+            </div>
+        </div>
+        <div class="col">
+            <div class="icon-close p-2 ml-auto">    
+                <button class="btn btn-secondary bg-transparent border-0" onclick="closeNav()">
+                    <h5 class="fa fa-times mb-0 my-auto"></h5>
+                </button>
+            </div>
+        </div>
     </div>
     <a href="<?= base_url('Admin/profile') ?>">
-        <div class="akun mt-0 row text-white">
+        <div class="akun mt-0 mb-3 row text-white">
             <div class="avatar my-auto col">
                 <img src="<?= base_url()  ?>assets/Admin/img/illustration.jpg" alt="" class="img">
             </div>
@@ -20,7 +27,7 @@
             </div>
         </div>
     </a>
-    <nav class="">
+    <nav class="mt-2">
         <ul class="subnav">
             <li class="nav-item">
                 <a href="<?= base_url('Admin/dashboard') ?>" class="nav-link <?php if (uri_string() == 'Admin/dashboard') {

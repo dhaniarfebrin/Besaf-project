@@ -2,10 +2,17 @@
     <div class="container-sm mt-5">
         <h3 class="p-3">Tournament Details</h3>
         <div class="text-white">
-            <div class="col-md col-sm bg-dark shadow py-2">
-                <!-- judul tournament -->
-                <h4 class="m-0 text-wrap p-2 title-di-mobile-tournament-detail nama">CODM Pro Challenge Series x Boom Esports</h4>
-                <!-- end judul tournament -->
+            <div class="row no-gutters">
+                <a class="hover" onclick="goBack()" class="col">
+                    <div class="bg-dark shadow p-4">
+                        <span class="fa fa-arrow-left"></span>
+                    </div>
+                </a>
+                <div class="col-md col-sm col bg-dark shadow py-2">
+                    <!-- judul tournament -->
+                    <h4 class="m-0 text-wrap p-2 title-di-mobile-tournament-detail nama">CODM Pro Challenge Series x Boom Esports</h4>
+                    <!-- end judul tournament -->
+                </div>
             </div>
             <div class="row mt-3">
                 <div class="col-md-4 mt-3">
@@ -178,20 +185,20 @@
 <script src="<?= base_url() ?>assets/Admin/js/myscript.js"></script>
 <script>
     $(document).ready(function() {
-        
+
         function show_details() {
             $.ajax({
-                url : "<?php echo base_url('api/Tournament/details') ?>",
-                method : "POST",
-                data : {
-                    id : '<?php echo $this->session->userdata('tournament_id'); ?>'
+                url: "<?php echo base_url('api/Tournament/details') ?>",
+                method: "POST",
+                data: {
+                    id: '<?php echo $this->session->userdata('tournament_id'); ?>'
                 },
-                success : function(req) {
+                success: function(req) {
                     if (req.error == false) {
                         $('h4.nama').html(req.data.nama);
-                        $('p.date').html(req.data.date_start+' - '+req.data.date_end)
-                        $('img.image').attr('src','<?php echo base_url('api/img/turnamen/') ?>'+req.data.image);
-                        $('p.register').html((req.data.date_start-3));
+                        $('p.date').html(req.data.date_start + ' - ' + req.data.date_end)
+                        $('img.image').attr('src', '<?php echo base_url('api/img/turnamen/') ?>' + req.data.image);
+                        $('p.register').html((req.data.date_start - 3));
                         $('p.slots').html(req.data.slots);
                         $('div.rules').html(req.data.rules);
                         $('p.komunitas_nama').html(req.data.komunitas_nama);
@@ -208,9 +215,9 @@
                         }
                         $('p.venue').html(venue);
                         $('p.hadiah').html('Rp. ' + req.data.hadiah);
-                        $('td.hadiah1').html('Rp. ' + req.data.hadiah*(45/100))
-                        $('td.hadiah2').html('Rp. ' + req.data.hadiah*(30/100))
-                        $('td.hadiah3').html('Rp. ' + req.data.hadiah*(15/100))
+                        $('td.hadiah1').html('Rp. ' + req.data.hadiah * (45 / 100))
+                        $('td.hadiah2').html('Rp. ' + req.data.hadiah * (30 / 100))
+                        $('td.hadiah3').html('Rp. ' + req.data.hadiah * (15 / 100))
                         $('div.informasi').html(req.data.informasi)
                         $('div.how_to_join').html(req.data.how_to_join)
                     }
@@ -220,4 +227,8 @@
         show_details();
 
     })
+
+    function goBack() {
+        window.history.back();
+    }
 </script>

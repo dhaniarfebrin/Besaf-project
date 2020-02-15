@@ -99,7 +99,7 @@ class Admin extends CI_Controller
 	public function user_details($user_id)
 	{
 		$this->session->set_userdata('user_id', $user_id);
-		$this->load->view('Admin/template/header');
+		 
 		$this->load->view('Admin/template/sidebar');
 		$this->load->view('Admin/users_details');
 		$this->load->view('Admin/template/footer');

@@ -1,0 +1,259 @@
+ERROR - 2020-02-14 03:47:11 --> Query error: Unknown column 'team.game_id' in 'on clause' - Invalid query: 
+			SELECT 
+				team.id,
+				team.gambar,
+				team.nama,
+				team.alias,
+				game.nama AS game_nama
+			FROM 
+				team
+			LEFT JOIN 
+				game ON game.id = team.game_id
+			
+			LIMIT 0, 10
+			
+ERROR - 2020-02-14 03:47:11 --> Query error: Unknown column 'team.game_id' in 'on clause' - Invalid query: SELECT team.id FROM team LEFT JOIN game ON game.id = team.game_id 
+ERROR - 2020-02-14 03:47:11 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Admin_team_model.php 45
+ERROR - 2020-02-14 03:56:23 --> Query error: Unknown column 'team.game_id' in 'on clause' - Invalid query: 
+			SELECT 
+				team.id,
+				team.gambar,
+				team.nama,
+				team.alias,
+				game.nama AS game_nama
+			FROM 
+				team
+			LEFT JOIN 
+				game ON game.id = team.game_id
+			
+			LIMIT 0, 10
+			
+ERROR - 2020-02-14 03:56:23 --> Query error: Unknown column 'team.game_id' in 'on clause' - Invalid query: SELECT team.id FROM team LEFT JOIN game ON game.id = team.game_id 
+ERROR - 2020-02-14 03:56:23 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Admin_team_model.php 45
+ERROR - 2020-02-14 05:32:09 --> Query error: Unknown column 'team.game_id' in 'on clause' - Invalid query: 
+			SELECT 
+				team.id,
+				team.gambar,
+				team.nama,
+				team.alias,
+				game.nama AS game_nama
+			FROM 
+				team
+			LEFT JOIN 
+				game ON game.id = team.game_id
+			
+			LIMIT 0, 10
+			
+ERROR - 2020-02-14 05:32:09 --> Query error: Unknown column 'team.game_id' in 'on clause' - Invalid query: SELECT team.id FROM team LEFT JOIN game ON game.id = team.game_id 
+ERROR - 2020-02-14 05:32:09 --> Severity: error --> Exception: Call to a member function num_rows() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Admin_team_model.php 45
+ERROR - 2020-02-14 05:32:20 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				image as avatar,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-14 05:32:20 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				full_name,
+				email,
+				country,
+				city,
+				birth_date,
+				gender,
+				about_me,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-14 05:32:20 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 287
+ERROR - 2020-02-14 05:32:20 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 319
+ERROR - 2020-02-14 05:32:20 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				full_name,
+				email,
+				country,
+				city,
+				birth_date,
+				gender,
+				about_me,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-14 05:32:20 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 319
+ERROR - 2020-02-14 07:20:59 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				full_name,
+				email,
+				country,
+				city,
+				birth_date,
+				gender,
+				about_me,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-14 07:20:59 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				full_name,
+				email,
+				country,
+				city,
+				birth_date,
+				gender,
+				about_me,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-14 07:20:59 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				image as avatar,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-14 07:20:59 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 319
+ERROR - 2020-02-14 07:20:59 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 319
+ERROR - 2020-02-14 07:20:59 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 287
+ERROR - 2020-02-14 07:21:02 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				image as avatar,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-14 07:21:02 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				full_name,
+				email,
+				country,
+				city,
+				birth_date,
+				gender,
+				about_me,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-14 07:21:02 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 319
+ERROR - 2020-02-14 07:21:02 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 287
+ERROR - 2020-02-14 07:21:02 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				full_name,
+				email,
+				country,
+				city,
+				birth_date,
+				gender,
+				about_me,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-14 07:21:02 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 319
+ERROR - 2020-02-14 07:22:43 --> 404 Page Not Found: Besaf_project/Api
+ERROR - 2020-02-14 07:22:48 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				image as avatar,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-14 07:22:48 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				full_name,
+				email,
+				country,
+				city,
+				birth_date,
+				gender,
+				about_me,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-14 07:22:48 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 287
+ERROR - 2020-02-14 07:22:48 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				full_name,
+				email,
+				country,
+				city,
+				birth_date,
+				gender,
+				about_me,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-14 07:22:48 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 319
+ERROR - 2020-02-14 07:22:48 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 319
+ERROR - 2020-02-14 07:31:13 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				full_name,
+				email,
+				country,
+				city,
+				birth_date,
+				gender,
+				about_me,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-14 07:31:13 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				image as avatar,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-14 07:31:13 --> Query error: Unknown column 'bio' in 'field list' - Invalid query: 
+			SELECT
+				full_name,
+				email,
+				country,
+				city,
+				birth_date,
+				gender,
+				about_me,
+				bio
+			FROM
+				user
+			WHERE
+				id = '2'
+		
+ERROR - 2020-02-14 07:31:13 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 319
+ERROR - 2020-02-14 07:31:13 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 319
+ERROR - 2020-02-14 07:31:13 --> Severity: error --> Exception: Call to a member function result_array() on bool D:\Software\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 287
