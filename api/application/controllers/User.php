@@ -50,4 +50,10 @@ class User extends REST_Controller
 
 		$this->response($response);
 	}
+
+	public function notifikasi_post()
+	{
+		$request = $this->user->notifikasi($this->post());
+		return $this->response($request);
+	}
 }

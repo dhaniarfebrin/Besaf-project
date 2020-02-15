@@ -25,6 +25,17 @@
 			$('.hover').removeClass('border');
 		});
 
+		function get_game() {
+			$.ajax({
+				url : "<?php echo base_url('api/Profile/Show_games') ?>",
+				method : "POST",
+				success : function(req) {
+					console.log(req)
+				}
+			})
+		}
+		get_game();
+
 		/*Menampilkan semua komunitas.*/
 		function get_community() {
 			$.ajax({
@@ -417,6 +428,73 @@
 		}
 
 		my_team();
+		
+		function show_notif() {
+			$.ajax({
+				url : "<?php echo base_url('api/User/notifikasi') ?>",
+				method : "POST",
+				data : {
+					user_id : '<?php echo $this->session->userdata('user_id'); ?>'
+				},
+				success : function(req) {
+					notif = '';
+					if (req.error == true) {
+						notif += '<div align="center">'+req.message+'</div>'
+					} else {
+						$.each(req.data, function(index,obj) {
+							if (obj.type == '1') {
+								type = "Pemberitahuan"
+								tombol = '';
+							} else {
+								type = "Konfirmasi"
+								tombol = '\
+								<div class="row no-gutters ml-auto mb-1">\
+									<style>\
+										.confirmation-btn-false:hover {\
+											background-color: red !important;\
+											cursor: pointer;\
+											color: white !important;\
+										}\
+										\
+										.confirmation-btn-true:hover {\
+											background-color: green !important;\
+											cursor: pointer;\
+											color: white !important;\
+										}\
+									</style>\
+									<button type="button" class="bg-transparent border-0 rounded-circle far fa-times-circle confirmation-btn-false" style="color: red"></button>\
+									<button type="button" class="bg-transparent border-0 rounded-circle far fa-check-circle confirmation-btn-true" style="color:green"></button>\
+								</div>\
+								'
+							}
+
+							notif += '\
+							<div class="card p-2" style="max-width: 100%; height: 120px">\
+								<div class="row no-gutters">\
+									<div class="col-md-2">\
+										<img src="<?= base_url() ?>assets/img/profile.jpg" class="card-img rounded-circle" style="margin-top: 25%" alt="gambar">\
+									</div>\
+									<div class="col-md-10">\
+										<div class="card-body">\
+											<h5 class="card-title">'+type+'</h5>\
+											<div class="row no-gutters">\
+												<p class="card-text">'+obj.pesan+'</p>\
+												<p class="card-text"><small class="text-muted">'+obj.created_at+'</small></p>\
+												'+tombol+'\
+											</div>\
+										</div>\
+									</div>\
+								</div>\
+							</div>\
+							'
+						})
+					}
+					$('div.data-notifikasi').html(notif);
+				}
+			})
+		}
+
+		show_notif();
 
 		$(document).on('submit','form.create_team',function() {
 			nama = $('input.team-name').val();
@@ -451,6 +529,7 @@
 			})
 			return false;
 		})
+
 
 		function notif(data,type,message) {
 			$(data).html('\

@@ -275,7 +275,29 @@ class Team_model extends CI_Model {
 
 	public function undang($input)
 	{
-		
+		$user_id = $input['user_id'];
+
+		if (empty($user_id)) {
+			$hasil = array(
+				'error' => true,
+				'message' => "user_id tidak ditemukan."
+			);
+			goto output;
+		}
+
+		$this->db->insert('notifikasi', array(
+			'user_id' => $user_id,
+			'pesan' => "Anda diundang untuk bergabung dengan sebuah team.",
+			'type' => "2",
+		));	
+
+		$hasil = array(
+			'error' => false,
+			'message' => "undangan terkirim."
+		);
+
+		output: 
+		return $hasil;
 	}
 }
 

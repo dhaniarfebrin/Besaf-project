@@ -59,7 +59,7 @@
 						</div>
 					</div>
 					<div class="m-portlet__body p-0">
-						<div class="m-scrollable" data-scrollable="true" style="height: 370px">
+						<div class="m-scrollable data-notifikasi" data-scrollable="true" style="height: 370px">
 							<div class="card p-2" style="max-width: 100%; height: 120px">
 								<div class="row no-gutters">
 									<div class="col-md-2">

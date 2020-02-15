@@ -101,7 +101,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				
+				<button class="btn btn-primary" data-dismiss="modal" type="button">Selesai</button>
 			</div>
 		</div>
 	</div>

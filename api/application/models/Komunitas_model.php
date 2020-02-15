@@ -214,7 +214,7 @@ class Komunitas_model extends CI_Model
 				komunitas.foto_identitas as foto
 			FROM 
 				member_komunitas
-			INNER JOIN 
+			LEFT JOIN 
 				user ON user.id = member_komunitas.user_id
 			LEFT JOIN 
 				komunitas ON komunitas.id = member_komunitas.komunitas_id
@@ -296,7 +296,7 @@ class Komunitas_model extends CI_Model
 				tournament.image as image
 			FROM 
 				tournament
-			INNER JOIN
+			LEFT JOIN
 				komunitas ON komunitas.id = tournament.komunitas_id
 			WHERE 
 				komunitas_id = '$komunitas_id'

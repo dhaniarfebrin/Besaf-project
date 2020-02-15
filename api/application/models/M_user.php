@@ -343,4 +343,42 @@ class M_user extends CI_Model
 
         output: return $response;
     }
+
+    public function notifikasi($input)
+    {
+        $user_id = $input['user_id'];
+
+        if (empty($user_id)) {
+            $hasil = array(
+                'error' => true,
+                'message' => "user_id tidak ditemukan."
+            );
+            goto output;
+        }
+
+        $notif = $this->db->query("
+            SELECT 
+                id,
+                pesan,
+                type,
+                created_at
+            FROM 
+                notifikasi
+            WHERE
+                user_id = '$user_id'
+            ");
+
+        $hasil['error'] = false;
+        $hasil['message'] = "data belum tersedia.";
+
+        $no = 0;
+        foreach ($notif->result_array() as $key) {
+            $hasil['error'] = false;
+            $hasil['message'] = "notifikasi tersedia.";
+            $hasil['data'][$no++] = $key;
+        }
+
+        output:
+        return $hasil;
+    }
 }
