@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 05 Feb 2020 pada 02.53
--- Versi server: 10.4.11-MariaDB-log
--- Versi PHP: 7.4.1
+-- Generation Time: Feb 15, 2020 at 02:48 AM
+-- Server version: 10.4.11-MariaDB-log
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,31 +25,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `game`
+-- Table structure for table `game`
 --
 
 CREATE TABLE `game` (
   `id` int(11) NOT NULL,
-  `nama` varchar(128) NOT NULL,
-  `image` varchar(255) NOT NULL COMMENT 'gambar_game'
+  `name` varchar(128) NOT NULL,
+  `image` text NOT NULL COMMENT 'gambar_game',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `game`
---
-
-INSERT INTO `game` (`id`, `nama`, `image`) VALUES
-(1, 'CSGO\r\n', ''),
-(2, 'MOBILE LEGENDS BANG BANG', ''),
-(3, 'PUBG MOBILE', ''),
-(4, 'FIFA 2020', ''),
-(5, 'FREE FIRE', ''),
-(6, 'Point Blank', '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `komunitas`
+-- Table structure for table `komunitas`
 --
 
 CREATE TABLE `komunitas` (
@@ -64,16 +53,17 @@ CREATE TABLE `komunitas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `komunitas`
+-- Dumping data for table `komunitas`
 --
 
 INSERT INTO `komunitas` (`id`, `nama`, `kategori`, `game_id`, `nomor_telpon`, `nomor_identitas`, `foto_identitas`, `deskripsi`) VALUES
-(10, 'koamiasd', '2', 1, 127, 10200302, '70f0af40-9077-4ebf-b9e3-32047dc64be5.jpeg', 'sfio');
+(10, 'koamiasd', '2', 1, 127, 10200302, '70f0af40-9077-4ebf-b9e3-32047dc64be5.jpeg', 'sfio'),
+(11, 'komunis', '1', 1, 127, 1231313213, 'dc58583d-8e0b-48d2-a582-941efcebaa81.jpeg', 'komuni');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `member_komunitas`
+-- Table structure for table `member_komunitas`
 --
 
 CREATE TABLE `member_komunitas` (
@@ -84,28 +74,30 @@ CREATE TABLE `member_komunitas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `member_komunitas`
+-- Dumping data for table `member_komunitas`
 --
 
 INSERT INTO `member_komunitas` (`id`, `user_id`, `komunitas_id`, `role_id`) VALUES
-(1, 13, 10, 1);
+(1, 13, 10, 1),
+(2, 3, 11, 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `role_game`
+-- Table structure for table `role_game`
 --
 
 CREATE TABLE `role_game` (
   `id` int(11) NOT NULL,
-  `nama` varchar(64) NOT NULL,
+  `name` varchar(150) NOT NULL,
+  `image` text NOT NULL,
   `game_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `team`
+-- Table structure for table `team`
 --
 
 CREATE TABLE `team` (
@@ -118,7 +110,7 @@ CREATE TABLE `team` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `team_member`
+-- Table structure for table `team_member`
 --
 
 CREATE TABLE `team_member` (
@@ -130,7 +122,7 @@ CREATE TABLE `team_member` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tournament`
+-- Table structure for table `tournament`
 --
 
 CREATE TABLE `tournament` (
@@ -154,10 +146,17 @@ CREATE TABLE `tournament` (
   `cookies` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tournament`
+--
+
+INSERT INTO `tournament` (`id`, `nama`, `game_id`, `rules`, `hadiah`, `informasi`, `how_to_join`, `venue`, `mode`, `image`, `slots`, `time`, `entry`, `winner`, `date_start`, `date_end`, `komunitas_id`, `cookies`) VALUES
+(1, 'viba esport', 1, '<p><u>daDSAddasda</u></p>', '50000', 'info', 'belum tersedia.', '1', '1', '7bad1813-951e-4bb9-a6be-7b1dd65100f4.jpeg', 32, '13:11:00', '1', 'null', '2020-01-31', '2020-02-21', 11, 200);
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -168,6 +167,7 @@ CREATE TABLE `user` (
   `gender` enum('1','2') NOT NULL COMMENT '1 = ''laki-laki'', 2 = ''perempuan''',
   `full_name` varchar(100) NOT NULL COMMENT 'nama pengguna',
   `image` varchar(255) NOT NULL,
+  `bio` text NOT NULL,
   `country` varchar(32) NOT NULL,
   `city` varchar(32) NOT NULL COMMENT 'user_city',
   `adress` text NOT NULL,
@@ -179,20 +179,19 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `email`, `password`, `gender`, `full_name`, `image`, `country`, `city`, `adress`, `birth_date`, `phone_number`, `about_me`, `role_id`, `is_active`) VALUES
-(1, 'sunda lur', 'Akuraweroh@gmail.com', 'werea', '2', 'saddasdasdasdsa', '', 'Brunei Darussalam', 'MALANG', 'Pluto anf the mars electric\n', '1999-09-19', '0812345566789', 'isi', 2, 1),
-(2, 'kaliwa', 'anjay.mabar@co.id', 'werea', '2', 'Anjay Mabarrr Kuyyy', '', 'Indonesia', 'Luar kota', 'Jalan MArs no 99999999', '2020-01-08', '089098890099', 'HAhahahahahhahhahahahahhahhahahahahahhahahaha', 1, 1),
-(3, 'admin', 'teslur@jad.cop', '$2y$10$WkfnxBmJhtoCELw0bqu5iO83t3KN/y0RGesKXVjssG26UBD56g3yW', '1', 'tes', '', 'Indonesia', '', '', '0000-00-00', '', '', 2, 1),
-(13, 'user', 'user1@gui.io', '$2y$10$9pMDy0chUWhWALYUnN4DfOjrRGMXdZkDrsUiB9nbPJy5xKEGeeF5G', '1', 'user', '', 'Indonesia', '', '', '0000-00-00', '', '', 1, 0),
-(14, 'rizki', 'rizki@rizki.op', '$2y$10$bbVcGRjwlDF4aFBkA1YbI.iy17wc4B7Ti11k/m.KraLl5MSA/yGJa', '1', 'rizki', '', 'Malaysia', '', '', '0000-00-00', '', '', 1, 1);
+INSERT INTO `user` (`id`, `username`, `email`, `password`, `gender`, `full_name`, `image`, `bio`, `country`, `city`, `adress`, `birth_date`, `phone_number`, `about_me`, `role_id`, `is_active`) VALUES
+(2, 'kaliwa', 'anjay.mabar@co.id', 'werea', '2', 'Anjay Mabarrr Kuyyy', '', '', 'Indonesia', 'Luar kota', 'Jalan MArs no 99999999', '2020-01-08', '089098890099', 'HAhahahahahhahhahahahahhahhahahahahahhahahaha', 1, 1),
+(3, 'admin', 'teslur@jad.copa', '$2y$10$WkfnxBmJhtoCELw0bqu5iO83t3KN/y0RGesKXVjssG26UBD56g3yW', '2', 'tesa', '6c8157ae-9721-433d-a2c4-12da76566365.jpeg', 'kaliwa is here', 'Vietnam', 'BWX', '', '2020-02-03', '', 'kaliwadasdasasda1213', 2, 1),
+(13, 'user', 'user1@gui.io', '$2y$10$9pMDy0chUWhWALYUnN4DfOjrRGMXdZkDrsUiB9nbPJy5xKEGeeF5G', '1', ' AKU SUPERMEN', 'fe3c963b-b6c6-4620-8edc-77b50dd5a182.jpeg', '', 'Indonesia', 'JEMBER', 'BAGOREJO, GUMUKMAS, JEMBER', '2002-06-19', '09889900000999112222', 'kucing kucingan', 1, 1),
+(64, 'Kalwabed Rizki', 'kaalwabedrizki13@gmail.com', '$2y$10$eZuptazoKCPX2pc7YPlW7.vNME4Ufhj0Wr//jzxv4xnuJJdtOvHe6', '1', 'Kalwabed Rizki', '', '', 'Indonesia', '', '', '0000-00-00', '', '', 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_access`
+-- Table structure for table `user_access`
 --
 
 CREATE TABLE `user_access` (
@@ -204,7 +203,7 @@ CREATE TABLE `user_access` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_achievement`
+-- Table structure for table `user_achievement`
 --
 
 CREATE TABLE `user_achievement` (
@@ -219,7 +218,7 @@ CREATE TABLE `user_achievement` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_career`
+-- Table structure for table `user_career`
 --
 
 CREATE TABLE `user_career` (
@@ -234,7 +233,7 @@ CREATE TABLE `user_career` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user_career`
+-- Dumping data for table `user_career`
 --
 
 INSERT INTO `user_career` (`id`, `type`, `teamname_or_solo_id`, `game_id`, `image`, `career_months`, `career_years`, `user_id`) VALUES
@@ -246,7 +245,7 @@ INSERT INTO `user_career` (`id`, `type`, `teamname_or_solo_id`, `game_id`, `imag
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_menu`
+-- Table structure for table `user_menu`
 --
 
 CREATE TABLE `user_menu` (
@@ -257,14 +256,14 @@ CREATE TABLE `user_menu` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_post`
+-- Table structure for table `user_post`
 --
 
 CREATE TABLE `user_post` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `caption` text NOT NULL,
-  `image` int(11) NOT NULL,
+  `image` text NOT NULL,
   `likes` int(11) NOT NULL,
   `comment` text NOT NULL,
   `create_date` date NOT NULL COMMENT 'tanggal posting',
@@ -275,7 +274,7 @@ CREATE TABLE `user_post` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_post_and_comment`
+-- Table structure for table `user_post_and_comment`
 --
 
 CREATE TABLE `user_post_and_comment` (
@@ -290,7 +289,7 @@ CREATE TABLE `user_post_and_comment` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_role`
+-- Table structure for table `user_role`
 --
 
 CREATE TABLE `user_role` (
@@ -299,7 +298,7 @@ CREATE TABLE `user_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user_role`
+-- Dumping data for table `user_role`
 --
 
 INSERT INTO `user_role` (`id`, `name`) VALUES
@@ -310,7 +309,7 @@ INSERT INTO `user_role` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_skill`
+-- Table structure for table `user_skill`
 --
 
 CREATE TABLE `user_skill` (
@@ -323,52 +322,42 @@ CREATE TABLE `user_skill` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user_token`
+-- Table structure for table `user_token`
 --
 
 CREATE TABLE `user_token` (
   `id` int(11) NOT NULL,
   `email` varchar(128) NOT NULL,
-  `token` int(11) NOT NULL
+  `token` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user_token`
+-- Dumping data for table `user_token`
 --
 
 INSERT INTO `user_token` (`id`, `email`, `token`) VALUES
-(1, 'teslur@jad.cop', 0),
-(2, 'kaliwa@era.co', 0),
-(3, 'kaliwa@era.co', 0),
-(4, 'aasd@dad.hjj', 0),
-(5, 'assda@dada.hb', 0),
-(6, 'assda@dada.hb', 0),
-(7, 'assda@dada.hb', 0),
-(8, 'adas@adsda.hb', 0),
-(9, 'asdsad@dasd.hv', 0),
-(10, 'asdd@das.chc', 0),
-(11, 'user1@gui.io', 0),
-(12, 'rizki@rizki.op', 0);
+(69, 'kaalwabedrizki13@gmail.com', 'a2FhbHdhYmVkcml6a2kxM0BnbWFpbC5jb20='),
+(70, 'kaalwabedrizki13@gmail.com', 'a2FhbHdhYmVkcml6a2kxM0BnbWFpbC5jb20=');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `game`
+-- Indexes for table `game`
 --
 ALTER TABLE `game`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `komunitas`
+-- Indexes for table `komunitas`
 --
 ALTER TABLE `komunitas`
   ADD PRIMARY KEY (`id`),
   ADD KEY `game_id` (`game_id`);
 
 --
--- Indeks untuk tabel `member_komunitas`
+-- Indexes for table `member_komunitas`
 --
 ALTER TABLE `member_komunitas`
   ADD PRIMARY KEY (`id`),
@@ -377,20 +366,20 @@ ALTER TABLE `member_komunitas`
   ADD KEY `role_id` (`role_id`);
 
 --
--- Indeks untuk tabel `role_game`
+-- Indexes for table `role_game`
 --
 ALTER TABLE `role_game`
   ADD PRIMARY KEY (`id`),
   ADD KEY `game_id` (`game_id`);
 
 --
--- Indeks untuk tabel `team`
+-- Indexes for table `team`
 --
 ALTER TABLE `team`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `team_member`
+-- Indexes for table `team_member`
 --
 ALTER TABLE `team_member`
   ADD PRIMARY KEY (`id`),
@@ -398,7 +387,7 @@ ALTER TABLE `team_member`
   ADD KEY `team_id` (`team_id`);
 
 --
--- Indeks untuk tabel `tournament`
+-- Indexes for table `tournament`
 --
 ALTER TABLE `tournament`
   ADD PRIMARY KEY (`id`),
@@ -406,7 +395,7 @@ ALTER TABLE `tournament`
   ADD KEY `game_id` (`game_id`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
@@ -415,7 +404,7 @@ ALTER TABLE `user`
   ADD KEY `role_id` (`role_id`);
 
 --
--- Indeks untuk tabel `user_access`
+-- Indexes for table `user_access`
 --
 ALTER TABLE `user_access`
   ADD PRIMARY KEY (`id`),
@@ -423,7 +412,7 @@ ALTER TABLE `user_access`
   ADD KEY `role_id` (`role_id`);
 
 --
--- Indeks untuk tabel `user_achievement`
+-- Indexes for table `user_achievement`
 --
 ALTER TABLE `user_achievement`
   ADD KEY `user_id` (`user_id`),
@@ -431,7 +420,7 @@ ALTER TABLE `user_achievement`
   ADD KEY `role_game_id` (`role_game_id`);
 
 --
--- Indeks untuk tabel `user_career`
+-- Indexes for table `user_career`
 --
 ALTER TABLE `user_career`
   ADD PRIMARY KEY (`id`),
@@ -439,20 +428,20 @@ ALTER TABLE `user_career`
   ADD KEY `game_id` (`game_id`);
 
 --
--- Indeks untuk tabel `user_menu`
+-- Indexes for table `user_menu`
 --
 ALTER TABLE `user_menu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_post`
+-- Indexes for table `user_post`
 --
 ALTER TABLE `user_post`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indeks untuk tabel `user_post_and_comment`
+-- Indexes for table `user_post_and_comment`
 --
 ALTER TABLE `user_post_and_comment`
   ADD PRIMARY KEY (`id`),
@@ -460,13 +449,13 @@ ALTER TABLE `user_post_and_comment`
   ADD KEY `post_id` (`post_id`);
 
 --
--- Indeks untuk tabel `user_role`
+-- Indexes for table `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `user_skill`
+-- Indexes for table `user_skill`
 --
 ALTER TABLE `user_skill`
   ADD PRIMARY KEY (`id`),
@@ -475,198 +464,111 @@ ALTER TABLE `user_skill`
   ADD KEY `role_game_id` (`role_game_id`);
 
 --
--- Indeks untuk tabel `user_token`
+-- Indexes for table `user_token`
 --
 ALTER TABLE `user_token`
   ADD PRIMARY KEY (`id`),
   ADD KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `game`
+-- AUTO_INCREMENT for table `game`
 --
 ALTER TABLE `game`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT untuk tabel `komunitas`
---
-ALTER TABLE `komunitas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT untuk tabel `member_komunitas`
---
-ALTER TABLE `member_komunitas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `role_game`
+-- AUTO_INCREMENT for table `komunitas`
 --
-ALTER TABLE `role_game`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `komunitas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `team`
+-- AUTO_INCREMENT for table `member_komunitas`
+--
+ALTER TABLE `member_komunitas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `role_game`
+--
+ALTER TABLE `role_game`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `team_member`
+-- AUTO_INCREMENT for table `team_member`
 --
 ALTER TABLE `team_member`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `tournament`
+-- AUTO_INCREMENT for table `tournament`
 --
 ALTER TABLE `tournament`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
--- AUTO_INCREMENT untuk tabel `user_access`
+-- AUTO_INCREMENT for table `user_access`
 --
 ALTER TABLE `user_access`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `user_career`
+-- AUTO_INCREMENT for table `user_career`
 --
 ALTER TABLE `user_career`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `user_menu`
+-- AUTO_INCREMENT for table `user_menu`
 --
 ALTER TABLE `user_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `user_post`
+-- AUTO_INCREMENT for table `user_post`
 --
 ALTER TABLE `user_post`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `user_post_and_comment`
+-- AUTO_INCREMENT for table `user_post_and_comment`
 --
 ALTER TABLE `user_post_and_comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `user_role`
+-- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `user_skill`
+-- AUTO_INCREMENT for table `user_skill`
 --
 ALTER TABLE `user_skill`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `user_token`
+-- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
---
-
---
--- Ketidakleluasaan untuk tabel `komunitas`
---
-ALTER TABLE `komunitas`
-  ADD CONSTRAINT `komunitas_ibfk_1` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `member_komunitas`
---
-ALTER TABLE `member_komunitas`
-  ADD CONSTRAINT `member_komunitas_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `member_komunitas_ibfk_2` FOREIGN KEY (`komunitas_id`) REFERENCES `komunitas` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `role_id` FOREIGN KEY (`role_id`) REFERENCES `user_role` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `role_game`
---
-ALTER TABLE `role_game`
-  ADD CONSTRAINT `role_game_ibfk_1` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `team_member`
---
-ALTER TABLE `team_member`
-  ADD CONSTRAINT `team_member_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `team_member_ibfk_2` FOREIGN KEY (`team_id`) REFERENCES `team` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `tournament`
---
-ALTER TABLE `tournament`
-  ADD CONSTRAINT `tournament_ibfk_1` FOREIGN KEY (`komunitas_id`) REFERENCES `komunitas` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `tournament_ibfk_2` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Ketidakleluasaan untuk tabel `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `user_role` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `user_access`
---
-ALTER TABLE `user_access`
-  ADD CONSTRAINT `user_access_ibfk_1` FOREIGN KEY (`menu_id`) REFERENCES `user_menu` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_access_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `user_role` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `user_achievement`
---
-ALTER TABLE `user_achievement`
-  ADD CONSTRAINT `user_achievement_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_achievement_ibfk_2` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_achievement_ibfk_3` FOREIGN KEY (`role_game_id`) REFERENCES `role_game` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `user_career`
---
-ALTER TABLE `user_career`
-  ADD CONSTRAINT `user_career_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_career_ibfk_2` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`);
-
---
--- Ketidakleluasaan untuk tabel `user_post`
---
-ALTER TABLE `user_post`
-  ADD CONSTRAINT `user_post_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `user_post_and_comment`
---
-ALTER TABLE `user_post_and_comment`
-  ADD CONSTRAINT `user_post_and_comment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_post_and_comment_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `user_post` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `user_skill`
---
-ALTER TABLE `user_skill`
-  ADD CONSTRAINT `user_skill_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_skill_ibfk_2` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_skill_ibfk_3` FOREIGN KEY (`role_game_id`) REFERENCES `role_game` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
