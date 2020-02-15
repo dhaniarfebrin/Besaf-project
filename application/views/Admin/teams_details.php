@@ -1,4 +1,3 @@
-
 <div class="main">
 	<div class="container mt-5">
 		<h2>Team Details</h2>
@@ -74,6 +73,9 @@
 					id : '<?php echo $this->session->userdata('team_id'); ?>'
 				},
 				success : function(req) {
+					if (req.data == '' || req.data == null) {
+						window.location = '<?php echo base_url('Auth/blocked') ?>'
+					}
 					$('img.team_gambar').attr('src','<?php echo base_url('api/img/team/') ?>'+req.data.gambar);
 					$('.team_nama').html(req.data.nama);
 					$('div.team_game').html(req.data.game_nama);

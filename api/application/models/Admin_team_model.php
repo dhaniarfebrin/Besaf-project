@@ -20,7 +20,7 @@ class Admin_team_model extends CI_Model {
 		}
 
 		if (!empty($search)) {
-			$where = "WHERE team.nama LIKE '%$search%' OR team.alias LIKE '%$search%' OR game.nama LIKE '%$search%'";
+			$where = "WHERE team.nama LIKE '%$search%' OR team.alias LIKE '%$search%' OR game.name LIKE '%$search%'";
 		}
 
 		$team = $this->db->query("
@@ -29,7 +29,7 @@ class Admin_team_model extends CI_Model {
 				team.gambar,
 				team.nama,
 				team.alias,
-				game.nama AS game_nama
+				game.name AS game_nama
 			FROM 
 				team
 			LEFT JOIN 
@@ -72,7 +72,7 @@ class Admin_team_model extends CI_Model {
 				team.nama,
 				team.alias,
 				team.gambar,
-				game.nama AS game_nama
+				game.name AS game_nama
 			FROM
 				team 
 			LEFT JOIN 

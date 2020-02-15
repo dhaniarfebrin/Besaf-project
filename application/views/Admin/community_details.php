@@ -15,7 +15,7 @@
 								Community
 							</h5>
 							<div class="card-text text-secondary game">
-								Mobile legends: Bang Bang
+								Game Community
 							</div>
 						</div>
 					</div>
@@ -31,15 +31,17 @@
 								<tbody>
 									<tr>
 										<th>Name</th>
-										<td class="text-secondary nama_komunitas">Evos Esport</td>
+										<td class="text-secondary nama_komunitas">Community Name</td>
 									</tr>
 									<tr>
 										<th>Category</th>
-										<td class="text-secondary kategori">Umum</td>
+										<td class="text-secondary kategori">Kategori Community</td>
 									</tr>
 									<tr>
 										<th>Member(s)</th>
-										<td class="text-secondary"><ul class="text-secondary member"></ul></td>
+										<td class="text-secondary">
+											<ul class="text-secondary member"></ul>
+										</td>
 									</tr>
 								</tbody>
 							</table>
@@ -60,20 +62,22 @@
 	$(document).ready(function() {
 		function community_details() {
 			$.ajax({
-				url : "<?php echo base_url('api/Community/details') ?>",
-				method : "POST",
-				data : {
-					komunitas_id : '<?php echo $this->session->userdata('komunitas_id') ?>'
+				url: "<?php echo base_url('api/Community/details') ?>",
+				method: "POST",
+				data: {
+					komunitas_id: '<?php echo $this->session->userdata('komunitas_id') ?>'
 				},
-				success : function(req) {
-					console.log(req);
-					$('img.komunitas_foto').attr('src','<?php echo base_url('api/img/komunitas/') ?>'+req.data.komunitas_foto);
+				success: function(req) {
+					if (req.data == null || req.data == '') {
+						window.location = '<?php echo base_url('Auth/blocked') ?>';
+					}
+					$('img.komunitas_foto').attr('src', '<?php echo base_url('api/img/komunitas/') ?>' + req.data.komunitas_foto);
 					$('div.game').html(req.data.komunitas_game);
 					$('td.nama_komunitas').html(req.data.komunitas_nama);
-					$('td.kategori').html(req.data.komunitas_kategori+'2');
+					$('td.kategori').html(req.data.komunitas_kategori + '2');
 					member = '';
-					$.each(req.data.komunitas_member,function(index,obj) {
-						member += '<li>'+obj.user_username+'</li>'
+					$.each(req.data.komunitas_member, function(index, obj) {
+						member += '<li>' + obj.user_username + '</li>'
 						$('ul.member').html(member);
 					})
 				}

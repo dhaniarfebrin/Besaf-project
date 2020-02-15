@@ -78,6 +78,7 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
+
 	'database' => 'besaf',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

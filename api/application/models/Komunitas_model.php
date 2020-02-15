@@ -169,7 +169,7 @@ class Komunitas_model extends CI_Model
 				nomor_identitas,
 				foto_identitas,
 				count(member_komunitas.komunitas_id) as jumlah_member,
-				game.nama as game_nama
+				game.name as game_nama
 			FROM 
 				komunitas
 			LEFT JOIN 

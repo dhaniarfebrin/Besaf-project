@@ -24,15 +24,9 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php $no = 1;
-							for ($i = 1; $i <= 40; $i++) { ?>
-								<tr>
-									<td><?= $no++ ?></td>
-									<td>Mobel Lejen Community</td>
-									<td>Mobile Legends: Bang Bang</td>
-									<td><a href="<?= base_url('Admin/community_details') ?>">Details</a></td>
-								</tr>
-							<?php } ?>
+							<tr>
+								<td colspan="4" align="center">Memuat....</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
