@@ -1,11 +1,11 @@
-<div class="main" id="main">
-	<div class="container-sm mt-5">
+<div class="main">
+	<div class="container mt-5">
 		<div class="row">
 			<div class="col-md-4">
 				<div class="card">
 					<div class="card-body">
 						<div class="d-block text-right my-auto p-2 update-avatar">
-							
+
 						</div>
 						<div class="card-image">
 							<div class="pt-3 image-thumbnail">
@@ -17,7 +17,7 @@
 								<?= $this->session->userdata('username'); ?>
 							</h5>
 							<div class="card-text text-secondary user_bio">
-								
+
 							</div>
 						</div>
 					</div>
@@ -33,7 +33,7 @@
 							</div>
 							<div class="col">
 								<div class="d-block text-right my-auto p-2 Update_info">
-									
+
 								</div>
 							</div>
 						</div>
@@ -82,8 +82,8 @@
 								<hr>
 							</div>
 							<div class="col">
-								<div class="d-block text-right my-auto p-2  update_about_me"> 
-								
+								<div class="d-block text-right my-auto p-2  update_about_me">
+
 								</div>
 							</div>
 						</div>
@@ -156,12 +156,12 @@
 					</div>
 
 					<div class="form-group">
-						<?php 
-						$negara = array(1 => 'Indonesia', 2 => 'Singapura', 3 => 'Brunei Darussalam', 4 => 'Thailand', 5 => 'Malaysia', 6 => 'Filipina', 7 =>  'Myanmar', 8 => 'Vietnam', 9 => 'Laos', 10 => 'Kamboja', 11 => 'Timor Leste'  ); 
+						<?php
+						$negara = array(1 => 'Indonesia', 2 => 'Singapura', 3 => 'Brunei Darussalam', 4 => 'Thailand', 5 => 'Malaysia', 6 => 'Filipina', 7 =>  'Myanmar', 8 => 'Vietnam', 9 => 'Laos', 10 => 'Kamboja', 11 => 'Timor Leste');
 						?>
 						<select class="form-control w-75 d-block mx-auto bg-dark border-0 text-white  rounded-0 update_country">
-								<option value="">Choose Your Country</option>
-							<?php for ($i=1; $i <= 11; $i++) { ?>
+							<option value="">Choose Your Country</option>
+							<?php for ($i = 1; $i <= 11; $i++) { ?>
 								<option value="<?php echo $negara[$i]; ?>"><?php echo $negara[$i]; ?></option>
 							<?php } ?>
 						</select>
@@ -221,7 +221,7 @@
 
 
 <script src="<?= base_url() ?>assets/Admin/js/jquery.js"></script>
-<script src="<?php echo base_url('assets/plugins/compress-image/jquery.exif.js'); ?>"></script>	
+<script src="<?php echo base_url('assets/plugins/compress-image/jquery.exif.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/compress-image/jquery.canvasResize.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/compress-image/zepto.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/compress-image/binaryajax.js'); ?>"></script>
@@ -247,7 +247,7 @@
 				quality: 100,
 				callback: function(data) {
 					$("input.hidden-avatar").val(data);
-					$('img.show-profile-image').attr('src',data);
+					$('img.show-profile-image').attr('src', data);
 				}
 			})
 		})
@@ -263,14 +263,14 @@
 
 			$.ajax({
 				url: "<?= base_url('api/Super_admin/Update_avatar'); ?>",
-				type 	: "POST",
+				type: "POST",
 				data: {
 					id: '<?php echo $this->session->userdata('user_id'); ?>',
 					avatar: avatar,
 					bio: bio
 				},
 				success: function(req) {
-					$("input.update-bio").val('');	
+					$("input.update-bio").val('');
 					$("input.hidden-avatar").val('');
 					$("div#avatar").modal('hide');
 					Read_avatar();
@@ -280,15 +280,15 @@
 			return false;
 		})
 
-		function Read_avatar(){
+		function Read_avatar() {
 			$.ajax({
 				url: '<?= base_url('api/Super_admin/Read_avatar'); ?>',
 				type: 'POST',
 				data: {
 					id: '<?php echo $this->session->userdata('user_id'); ?>',
 				},
-				success: function(req){
-					$("img.avatar-admin").attr('src', "<?= base_url('api/img/Super_admin_profile/'); ?>"+req.data.image);
+				success: function(req) {
+					$("img.avatar-admin").attr('src', "<?= base_url('api/img/Super_admin_profile/'); ?>" + req.data.image);
 					$("div.user_bio").html(req.data.bio);
 				}
 			})
@@ -296,7 +296,7 @@
 		Read_avatar();
 
 
-		function Read_info(){
+		function Read_info() {
 			$.ajax({
 				url: '<?= base_url('api/Super_admin/Read_info'); ?>',
 				type: 'POST',
@@ -304,10 +304,9 @@
 					id: '<?php echo $this->session->userdata('user_id'); ?>'
 				},
 				success: function(req) {
-					if (req.data.gender == 1) {
+					if (req.data.gender == '1') {
 						gender = "laki-laki";
-					}
-					else{
+					} else {
 						gender = "Perempuan";
 					}
 					$("td.name").html(req.data.full_name);
@@ -317,19 +316,19 @@
 					$("td.birth_date").html(req.data.birth_date);
 					$("td.gender").html(gender);
 					$("div.update-avatar").html('\
-						<span type="button" class="badge badge-primary update-avatar" data-toggle="modal" data-target="#avatar" data-bio="'+req.data.bio+'" style="cursor: pointer">\
+						<span type="button" class="badge badge-primary update-avatar" data-toggle="modal" data-target="#avatar" data-bio="' + req.data.bio + '" style="cursor: pointer">\
 							<i class="fa fa-edit"> Edit</i>\
 						</span>');
 					$("div.Update_info").html('\
-						<span type="button" class="badge badge-primary update-info" data-toggle="modal" data-target="#info" data-name="'+req.data.full_name+'" data-email="'+req.data.email+'" data-country="'+req.data.country+'" data-city="'+req.data.city+'" data-birth_date="'+req.data.birth_date+'" data-gender="'+req.data.gender+'" style="cursor: pointer">\
+						<span type="button" class="badge badge-primary update-info" data-toggle="modal" data-target="#info" data-name="' + req.data.full_name + '" data-email="' + req.data.email + '" data-country="' + req.data.country + '" data-city="' + req.data.city + '" data-birth_date="' + req.data.birth_date + '" data-gender="' + req.data.gender + '" style="cursor: pointer">\
 							<i class="fa fa-edit"> Edit</i>\
 						</span>');
 					$("div.update_about_me").html('\
-						<span type="button" class="badge badge-primary update-about-me" data-toggle="modal" data-target="#about" data-about_me="'+req.data.about_me+'" style="cursor: pointer">\
+						<span type="button" class="badge badge-primary update-about-me" data-toggle="modal" data-target="#about" data-about_me="' + req.data.about_me + '" style="cursor: pointer">\
 							<i class="fa fa-edit"> Edit</i>\
 						</span>');
-				} 
-			})			
+				}
+			})
 		}
 		Read_info();
 
@@ -386,7 +385,7 @@
 
 
 
-		function Read_about_me(){
+		function Read_about_me() {
 			$.ajax({
 				url: '<?php echo base_url('api/Super_admin/Read_info'); ?>',
 				type: 'POST',
@@ -406,7 +405,7 @@
 			$("textarea.textarea_update_about_me").val(about_me);
 		});
 
-		$(document).on('submit','form.form_update_about_me', function() {
+		$(document).on('submit', 'form.form_update_about_me', function() {
 			about_me = $("textarea.textarea_update_about_me").val();
 
 			$.ajax({
