@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 15, 2020 at 02:48 AM
+-- Generation Time: Feb 17, 2020 at 10:05 AM
 -- Server version: 10.4.11-MariaDB-log
 -- PHP Version: 7.4.1
 
@@ -35,6 +35,13 @@ CREATE TABLE `game` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `game`
+--
+
+INSERT INTO `game` (`id`, `name`, `image`, `created_at`) VALUES
+(2, 'Counter Terroris', '25554837-c6db-4492-a1e0-37b795ca163b.jpeg', '2020-02-15 03:06:39');
+
 -- --------------------------------------------------------
 
 --
@@ -57,8 +64,7 @@ CREATE TABLE `komunitas` (
 --
 
 INSERT INTO `komunitas` (`id`, `nama`, `kategori`, `game_id`, `nomor_telpon`, `nomor_identitas`, `foto_identitas`, `deskripsi`) VALUES
-(10, 'koamiasd', '2', 1, 127, 10200302, '70f0af40-9077-4ebf-b9e3-32047dc64be5.jpeg', 'sfio'),
-(11, 'komunis', '1', 1, 127, 1231313213, 'dc58583d-8e0b-48d2-a582-941efcebaa81.jpeg', 'komuni');
+(10, 'koamiasd', '2', 1, 127, 10200302, '70f0af40-9077-4ebf-b9e3-32047dc64be5.jpeg', 'sfio');
 
 -- --------------------------------------------------------
 
@@ -84,6 +90,21 @@ INSERT INTO `member_komunitas` (`id`, `user_id`, `komunitas_id`, `role_id`) VALU
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notifikasi`
+--
+
+CREATE TABLE `notifikasi` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  `pesan` text NOT NULL,
+  `komunitas_id` int(11) NOT NULL,
+  `team_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `role_game`
 --
 
@@ -93,6 +114,13 @@ CREATE TABLE `role_game` (
   `image` text NOT NULL,
   `game_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `role_game`
+--
+
+INSERT INTO `role_game` (`id`, `name`, `image`, `game_id`) VALUES
+(4, 'Boss', '', 2);
 
 -- --------------------------------------------------------
 
@@ -116,7 +144,8 @@ CREATE TABLE `team` (
 CREATE TABLE `team_member` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `team_id` int(11) NOT NULL
+  `team_id` int(11) NOT NULL,
+  `status` enum('1','2') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -183,10 +212,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `gender`, `full_name`, `image`, `bio`, `country`, `city`, `adress`, `birth_date`, `phone_number`, `about_me`, `role_id`, `is_active`) VALUES
-(2, 'kaliwa', 'anjay.mabar@co.id', 'werea', '2', 'Anjay Mabarrr Kuyyy', '', '', 'Indonesia', 'Luar kota', 'Jalan MArs no 99999999', '2020-01-08', '089098890099', 'HAhahahahahhahhahahahahhahhahahahahahhahahaha', 1, 1),
-(3, 'admin', 'teslur@jad.copa', '$2y$10$WkfnxBmJhtoCELw0bqu5iO83t3KN/y0RGesKXVjssG26UBD56g3yW', '2', 'tesa', '6c8157ae-9721-433d-a2c4-12da76566365.jpeg', 'kaliwa is here', 'Vietnam', 'BWX', '', '2020-02-03', '', 'kaliwadasdasasda1213', 2, 1),
 (13, 'user', 'user1@gui.io', '$2y$10$9pMDy0chUWhWALYUnN4DfOjrRGMXdZkDrsUiB9nbPJy5xKEGeeF5G', '1', ' AKU SUPERMEN', 'fe3c963b-b6c6-4620-8edc-77b50dd5a182.jpeg', '', 'Indonesia', 'JEMBER', 'BAGOREJO, GUMUKMAS, JEMBER', '2002-06-19', '09889900000999112222', 'kucing kucingan', 1, 1),
-(64, 'Kalwabed Rizki', 'kaalwabedrizki13@gmail.com', '$2y$10$eZuptazoKCPX2pc7YPlW7.vNME4Ufhj0Wr//jzxv4xnuJJdtOvHe6', '1', 'Kalwabed Rizki', '', '', 'Indonesia', '', '', '0000-00-00', '', '', 1, 1);
+(74, 'admin', 'kaalwabedrizki13@gmail.com', '$2y$10$koWJn3VHR4sbZXMu/QP0i..JWtYyqzLK2oDAHyV6ievfd8eOQoFqK', '1', 'super admin', 'c5c22355-fd19-434b-8a61-ac228761fe98.jpeg', 'here we go again', 'Indonesia', '', '', '0000-00-00', '', '', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -302,8 +329,8 @@ CREATE TABLE `user_role` (
 --
 
 INSERT INTO `user_role` (`id`, `name`) VALUES
-(1, 'Super admin'),
-(2, 'user\r\n'),
+(1, 'user'),
+(2, 'super admin'),
 (3, 'admin komunitas');
 
 -- --------------------------------------------------------
@@ -332,14 +359,6 @@ CREATE TABLE `user_token` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user_token`
---
-
-INSERT INTO `user_token` (`id`, `email`, `token`) VALUES
-(69, 'kaalwabedrizki13@gmail.com', 'a2FhbHdhYmVkcml6a2kxM0BnbWFpbC5jb20='),
-(70, 'kaalwabedrizki13@gmail.com', 'a2FhbHdhYmVkcml6a2kxM0BnbWFpbC5jb20=');
-
---
 -- Indexes for dumped tables
 --
 
@@ -364,6 +383,12 @@ ALTER TABLE `member_komunitas`
   ADD KEY `user_id` (`user_id`),
   ADD KEY `komunitas_id` (`komunitas_id`),
   ADD KEY `role_id` (`role_id`);
+
+--
+-- Indexes for table `notifikasi`
+--
+ALTER TABLE `notifikasi`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `role_game`
@@ -478,7 +503,7 @@ ALTER TABLE `user_token`
 -- AUTO_INCREMENT for table `game`
 --
 ALTER TABLE `game`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `komunitas`
@@ -493,10 +518,16 @@ ALTER TABLE `member_komunitas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `notifikasi`
+--
+ALTER TABLE `notifikasi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `role_game`
 --
 ALTER TABLE `role_game`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `team`
@@ -520,7 +551,7 @@ ALTER TABLE `tournament`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `user_access`
@@ -568,7 +599,7 @@ ALTER TABLE `user_skill`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

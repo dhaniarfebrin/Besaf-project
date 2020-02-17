@@ -261,7 +261,7 @@ $country = [
 						</div>
 						<form action="" method="post" class="form form-daftar">
 							<input type="text" name="" id="" placeholder="Fullname" class="form-control mt-3 mb-3 fullname" autocomplete="off">
-							<input type="text" name="" id="" placeholder="Username" class="form-control mt-3 mb-3 username" autocomplete="off">
+							<input type="text" name="" id="" placeholder="Username" class="form-control mt-3 mb-3 username" autocomplete="off" style="text-transform:lowercase">
 							<input type="email" name="" id="" placeholder="Email" class="form-control mt-3 mb-3 email" autocomplete="off">
 							<select class="form-control country" id="exampleFormControlSelect1" aria-placeholder="Select your country" name="">
 								<option selected disabled>Select your country...</option>
@@ -307,6 +307,8 @@ $country = [
 	<script>
 		//change tab single page
 		function changeTab(tab) {
+			$('div.muncul-pesan-daftar').val('')
+			$('div.muncul-pesan').val('')
 			var x = document.getElementsByClassName('single-tab');
 			for (var i = 0; i < x.length; i++) {
 				x[i].style.display = 'none';

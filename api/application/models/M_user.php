@@ -114,14 +114,24 @@ class M_user extends CI_Model
                 'error' => true, 'message' => 'Fullname belum diisi!'
             ];
             goto output;
+        } elseif (strlen($fullname) >= 64) {
+            $response = [
+                'error' => true, 'message' => 'Fullname terlalu panjang!'
+            ];
+            goto output;
         } elseif (!$username) {
             $response = [
                 'error' => true, 'message' => 'Username belum diisi!'
             ];
             goto output;
+        } elseif (strlen($username) >= 8) {
+            $response = [
+                'error' => true, 'message' => 'Username max.8 characters !'
+            ];
+            goto output;
         } elseif ($cek_email) {
             $response = [
-                'error' => true, 'message' => 'Email sudah dipakai! ganti gan...'
+                'error' => true, 'message' => 'Email sudah dipakai! ganti bung...'
             ];
             goto output;
         } elseif (!$email) {
@@ -132,6 +142,11 @@ class M_user extends CI_Model
         } elseif (!$password) {
             $response = [
                 'error' => true, 'message' => 'Password belum diisi!'
+            ];
+            goto output;
+        } elseif (strlen($password) <= 6) {
+            $response = [
+                'error' => true, 'message' => 'Password min.6 characters !'
             ];
             goto output;
         } elseif ($password !== $verifypassword) {
@@ -168,14 +183,13 @@ class M_user extends CI_Model
             'email' => $email, 'full_name' => $fullname, 'password' => password_hash($password, PASSWORD_DEFAULT), 'country' => $country, 'role_id' => $role_id, 'is_active' => $is_active
         ];
 
-        // insert
-        $this->db->insert('user', $data); // user
-        $this->db->insert('user_token', $user_token); //user_token
-
         if ($this->_sendEmail($email, $token, 'verify') == true) {
+            // insert
+            $this->db->insert('user', $data); // user
+            $this->db->insert('user_token', $user_token); //user_token
             $response = [
                 'error' => false,
-                'message' => 'Akun anda sudah dibuat. Silahkan aktivasi akun anda!'
+                'message' => 'Akun anda sudah dibuat. Silahkan aktivasi akun anda! Pastikan email yang anda masukkan sudah benar'
             ];
             goto output;
         } else {
@@ -193,7 +207,6 @@ class M_user extends CI_Model
     private function _sendEmail($email, $token, $type)
     {
         $mail = new PHPMailer(true);
-
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->Port = 587;
@@ -205,14 +218,25 @@ class M_user extends CI_Model
         $mail->addAddress($email);
         $mail->isHTML(true);
 
+        // SERVER FOR LINK
+        $server = $_SERVER['SERVER_NAME'];
+        if ($server == 'intern.mascitra.co.id') {
+            $server = $_SERVER['SERVER_NAME'] . '/2020.aziz/besaf/auth/verify/';
+        } else {
+            $server = $_SERVER['SERVER_NAME'] . '/auth/verify/';
+        }
+        // TYPE FOR EMAIL
         if ($type == 'verify') {
-            $message = 'Terimakasih sudah mendaftarkan Akun anda ' . $email . ' di BESAF. Silahkan verifikasi akun anda untuk login ke akun BESAF anda, dengan meng-klik tombol <a href="https://' . $_SERVER['SERVER_NAME'] . '/auth/verify/' . urlencode($token) . '">verifikasi</a>.';
+            $message = 'Terimakasih sudah mendaftarkan Akun anda ' . $email . ' di BESAF. Silahkan verifikasi akun anda untuk login ke akun BESAF anda, dengan meng-klik tombol <a href="https://' . $server  . urlencode($token) . '">verifikasi</a>.';
             $mail->Subject = 'BESAF Account Verification';
             $mail->Body = $message;
         } elseif ($type == 'forgot') {
-            $message = 'Apakah anda kehilangan kata sandi akun ' . $email . ' anda? . Silahkan ganti kata sandi akun anda untuk login ke akun BESAF anda, dengan meng-klik tombol <a href="https://' . $_SERVER['SERVER_NAME'] . '/auth/resetpassword/' . urlencode($token) . '">Change my password</a>.';
+            $message = 'Apakah anda kehilangan kata sandi akun ' . $email . ' anda? . Silahkan ganti kata sandi akun anda untuk login ke akun BESAF anda, dengan meng-klik tombol <a href="https://' . $server . urlencode($token) . '">Change my password</a>.';
             $mail->Subject = 'BESAF Reset Password';
             $mail->Body = $message;
+        } else {
+            var_dump('unexpected email type !');
+            die;
         }
 
         if (!$mail->send()) {
