@@ -7,18 +7,14 @@ body {
 	background-color: rgb(27, 27, 27);
 	color: white;
 	font-family: 'roboto', sans-serif;
-<<<<<<< HEAD
-	overflow-x:  hidden;
-=======
 	overflow-x: hidden;
->>>>>>> 51e8441bcfb06d96da340c5b885088f8f0d5a5c7
 }
 
 .loading-halaman::before {
 	content: " ";
 	display: block;
 	position: fixed;
-	z-index: 999;
+	z-index: 5;
 	height: 3px;
 	width: 100%;
 	top: 0;
@@ -193,6 +189,10 @@ body {
 
 .modal-content {
 	background-color: #262626;
+}
+
+.modal-backdrop {
+	z-index: -1 !important;
 }
 
 .modal-header {

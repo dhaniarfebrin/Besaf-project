@@ -7,7 +7,7 @@
 				<div class="row">
 					<div class="col-md col-xl mb-2">
 						<a href="#" class="text-decoration-none text-white">
-							<div class="card rounded border-left-primary shadow py-2">
+							<div class="card rounded border-left shadow py-2" style="border: 3px !important">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -26,7 +26,7 @@
 					</div>
 					<div class="col-md col-xl mb-2">
 						<a href="#" class="text-decoration-none text-white">
-							<div class="card rounded border-left-primary shadow py-2">
+							<div class="card rounded border-left shadow py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -45,7 +45,7 @@
 					</div>
 					<div class="col-md col-xl mb-2">
 						<a href="" class="text-decoration-none text-white">
-							<div class="card rounded border-left-primary shadow py-2">
+							<div class="card rounded border-left shadow py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -64,7 +64,7 @@
 					</div>
 					<div class="col-md col-xl mb-2">
 						<a href="" class="text-decoration-none text-white">
-							<div class="card rounded border-left-primary shadow py-2">
+							<div class="card rounded border-left shadow py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -82,21 +82,124 @@
 						</a>
 					</div>
 				</div>
-				<!-- chart -->
-				<div class="col-md col-sm col col-xl">
-					<div class="card rounded shadow mt-5">
-						<canvas id="chart"></canvas>
+
+				<div class="row mt-5">
+					<div class="col-5">
+						<div class="card" data-offset="0" data-spy="scroll" style="max-height: 400px;">
+							<div class="card-header font-weight-bold bg-primary">
+								Request(s)
+							</div>
+							<div class="card-body bg-dark" style="overflow-y: scroll;">
+								<? for ($i = 1; $i < 10; $i++) { ?>
+									<div class="card shadow mb-2">
+										<div class="row no-gutters">
+											<div class="col-lg-3">
+												<img src="<?= base_url() ?>assets/Admin/img/illustration.jpg" class="card-img h-100 w-100" alt="images">
+											</div>
+											<div class="col-lg">
+												<div class="card-body">
+													<div class="row">
+														<div class="col">
+															<p class="card-title mb-0">Someone</p>
+															<p class="card-text text-muted">Komunitas</p>
+														</div>
+														<div class="col-4 px-1">
+															<div class="row no-gutters float-right">
+																<button type="button" class="d-block btn btn-sm btn-danger mr-1 rounded-circle">
+																	<span class="fa fa-times p-1"></span>
+																</button>
+																<button type="button" class="d-block btn btn-sm btn-success rounded-circle">
+																	<span class="fa fa-check"></span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="card shadow mb-2">
+										<div class="row no-gutters">
+											<div class="col-lg-3">
+												<img src="<?= base_url() ?>assets/Admin/img/illustration.jpg" class="card-img h-100 w-100" alt="images">
+											</div>
+											<div class="col-lg">
+												<div class="card-body">
+													<div class="row">
+														<div class="col">
+															<p class="card-title mb-0">Admin Komunitas</p>
+															<p class="card-text text-muted">Tournament</p>
+														</div>
+														<div class="col-4 px-1">
+															<div class="row no-gutters float-right">
+																<button type="button" class="d-block btn btn-sm btn-danger mr-1 rounded-circle">
+																	<span class="fa fa-times p-1"></span>
+																</button>
+																<button type="button" class="d-block btn btn-sm btn-success rounded-circle">
+																	<span class="fa fa-check"></span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								<? } ?>
+							</div>
+						</div>
+					</div>
+					<div class="col position-relative">
+						<div class="card bg-dark p-4">
+							<h5 class="text-white font-weight-bold text-center mb-4">Chart</h5>
+							<canvas id="myChart"></canvas>
+						</div>
 					</div>
 				</div>
-				<!-- end chart -->
+
 			</div>
 		</div>
 
 		<!--			end content-->
 		<script src="<?= base_url() ?>assets/Admin/js/jquery.js"></script>
 		<script src="<?= base_url() ?>assets/Admin/js/bootstrap.js"></script>
-		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-		<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+		<script src="<?= base_url() ?>assets/Admin/js/jquery.dataTables.min.js"></script>
+		<script src="<?= base_url() ?>assets/Admin/js/dataTables.bootstrap4.min.js"></script>
+		<script src="<?= base_url() ?>assets/Admin/js/chart.min.js"></script>
+		<script>
+			var ctx = document.getElementById('myChart');
+			var myChart = new Chart(ctx, {
+				type: 'doughnut',
+				data: {
+					labels: ['Users', 'Communities', 'Tournaments'],
+					datasets: [{
+						label: 'Data',
+						data: [200, 90, 3],
+						backgroundColor: [
+							'rgba(255, 99, 132, 1)',
+							'rgba(54, 162, 235, 1)',
+							'rgba(255, 206, 86, 1)'
+						],
+						borderColor: [
+							'rgba(255, 99, 132, 1)',
+							'rgba(54, 162, 235, 1)',
+							'rgba(255, 206, 86, 1)'
+						],
+						borderWidth: 0
+					}]
+				},
+				options: {
+					cutoutPercentage: 60,
+					scales: {
+						yAxes: [{
+							ticks: {
+								beginAtZero: true
+							}
+						}]
+					}
+				}
+			});
+		</script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> -->
 		<script src="<?= base_url() ?>assets/Admin/js/myscript.js"></script>

@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Tournament_model extends CI_Model {
+class Tournament_model extends CI_Model
+{
 
 	public function show($input)
 	{
@@ -22,11 +23,11 @@ class Tournament_model extends CI_Model {
 			$where = "WHERE tournament.nama LIKE '%$search%' OR game.name LIKE '%$search%'";
 		}
 
-		if ($column=='1') {
+		if ($column == '1') {
 			$order = "ORDER BY tournament.nama $dir";
-		} else if ($column=='2') {
+		} else if ($column == '2') {
 			$order = "ORDER BY game.name $dir";
-		} else if ($column=='3') {
+		} else if ($column == '3') {
 			$order = "ORDER BY tournament.date_end $dir";
 		}
 
@@ -76,7 +77,7 @@ class Tournament_model extends CI_Model {
 			$where
 			")->num_rows();
 
-		$no = 0; 
+		$no = 0;
 		foreach ($tournament->result_array() as $key) {
 			$hasil['error'] = false;
 			$hasil['message'] = "data ditemukan.";
@@ -137,10 +138,8 @@ class Tournament_model extends CI_Model {
 			$hasil['data'] = $key;
 		}
 
-		output:
-		return $hasil;
+		output: return $hasil;
 	}
-
 }
 
 /* End of file Tournament_model.php */
