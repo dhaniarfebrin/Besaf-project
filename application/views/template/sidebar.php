@@ -70,6 +70,7 @@
 					<a href="#notification" class="m-menu__link notification">
 						<i class="m-menu__link-icon flaticon-bell"></i>
 						<span class="m-menu__link-text">Notification</span>
+						<span class="badge badge-info jumlah-notifikasi"></span>
 					</a>
 				</li>
 				<li class="m-menu__item " aria-haspopup="true" m-menu-link-redirect="1">

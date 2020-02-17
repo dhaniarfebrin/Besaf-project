@@ -169,7 +169,8 @@ class Komunitas_model extends CI_Model
 				nomor_identitas,
 				foto_identitas,
 				count(member_komunitas.komunitas_id) as jumlah_member,
-				game.name as game_nama
+				game.name as game_nama,
+				game.image AS game_foto
 			FROM 
 				komunitas
 			LEFT JOIN 
@@ -262,7 +263,7 @@ class Komunitas_model extends CI_Model
 			LEFT JOIN 
 				user ON user.id = member_komunitas.user_id
 			WHERE 
-				komunitas_id = '$komunitas_id'
+				member_komunitas.komunitas_id = '$komunitas_id'
 			");
 
 		$hasil['error'] = true;
@@ -409,8 +410,27 @@ class Komunitas_model extends CI_Model
 			goto output;
 		}
 
+		$cek = $this->db->query("SELECT id FROM member_komunitas WHERE user_id = '$user_id' AND komunitas_id = '$komunitas_id'");
+		if ($cek->num_rows() > 0) {
+			$hasil = array(
+				'error' => true,
+				'message' => "anda sudah menjadi bagian komunitas."
+			);
+			goto output;
+		}
+
 		$this->db->insert('member_komunitas', array(
 			'user_id' => $user_id,
+			'komunitas_id' => $komunitas_id,
+			'role_id' => '2',
+		));
+
+		$admin = $this->db->query("SELECT id, user_id FROM member_komunitas WHERE role_id = '1' AND komunitas_id = '$komunitas_id'");
+		$row = $admin->row();
+		$this->db->insert('notifikasi', array(
+			'user_id' => $row->user_id,
+			'pesan' => '<a href="https://'.$_SERVER['SERVER_NAME'] . '/Besaf/profile/'. $user_id .'" class="text-dark" style="text-decoration: none">Tersedia member komunitas baru</a>',
+			'type' => '1',
 			'komunitas_id' => $komunitas_id
 		));
 
@@ -419,7 +439,8 @@ class Komunitas_model extends CI_Model
 			'message' => "berhasil masuk kedalam komunitas."
 		);
 
-		output: return $hasil;
+		output: 
+		return $hasil;
 	}
 }
 

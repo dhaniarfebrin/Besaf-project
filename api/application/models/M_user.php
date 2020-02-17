@@ -361,7 +361,9 @@ class M_user extends CI_Model
                 id,
                 pesan,
                 type,
-                created_at
+                created_at,
+                komunitas_id,
+                team_id
             FROM 
                 notifikasi
             WHERE
@@ -379,6 +381,46 @@ class M_user extends CI_Model
         }
 
         output:
+        return $hasil;
+    }
+
+    public function konfirmasi($input)
+    {
+        $user_id = $input['user_id'];
+        $komunitas_id = $input['komunitas_id'];
+        $team_id = $input['team_id'];
+
+        if (empty($user_id)) {
+            $hasil = array(
+                'error' => true,
+                'message' => "user_id tidak ditemukan."
+            );
+            goto output;
+        } else if (empty($komunitas_id) && empty($team_id)) {
+            $hasil = array(
+                'error' => true,
+                'message' => "kesalahan."
+            );
+            goto output;
+        }
+
+        if ($team_id) {
+            $this->db->query("
+                UPDATE 
+                    team_member
+                SET 
+                    status = '1'
+                WHERe 
+                    user_id = '$user_id' AND team_id = '$team_id'
+                ");
+        }
+
+        $hasil = array(
+            'error' => false,
+            'message' => "sukses."
+        );
+
+        output: 
         return $hasil;
     }
 }

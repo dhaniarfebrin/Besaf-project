@@ -189,7 +189,8 @@
 				url : "<?php echo base_url('api/Team/undang') ?>",
 				method : "POST",
 				data : {
-					user_id : user_id
+					user_id : user_id,
+					team_id : '<?php echo $this->session->userdata('team_id'); ?>'
 				},
 				success : function(req) {
 					if (req.error == true) {
@@ -199,6 +200,7 @@
 					}
 				}
 			})
+			return false;
 		})
 
 		function notif(element,type,message) {

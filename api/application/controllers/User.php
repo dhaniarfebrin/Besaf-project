@@ -56,4 +56,10 @@ class User extends REST_Controller
 		$request = $this->user->notifikasi($this->post());
 		return $this->response($request);
 	}
+
+	public function konfirmasi_post()
+	{
+		$request = $this->user->konfirmasi($this->post());
+		return $this->response($request);
+	}
 }

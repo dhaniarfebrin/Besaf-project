@@ -71,7 +71,8 @@ class Team_model extends CI_Model {
 		$this->db->insert('team_member', array(
 			'user_id' => $user_id,
 			'team_id' => $this->db->insert_id(),
-			'role' => '1'
+			'role' => '1',
+			'status' => '1'
 		));
 
 		$hasil = array(
@@ -110,7 +111,7 @@ class Team_model extends CI_Model {
 			LEFT JOIN 
 				user ON user.id = team_member.user_id
 			WHERE 
-				user_id = '$user_id'
+				user_id = '$user_id' AND team_member.status = '1'
 			");
 
 		$hasil['error'] = false;
@@ -190,7 +191,7 @@ class Team_model extends CI_Model {
 			LEFT JOIN 
 				user ON user.id = team_member.user_id
 			WHERE 
-				team_id = '$id'
+				team_id = '$id' AND team_member.status = '1'
 			ORDER BY 
 				team_member.role ASC
 			");
@@ -276,11 +277,18 @@ class Team_model extends CI_Model {
 	public function undang($input)
 	{
 		$user_id = $input['user_id'];
+		$team_id = $input['team_id'];
 
 		if (empty($user_id)) {
 			$hasil = array(
 				'error' => true,
 				'message' => "user_id tidak ditemukan."
+			);
+			goto output;
+		} else if (empty($team_id)) {
+			$hasil = array(
+				'error' => true,
+				'message' => "team_id tidak ditemukan."
 			);
 			goto output;
 		}
@@ -289,7 +297,14 @@ class Team_model extends CI_Model {
 			'user_id' => $user_id,
 			'pesan' => "Anda diundang untuk bergabung dengan sebuah team.",
 			'type' => "2",
+			'team_id' => $team_id
 		));	
+
+		$this->db->insert('team_member', array(
+			'user_id' => $user_id,
+			'team_id' => $team_id,
+			'status' => '2'
+		));
 
 		$hasil = array(
 			'error' => false,
