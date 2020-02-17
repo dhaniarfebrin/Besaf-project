@@ -126,12 +126,7 @@ class M_user extends CI_Model
             goto output;
         } elseif (strlen($username) >= 8) {
             $response = [
-                'error' => true, 'message' => 'Username max.8 !'
-            ];
-            goto output;
-        } elseif (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $response = [
-                'error' => true, 'message' => 'Email harus sesuai!'
+                'error' => true, 'message' => 'Username max.8 characters !'
             ];
             goto output;
         } elseif ($cek_email) {
@@ -147,6 +142,11 @@ class M_user extends CI_Model
         } elseif (!$password) {
             $response = [
                 'error' => true, 'message' => 'Password belum diisi!'
+            ];
+            goto output;
+        } elseif (strlen($password) <= 6) {
+            $response = [
+                'error' => true, 'message' => 'Password min.6 characters !'
             ];
             goto output;
         } elseif ($password !== $verifypassword) {
@@ -189,7 +189,7 @@ class M_user extends CI_Model
             $this->db->insert('user_token', $user_token); //user_token
             $response = [
                 'error' => false,
-                'message' => 'Akun anda sudah dibuat. Silahkan aktivasi akun anda!'
+                'message' => 'Akun anda sudah dibuat. Silahkan aktivasi akun anda! Pastikan email yang anda masukkan sudah benar'
             ];
             goto output;
         } else {

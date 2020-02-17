@@ -33,11 +33,11 @@ class Super_admin_model extends CI_Model
 			goto output;
 		}
 		// else if (empty($image_name)) {
-		// 	$notif = array(
-		// 		'error' => true,
-		// 		'message' => "Please change your photo and Upload it!!!."
-		// 	);
-		// 	goto output;
+		//  $notif = array(
+		//      'error' => true,
+		//      'message' => "Please change your photo and Upload it!!!."
+		//  );
+		//  goto output;
 		// }
 		else {
 			$image_name = '';
@@ -47,6 +47,7 @@ class Super_admin_model extends CI_Model
 				$img = str_replace("data:image/jpeg;base64", "", $image);
 				$img = str_replace("data:image/jpg;base64", "", $img);
 				$img = str_replace("data:image/png;base64", "", $img);
+
 				$base64 = base64_decode($img);
 				$image_name = get_guid() . '.jpeg';
 				file_put_contents(FCPATH . 'img/game/' . $image_name, $base64);
@@ -75,16 +76,16 @@ class Super_admin_model extends CI_Model
 	public function Read_game()
 	{
 		$read = $this->db->query("
-			SELECT
-				game.id,
-				game.name as game_name
-			FROM
-				game
-			LEFT JOIN
-				role_game on role_game.game_id = game.id
-			GROUP BY
-				game.id
-		");
+            SELECT
+                game.id,
+                game.name as game_name
+            FROM 
+                game
+            INNER JOIN 
+                role_game on role_game.game_id = game.id
+            GROUP BY 
+                game.id
+        ");
 		$notif['error'] = false;
 		$notif['message'] = "Sorry!!!... Data is not exist.";
 		$notif['data'] = array();
@@ -107,23 +108,24 @@ class Super_admin_model extends CI_Model
 			goto output;
 		}
 		$details = $this->db->query("
-			SELECT
-				role_game.name as role_name,
-				game_id,
-				created_at,
-				game.name as game_name,
-				game.image as game_image,
-				game.id as id
-			FROM	
-				role_game
-			INNER JOIN
-				game on game.id = role_game.game_id
-			WHERE
-				game_id = '$id'
-		");
+            SELECT 
+                role_game.name as role_name,
+                game_id,
+                created_at,
+                game.name as game_name,
+                game.image as game_image,
+                game.id as id
+            FROM    
+                role_game
+            INNER JOIN
+                game on game.id = role_game.game_id
+            WHERE
+                game_id = '$id'
+        ");
 		$notif['error'] = false;
 		$notif['message'] = "Sorry!!!... Data is not exist.";
 		$notif['data'] = array();
+
 		foreach ($details->result_array() as $key) {
 			$notif['error'] = false;
 			$notif['message'] = "Success.";
@@ -140,12 +142,13 @@ class Super_admin_model extends CI_Model
 	function role_game($game_id)
 	{
 		$data = $this->db->query("
-			SELECT
-				name
-			FROM
-				role_game
-			WHERE
-				game_id = '$game_id'");
+            SELECT 
+                name 
+            FROM 
+                role_game
+            WHERE 
+                game_id = '$game_id'");
+
 		$no = 0;
 		foreach ($data->result_array() as $key) {
 			$notif[$no++] = $key;
@@ -210,22 +213,15 @@ class Super_admin_model extends CI_Model
 				'message' => "Congrats"
 			);
 			goto output;
-		}
-		else{
-
-			mkdir(FCPATH.'img/', 0777);
-			mkdir(FCPATH.'img/user_profile', 0777);
-
-
+		} else {
+			mkdir(FCPATH . 'img/', 0777);
+			mkdir(FCPATH . 'img/user_profile', 0777);
 			$img = str_replace("data:image/jpeg;base64,", "", $avatar);
 			$img = str_replace("data:image/jpg;base64,", "", $img);
 			$img = str_replace("data:image/png;base64,", "", $img);
 			$base64 = base64_decode($img);
-
-			$avatar_name = get_guid().'.jpeg';
-
-			file_put_contents(FCPATH.'img/user_profile/'.$avatar_name, $base64);
-
+			$avatar_name = get_guid() . '.jpeg';
+			file_put_contents(FCPATH . 'img/user_profile/' . $avatar_name, $base64);
 			$this->db->update('user', array(
 				'image' => $avatar_name,
 				'bio' => $bio
@@ -244,14 +240,14 @@ class Super_admin_model extends CI_Model
 	{
 		$user_id = $isi['id'];
 		$avatar = $this->db->query("
-			SELECT
-				image,
-				bio
-			FROM
-				user
-			WHERE
-				id = '$user_id'
-		");
+            SELECT
+                image,
+                bio
+            FROM
+                user
+            WHERE
+                id = '$user_id'
+        ");
 		$notif['error'] = false;
 		$notif['message'] = "Sorry!!!... Data is not exist.";
 		$notif['data'] = array();
@@ -266,20 +262,20 @@ class Super_admin_model extends CI_Model
 	{
 		$user_id = $isi['id'];
 		$info = $this->db->query("
-			SELECT
-				full_name,
-				email,
-				country,
-				city,
-				birth_date,
-				gender,
-				about_me,
-				bio
-			FROM
-				user
-			WHERE
-				id = '$user_id'
-		");
+            SELECT
+                full_name,
+                email,
+                country,
+                city,
+                birth_date,
+                gender,
+                about_me,
+                bio
+            FROM
+                user
+            WHERE
+                id = '$user_id'
+        ");
 		$notif['error'] = false;
 		$notif['message'] = "Sorry!!!... Data is not exist.";
 		$notif['data'] = array();
@@ -397,71 +393,63 @@ class Super_admin_model extends CI_Model
 		$start = $isi['start'];
 		$length = $isi['length'];
 		$search = $isi['search']['value'];
-
 		$where = '';
 		$limit = '';
-
 		if (!empty($search)) {
 			$where = "WHERE username LIKE '%$search%'";
 		}
-
 		if (!empty($length)) {
 			$limit = "LIMIT $start, $length";
 		}
-
 		$read_user = $this->db->query("
-			SELECT
-				user.id,
-				username,
-				email,
-				full_name,
-				role_id,
-				user_role.name as role_name
-			FROM
-				user
-			INNER JOIN
-				user_role on user_role.id = user.role_id
-			$where
-			$limit
-		");
-
+            SELECT 
+                user.id,
+                username,
+                email,
+                full_name,
+                role_id,
+                is_active,
+                user_role.name as role_name
+            FROM
+                user
+            INNER JOIN 
+                user_role on user_role.id = user.role_id
+            $where
+            $limit
+        ");
 		$recordsTotal = $this->db->query("
-			SELECT 
-				user.id,
-				username,
-				email,
-				full_name,
-				role_id,
-				user_role.name as role_name
-			FROM
-				user
-			INNER JOIN 
-				user_role on user_role.id = user.role_id
-		")->num_rows();
-
+            SELECT 
+                user.id,
+                username,
+                email,
+                full_name,
+                role_id,
+                user_role.name as role_name
+            FROM
+                user
+            INNER JOIN 
+                user_role on user_role.id = user.role_id
+        ")->num_rows();
 		$recordsFiltered = $this->db->query("
-			SELECT 
-				user.id,
-				username,
-				email,
-				full_name,
-				role_id,
-				user_role.name as role_name
-			FROM
-				user
-			INNER JOIN 
-				user_role on user_role.id = user.role_id
-			$where
-		")->num_rows();
-
+            SELECT 
+                user.id,
+                username,
+                email,
+                full_name,
+                role_id,
+                user_role.name as role_name
+            FROM
+                user
+            INNER JOIN 
+                user_role on user_role.id = user.role_id
+            $where
+        ")->num_rows();
 		$notif['error'] = false;
 		$notif['message'] = "Sorry!!!... Data is not exist.";
 		$notif['data'] = array();
 		$notif['draw'] = $draw;
 		$notif['recordsTotal'] = $recordsTotal;
 		$notif['recordsFiltered'] = $recordsFiltered;
-
-
 		$no = 0;
 		foreach ($read_user->result_array() as $key) {
 			$notif['error'] = false;
@@ -474,25 +462,26 @@ class Super_admin_model extends CI_Model
 	{
 		$user_id = $isi['user_id'];
 		$details = $this->db->query("
-			SELECT
-				username,
-				full_name,
-				image,
-				email,
-				country,
-				about_me,
-				user_role.name as role_name,
-				user.full_name as full_name
-			FROM
-				user
-			LEFT JOIN
-				user_role on user_role.id = user.role_id
-			WHERE
-				user.id = '$user_id'
-		");
+            SELECT
+                username,
+                full_name,
+                image,
+                email,
+                country,
+                about_me,
+                user_role.name as role_name,
+                user.full_name as full_name
+            FROM 
+                user
+            LEFT JOIN 
+                user_role on user_role.id = user.role_id
+            WHERE
+                user.id = '$user_id'
+        ");
 		$notif['error'] = false;
 		$notif['message'] = "Sorry!!!... Data is not exist.";
 		$notif['data'] = array();
+
 		foreach ($details->result_array() as $key) {
 			$notif['error'] = false;
 			$notif['message'] = "Success.";
@@ -508,7 +497,6 @@ class Super_admin_model extends CI_Model
 			'error' => false,
 			'message' => "Success!!!... User has been Deleted."
 		);
-
 		return $notif;
 	}
 	// start model of Super admin user site
