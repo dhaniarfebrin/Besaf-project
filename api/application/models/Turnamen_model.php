@@ -133,9 +133,9 @@ class Turnamen_model extends CI_Model {
 				komunitas.nama AS komunitas_nama
 			FROM 
 				tournament
-			INNER JOIN 
+			LEFT JOIN 
 				game ON game.id = tournament.game_id
-			INNER JOIN 
+			LEFT JOIN 
 				komunitas ON komunitas.id = tournament.komunitas_id
 			WHERE 
 				tournament.id = '$turnamen_id'

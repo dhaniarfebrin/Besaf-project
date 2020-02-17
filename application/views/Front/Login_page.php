@@ -75,7 +75,46 @@ $country = [
 							</div>
 							<div class="form-group">
 								<label for="Name" class="font-weight-bold">Fullname</label>
+								<style>
+									.tooltip {
+										position: relative;
+										display: inline-block;
+										z-index: 99 !important;
+										border-bottom: 1px dotted black;
+										visibility: hidden;
+										opacity: 0;
+									}
+
+									.tooltip-text {
+										width: 190px;
+										background-color: #555;
+										color: #fff;
+										text-align: center;
+										border-radius: 6px;
+										padding: 2px 0;
+										position: absolute;
+										z-index: 99;
+										bottom: 125%;
+										left: 50%;
+										transition: opacity 0.3s;
+									}
+
+									.tooltip-text::after {
+										content: "";
+										position: absolute;
+										top: 100%;
+										left: 50%;
+										margin-left: -5px;
+										border-width: 5px;
+										border-style: solid;
+										border-color: #555 transparent transparent transparent;
+									}
+								</style>
+								<span class="tooltip" id="tooltip">
+									<span class="tooltip-text">max length 64 characters!</span>
+								</span>
 								<input type="text" class="form-control bg-dark border-0 text-white fullname" autocomplete="off" id="Name" placeholder="Fullname">
+
 							</div>
 							<div class="form-group">
 								<label for="username" class="font-weight-bold">Username</label>
@@ -139,10 +178,10 @@ $country = [
 </div>
 <script>
 	function check_password() {
-		var password1 = document.getElementById('password')
-		var password2 = document.getElementById('confirm_password')
-		var valPassword1 = document.getElementById('password').value
-		var valPassword2 = document.getElementById('confirm_password').value
+		let password1 = document.getElementById('password')
+		let password2 = document.getElementById('confirm_password')
+		let valPassword1 = document.getElementById('password').value
+		let valPassword2 = document.getElementById('confirm_password').value
 		if (valPassword1 == "" && valPassword2 == "") {
 			password2.classList.remove("border");
 			document.getElementById("pesan").className = "d-none";
@@ -163,8 +202,9 @@ $country = [
 			}
 		}
 	}
-	var passwordField = document.getElementById('Password');
-	var eyeIcon = document.getElementById('eye');
+
+	let passwordField = document.getElementById('Password');
+	let eyeIcon = document.getElementById('eye');
 	eyeIcon.addEventListener("mousedown", function() {
 		passwordField.setAttribute("type", "text");
 	});
@@ -173,5 +213,17 @@ $country = [
 	});
 	eyeIcon.addEventListener("mouseleave", function() {
 		passwordField.setAttribute("type", "password");
-	})
+	});
+
+	const tooltip = document.getElementById('tooltip');
+	const inputan = document.getElementById('Name');
+
+	inputan.addEventListener("focus", function() {
+		tooltip.style.visibility = "visible";
+		tooltip.style.opacity = "1";
+	});
+	inputan.addEventListener("blur", function() {
+		tooltip.style.visibility = "hidden";
+		tooltip.style.opacity = "0";
+	});
 </script>

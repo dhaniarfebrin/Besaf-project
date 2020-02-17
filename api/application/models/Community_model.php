@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Community_model extends CI_Model {
+class Community_model extends CI_Model
+{
 
 	public function show($input)
 	{
@@ -53,7 +54,7 @@ class Community_model extends CI_Model {
 				game ON game.id = komunitas.game_id
 			$where
 			")->num_rows();
-		
+
 		$no = 0;
 
 		$hasil['error'] = false;
@@ -93,7 +94,7 @@ class Community_model extends CI_Model {
 				komunitas.foto_identitas
 			FROM 
 				komunitas 
-			INNER JOIN 
+			LEFT JOIN 
 				game ON game.id = komunitas.game_id
 			WHERE 
 				komunitas.id = '$komunitas_id'
@@ -116,8 +117,7 @@ class Community_model extends CI_Model {
 			);
 		}
 
-		output:
-		return $hasil;
+		output: return $hasil;
 	}
 
 	private function _member_komunitas($komunitas_id)
@@ -129,9 +129,9 @@ class Community_model extends CI_Model {
 				user_role.name AS role_name
 			FROM 
 				member_komunitas 
-			INNER JOIN 
+			LEFT JOIN 
 				user ON user.id = member_komunitas.user_id
-			INNER JOIN 
+			LEFT JOIN 
 				user_role ON user_role.id = member_komunitas.role_id
 			WHERE 
 				member_komunitas.komunitas_id = '$komunitas_id'
@@ -144,7 +144,6 @@ class Community_model extends CI_Model {
 
 		return $hasil;
 	}
-
 }
 
 /* End of file Community_model.php */

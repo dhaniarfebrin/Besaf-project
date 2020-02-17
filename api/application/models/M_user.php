@@ -367,4 +367,84 @@ class M_user extends CI_Model
 
         output: return $response;
     }
+
+    public function notifikasi($input)
+    {
+        $user_id = $input['user_id'];
+
+        if (empty($user_id)) {
+            $hasil = array(
+                'error' => true,
+                'message' => "user_id tidak ditemukan."
+            );
+            goto output;
+        }
+
+        $notif = $this->db->query("
+            SELECT 
+                id,
+                pesan,
+                type,
+                created_at,
+                komunitas_id,
+                team_id
+            FROM 
+                notifikasi
+            WHERE
+                user_id = '$user_id'
+            ");
+
+        $hasil['error'] = false;
+        $hasil['message'] = "data belum tersedia.";
+
+        $no = 0;
+        foreach ($notif->result_array() as $key) {
+            $hasil['error'] = false;
+            $hasil['message'] = "notifikasi tersedia.";
+            $hasil['data'][$no++] = $key;
+        }
+
+        output:
+        return $hasil;
+    }
+
+    public function konfirmasi($input)
+    {
+        $user_id = $input['user_id'];
+        $komunitas_id = $input['komunitas_id'];
+        $team_id = $input['team_id'];
+
+        if (empty($user_id)) {
+            $hasil = array(
+                'error' => true,
+                'message' => "user_id tidak ditemukan."
+            );
+            goto output;
+        } else if (empty($komunitas_id) && empty($team_id)) {
+            $hasil = array(
+                'error' => true,
+                'message' => "kesalahan."
+            );
+            goto output;
+        }
+
+        if ($team_id) {
+            $this->db->query("
+                UPDATE 
+                    team_member
+                SET 
+                    status = '1'
+                WHERe 
+                    user_id = '$user_id' AND team_id = '$team_id'
+                ");
+        }
+
+        $hasil = array(
+            'error' => false,
+            'message' => "sukses."
+        );
+
+        output: 
+        return $hasil;
+    }
 }

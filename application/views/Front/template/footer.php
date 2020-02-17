@@ -1,4 +1,5 @@
 <script src="<?= base_url() ?>assets/Front/js/jquery.js"></script>
+<!-- <script src="https://unpkg.com/@popperjs/core@2"></script> -->
 <script src="<?= base_url() ?>assets/Front/js/bootstrap.js"></script>
 <script src="<?= base_url() ?>assets/Front/js/all.js"></script>
 <script src="<?= base_url() ?>assets/Front/js/script.js"></script>

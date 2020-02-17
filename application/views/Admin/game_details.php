@@ -2,6 +2,9 @@
 	<div class="container mt-5">
 		<h2 class="p-2">Details</h2>
 		<div class="card game_details">
+			<div class="d-block p-2">
+				<button type="button" class="fa fa-chevron-left bg-transparent btn btn-lg" onclick="goBack()"></button>
+			</div>
 			<div class="card-body">
 				<div class="card-image">
 					<img src="" class="img-thumbnail d-block mx-auto gambare_game" width="300px">
@@ -54,8 +57,7 @@
 <script type="text/javascript" src="<?php echo base_url() ?>assets/js/bootstrap.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatable/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>assets/plugins/datatable/js/dataTables.bootstrap.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> -->
 <script src="<?= base_url() ?>assets/Admin/js/myscript.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -109,4 +111,8 @@
 			})
 		});
 	})
+
+	function goBack() {
+		window.history.back();
+	}
 </script>
