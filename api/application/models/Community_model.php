@@ -93,7 +93,7 @@ class Community_model extends CI_Model {
 				komunitas.foto_identitas
 			FROM 
 				komunitas 
-			INNER JOIN 
+			LEFT JOIN 
 				game ON game.id = komunitas.game_id
 			WHERE 
 				komunitas.id = '$komunitas_id'
@@ -129,9 +129,9 @@ class Community_model extends CI_Model {
 				user_role.name AS role_name
 			FROM 
 				member_komunitas 
-			INNER JOIN 
+			LEFT JOIN 
 				user ON user.id = member_komunitas.user_id
-			INNER JOIN 
+			LEFT JOIN 
 				user_role ON user_role.id = member_komunitas.role_id
 			WHERE 
 				member_komunitas.komunitas_id = '$komunitas_id'

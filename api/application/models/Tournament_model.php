@@ -54,7 +54,7 @@ class Tournament_model extends CI_Model {
 				game.image as game_image
 			FROM 
 				tournament
-			INNER JOIN 
+			LEFT JOIN 
 				game ON game.id = tournament.game_id
 			$where
 			$order 
@@ -71,7 +71,7 @@ class Tournament_model extends CI_Model {
 				tournament.id
 			FROM 
 				tournament
-			INNER JOIN 
+			LEFT JOIN 
 				game ON game.id = tournament.game_id
 			$where
 			")->num_rows();
