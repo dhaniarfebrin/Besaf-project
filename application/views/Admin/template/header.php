@@ -20,15 +20,23 @@
 
 	<!-- Main Navbar -->
 	<nav class="navbar mainNavbar fixed">
-		<div class="row w-100">
-
-			<div class="d-block p-2 pl-4 pr-4">
-				<button class="d-block bg-transparent border-0 ml-3 mt-2" onclick="openNav()">
-					<h5 class="fas fa-stream"></h5>
-				</button>
+		<div class="row p-2">
+			<div class="col-md col">
+				<div class="d-block">
+					<button class="d-block bg-transparent border-0 ml-3 mt-1" onclick="openNav()">
+						<h5 class="fas fa-stream mb-0"></h5>
+					</button>
+				</div>
 			</div>
-			<div class="d-block mt-auto my-auto mx-auto">
-				<h5 class="mb-0">SUPER ADMIN</h5>
+			<div class="col-md col">
+				<div class="d-block">
+					<h5 class="d-block text-center mb-0 mt-1">SUPER ADMIN</h5>
+				</div>
+			</div>
+			<div class="col-md col">
+				<div class="d-block pr-3 text-right">
+					<div class="text-white mb-0 mt-1" id="watch"></div>
+				</div>
 			</div>
 		</div>
 	</nav>

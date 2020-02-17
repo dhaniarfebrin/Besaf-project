@@ -19,20 +19,20 @@ class Tournament_model extends CI_Model {
 
 		$where = '';
 		if (!empty($search)) {
-			$where = "WHERE tournament.nama LIKE '%$search%' OR game.nama LIKE '%$search%'";
+			$where = "WHERE tournament.nama LIKE '%$search%' OR game.name LIKE '%$search%'";
 		}
 
 		if ($column=='1') {
 			$order = "ORDER BY tournament.nama $dir";
 		} else if ($column=='2') {
-			$order = "ORDER BY game.nama $dir";
+			$order = "ORDER BY game.name $dir";
 		} else if ($column=='3') {
 			$order = "ORDER BY tournament.date_end $dir";
 		}
 
 		$tournament = $this->db->query("
 			SELECT 
-				tournament.id as tournament_id,
+				tournament.id,
 				tournament.nama as tournament_nama,
 				hadiah,
 				rules,
@@ -50,7 +50,7 @@ class Tournament_model extends CI_Model {
 				komunitas_id,
 				cookies,
 				game.id as game_id,
-				game.nama as game_nama,
+				game.name as game_nama,
 				game.image as game_image
 			FROM 
 				tournament
@@ -83,6 +83,61 @@ class Tournament_model extends CI_Model {
 			$hasil['data'][$no++] = $key;
 		}
 
+		return $hasil;
+	}
+
+	public function details($input)
+	{
+		$id = $input['id'];
+
+		if (empty($id)) {
+			$hasil = array(
+				'error' => true,
+				'message' => "id tidak ditemukan."
+			);
+			goto output;
+		}
+
+		$tournament = $this->db->query("
+			SELECT 
+				tournament.id,
+				tournament.nama,
+				game.name AS game_nama,
+				rules,
+				hadiah,
+				informasi,
+				how_to_join,
+				venue,
+				mode,
+				tournament.image,
+				slots,
+				time,
+				entry,
+				winner,
+				date_start,
+				date_end,
+				komunitas.nama AS komunitas_nama,
+				cookies
+			FROM 
+				tournament
+			LEFT JOIN 
+				game ON game.id = tournament.game_id
+			LEFT JOIN 
+				komunitas ON komunitas.id = tournament.komunitas_id
+			WHERE 
+				tournament.id = '$id'
+			");
+
+		$hasil['error'] = false;
+		$hasil['message'] = "tournament tidak tersedia";
+		$hasil['data'] = array();
+
+		foreach ($tournament->result_array() as $key) {
+			$hasil['message'] = "success.";
+			$hasil['data'] = $key;
+		}
+
+		output:
 		return $hasil;
 	}
 

@@ -1,7 +1,6 @@
 <div class="main">
 	<div class="container mt-5">
 		<h2 class="p-2">Users</h2>
-
 		<!--table users-->
 		<div class="">
 			<div class="mx-auto mb-5">
@@ -32,9 +31,8 @@
 					</div>
 				</div>
 			</div>
-			</div>
+		</div>
 		<!--end table admin-->
-
 
 
 	<!-- Modal confirm delete game -->
@@ -182,10 +180,32 @@
 						$('div#delete_user').modal('hide');
 						Read_users();					
 					}
-				})
-			});
-
-		
-
+				]
+			})
+		}
+		Read_users();
+		$(document).on('click', 'button.hapus', function() {
+			user_id = $(this).data('id');
+			user_name = $(this).data('name');
+			$('input.delete-user').val(user_id);
+			$('b.user-name').html(user_name);
 		});
-	</script>
+		$(document).on('submit', 'button.hapus', function() {
+			user_id = $('input.delete-user').val();
+			$.ajax({
+				url: '<?= base_url('api/Super_admin/Delete_user'); ?>',
+				type: 'POST',
+				data: {
+					id: user_id
+				},
+				success: function(req) {
+					console.log(req.id);
+					$('input.delete-user').val('');
+					$('b.user-name').html('');
+					$('div.hapusen_ae_wes').modal('hide');
+					Read_users();
+				}
+			})
+		});
+	});
+</script>

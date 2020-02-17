@@ -1,4 +1,3 @@
-
 <div class="main">
 	<div class="container mt-5">
 		<h2 class="p-3">Games</h2>
@@ -29,9 +28,6 @@
 		</div>
 	</div>
 </div>
-
-
-
 <!--MOdal-->
 <div class="modal fade" id="add-Gamebro" tabindex="-1" role="dialog">
 	<div class="modal-dialog">
@@ -60,11 +56,11 @@
 					</div>
 					<div class="custom-file">
 						<label class="">Upload Image</label>
-							<div class="custom-file">
-								<input type="file" class="custom-file-input game_image" id="customFile">
-								<label class="custom-file-label filename" for="customFile">Choose file</label>
-							</div>
-							<input type="hidden" class="game_image_hidden">
+						<div class="custom-file">
+							<input type="file" class="custom-file-input game_image" id="customFile">
+							<label class="custom-file-label filename" for="customFile">Choose file</label>
+						</div>
+						<input type="hidden" class="game_image_hidden">
 					</div>
 					<button type="submit" class="btn btn-primary mt-5 ml-auto">Add</button>
 				</form>
@@ -73,9 +69,8 @@
 	</div>
 </div>
 <!--end MOdal-->
-	
 <script src="<?= base_url() ?>assets/Admin/js/jquery.js"></script>
-<script src="<?php echo base_url('assets/plugins/compress-image/jquery.exif.js'); ?>"></script>	
+<script src="<?php echo base_url('assets/plugins/compress-image/jquery.exif.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/compress-image/jquery.canvasResize.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/compress-image/zepto.min.js'); ?>"></script>
 <script src="<?php echo base_url('assets/plugins/compress-image/binaryajax.js'); ?>"></script>
@@ -87,12 +82,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="<?= base_url() ?>assets/Admin/js/myscript.js"></script>
-
 <script>
-	$(document).ready(function(){
-
+	$(document).ready(function() {
 		$(document).on('change', 'input.game_image', function(e) {
-			file =  e.target.files[0];
+			file = e.target.files[0];
 			$('label.filename').html(file.name);
 			canvasResize(file, {
 				width: 400,
@@ -104,52 +97,49 @@
 				}
 			})
 		})
-
-		$(document).on("submit", "form.add-game", function () {
+		$(document).on("submit", "form.add-game", function() {
 			role = $("input#role-list").val();
 			role_array = new Array();
-			$("input#role-list").each(function (req) {
-				role_array.push({"name": $(this).val()});
+			$("input#role-list").each(function(req) {
+				role_array.push({
+					"name": $(this).val()
+				});
 			})
 			name = $("input.name").val();
 			image = $("input.game_image_hidden").val();
-			
 			$.ajax({
 				url: "<?= base_url('api/Super_admin/Add_game'); ?>",
 				type: "POST",
 				data: {
-					nama : name,
-					role : role_array,
-					image : image
+					nama: name,
+					role: role_array,
+					image: image
 				},
-				success: function (req) {
+				success: function(req) {
 					console.log(req)
-					if (req.error == true) {
 
-					} else {
-						$("input.name").val('');
-						$("input#role-list").val('');
-						$("div#add-Gamebro").modal('hide');
-						Read_game();
-					}
+					$("input.name").val('');
+					$("input#role-list").val('');
+					$("div#add-Gamebro").modal('hide');
+					Read_game();
+
 				}
 			})
 			return false;
 		})
 
-		function Read_game(){
+		function Read_game() {
 			$('table#tabel-game').DataTable().destroy();
 			$("table#tabel-game").DataTable({
-				"serverside": true,
-				"processing": true,
+				// "serverside": true,
+				// "processing": true,
 				"deferRender": true,
 				"ajax": {
 					"url": "<?= base_url('api/Super_admin/Read_game'); ?>",
 					"method": "POST",
 					"dataSrc": "data"
 				},
-				"columns": [
-					{
+				"columns": [{
 						data: null,
 						render: function(data, type, row, meta) {
 							return meta.row + meta.settings._iDisplayStart + 1 + '.';
@@ -161,7 +151,7 @@
 					{
 						data: null,
 						render: function(req) {
-							return '<a href="<?= base_url('Admin/game_details/') ?>'+req.id+'">Details</a>'
+							return '<a href="<?= base_url('Admin/game_details/') ?>' + req.id + '">Details</a>'
 						}
 					}
 				]
@@ -169,17 +159,13 @@
 		}
 		Read_game();
 
-
-
-		function notif(element, type, message) {
-			$(element).html('\
-			<div class="alert alert-'+type+'" role="alert">\
-		        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true" style="margin-top: -20px">&times;</span></button>\
-		        '+message+'\
-		    </div>\
-	    	');
-		}
-
-
+		// function notif(element, type, message) {
+		// 	$(element).html('\
+		// 	<div class="alert alert-' + type + '" role="alert">\
+		//         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true" style="margin-top: -20px">&times;</span></button>\
+		//         ' + message + '\
+		//     </div>\
+		// 	');
+		// }
 	})
 </script>

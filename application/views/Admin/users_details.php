@@ -1,6 +1,6 @@
-<div class="main">
-	<div class="container mt-5">
-		<h2>Users Details</h2>
+<div class="main" id="main">
+	<div class="container-sm mt-5">
+		<h2>User Details</h2>
 		<div class="row">
 			<div class="col-md-4">
 				<div class="card">

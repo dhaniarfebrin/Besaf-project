@@ -1,9 +1,9 @@
 <?php
- 
-require APPPATH.'libraries/REST_Controller.php';
-require APPPATH.'libraries/Format.php';
 
-use Restserver\libraries\REST_Controller;
+require APPPATH . 'libraries/REST_Controller.php';
+require APPPATH . 'libraries/Format.php';
+
+use Restserver\Libraries\REST_Controller;
 
 class Super_admin extends REST_Controller
 {
@@ -34,9 +34,6 @@ class Super_admin extends REST_Controller
 		return $this->response($req);
 	}
 	// end controller game site
-
-
-
 	// start controller of Super admin Profile
 	public function Update_avatar_post()
 	{
@@ -64,10 +61,6 @@ class Super_admin extends REST_Controller
 		return $this->response($req);
 	}
 	// start controller of Super admin Profile
-
-
-
-
 	// start controller of user site
 	public function Read_users_post()
 	{
@@ -90,6 +83,4 @@ class Super_admin extends REST_Controller
 		return $this->response($req);
 	}
 	// start controller of user site
-
-
 }
