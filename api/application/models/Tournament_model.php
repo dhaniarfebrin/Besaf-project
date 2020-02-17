@@ -72,7 +72,7 @@ class Tournament_model extends CI_Model
 				tournament.id
 			FROM 
 				tournament
-			INNER JOIN 
+			LEFT JOIN 
 				game ON game.id = tournament.game_id
 			$where
 			")->num_rows();

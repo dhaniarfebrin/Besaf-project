@@ -25,6 +25,24 @@
 			$('.hover').removeClass('border');
 		});
 
+		function get_game() {
+			$.ajax({
+				url : "<?php echo base_url('api/Profile/Show_games') ?>",
+				method : "POST",
+				success : function(req) {
+					console.log(req)
+					game = '<option value=""></option>';
+					$.each(req.data, function (index,obj) {
+						game +='\
+							<option value="'+obj.id+'">'+obj.game_name+'</option>\
+						'
+					})
+					$('select.pilihan-komunitas-game').html(game);
+				}
+			})
+		}
+		get_game();
+
 		/*Menampilkan semua komunitas.*/
 		function get_community() {
 			$.ajax({
@@ -79,16 +97,14 @@
 				method : "POST",
 				async : true,
 				data : {
-					id : 3
+					id : '<?php echo $this->session->userdata('user_id'); ?>'
 				},
 				success : function(req) {
 					my_community = '';
-					if (req.error==true) {
+					if (req.data == '' || req.data == null) {
 						my_community += '\
-						<div class="col-3">\
-							<a href="#">\
-								<div style="padding: 5px; width: 80%; height: 130px; background: #BEB9B9; border-radius: 5px"></div>\
-							</a>\
+						<div class="col-12 mb-4" align="center">\
+							'+req.message+'\
 						</div>\
 						';
 					} else {
@@ -116,7 +132,7 @@
 				method : "POST",
 				async : true,
 				data : {
-					id : 3
+					id : '<?php echo $this->session->userdata('user_id'); ?>'
 				},
 				success : function(req) {
 					my_community_selengkapnya = '';
@@ -283,7 +299,7 @@
 			nama = $('input.nama').val();
 			deskripsi = $('textarea.deskripsi').val();
 			kategori = $('select.kategori').val();
-			game_id = $('select.game_id').val();
+			game_id = $('select.pilihan-komunitas-game').val();
 			nomor_identitas = $('input.nomor_identitas').val();
 			foto_identitas = $('input.foto_identitas').val();
 			nomor_telpon = $('input.nomor_telpon').val();
@@ -298,13 +314,29 @@
 					nomor_identitas : nomor_identitas,
 					foto_identitas : foto_identitas,
 					nomor_telpon : nomor_telpon,
-					user_id : 3 /*<?php echo $this->session->userdata('id'); ?>*/
+					user_id : '<?php echo $this->session->userdata('user_id'); ?>'
 				},
 				success : function(req) {	
 					if (req.error==true) {
-						notif('div.pesan-tambah','danger',req.message);
+						$.notify({
+							message : req.message
+						},{
+							type : "danger",
+							placement : {
+								from : "bottom",
+								align : "right"
+							}
+						})
 					} else {
-						notif('div.pesan','success',req.message);
+						$.notify({
+							message : req.message
+						},{
+							type : "success",
+							placement : {
+								from : "bottom",
+								align : "right"
+							}
+						})
 						$('input.nama').val('');
 						$('textarea.deskripsi').val('');
 						$('select.kategori').val('');
@@ -417,6 +449,77 @@
 		}
 
 		my_team();
+		
+		function show_notif() {
+			$.ajax({
+				url : "<?php echo base_url('api/User/notifikasi') ?>",
+				method : "POST",
+				data : {
+					user_id : '<?php echo $this->session->userdata('user_id'); ?>'
+				},
+				success : function(req) {
+					notif = '';
+					if (req.error == true) {
+						notif += '<div align="center">'+req.message+'</div>'
+					} else {
+						$.each(req.data, function(index,obj) {
+							if (req.data.length > 0) {
+								$('span.jumlah-notifikasi').html(req.data.length);
+							}
+
+							if (obj.type == '1') {
+								type = "Pemberitahuan"
+								tombol = '';
+							} else {
+								type = "Konfirmasi"
+								tombol = '\
+								<div class="row no-gutters ml-auto mb-1">\
+									<style>\
+										.confirmation-btn-false:hover {\
+											background-color: red !important;\
+											cursor: pointer;\
+											color: white !important;\
+										}\
+										\
+										.confirmation-btn-true:hover {\
+											background-color: green !important;\
+											cursor: pointer;\
+											color: white !important;\
+										}\
+									</style>\
+									<button type="button" class="bg-transparent border-0 rounded-circle far fa-times-circle confirmation-btn-false" style="color: red"></button>\
+									<button type="button" class="bg-transparent border-0 rounded-circle far fa-check-circle confirmation-btn-true btn-konfirmasi" data-id="'+obj.id+'" data-user="<?php echo $this->session->userdata('user_id'); ?>" data-team="'+obj.team_id+'" data-komunitas="'+obj.komunitas_id+'" style="color:green"></button>\
+								</div>\
+								'
+							}
+
+							notif += '\
+							<div class="card p-2" style="max-width: 100%; height: auto">\
+								<div class="row no-gutters">\
+									<div class="col-md-2">\
+										<img src="<?= base_url() ?>assets/img/profile.jpg" class="card-img rounded-circle" style="margin-top: 25%" alt="gambar">\
+									</div>\
+									<div class="col-md-10">\
+										<div class="card-body">\
+											<h5 class="card-title">'+type+'</h5>\
+											<div class="row no-gutters">\
+												<p class="card-text">'+obj.pesan+'</p>\
+												<p class="card-text"><small class="text-muted">'+obj.created_at+'</small></p>\
+												'+tombol+'\
+											</div>\
+										</div>\
+									</div>\
+								</div>\
+							</div>\
+							'
+						})
+					}
+					$('div.data-notifikasi').html(notif);
+				}
+			})
+		}
+
+		show_notif();
 
 		$(document).on('submit','form.create_team',function() {
 			nama = $('input.team-name').val();
@@ -435,9 +538,25 @@
 				},
 				success : function(req) {
 					if (req.error == true) {
-						notif('div.pesan-create-team','danger', req.message)
+						$.notify({
+							message : req.message
+						},{
+							type : "danger",
+							placement : {
+								from : "bottom",
+								align : "right"
+							}
+						})
 					} else {
-						notif('div.pesan','success',req.message);
+						$.notify({
+							message : req.message
+						},{
+							type : "success",
+							placement : {
+								from : "bottom",
+								align : "right"
+							}
+						})
 						$('div#create_team').modal('hide');
 						$('input.team-name').val('');
 						$('input.team-avatar-name').val('');
@@ -452,6 +571,51 @@
 			return false;
 		})
 
+		$(document).on('click','button.btn-konfirmasi',function() {
+			id = $(this).data('id');	
+			user_id = $(this).data('user');
+			team_id = $(this).data('team');
+			komunitas_id = $(this).data('komunitas');
+
+			if (komunitas_id == null) {
+				$.ajax({
+					url : "<?php echo base_url('api/User/konfirmasi'); ?>",
+					method : "POST",
+					data : {
+						user_id : user_id,
+						team_id : team_id,
+						komunitas_id : komunitas_id
+					},
+					success : function(req) {
+						if (req.error == true) {
+							$.notify({
+								message : req.message
+							},{
+								type : "danger",
+								placement : {
+									from : "bottom",
+									align : "right"
+								}
+							})
+						} else {
+							$.notify({
+								message : req.message
+							},{
+								type : "success",
+								placement : {
+									from : "bottom",
+									align : "right"
+								}
+							})
+						}
+					}
+				})
+			} else {
+				$('div#modal-konfirmasi').modal('show')
+			}
+			return false;
+		})
+
 		function notif(data,type,message) {
 			$(data).html('\
 				<div class="alert alert-'+type+'">\
@@ -461,4 +625,43 @@
 				');
 		}
 	});
+</script>
+<div class="modal fade" id="modal-konfirmasi">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title">Konfirmasi User</h3>
+			</div>
+			<div class="modal-body">
+				<table class="table table-sm">
+					<thead>
+						<tr>
+							<th>No. </th>
+							<th>Username</th>
+							<th>Aksi</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+			</div>
+			<div class="modal-footer"></div>
+		</div>
+	</div>
+</div>
+<script>
+	$(document).ready(function() {
+		
+		function show_konfirmasi_user() {
+			$.ajax({
+				url : "<?php echo base_url('api/Team/konfirmasiuser') ?>",
+				method : "POST",
+				data : {
+
+				}
+			})
+		}
+
+	})
 </script>

@@ -112,7 +112,7 @@ class Admin_team_model extends CI_Model {
 				team_member.role
 			FROM 
 				team_member
-			INNER JOIN 
+			LEFT JOIN 
 				user ON user.id = team_member.user_id
 			WHERE 
 				team_id = '$team_id'
