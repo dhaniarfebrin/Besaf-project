@@ -1,6 +1,7 @@
 <div class="main" id="main">
 	<div class="container-sm mt-5">
-		<h2>Community Details</h2>
+
+		<h2><button type="button" class="fa fa-chevron-left bg-transparent btn btn-lg" onclick="goBack()"></button> Community Details</h2>
 		<div class="row">
 			<div class="col-md-4">
 				<div class="card">
@@ -54,10 +55,9 @@
 </div>
 <script src="<?= base_url() ?>assets/Admin/js/jquery.js"></script>
 <script src="<?= base_url() ?>assets/Admin/js/bootstrap.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script src="<?= base_url() ?>assets/Admin/js/jquery.dataTables.min.js"></script>
+<script src="<?= base_url() ?>assets/Admin/js/dataTables.bootstrap4.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> -->
 <script>
 	$(document).ready(function() {
 		function community_details() {
@@ -85,5 +85,9 @@
 		}
 		community_details()
 	})
+
+	function goBack() {
+		window.history.back();
+	}
 </script>
 <script src="<?= base_url() ?>assets/Admin/js/myscript.js"></script>

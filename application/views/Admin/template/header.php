@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Admin | BESAF</title>
 	<link rel="stylesheet" href="<?= base_url() ?>assets/Admin/css/bootstrap.css">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="<?= base_url() ?>assets/Admin/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/Admin/css/all.css">
 	<link rel="stylesheet" href="<?= base_url() ?>assets/Admin/css/admin.css">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
 <body>
 
 	<!-- Main Navbar -->
-	<nav class="navbar mainNavbar fixed h-auto">
+	<nav class="navbar mainNavbar bg-dark fixed h-auto">
 		
 		<div class="row p-2 pr-4 mr-5">
 			<div class="col-md col">

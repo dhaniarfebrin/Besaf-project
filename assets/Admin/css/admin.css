@@ -14,7 +14,7 @@ body {
 	content: " ";
 	display: block;
 	position: fixed;
-	z-index: 999;
+	z-index: 5;
 	height: 3px;
 	width: 100%;
 	top: 0;
@@ -189,6 +189,10 @@ body {
 
 .modal-content {
 	background-color: #262626;
+}
+
+.modal-backdrop {
+	z-index: -1 !important;
 }
 
 .modal-header {

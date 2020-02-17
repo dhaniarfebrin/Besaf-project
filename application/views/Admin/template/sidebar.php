@@ -1,6 +1,6 @@
 <!-- Sidebar -->
 
-<div class="sidebar" id="sidebar" style="overflow: hidden">
+<div class="sidebar" id="sidebar" style="overflow-x: hidden;">
     <div class="row no-gutters">
         <div class="col">
             <div class="p-3">
@@ -15,8 +15,8 @@
             </div>
         </div>
     </div>
-    <a href="<?= base_url('Admin/profile') ?>">
-        <div class="akun mt-0 mb-3 row text-white">
+    <a href="<?= base_url('Admin/profile') ?>" class="text-decoration-none">
+        <div class="akun bg-dark border-dark border-top border-bottom rounded-0 py-4 shadow-none mt-0 mb-4 row text-white">
             <div class="avatar my-auto col">
                 <img src="<?= base_url()  ?>assets/Admin/img/illustration.jpg" alt="" class="img">
             </div>
@@ -66,4 +66,3 @@
     </nav>
 </div>
 <!--	end sidebar		-->
-</div>
