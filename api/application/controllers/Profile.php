@@ -102,6 +102,11 @@ class Profile extends REST_Controller
 		$req = $this->Profile->Update_skill_and_role($this->post());
 		return $this->response($req);
 	}*/
+	public function Delete_skill_and_role_post()
+	{
+		$req = $this->Profile->Delete_skill_and_role($this->post());
+		return $this->response($req);
+	}
 	
 	// skill and role contoller
 

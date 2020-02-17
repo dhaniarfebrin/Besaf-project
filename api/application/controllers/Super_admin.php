@@ -77,7 +77,7 @@ class Super_admin extends REST_Controller
 		$req = $this->Super_admin->Read_super_admin($this->post());
 		return $this->response($req);
 	}
-	public function Delete_user()
+	public function Delete_user_post()
 	{
 		$req = $this->Super_admin->Delete_user($this->post());
 		return $this->response($req);

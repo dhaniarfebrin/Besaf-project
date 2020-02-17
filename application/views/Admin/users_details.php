@@ -7,7 +7,7 @@
 					<div class="card-body">
 						<div class="card-image">
 							<div class="pt-3 image-thumbnail">
-								<img src="https://esportsnesia.com/wp-content/uploads/2018/06/evos-esports.jpg" alt="" style="width: 125px" class="img">
+								<img src="" style="width: 125px" class="img user-details">
 							</div>
 						</div>
 						<div class="mt-3 text-center">
@@ -78,7 +78,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <script src="<?= base_url() ?>assets/Admin/js/myscript.js"></script>
 <script>
-	$(document).ready(function($) {
+	$(document).ready(function() {
 		function Users_detail() {
 			$.ajax({
 				url: '<?php echo base_url('api/Super_admin/Users_detail'); ?>',
@@ -87,7 +87,7 @@
 					user_id: '<?php echo $this->session->userdata('user_id'); ?>'
 				},
 				success: function(req) {
-					console.log(req);
+					$("img.user-details").attr('src', '<?php echo base_url('api/img/user_profile/') ?>'+req.data.image);
 					$("h5.username").html(req.data.username);
 					$("div.role_name").html(req.data.role_name);
 					$("td.full-name").html(req.data.full_name);
