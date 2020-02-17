@@ -210,15 +210,22 @@ class Super_admin_model extends CI_Model
 				'message' => "Congrats"
 			);
 			goto output;
-		} else {
-			mkdir(FCPATH . 'img/', 0777);
-			mkdir(FCPATH . 'img/Super_admin_profile', 0777);
+		}
+		else{
+
+			mkdir(FCPATH.'img/', 0777);
+			mkdir(FCPATH.'img/user_profile', 0777);
+
+
 			$img = str_replace("data:image/jpeg;base64,", "", $avatar);
 			$img = str_replace("data:image/jpg;base64,", "", $img);
 			$img = str_replace("data:image/png;base64,", "", $img);
 			$base64 = base64_decode($img);
-			$avatar_name = get_guid() . '.jpeg';
-			file_put_contents(FCPATH . 'img/Super_admin_profile/' . $avatar_name, $base64);
+
+			$avatar_name = get_guid().'.jpeg';
+
+			file_put_contents(FCPATH.'img/user_profile/'.$avatar_name, $base64);
+
 			$this->db->update('user', array(
 				'image' => $avatar_name,
 				'bio' => $bio
@@ -383,8 +390,25 @@ class Super_admin_model extends CI_Model
 	}
 	// end model of Super admin profile
 	// start model of Super admin user site
-	public function Read_users()
+	public function Read_users($isi)
 	{
+		$user_id = $isi['id'];
+		$draw = $isi['draw'];
+		$start = $isi['start'];
+		$length = $isi['length'];
+		$search = $isi['search']['value'];
+
+		$where = '';
+		$limit = '';
+
+		if (!empty($search)) {
+			$where = "WHERE username LIKE '%$search%'";
+		}
+
+		if (!empty($length)) {
+			$limit = "LIMIT $start, $length";
+		}
+
 		$read_user = $this->db->query("
 			SELECT
 				user.id,
@@ -397,10 +421,47 @@ class Super_admin_model extends CI_Model
 				user
 			INNER JOIN
 				user_role on user_role.id = user.role_id
+			$where
+			$limit
 		");
+
+		$recordsTotal = $this->db->query("
+			SELECT 
+				user.id,
+				username,
+				email,
+				full_name,
+				role_id,
+				user_role.name as role_name
+			FROM
+				user
+			INNER JOIN 
+				user_role on user_role.id = user.role_id
+		")->num_rows();
+
+		$recordsFiltered = $this->db->query("
+			SELECT 
+				user.id,
+				username,
+				email,
+				full_name,
+				role_id,
+				user_role.name as role_name
+			FROM
+				user
+			INNER JOIN 
+				user_role on user_role.id = user.role_id
+			$where
+		")->num_rows();
+
 		$notif['error'] = false;
 		$notif['message'] = "Sorry!!!... Data is not exist.";
 		$notif['data'] = array();
+		$notif['draw'] = $draw;
+		$notif['recordsTotal'] = $recordsTotal;
+		$notif['recordsFiltered'] = $recordsFiltered;
+
+
 		$no = 0;
 		foreach ($read_user->result_array() as $key) {
 			$notif['error'] = false;
@@ -447,6 +508,8 @@ class Super_admin_model extends CI_Model
 			'error' => false,
 			'message' => "Success!!!... User has been Deleted."
 		);
+
+		return $notif;
 	}
 	// start model of Super admin user site
 }

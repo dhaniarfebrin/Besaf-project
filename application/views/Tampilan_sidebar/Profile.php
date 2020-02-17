@@ -493,6 +493,56 @@
 <!-- end modal skill and role -->
 
 
+<!-- start modal update skill and role -->
+<div class="modal fade" id="skill_and_role_update">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Edit Skill and Role</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="muncul_notif10"></div>
+				<!--begin::Form-->
+				<form class="m-form m-form--fit m-form--label-align-right update-skill-role">
+					<div class="m-portlet__body">
+						<div class="form-group m-form__group">
+							<label for="">Select Game</label>
+							<select class="form-control m-input m-input--air m-input--pill select-game-update" id="skill-in-game">
+							</select>
+						</div>
+						<div class="form-group m-form__group">
+							<label for="exampleSelect2">Role in Game</label>
+							<select class="form-control m-input m-input--air m-input--pill role-game-upadate" id="role-in-game">
+							</select>
+						</div>
+						<div class="form-group m-form__group">
+							<label class="">Upload Image</label>
+							<form class="">
+								<div class="custom-file">
+									<input type="file" class="custom-file-input skill-image-update" id="customFile">
+									<label class="custom-file-label label-career-image-update" for="customFile">Choose your image</label>
+								</div>
+								<input type="hidden" class="hidden-skill-image-upadate">
+						</div>
+						<div align="center" class="border rounded" style="height: 250px">
+							<img class="show_image_skill-update" style="max-width: 100%; max-height: 100%; padding: 10px">
+						</div>
+					</div><br>
+					<div class="delete-and-update">
+						
+					</div>	
+				</form>
+				<!--end::Form-->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end modal update skill and role -->
+
+
 <!-- start modal add career experience -->
 <div class="modal fade Career" id="career_experience">
 	<div class="modal-dialog" role="document">
@@ -511,6 +561,7 @@
 						<div class="form-group m-form__group">
 							<label for="">Career Type</label>
 							<input type="text" class="form-control m-input m-input--air m-input--pill Career_type" maxlength="150" placeholder="e.g Professional Players, Coach, Captain etc">
+							<input type="hidden" class="hidden-delete-skill-role">
 						</div>
 						<div class="form-group m-form__group">
 							<label for="">Team Name/In Game ID</label>

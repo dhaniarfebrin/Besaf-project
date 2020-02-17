@@ -1,0 +1,28 @@
+ERROR - 2020-02-15 08:23:32 --> 404 Page Not Found: Img/turnamen
+ERROR - 2020-02-15 08:30:34 --> 404 Page Not Found: Img/profile
+ERROR - 2020-02-15 08:30:40 --> 404 Page Not Found: Img/profile
+ERROR - 2020-02-15 08:30:53 --> 404 Page Not Found: Img/profile
+ERROR - 2020-02-15 08:31:40 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 559
+ERROR - 2020-02-15 08:31:40 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 560
+ERROR - 2020-02-15 08:31:40 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 559
+ERROR - 2020-02-15 08:31:40 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 560
+ERROR - 2020-02-15 08:32:42 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 559
+ERROR - 2020-02-15 08:32:42 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 560
+ERROR - 2020-02-15 08:32:47 --> 404 Page Not Found: Img/profile
+ERROR - 2020-02-15 08:32:55 --> 404 Page Not Found: Img/profile
+ERROR - 2020-02-15 08:35:43 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 708
+ERROR - 2020-02-15 08:35:43 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 709
+ERROR - 2020-02-15 08:35:57 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 708
+ERROR - 2020-02-15 08:35:57 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 709
+ERROR - 2020-02-15 08:37:35 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 708
+ERROR - 2020-02-15 08:37:35 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 709
+ERROR - 2020-02-15 08:37:52 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 708
+ERROR - 2020-02-15 08:37:52 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 709
+ERROR - 2020-02-15 08:38:08 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 708
+ERROR - 2020-02-15 08:38:08 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 709
+ERROR - 2020-02-15 08:39:09 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 708
+ERROR - 2020-02-15 08:39:09 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 709
+ERROR - 2020-02-15 08:39:25 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 708
+ERROR - 2020-02-15 08:39:25 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 709
+ERROR - 2020-02-15 09:11:43 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 487
+ERROR - 2020-02-15 09:11:43 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 488
