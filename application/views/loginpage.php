@@ -11,7 +11,7 @@
 </head>
 
 <body style="background-image: url(<?= base_url('img/backlogin.jpg') ?>)">
-	
+
 	<div class="header">
 		<img src="<?= base_url('img/logo.png') ?>" alt="">
 	</div>
@@ -32,7 +32,7 @@
 
 			<div class="single-tab log" id="login">
 				<form action="<?= base_url('besaf/logIn') ?>" method="post" class="form">
-					<input type="text" placeholder="Username or Email" name="emailUsername" class="form-control mt-3 mb-4" autocomplete="off" required>
+					<input type="text" placeholder="Username or Email" name="emailUsername" class="form-control mt-3 mb-4" autocomplete="off" required style="text-transform:lowercase">
 					<input type="password" name="pass" id="" placeholder="Password" required class="form-control mb-4" autocomplete="off">
 					<div class="">
 						<a href="#" class="forgot">Forgot password</a>

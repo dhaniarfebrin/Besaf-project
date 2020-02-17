@@ -7,11 +7,9 @@ body {
 	background-color: rgb(27, 27, 27);
 	color: white;
 	font-family: 'roboto', sans-serif;
-<<<<<<< HEAD
-	overflow-x:  hidden;
-=======
-	overflow-x: hidden;
->>>>>>> 51e8441bcfb06d96da340c5b885088f8f0d5a5c7
+	<<<<<<< HEAD overflow-x: hidden;
+	=======overflow-x: hidden;
+	>>>>>>>51e8441bcfb06d96da340c5b885088f8f0d5a5c7
 }
 
 .loading-halaman::before {
@@ -44,7 +42,7 @@ body {
 	height: 100vh;
 	background-color: #262626;
 	position: fixed;
-	float: left; 
+	float: left;
 	box-shadow: 1px 1px 10px black;
 	transition: all 0.5s ease-in-out;
 	top: 0px;
