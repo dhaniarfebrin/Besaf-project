@@ -438,12 +438,13 @@ class Profile_model extends CI_Model
 		$skill = $this->db->query("
 			SELECT
 				user_skill.id,
-				user_skill.game_id,
+				user_skill.game_id as game_id,
 				user_skill.role_game_id,
 				user_skill.user_id,
 				user_skill.info,
 				user_skill.image as image,
 				game.name as game_name,
+				role_game.id as role_id,
 				role_game.name as role_name,
 				user.username as user_name
 			FROM
@@ -538,7 +539,28 @@ class Profile_model extends CI_Model
 		output: 
 		return $notif;
 	}
-	// start model of Skill and role
+	public function Delete_skill_and_role($isi)
+	{
+		$id = $isi['id'];
+
+		if (empty($id)) {
+			$notif = array(
+				'error' => true,
+				'message' => "Sorry!!!... The id column is required."
+			);
+			goto output;
+		}
+
+		$this->db->delete('user_skill', array('id' => $id));
+		$notif = array(
+			'error' => false,
+			'message' => "Success!!!... Data has been deleted."
+		);
+		goto output;
+
+		output: return $notif;
+	}
+	// end model of Skill and role
 
 
 

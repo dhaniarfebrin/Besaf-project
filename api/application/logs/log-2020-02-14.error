@@ -1,0 +1,442 @@
+ERROR - 2020-02-14 03:45:01 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 03:45:01 --> Unable to connect to the database
+ERROR - 2020-02-14 03:45:01 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 03:45:01 --> Unable to connect to the database
+ERROR - 2020-02-14 03:45:01 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+			SELECT 
+				id,
+				nama,
+				game_id,
+				rules,
+				hadiah,
+				informasi,
+				how_to_join,
+				venue,
+				mode,
+				image,
+				slots,
+				time,
+				entry,
+				winner,
+				date_start,
+				date_end,
+				komunitas_id,
+				cookies
+			FROM 
+				tournament
+			
+			
+ERROR - 2020-02-14 03:45:01 --> Severity: error --> Exception: Call to a member function result_array() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\Turnamen_model.php 50
+ERROR - 2020-02-14 04:08:28 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:08:28 --> Unable to connect to the database
+ERROR - 2020-02-14 04:08:28 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:08:28 --> Unable to connect to the database
+ERROR - 2020-02-14 04:08:28 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+			SELECT 
+				id,
+				nama,
+				game_id,
+				rules,
+				hadiah,
+				informasi,
+				how_to_join,
+				venue,
+				mode,
+				image,
+				slots,
+				time,
+				entry,
+				winner,
+				date_start,
+				date_end,
+				komunitas_id,
+				cookies
+			FROM 
+				tournament
+			
+			
+ERROR - 2020-02-14 04:08:28 --> Severity: error --> Exception: Call to a member function result_array() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\Turnamen_model.php 50
+ERROR - 2020-02-14 04:08:36 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:08:36 --> Unable to connect to the database
+ERROR - 2020-02-14 04:08:36 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:08:36 --> Unable to connect to the database
+ERROR - 2020-02-14 04:08:36 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:08:36 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:08:37 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:08:37 --> Unable to connect to the database
+ERROR - 2020-02-14 04:08:37 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:08:37 --> Unable to connect to the database
+ERROR - 2020-02-14 04:08:37 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:08:37 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:08:39 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:08:39 --> Unable to connect to the database
+ERROR - 2020-02-14 04:08:39 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:08:39 --> Unable to connect to the database
+ERROR - 2020-02-14 04:08:39 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:08:39 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:05 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:05 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:05 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:05 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:05 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:05 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:08 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:08 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:08 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:08 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:08 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:08 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:08 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:08 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:09 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:09 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:09 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:09 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:10 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:10 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:10 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:10 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:10 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:10 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:11 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:11 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:11 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:11 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:11 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:11 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:11 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:11 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:11 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:11 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:11 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:11 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:12 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:12 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:12 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:12 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:12 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:12 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:12 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:12 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:12 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:12 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:12 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:12 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:12 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:12 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:12 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:12 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:12 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:12 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:13 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:13 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:13 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:13 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:13 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:13 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:13 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:13 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:13 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:13 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:13 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:13 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:13 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:13 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:13 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:13 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:13 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:13 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:13 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:13 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:13 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:13 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:13 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:13 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:13 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:13 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:13 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:13 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:13 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:13 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:14 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:14 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:14 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:14 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:14 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:14 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:14 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:14 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:15 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:15 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:15 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:15 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:10:18 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:18 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:18 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:10:18 --> Unable to connect to the database
+ERROR - 2020-02-14 04:10:18 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:10:18 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:11:09 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:11:09 --> Unable to connect to the database
+ERROR - 2020-02-14 04:11:09 --> Severity: Warning --> mysqli::real_connect(): (HY000/1049): Unknown database 'besaf_master' C:\xampp\htdocs\Besaf-project\api\system\database\drivers\mysqli\mysqli_driver.php 203
+ERROR - 2020-02-14 04:11:09 --> Unable to connect to the database
+ERROR - 2020-02-14 04:11:09 --> Query error: Unknown database 'besaf_master' - Invalid query: 
+        SELECT
+        id,
+        username,
+        email,
+        password,
+        role_id,
+        is_active
+        FROM
+            user
+        WHERE
+            username = 'user' OR email = 'user'
+        
+ERROR - 2020-02-14 04:11:09 --> Severity: error --> Exception: Call to a member function num_rows() on boolean C:\xampp\htdocs\Besaf-project\api\application\models\M_user.php 46
+ERROR - 2020-02-14 04:13:16 --> 404 Page Not Found: Img/turnamen
+ERROR - 2020-02-14 04:37:32 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 559
+ERROR - 2020-02-14 04:37:32 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Profile_model.php 560
+ERROR - 2020-02-14 04:51:31 --> 404 Page Not Found: Img/turnamen
+ERROR - 2020-02-14 05:23:21 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 258
+ERROR - 2020-02-14 05:23:21 --> Severity: Warning --> mkdir(): File exists C:\xampp\htdocs\Besaf-project\api\application\models\Super_admin_model.php 259

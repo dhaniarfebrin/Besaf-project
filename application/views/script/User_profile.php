@@ -13,6 +13,7 @@
 							$('select.select-game').html(html);
 							$('select.Career_select_game').html(html);
 							$('select.career_select_game').html(html);
+							$('select.select-game-update').html(html);
 						}
 					})
 				}
@@ -32,6 +33,7 @@
 								html += '<option value="'+obj.id+'">'+obj.name+'</option>'
 							});
 							$('select.role-game').html(html);
+							$('select.role-game-upadate').html(html);
 						}
 					})
 				})
@@ -438,12 +440,17 @@
 											<small align="center" style="margin-top: 10px">'+obj.game_name+'</small>\
 											<small style="margin-bottom: 5px">'+obj.role_name+'</small>\
 										  <div style="margin-bottom: 5px">\
-										  	<button class="btn btn-primary btn-sm float-md-none" style="margin-bottom: 5px; "><i class="flaticon-edit"></i> Edit</button>\
+										  	<button class="btn btn-primary btn-sm float-md-none update-skill-and-role" style="margin-bottom: 5px;" data-toggle="modal" data-target="#skill_and_role_update" data-id="'+obj.id+'" data-game="'+obj.game_id+'" data-role_game="'+obj.role_id+'" data-image="'+obj.image+'"><i class="flaticon-edit"></i> Edit</button>\
 										  </div>\
 										</div>\
 									</div>'
 								
 									$("div.tampil_skill_role").html(skill_and_role);
+									$("div.delete-and-update").html('\
+										<button type="submit" class="btn btn-primary btn-sm" style="float: right; margin-left: 5px">Done</button>\
+										<button type="button" class="btn btn-secondary btn-sm delete-skill-role" style="float: right;">Reset</button>\
+									');
+									
 								});
 							}
 						})
@@ -498,8 +505,53 @@
 						return false;
 					});
 
+					/* Update skill and role */
+					$(document).on('change', 'input.skill-image-update', function(e) {
+						file = e.target.files[0];
+						canvasResize(file, {
+							width: 400,
+							height: 400,
+							crop: true,
+							quality: 100,
+							callback: function(data) {
+								$("input.hidden-skill-image-upadate").val(data);
+								$("img.show_image_skill-update").attr('src', data);
+							}
+						})
+					});
+					$(document).on('click', 'button.update-skill-and-role', function() {
+						id = $(this).data('id');
+						select_game = $(this).data('game');
+						role_game = $(this).data('role_game');
+						image = $(this).data('image');
+
+						$("input.update-skill-role").val(id);
+						$("select.select-game-update").val(select_game);
+						$("select.role-game-upadate").val(role_game);
+						$("img.show_image_skill-update").attr('src', '<?php echo base_url('api/img/skill_and_role_image/'); ?>'+image);
+					});
 
 
+
+					/* Delete skill and role */
+					$(document).on('click', 'button.delete-skill-role', function() {
+						skill_id = $("input.hidden-delete-skill-role").val();
+
+						$.ajax({
+							url: '<?php echo base_url('api/Profile/Delete_skill_and_role'); ?>',
+							type: 'POST',
+							data: {
+								id: skill_id
+							},
+							success: function(req) {
+								pesan = req.message;
+								$("input.update-skill-role").val('');
+								$("div#skill_and_role_update").modal('hide');
+								Read_skill_role();
+								notif("div.notif", "success", pesan);
+							}
+						})
+					});
 					// end AJAX of skill and role endorsment
 
 
@@ -625,7 +677,6 @@
 					/* Update career */
 					$(document).on('change', 'input.career-image-update', function(e) {
 						file = e.target.files[0];
-						$("label.image-label-update").html(file.name);
 						canvasResize(file, {
 							width: 400,
 							height: 400,
@@ -652,7 +703,7 @@
 						$("select.career_select_game").val(Career_select_game);
 						$("select.career_months").val(Career_months);
 						$("select.career_years").val(Career_years);
-						$("img.show-image-update").attr('src','<?php echo base_url('api/img/profile/'); ?>'+Career_image);
+						$("img.show-image-update").attr('src','<?php echo base_url('api/img/career/'); ?>'+Career_image);
 					});
 
 					$(document).on('submit', 'form.Update_career', function() {

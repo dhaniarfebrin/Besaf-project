@@ -15,13 +15,13 @@
 				</div>
 			</div>
 			<div class="col-md">
-				<div class="card w-auto mx-auto single-tab" id="user">
+				<div class="card w-auto mx-auto single-tab">
 						<div class="card-body">
 							<table id="user-table" class="w-auto mx-auto table table-dark text-white">
 								<thead class="thead-primary">
 									<tr>
 										<th>#</th>
-										<th>Name</th>
+										<th>Full Name</th>
 										<th>Email</th>
 										<th>Role</th>
 										<th>Detail</th>
@@ -62,41 +62,41 @@
 
 
 		<!--modal add admin-->
-	<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content rounded-0">
-				<div class="modal-header">
-					<h5 class="modal-title" id="staticBackdropLabel">Add Admin</h5>
-					<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body mt-3">
-					<form action="" class="w-75 mx-auto form">
-						<div class="input-group mb-3">
-							<div class="input-group-prepend">
-								<span class="input-group-text text-dark">@</span>
-							</div>
-							<input type="text" class="form-control bg-dark text-white border-0" placeholder="Username">
+<!-- 	<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content rounded-0">
+			<div class="modal-header">
+				<h5 class="modal-title" id="staticBackdropLabel">Add Admin</h5>
+				<button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body mt-3">
+				<form action="" class="w-75 mx-auto form">
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text text-dark">@</span>
 						</div>
-						<div class="input-group mb-3">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-envelope  text-dark"></i></span>
-							</div>
-							<input type="email" class="form-control bg-dark text-white border-0" placeholder="Email">
+						<input type="text" class="form-control bg-dark text-white border-0" placeholder="Username">
+					</div>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-envelope  text-dark"></i></span>
 						</div>
-						<div class="input-group mb-3">
-							<div class="input-group-prepend">
-								<span class="input-group-text"><i class="fas fa-lock text-dark"></i></span>
-							</div>
-							<input type="password" class="form-control bg-dark text-white border-0" placeholder="password">
+						<input type="email" class="form-control bg-dark text-white border-0" placeholder="Email">
+					</div>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-lock text-dark"></i></span>
 						</div>
-							<button type="button" class="btn btn-primary d-block ml-auto mt-5">Add</button> 	
-					</form>
-				</div>
+						<input type="password" class="form-control bg-dark text-white border-0" placeholder="password">
+					</div>
+						<button type="button" class="btn btn-primary d-block ml-auto mt-5">Add</button> 	
+				</form>
 			</div>
 		</div>
 	</div>
+</div -->>
 	<!--	modal add admin-->
 	</div>
 </div>
@@ -111,9 +111,9 @@
 
 
 	<script>
-		jQuery(document).ready(function() {
-			
+		$(document).ready(function() {	
 			function Read_users(){
+				$("table#user-table").DataTable().destroy();
 				$("table#user-table").DataTable({
 					"serverside": true,
 					"processing": true,
@@ -148,7 +148,6 @@
 						{
 							data: null,	
 							render: function(req) {
-								console.log(req);
 								return '<button type="button" class="btn btn-danger btn-sm hapus" data-toggle="modal" data-target="#delete_user" data-id="'+req.id+'" data-name="'+req.full_name+'"><i class="fa fa-trash"></i></button>';
 							}
 						}
@@ -162,25 +161,25 @@
 			$(document).on('click', 'button.hapus', function() {
 				user_id = $(this).data('id');
 				user_name = $(this).data('name');
+				console.log(user_id)
 
 				$('input.delete-user').val(user_id);
 				$('b.user-name').html(user_name);
 			});
 
-			$(document).on('submit', 'button.hapus', function() {
+			$(document).on('click', 'button.delete', function() {
 				user_id = $('input.delete-user').val();
 
 				$.ajax({
-					url: '<?= base_url('api/Super_admin/Delete_user'); ?>',
+					url: '<?php echo base_url('api/Super_admin/Delete_user'); ?>',
 					type: 'POST',
 					data: {
 						id: user_id 
 					},
 					success: function(req) {
-						console.log(req.id);
+						console.log(req)
 						$('input.delete-user').val('');	
-						$('b.user-name').html('');
-						$('div.hapusen_ae_wes').modal('hide');
+						$('div#delete_user').modal('hide');
 						Read_users();					
 					}
 				})

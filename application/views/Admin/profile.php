@@ -288,7 +288,7 @@
 					id: '<?php echo $this->session->userdata('user_id'); ?>',
 				},
 				success: function(req){
-					$("img.avatar-admin").attr('src', "<?= base_url('api/img/Super_admin_profile/'); ?>"+req.data.image);
+					$("img.avatar-admin").attr('src', "<?= base_url('api/img/user_profile/'); ?>"+req.data.image);
 					$("div.user_bio").html(req.data.bio);
 				}
 			})
