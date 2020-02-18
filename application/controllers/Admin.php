@@ -6,26 +6,12 @@ class Admin extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		//* CEK cookie, jika tidak ada, langsung tendang
-		$login = get_cookie(sha1('besaf'));
-		if ($login) {
-			//! cek login
-			if ($this->session->userdata('role_id') == 1) {
-				// user
-				redirect('user');
-			} elseif ($this->session->userdata('role_id') == 2) {
-				// admin
-				redirect('admin');
-			}
-		} elseif (!$login) {
-			//! cek login
-			if ($this->session->userdata('role_id') == 1) {
-				// user
-				redirect('user');
-			} elseif ($this->session->userdata('role_id') == 2) {
-				// admin
-				redirect('admin');
-			}
+		//! cek login
+		if (!$this->session->userdata('user_id')) {
+			redirect('auth');
+		} elseif ($this->session->userdata('role_id') == 1) {
+			// s_admin
+			redirect('user');
 		}
 	}
 

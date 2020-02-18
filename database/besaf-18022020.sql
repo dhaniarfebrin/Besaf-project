@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 18, 2020 at 03:35 AM
+-- Generation Time: Feb 18, 2020 at 09:00 AM
 -- Server version: 10.4.11-MariaDB-log
 -- PHP Version: 7.4.1
 
@@ -65,7 +65,8 @@ CREATE TABLE `komunitas` (
 --
 
 INSERT INTO `komunitas` (`id`, `nama`, `kategori`, `game_id`, `nomor_telpon`, `nomor_identitas`, `foto_identitas`, `deskripsi`) VALUES
-(10, 'koamiasd', '2', 1, 127, 10200302, '70f0af40-9077-4ebf-b9e3-32047dc64be5.jpeg', 'sfio');
+(10, 'koamiasd', '2', 1, 127, 10200302, '70f0af40-9077-4ebf-b9e3-32047dc64be5.jpeg', 'sfio'),
+(12, 'CSGO EVER', '1', 1, 127, 2147483647, '3ee37466-eff8-4804-893a-f42ad25eff51.jpeg', 'komunitas CSGO');
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,9 @@ CREATE TABLE `member_komunitas` (
 
 INSERT INTO `member_komunitas` (`id`, `user_id`, `komunitas_id`, `role_id`) VALUES
 (1, 13, 10, 1),
-(2, 3, 11, 1);
+(2, 3, 11, 1),
+(3, 13, 12, 1),
+(4, 76, 12, 2);
 
 -- --------------------------------------------------------
 
@@ -103,6 +106,13 @@ CREATE TABLE `notifikasi` (
   `team_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notifikasi`
+--
+
+INSERT INTO `notifikasi` (`id`, `user_id`, `type`, `pesan`, `komunitas_id`, `team_id`, `created_at`) VALUES
+(1, 13, 1, '<a href=\"https://besaf-local.me/Besaf/profile/76\" class=\"text-dark\" style=\"text-decoration: none\">Tersedia member komunitas baru</a>', 12, 0, '2020-02-18 04:19:46');
 
 -- --------------------------------------------------------
 
@@ -187,7 +197,8 @@ CREATE TABLE `tournament` (
 --
 
 INSERT INTO `tournament` (`id`, `nama`, `game_id`, `rules`, `hadiah`, `informasi`, `how_to_join`, `venue`, `mode`, `image`, `slots`, `time`, `entry`, `winner`, `date_start`, `date_end`, `komunitas_id`, `cookies`) VALUES
-(1, 'viba esport', 1, '<p><u>daDSAddasda</u></p>', '50000', 'info', 'belum tersedia.', '1', '1', '7bad1813-951e-4bb9-a6be-7b1dd65100f4.jpeg', 32, '13:11:00', '1', 'null', '2020-01-31', '2020-02-21', 11, 200);
+(1, 'viba esport', 1, '<p><u>daDSAddasda</u></p>', '50000', 'info', 'belum tersedia.', '1', '1', '7bad1813-951e-4bb9-a6be-7b1dd65100f4.jpeg', 32, '13:11:00', '1', 'null', '2020-01-31', '2020-02-21', 11, 200),
+(2, 'Newbie Open E-Sports', 1, '<p><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\"><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt blandit nunc, ac vestibulum justo ultricies eu. Maecenas sed ipsum pretium tellus tincidunt ultricies. Phasellus eu sapien vel libero efficitur sollicitudin vel in urna. Maecenas est ante, mattis at diam eget, semper sodales dui. Phasellus convallis nunc justo, nec bibendum libero volutpat sed. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse laoreet ultricies nunc. Integer imperdiet varius tincidunt. Donec convallis ligula elit, vitae sollicitudin elit lobortis sit amet. Cras dignissim purus fermentum lorem imperdiet varius. Donec feugiat vulputate ante sit amet suscipit. Ut sodales ex ut nisi varius vehicula. Mauris viverra placerat facilisis. Cras aliquet eu neque sit amet aliquam. Fusce a quam ut erat rhoncus interdum. Aliquam vitae lacus viverra, efficitur elit quis, molestie orci.</b></span><br></p>', '10000000000', 'tidak jadi', 'belum tersedia.', '1', '2', '4a0f16c8-8c91-4637-af05-a24d0101e62d.jpeg', 90, '21:03:00', '1', 'null', '2020-05-28', '2020-02-21', 10, 500);
 
 -- --------------------------------------------------------
 
@@ -219,8 +230,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `gender`, `full_name`, `image`, `bio`, `country`, `city`, `adress`, `birth_date`, `phone_number`, `about_me`, `role_id`, `is_active`) VALUES
-(13, 'user', 'user1@user.com', '$2y$10$9pMDy0chUWhWALYUnN4DfOjrRGMXdZkDrsUiB9nbPJy5xKEGeeF5G', '1', ' AKU SUPERMEN', 'fe3c963b-b6c6-4620-8edc-77b50dd5a182.jpeg', '', 'Indonesia', 'JEMBER', 'BAGOREJO, GUMUKMAS, JEMBER', '2002-06-19', '09889900000999112222', 'kucing kucingan', 1, 1),
-(74, 'admin', 'kaalwabedrizki13@gmail.com', '$2y$10$koWJn3VHR4sbZXMu/QP0i..JWtYyqzLK2oDAHyV6ievfd8eOQoFqK', '1', 'super admin', 'c5c22355-fd19-434b-8a61-ac228761fe98.jpeg', 'here we go again', 'Indonesia', '', '', '0000-00-00', '', '', 2, 1);
+(13, 'user', 'user1@user.com', '$2y$10$9pMDy0chUWhWALYUnN4DfOjrRGMXdZkDrsUiB9nbPJy5xKEGeeF5G', '1', 'root', 'a28820e8-dbc3-4a3a-9fed-293bbfca6462.jpeg', '', 'Indonesia', 'JEMBER', 'BAGOREJO, GUMUKMAS, JEMBER', '2002-06-19', '09889900000999112222', 'kucing kucingan', 1, 1),
+(74, 'admin', 'kaalwabedrizki13@gmail.com', '$2y$10$koWJn3VHR4sbZXMu/QP0i..JWtYyqzLK2oDAHyV6ievfd8eOQoFqK', '1', 'super admin', '517b8e5f-ed62-4553-a254-a2df21e6c070.jpeg', 'here we go again', 'Indonesia', '', '', '0000-00-00', '', '', 2, 1),
+(76, 'yuser', 'yuser@yuse.use', '$2y$10$jL2hZBA2aIWyLP.Bl3x9zuzkHjMh4pEnUW0kKubxPioYTLlJubs3m', '1', 'yuser', '', '', 'Malaysia', '', '', '0000-00-00', '', '', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -525,19 +537,19 @@ ALTER TABLE `game`
 -- AUTO_INCREMENT for table `komunitas`
 --
 ALTER TABLE `komunitas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `member_komunitas`
 --
 ALTER TABLE `member_komunitas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `notifikasi`
 --
 ALTER TABLE `notifikasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `role_game`
@@ -561,13 +573,13 @@ ALTER TABLE `team_member`
 -- AUTO_INCREMENT for table `tournament`
 --
 ALTER TABLE `tournament`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `user_access`
@@ -615,7 +627,7 @@ ALTER TABLE `user_skill`
 -- AUTO_INCREMENT for table `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
