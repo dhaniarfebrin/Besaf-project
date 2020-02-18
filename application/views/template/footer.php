@@ -65,7 +65,7 @@
 					</div>
 				</div>
 
-				<div class="m-portlet m-portlet--mobile" style="position: fixed;top: 0; right: 0; width: 400px; margin-top: 100px; height: 550px; margin-right: 5px" id="update">
+				<div class="m-portlet m-portlet--mobile" style="position: fixed;top: 0; right: 0; width: 400px; margin-top: 100px; height: 550px; margin-right: 5px" id="updates">
 					<div class="m-portlet__head">
 						<div class="m-portlet__head-caption">
 							<div class="m-portlet__head-title">
@@ -213,13 +213,13 @@
 						$('div#notification').hide();
 						$(document).on('click', '.notification', function() {
 							$('div#notification').slideToggle();
-							$('div#update').fadeOut();
+							$('div#updates').fadeOut();
 							$('div#team').fadeOut();
 						})
 
-						$('div#update').hide();
-						$(document).on('click', '.update', function() {
-							$('div#update').slideToggle();
+						$('div#updates').hide();
+						$(document).on('click', '.updates', function() {
+							$('div#updates').slideToggle();
 							$('div#notification').fadeOut();
 							$('div#team').fadeOut();
 						})
@@ -228,7 +228,7 @@
 						$(document).on('click', '.team', function() {
 							$('div#team').slideToggle();
 							$('div#notification').fadeOut();
-							$('div#update').fadeOut();
+							$('div#updates').fadeOut();
 						})
 
 					})

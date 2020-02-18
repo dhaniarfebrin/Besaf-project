@@ -74,7 +74,7 @@
 					</a>
 				</li>
 				<li class="m-menu__item " aria-haspopup="true" m-menu-link-redirect="1">
-					<a href="#updates" class="m-menu__link update">
+					<a href="#updates" class="m-menu__link updates">
 						<i class="m-menu__link-icon flaticon-edit"></i>
 						<span class="m-menu__link-text">Updates</span>
 					</a>

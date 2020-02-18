@@ -146,7 +146,7 @@ $country = [
 							</div>
 							<div class="form-group form-check pl-0 mt-3">
 								<div class="custom-control custom-checkbox">
-									<input type="checkbox" class="custom-control-input" id="exampleCheck1">
+									<input type="checkbox" class="custom-control-input agree" id="exampleCheck1" onclick="agree()">
 									<label class="custom-control-label" for="exampleCheck1">I agree to the Terms of Service</label>
 								</div>
 								<div class="custom-control custom-checkbox">
@@ -154,7 +154,7 @@ $country = [
 									<label class="custom-control-label" for="exampleCheck2">I want to receive newsletter email from Besaf</label>
 								</div>
 							</div>
-							<button type="submit" class="btn btn-primary text-black font-weight-bold mt-4 w-100">Create my account</button>
+							<button type="submit" id="submit" class="btn btn-primary text-black font-weight-bold mt-4 w-100">Create my account</button>
 						</form>
 					</div>
 					<!-- akhir register -->

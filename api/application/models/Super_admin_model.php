@@ -81,7 +81,7 @@ class Super_admin_model extends CI_Model
                 game.name as game_name
             FROM 
                 game
-            INNER JOIN 
+            LEFT JOIN 
                 role_game on role_game.game_id = game.id
             GROUP BY 
                 game.id
@@ -117,7 +117,7 @@ class Super_admin_model extends CI_Model
                 game.id as id
             FROM    
                 role_game
-            INNER JOIN
+            LEFT JOIN
                 game on game.id = role_game.game_id
             WHERE
                 game_id = '$id'

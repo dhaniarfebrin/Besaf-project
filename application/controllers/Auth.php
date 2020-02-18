@@ -13,9 +13,18 @@ class Auth extends CI_Controller
 	{
 		$this->session->unset_userdata('reset');
 
-		//* CEK cookie, jika ada, langsung login
+		//* CEK cookie, jika tidak ada, langsung tendang
 		$login = get_cookie(sha1('besaf'));
 		if ($login) {
+			//! cek login
+			if ($this->session->userdata('role_id') == 1) {
+				// user
+				redirect('user');
+			} elseif ($this->session->userdata('role_id') == 2) {
+				// admin
+				redirect('admin');
+			}
+		} elseif (!$login) {
 			//! cek login
 			if ($this->session->userdata('role_id') == 1) {
 				// user
@@ -70,6 +79,15 @@ class Auth extends CI_Controller
 				// admin
 				redirect('admin');
 			}
+		} elseif (!$login) {
+			//! cek login
+			if ($this->session->userdata('role_id') == 1) {
+				// user
+				redirect('user');
+			} elseif ($this->session->userdata('role_id') == 2) {
+				// admin
+				redirect('admin');
+			}
 		}
 		//user tanpa login bisa melihat tournament dengan view di bawah
 		$this->load->view('Front/template/header');
@@ -82,6 +100,15 @@ class Auth extends CI_Controller
 		//* CEK cookie, jika tidak ada, langsung tendang
 		$login = get_cookie(sha1('besaf'));
 		if ($login) {
+			//! cek login
+			if ($this->session->userdata('role_id') == 1) {
+				// user
+				redirect('user');
+			} elseif ($this->session->userdata('role_id') == 2) {
+				// admin
+				redirect('admin');
+			}
+		} elseif (!$login) {
 			//! cek login
 			if ($this->session->userdata('role_id') == 1) {
 				// user
@@ -112,6 +139,15 @@ class Auth extends CI_Controller
 				// admin
 				redirect('admin');
 			}
+		} elseif (!$login) {
+			//! cek login
+			if ($this->session->userdata('role_id') == 1) {
+				// user
+				redirect('user');
+			} elseif ($this->session->userdata('role_id') == 2) {
+				// admin
+				redirect('admin');
+			}
 		}
 		$this->load->view('Front/template/header');
 		$this->load->view('Front/Login_page');
@@ -120,13 +156,26 @@ class Auth extends CI_Controller
 
 	public function Forgotpassword()
 	{
-		//! cek login
-		if ($this->session->userdata('role_id') == 1) {
-			// user
-			redirect('user');
-		} elseif ($this->session->userdata('role_id') == 2) {
-			// admin
-			redirect('admin');
+		//* CEK cookie, jika tidak ada, langsung tendang
+		$login = get_cookie(sha1('besaf'));
+		if ($login) {
+			//! cek login
+			if ($this->session->userdata('role_id') == 1) {
+				// user
+				redirect('user');
+			} elseif ($this->session->userdata('role_id') == 2) {
+				// admin
+				redirect('admin');
+			}
+		} elseif (!$login) {
+			//! cek login
+			if ($this->session->userdata('role_id') == 1) {
+				// user
+				redirect('user');
+			} elseif ($this->session->userdata('role_id') == 2) {
+				// admin
+				redirect('admin');
+			}
 		}
 
 		$this->session->set_userdata(['reset' => true]);
