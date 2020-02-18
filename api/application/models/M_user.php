@@ -222,6 +222,8 @@ class M_user extends CI_Model
         $server = $_SERVER['SERVER_NAME'];
         if ($server == 'intern.mascitra.co.id') {
             $server = $_SERVER['SERVER_NAME'] . '/2020.aziz/besaf/auth/verify/';
+        } elseif ($server == 'besaf.intern.mascitra.co.id') {
+            $server = $_SERVER['SERVER_NAME'] . '/auth/verify/';
         } else {
             $server = $_SERVER['SERVER_NAME'] . '/auth/verify/';
         }
@@ -404,8 +406,7 @@ class M_user extends CI_Model
             $hasil['data'][$no++] = $key;
         }
 
-        output:
-        return $hasil;
+        output: return $hasil;
     }
 
     public function konfirmasi($input)
@@ -444,7 +445,6 @@ class M_user extends CI_Model
             'message' => "sukses."
         );
 
-        output: 
-        return $hasil;
+        output: return $hasil;
     }
 }
