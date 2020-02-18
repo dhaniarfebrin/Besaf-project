@@ -10,17 +10,17 @@
 	<style>
 		.border-left {
 			border-width: 4px !important;
-        }
-        
-        .row {
-            margin: 220px auto;
-        }
+		}
 
-        .btn-secondary:hover {
-            background-color: rgb(44, 146, 203);
-            color: black;
-            border-color: rgb(44, 146, 203);
-        }
+		.row {
+			margin: 220px auto;
+		}
+
+		.btn-secondary:hover {
+			background-color: rgb(44, 146, 203);
+			color: black;
+			border-color: rgb(44, 146, 203);
+		}
 	</style>
 </head>
 
@@ -36,14 +36,14 @@
 				</div>
 				<div class="text-secondary">
 					<h5>Page not found</h5>
-                </div>
-                <button type="button" class="btn btn-secondary rounded-pill shadow mt-3 font-weight-bold" onclick="goBack()">Go Back</button>
+				</div>
+				<button type="button" class="btn btn-secondary rounded-pill shadow mt-3 font-weight-bold" onclick="goBack()">Go Back</button>
 			</div>
 		</div>
 	</div>
-	<script> 
+	<script>
 		function goBack() {
-			window.location = '<?php echo base_url('') ?>';
+			window.location = '<?php echo base_url('user') ?>';
 		}
 	</script>
 </body>

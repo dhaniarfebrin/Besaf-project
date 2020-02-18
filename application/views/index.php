@@ -276,7 +276,7 @@ $country = [
 							</span>
 							<div class="form-group form-check pl-0 mt-3">
 								<div class="custom-control custom-checkbox">
-									<input type="checkbox" class="custom-control-input" id="exampleCheck1">
+									<input type="checkbox" class="custom-control-input agree" id="exampleCheck1" onclick="agree()">
 									<label class="custom-control-label" for="exampleCheck1">I agree to the Terms of Service</label>
 								</div>
 								<div class="custom-control custom-checkbox">
@@ -284,7 +284,7 @@ $country = [
 									<label class="custom-control-label" for="exampleCheck2">I want to receive newsletter email from Besaf</label>
 								</div>
 							</div>
-							<button type="submit" class="btn btn-login text-center">Create my account</button>
+							<button type="submit" id="submit" class="btn btn-login text-center">Create my account</button>
 						</form>
 
 						<p class="text-center">or login with</p>
@@ -389,7 +389,16 @@ $country = [
 			}
 		}
 
+		function agree() {
+			if ($('input.agree').prop('checked')) {
+				$('button#submit').removeAttr('disabled')
+			} else {
+				$('button#submit').attr('disabled', 'disabled')
+			}
+		}
+
 		$(document).ready(function() {
+			$('button#submit').attr('disabled', 'disabled')
 			// LOGIN ajax
 			$(document).on('submit', 'form.form-login', function() {
 				usernameEmail = $('input.usernameEmail').val()

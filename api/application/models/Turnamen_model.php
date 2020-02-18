@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Turnamen_model extends CI_Model {
+class Turnamen_model extends CI_Model
+{
 
 	public function show($input)
 	{
@@ -10,11 +11,11 @@ class Turnamen_model extends CI_Model {
 		if (!empty($jadwal)) {
 			//sedang berlangsung.
 			if ($jadwal == '1') {
-				$where = "WHERE date_end >= '".date('Y-m-d')."'";
-			} 
+				$where = "WHERE date_end >= '" . date('Y-m-d') . "'";
+			}
 			//telah selesai
 			else if ($jadwal == '2') {
-				$where = "WHERE date_end < '".date('Y-m-d')."'";
+				$where = "WHERE date_end < '" . date('Y-m-d') . "'";
 			}
 		}
 		$turnamen = $this->db->query("
@@ -141,14 +142,17 @@ class Turnamen_model extends CI_Model {
 				tournament.id = '$turnamen_id'
 			");
 
+		$hasil['error'] = false;
+		$hasil['message'] = 'data komunitas tidak ditemukan.';
+		$hasil['data'] = array();
+
 		foreach ($query->result_array() as $key) {
 			$hasil['error'] = false;
 			$hasil['message'] = 'data komunitas ditemukan.';
 			$hasil['data'] = $key;
 		}
 
-		output:
-		return $hasil;
+		output: return $hasil;
 	}
 
 	public function create($input)
@@ -169,15 +173,16 @@ class Turnamen_model extends CI_Model {
 		$rules 		= $input['rules'];
 		$komunitas_id 	= $input['komunitas_id'];
 
-		function get_guid() {
-		    $data = PHP_MAJOR_VERSION < 7 ? openssl_random_pseudo_bytes(16) : random_bytes(16);
-		    $data[6] = chr(ord($data[6]) & 0x0f | 0x40);    // Set version to 0100
-		    $data[8] = chr(ord($data[8]) & 0x3f | 0x80);    // Set bits 6-7 to 10
-		    return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
+		function get_guid()
+		{
+			$data = PHP_MAJOR_VERSION < 7 ? openssl_random_pseudo_bytes(16) : random_bytes(16);
+			$data[6] = chr(ord($data[6]) & 0x0f | 0x40);    // Set version to 0100
+			$data[8] = chr(ord($data[8]) & 0x3f | 0x80);    // Set bits 6-7 to 10
+			return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
 		}
 
-		mkdir(FCPATH.'img',0777);
-		mkdir(FCPATH.'img/turnamen',0777);
+		mkdir(FCPATH . 'img', 0777);
+		mkdir(FCPATH . 'img/turnamen', 0777);
 
 		$img = str_replace("data:image/jpeg;base64,", "", $image);
 		$img = str_replace("data:image/png;base64,", "", $img);
@@ -185,9 +190,9 @@ class Turnamen_model extends CI_Model {
 
 		$base64 = base64_decode($img);
 
-		$foto_tournament = get_guid().'.jpeg';
+		$foto_tournament = get_guid() . '.jpeg';
 
-		file_put_contents(FCPATH.'img/turnamen/'.$foto_tournament, $base64);
+		file_put_contents(FCPATH . 'img/turnamen/' . $foto_tournament, $base64);
 
 		if (empty($nama)) {
 			$hasil = array(
@@ -306,8 +311,7 @@ class Turnamen_model extends CI_Model {
 			'message' => "berhasil menambah tournament."
 		);
 
-		output:
-		return $hasil;
+		output: return $hasil;
 	}
 }
 

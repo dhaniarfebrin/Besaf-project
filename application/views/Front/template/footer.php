@@ -18,8 +18,17 @@
         }
     }
 
+    function agree() {
+        if ($('input.agree').prop('checked')) {
+            $('button#submit').removeAttr('disabled')
+        } else {
+            $('button#submit').attr('disabled', 'disabled')
+        }
+    }
+
     $(document).ready(function() {
         data = $('input.kode').val()
+        $('button#submit').attr('disabled', 'disabled')
 
         // ! CHANGE PASSWORD
         $(document).on('submit', 'form.form-change', function() {

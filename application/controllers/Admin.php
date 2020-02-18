@@ -6,6 +6,27 @@ class Admin extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		//* CEK cookie, jika tidak ada, langsung tendang
+		$login = get_cookie(sha1('besaf'));
+		if ($login) {
+			//! cek login
+			if ($this->session->userdata('role_id') == 1) {
+				// user
+				redirect('user');
+			} elseif ($this->session->userdata('role_id') == 2) {
+				// admin
+				redirect('admin');
+			}
+		} elseif (!$login) {
+			//! cek login
+			if ($this->session->userdata('role_id') == 1) {
+				// user
+				redirect('user');
+			} elseif ($this->session->userdata('role_id') == 2) {
+				// admin
+				redirect('admin');
+			}
+		}
 	}
 
 	public function index()
@@ -45,9 +66,10 @@ class Admin extends CI_Controller
 		$this->load->view('Admin/community');
 		$this->load->view('Admin/template/footer');
 	}
-	
-	public function community_details($id) {
-		$this->session->set_userdata('komunitas_id',$id);
+
+	public function community_details($id)
+	{
+		$this->session->set_userdata('komunitas_id', $id);
 		$this->load->view('Admin/template/header');
 		$this->load->view('Admin/template/sidebar');
 		$this->load->view('Admin/community_details');
@@ -98,7 +120,7 @@ class Admin extends CI_Controller
 	public function user_details($user_id)
 	{
 		$this->session->set_userdata('user_id', $user_id);
-		$this->load->view('Admin/template/header'); 
+		$this->load->view('Admin/template/header');
 		$this->load->view('Admin/template/sidebar');
 		$this->load->view('Admin/users_details');
 		$this->load->view('Admin/template/footer');

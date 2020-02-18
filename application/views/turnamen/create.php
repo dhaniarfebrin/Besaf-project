@@ -21,20 +21,20 @@
 							<label>Nama Turnamen</label>
 							<input type="text" class="form-control m-input m-input--air m-input--pill mb-4 nama" placeholder="Nama" autofocus>
 							<label>Pilihan Game</label>
-							<select class="form-control m-input m-input--air m-input--pill pilihan-game" size="4">
+							<select class="form-control m-input m-input--air m-input--pill pilihan-game game_id" size="4">
 								<option value="1">1</option>
 							</select>
 						</div>
 						<div class="col-md-5">
 							<label>Image Turnamen</label>
 							<div class="custom-file">
-							  <input type="file" class="custom-file-input foto-turnamen" id="customFile">
-							  <label class="custom-file-label form-control m-input m-input--air foto_turnamen">Choose file</label>
+								<input type="file" class="custom-file-input foto-turnamen" id="customFile">
+								<label class="custom-file-label form-control m-input m-input--air foto_turnamen">Choose file</label>
 							</div>
 							<input type="hidden" class="foto_turnamen">
 							<div class="shadow-sm bg-secondary shadow-sm rounded mt-3" style="height: 150px; width: 100%;" align="center">
-									<img style="max-height: 100%; padding: 5px" src="" class="foto_turnamen">
-							</div>	
+								<img style="max-height: 100%; padding: 5px" src="" class="foto_turnamen">
+							</div>
 						</div>
 					</div>
 					<div class="form-group m-form__group row">
@@ -75,7 +75,7 @@
 						</label>
 						<input type="hidden" class="entry">
 					</div>
-					
+
 					<div class="form-group m-form__group row">
 						<div class="col-8">
 							<label>Mode Turnamen</label>
