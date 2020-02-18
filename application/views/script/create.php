@@ -20,6 +20,23 @@
 			})
 		});
 
+		function show_game() {
+			$.ajax({
+				url : "<?php echo base_url('api/Profile/Show_games') ?>",
+				method : "POST",
+				success : function(req) {
+					game = '';
+					$.each(req.data, function (index,obj) {
+						game +='\
+							<option value="'+obj.id+'">'+obj.game_name+'</option>\
+						'
+					})
+					$('select.pilihan-game').html(game);
+				}
+			})
+		}
+		show_game();
+
 		$(document).on('click','input.online',function() {
 			$('input.venue').val('1')
 		})

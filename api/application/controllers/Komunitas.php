@@ -74,6 +74,12 @@ class Komunitas extends REST_Controller {
 		return $this->response($request);	
 	}
 
+	public function cekrole_post()
+	{
+		$request = $this->Komunitas_model->cek_role($this->post());
+		return $this->response($request);
+	}
+
 }
 
 /* End of file Komunitas.php */

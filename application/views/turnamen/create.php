@@ -21,12 +21,8 @@
 							<label>Nama Turnamen</label>
 							<input type="text" class="form-control m-input m-input--air m-input--pill mb-4 nama" placeholder="Nama" autofocus>
 							<label>Pilihan Game</label>
-							<select class="form-control m-input m-input--air m-input--pill game_id" size="4">
+							<select class="form-control m-input m-input--air m-input--pill pilihan-game" size="4">
 								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
 							</select>
 						</div>
 						<div class="col-md-5">
@@ -84,8 +80,8 @@
 						<div class="col-8">
 							<label>Mode Turnamen</label>
 							<select class="form-control m-input	input m-input--air mode">
-								<option value="1">1</option>
-								<option value="2">2</option>
+								<option value="1">Group Stage</option>
+								<option value="2">Knock Out</option>
 							</select>
 						</div>
 						<div class="col-4">

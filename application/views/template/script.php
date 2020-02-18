@@ -30,7 +30,6 @@
 				url : "<?php echo base_url('api/Profile/Show_games') ?>",
 				method : "POST",
 				success : function(req) {
-					console.log(req)
 					game = '<option value=""></option>';
 					$.each(req.data, function (index,obj) {
 						game +='\
