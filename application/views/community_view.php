@@ -77,14 +77,7 @@
 					</div>
 					<div class="form-group m-form__group">
 						<label for="">Pilihan Game : </label>
-						<select class="form-control game_id m-input m-input--air m-input--pill">
-							<option value=""></option>
-							<?php  
-							$cek = mysqli_connect("localhost","root","","besaf");
-							$query = mysqli_query($cek, "SELECT id, nama FROM game");
-							while ($game = mysqli_fetch_array($query)) { ?>
-							<option value="<?php echo $game[0] ?>"><?php echo $game[1]; ?></option>
-							<?php } ?>
+						<select class="form-control pilihan-komunitas-game m-input m-input--air m-input--pill">
 						</select>
 					</div>
 					<div class="form-group m-form__group">

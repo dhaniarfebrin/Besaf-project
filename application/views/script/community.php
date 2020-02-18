@@ -1,13 +1,26 @@
 <script>
 	$(document).ready(function() {
 
-		role_user = <?php echo $this->session->userdata('role'); ?>1;
-
-		if (role_user == '1') {
-			$('.admin').show();
-		} else {
-			$('.admin').hide();
+		function cek_role() {
+			$.ajax({
+				url : "<?php echo base_url('api/Komunitas/cekrole') ?>",
+				method : "POST",
+				data : {
+					user_id : '<?php echo $this->session->userdata('user_id'); ?>',
+					komunitas_id : '<?php echo $this->session->userdata('komunitas_id'); ?>'
+				},
+				success : function(req) {
+					role_user = req.data
+					if (role_user == '1') {
+						$('.admin').show();
+					} else {
+						$('.admin').hide();
+					}
+				}
+			})
 		}
+		cek_role();
+
 
 		function info_community() {
 			$.ajax({
@@ -20,7 +33,7 @@
 				async: true,
 				success: function(req) {
 					$.each(req.data, function(index, obj) {
-						if (obj.game_id == null) {
+						if (obj.game_id == null || obj.game == '') {
 							$('div.community-game').html('\
 								<div class="col-md-12 mt-3">\
 									<table class="table table-hover">\
@@ -34,7 +47,14 @@
 							$('div.community-game').html('\
 								<div class="col-md-4 mt-3">\
 									<a href="#">\
-										<img class="hover" src="<?php echo base_url('assets/app/media/img/products/') ?>' + obj.game_nama + '" style="width: 100%">\
+										<img class="hover" src="<?php echo base_url('api/img/game/') ?>'+obj.game_foto+'" style="width: 100%">\
+									</a>\
+								</div>\
+							');
+							$('div.community-leaderboard').html('\
+								<div class="col-md-3 mt-3">\
+									<a href="#">\
+										<img class="hover" src="<?php echo base_url('api/img/game/') ?>'+obj.game_foto+'" style="width: 100%">\
 									</a>\
 								</div>\
 							');
@@ -69,8 +89,8 @@
 					} else {
 						$.each(req.data, function(index, obj) {
 							//cek foto user
-							if (obj.user_foto == null) {
-								foto = 'profile.JPG';
+							if (obj.user_foto == null || obj.user_foto == '') {
+								foto = 'default.jpg';
 							} else {
 								foto = obj.user_foto;
 							}
@@ -85,7 +105,9 @@
 							if (obj.user_role == '1') {
 								admin += '\
 								<tr>\
-									<td style="width: 20%"><img src="<?php echo base_url('assets/img/') ?>' + foto + '" alt="" class="rounded rounded-circle" style="width: 100%"></td>\
+									<td style="width: 20%">\
+										<img src="<?php echo base_url('api/img/user_profile/') ?>'+foto+'" class="rounded rounded-circle" style="width: 40px">\
+									</td>\
 									<td>\
 										<h5>' + obj.user_username + '</h5>\
 										<small>Admin</small>\
@@ -96,10 +118,6 @@
 									</td>\
 								</tr>\
 								';
-							} else {
-								admin += '\
-								<tr><td colspan="3" align="center">' + req.message + '</td></tr>\
-								';
 							}
 
 							html += '\
@@ -107,7 +125,7 @@
 									<a href="#" style="text-decoration: none;" class="text-dark">\
 										<div class="m-portlet m-portlet--mobile hover shadow row no-gutters" style="height:90px; padding: 5px">\
 											<div class="col">\
-												<img src="<?php echo base_url('assets/img/') ?>' + foto + '" alt="Users" class="rounded rounded-circle mr-3" style="max-height: 80px">\
+												<img src="<?php echo base_url('api/img/user_profile/') ?>' + foto + '" alt="Users" class="rounded rounded-circle mr-3" style="max-height: 80px">\
 											</div>\
 											<div class="col" style="margin-top: 10px">\
 												<h5>' + obj.user_nickname + '</h5>\
@@ -315,7 +333,7 @@
 				url: "<?php echo base_url('api/Komunitas/join'); ?>",
 				method: "POST",
 				data: {
-					user_id: '<?php $this->session->userdata('user_id'); ?>',
+					user_id: '<?php echo $this->session->userdata('user_id'); ?>',
 					komunitas_id: '<?php echo $this->session->userdata('komunitas_id'); ?>'
 				},
 				success: function(req) {
@@ -347,12 +365,15 @@
 		})
 
 		function notif(data, type, pesan) {
-			$(data).html('\
-				<div class="alert alert-' + type + '" style="position: fixed; top: 0; right: 0; z-index: 99; margin-top : 80px; width : 100%;">\
-					' + pesan + '\
-					<button class="close" data-dismiss="alert" type="button" style="margin-top: -9px;"></button>\
-				</div>\
-				');
+			$.notify({
+				message : pesan
+			}, {
+				type : type,
+				placement : {
+					from : "bottom",
+					align : "right"
+				}
+			})
 		}
 
 	})
