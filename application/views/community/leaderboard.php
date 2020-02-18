@@ -9,7 +9,8 @@
 		</div>
 	</div>
 	<div class="m-portlet__body">
-		<div class="row community-game">
+		<div class="row community-leaderboard">
+		
 		</div>
 	</div>
 </div>

@@ -30,13 +30,14 @@
 				url : "<?php echo base_url('api/Profile/Show_games') ?>",
 				method : "POST",
 				success : function(req) {
-					game = '<option value=""></option>';
+					game = '<option value="">Choose Game</option>';
 					$.each(req.data, function (index,obj) {
 						game +='\
 							<option value="'+obj.id+'">'+obj.game_name+'</option>\
 						'
 					})
 					$('select.pilihan-komunitas-game').html(game);
+					$('select.team-game').html(game);
 				}
 			})
 		}
