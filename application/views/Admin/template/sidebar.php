@@ -1,6 +1,6 @@
 <!-- Sidebar -->
 
-<div class="sidebar" id="sidebar" style="overflow-x: hidden;">
+<div class="sidebar bg-info shadow" id="sidebar" style="overflow-x: hidden;">
     <div class="row no-gutters">
         <div class="col">
             <div class="p-3">
@@ -16,7 +16,7 @@
         </div>
     </div>
     <a href="<?= base_url('Admin/profile') ?>" class="text-decoration-none">
-        <div class="akun bg-dark border-dark border-top border-bottom rounded-0 py-4 shadow-none mt-0 mb-4 row text-white">
+        <div class="akun rounded-0 py-4 shadow-none mt-0 mb-4 row text-white">
             <div class="avatar my-auto col">
                 <img src="<?= base_url()  ?>assets/Admin/img/illustration.jpg" alt="" class="img">
             </div>
@@ -37,7 +37,7 @@
             <li class="nav-item">
                 <a href="<?= base_url('Admin/tournament') ?>" class="nav-link <?php if (uri_string() == 'Admin/tournament') {
                                                                                     echo "link-active";
-                                                                                } ?>"><span class="fas fa-trophy mr-3"></span>Tournaments</a>
+                                                                                } ?>"><span class="fa fa-trophy mr-3"></span>Tournaments</a>
             </li>
             <li class="nav-item">
                 <a href="<?= base_url('Admin/game') ?>" class="nav-link <?php if (uri_string() == 'Admin/game') {

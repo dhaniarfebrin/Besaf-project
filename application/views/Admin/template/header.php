@@ -16,10 +16,10 @@
 	<link rel="shortcut icon" href="<?= base_url() ?>favicon.ico" type="image/x-icon">
 </head>
 
-<body>
+<body class="bg-dark">
 
 	<!-- Main Navbar -->
-	<nav class="navbar mainNavbar bg-dark fixed h-auto">
+	<nav class="navbar mainNavbar shadow fixed h-auto">
 		
 		<div class="row p-2 pr-4 mr-5">
 			<div class="col-md col">

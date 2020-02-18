@@ -9,6 +9,20 @@ window.addEventListener("beforeunload", function (e) {
 	document.body.className = "loading-halaman";
 }, false)
 
+//shortcut keyboard
+document.onkeydown = function (teziger) {
+	switch (teziger.keyCode) {
+		case 9: // tombol tab
+			openNav();
+			break;
+	
+		// default:
+		// 	closeNav();
+		// 	break;
+	}
+	// teziger.preventDefault(); // menghapus fungsi default tombol
+}
+
 function closeNav() {
 	//	document.getElementById('sidebar').style.width = "0px";
 	document.getElementById('sidebar').classList.remove('sidebar-open');
