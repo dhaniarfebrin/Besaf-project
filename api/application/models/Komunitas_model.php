@@ -442,6 +442,48 @@ class Komunitas_model extends CI_Model
 		output: 
 		return $hasil;
 	}
+
+	public function cek_role($input)
+	{
+		$user_id = $input['user_id'];
+		$komunitas_id = $input['komunitas_id'];
+
+		if (empty($user_id)) {
+			$hasil = array(
+				'error' => true,
+				'message' => "user_id tidak ditemukan."
+			);
+			goto output;
+		} else if (empty($komunitas_id)) {
+			$hasil = array(
+				'error' => true,
+				'message' => "komunitas_id tidak ditemukan."
+			);
+			goto output;
+		}
+
+		$role = $this->db->query("
+			SELECT 
+				id,
+				role_id
+			FROM 
+				member_komunitas
+			WHERE 
+				user_id = '$user_id' AND komunitas_id = '$komunitas_id'
+			");
+
+		$row = $role->row();
+
+		$hasil = array(
+			'error' => false,
+			'message' => "role_id ditemukan.",
+			'data' => $row->role_id
+		);
+
+		output:
+		return $hasil;
+	}
+
 }
 
 /* End of file Komunitas_model.php */
