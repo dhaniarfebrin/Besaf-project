@@ -60,53 +60,7 @@
 					</div>
 					<div class="m-portlet__body p-0">
 						<div class="m-scrollable data-notifikasi" data-scrollable="true" style="height: 370px">
-							<!-- <div class="card p-2" style="max-width: 100%; height: 120px">
-								<div class="row no-gutters">
-									<div class="col-md-2">
-										<img src="<?= base_url() ?>assets/img/profile.jpg" class="card-img rounded-circle" style="margin-top: 25%" alt="gambar">
-									</div>
-									<div class="col-md-10">
-										<div class="card-body">
-											<h5 class="card-title">Confirmation</h5>
-											<p class="card-text">...........</p>
-											<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="card p-2" style="max-width: 100%; height: 120px">
-								<div class="row no-gutters">
-									<div class="col-md-2">
-										<img src="<?= base_url() ?>assets/img/profile.jpg" class="card-img rounded-circle" style="margin-top: 25%" alt="gambar">
-									</div>
-									<div class="col-md-10">
-										<div class="card-body">
-											<h5 class="card-title">Invitation</h5>
-											<p class="card-text">...........</p>
-											<div class="row no-gutters">
-												<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-												<div class="row no-gutters ml-auto mb-1">
-													<style>
-														.confirmation-btn-false:hover {
-															background-color: red !important;
-															cursor: pointer;
-															color: white !important;
-														}
-														
-														.confirmation-btn-true:hover {
-															background-color: green !important;
-															cursor: pointer;
-															color: white !important;
-														}
-													</style>
-													<button type="button" class="bg-transparent border-0 rounded-circle far fa-times-circle confirmation-btn-false" style="color: red"></button>
-													<button type="button" class="bg-transparent border-0 rounded-circle far fa-check-circle confirmation-btn-true" style="color:green"></button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div> -->
+
 						</div>
 					</div>
 				</div>
@@ -184,7 +138,6 @@
 									<div class="form-group">
 										<select class="form-control team-game m-input m-input--air team-game">
 											<option value="">Choose game</option>
-											<option value="1">PES 2020</option>
 										</select>
 									</div>
 									<div class="form-group">

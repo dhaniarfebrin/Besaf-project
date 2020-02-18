@@ -51,6 +51,13 @@
 									</a>\
 								</div>\
 							');
+							$('div.community-leaderboard').html('\
+								<div class="col-md-3 mt-3">\
+									<a href="#">\
+										<img class="hover" src="<?php echo base_url('api/img/game/') ?>'+obj.game_foto+'" style="width: 100%">\
+									</a>\
+								</div>\
+							');
 						}
 					})
 				}
