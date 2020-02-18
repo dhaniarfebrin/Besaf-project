@@ -1,13 +1,26 @@
 <script>
 	$(document).ready(function() {
 
-		role_user = <?php echo $this->session->userdata('role'); ?>1;
-
-		if (role_user == '1') {
-			$('.admin').show();
-		} else {
-			$('.admin').hide();
+		function cek_role() {
+			$.ajax({
+				url : "<?php echo base_url('api/Komunitas/cekrole') ?>",
+				method : "POST",
+				data : {
+					user_id : '<?php echo $this->session->userdata('user_id'); ?>',
+					komunitas_id : '<?php echo $this->session->userdata('komunitas_id'); ?>'
+				},
+				success : function(req) {
+					role_user = req.data
+					if (role_user == '1') {
+						$('.admin').show();
+					} else {
+						$('.admin').hide();
+					}
+				}
+			})
 		}
+		cek_role();
+
 
 		function info_community() {
 			$.ajax({
