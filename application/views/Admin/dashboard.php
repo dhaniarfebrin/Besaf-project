@@ -7,11 +7,11 @@
 				<div class="row">
 					<div class="col-md col-xl mb-2">
 						<a href="#" class="text-decoration-none text-white">
-							<div class="card rounded border-left shadow py-2" style="border: 3px !important">
+							<div class="card rounded bg-danger border-left shadow py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
-											<div class="text-xs font-weight-bold text-primary mb-1">
+											<div class="text-xs font-weight-bold text-white mb-1">
 												Communities
 											</div>
 											<div class="h5 mb-0 font-weight-bold">9929</div>
@@ -26,11 +26,11 @@
 					</div>
 					<div class="col-md col-xl mb-2">
 						<a href="#" class="text-decoration-none text-white">
-							<div class="card rounded border-left shadow py-2">
+							<div class="card rounded bg-info border-left shadow py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
-											<div class="text-xs font-weight-bold text-primary mb-1">
+											<div class="text-xs font-weight-bold text-white mb-1">
 												Pending Requests
 											</div>
 											<div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
@@ -45,11 +45,11 @@
 					</div>
 					<div class="col-md col-xl mb-2">
 						<a href="" class="text-decoration-none text-white">
-							<div class="card rounded border-left shadow py-2">
+							<div class="card rounded bg-warning border-left shadow py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
-											<div class="text-xs font-weight-bold text-primary mb-1">
+											<div class="text-xs font-weight-bold text-white mb-1">
 												Users
 											</div>
 											<div class="h5 mb-0 font-weight-bold text-gray-800">9941229</div>
@@ -64,11 +64,11 @@
 					</div>
 					<div class="col-md col-xl mb-2">
 						<a href="" class="text-decoration-none text-white">
-							<div class="card rounded border-left shadow py-2">
+							<div class="card rounded bg-success border-left shadow py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
-											<div class="text-xs font-weight-bold text-primary mb-1">
+											<div class="text-xs font-weight-bold text-white mb-1">
 												Teams
 											</div>
 											<div class="h5 mb-0 font-weight-bold text-gray-800">1093</div>
@@ -85,13 +85,13 @@
 
 				<div class="row mt-5">
 					<div class="col-5">
-						<div class="card" data-offset="0" data-spy="scroll" style="max-height: 400px;">
+						<div class="card shadow border-0" data-offset="0" data-spy="scroll" style="max-height: 400px;">
 							<div class="card-header font-weight-bold bg-primary">
 								Request(s)
 							</div>
-							<div class="card-body bg-dark" style="overflow-y: scroll;">
+							<div class="card-body" style="overflow-y: scroll;">
 								<? for ($i = 1; $i < 10; $i++) { ?>
-									<div class="card shadow mb-2">
+									<div class="card bg-dark shadow mb-2">
 										<div class="row no-gutters">
 											<div class="col-lg-3">
 												<img src="<?= base_url() ?>assets/Admin/img/illustration.jpg" class="card-img h-100 w-100" alt="images">
@@ -119,7 +119,7 @@
 										</div>
 									</div>
 
-									<div class="card shadow mb-2">
+									<div class="card bg-dark shadow mb-2">
 										<div class="row no-gutters">
 											<div class="col-lg-3">
 												<img src="<?= base_url() ?>assets/Admin/img/illustration.jpg" class="card-img h-100 w-100" alt="images">
@@ -151,7 +151,7 @@
 						</div>
 					</div>
 					<div class="col position-relative">
-						<div class="card bg-dark p-4">
+						<div class="card shadow p-4">
 							<h5 class="text-white font-weight-bold text-center mb-4">Chart</h5>
 							<canvas id="myChart"></canvas>
 						</div>

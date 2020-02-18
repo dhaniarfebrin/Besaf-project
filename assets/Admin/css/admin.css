@@ -4,7 +4,7 @@
 }
 
 body {
-	background-color: rgb(27, 27, 27);
+	background-color: #343a40 !important;
 	color: white;
 	font-family: 'roboto', sans-serif;
 	overflow-x: hidden;
@@ -20,7 +20,7 @@ body {
 	top: 0;
 	left: 0;
 	background-color: #2C92CB;
-	animation: load-halaman infinite ease-out 2s;
+	animation: load-halaman ease-out 2s;
 }
 
 @keyframes load-halaman {
@@ -38,10 +38,9 @@ body {
 	width: 250px;
 	margin-left: -250px;
 	height: 100vh;
-	background-color: #262626;
+	background-color: rgba(35, 108, 168, 1) !important;
 	position: fixed;
 	float: left;
-	box-shadow: 1px 1px 10px black;
 	transition: all 0.5s ease-in-out;
 	top: 0px;
 	z-index: 3;
@@ -63,7 +62,7 @@ body {
 
 .nav-link {
 	text-decoration: none;
-	color: #e8e7e7;
+	color: #aaa8a8;
 	font-size: 17px;
 	font-weight: normal;
 	transition: .2s;
@@ -71,8 +70,8 @@ body {
 
 .nav-link:hover {
 	color: white;
-	background-color: #0e52d3;
-	border-radius: 8px;
+	/* background-color: #0e52d3; */
+	margin-left: 2px;
 	transition: .2s;
 }
 
@@ -93,17 +92,18 @@ body {
 
 .link-active {
 	display: block;
-	background-color: #0e52d3;
+	/* background-color: rgba(35, 108, 168, 1) !important;; */
 	padding: 10px;
 	padding-left: 15px;
+	margin-left: 2px;
 	border-radius: 5px;
 	color: white;
-	box-shadow: 1px 2px 5px #080808;
+	/* box-shadow: 1px 2px 5px; */
 }
 
 
 .akun {
-	background-color: #0e52d3;
+	/* background-color: rgba(35, 108, 168, 1) !important;; */
 	display: grid;
 	margin: 30px auto;
 	padding: 10px;
@@ -115,7 +115,7 @@ body {
 
 .akun:hover {
 	cursor: pointer;
-	background-color: #2b6deb;
+	/* background-color: #2b6deb; */
 	transition: .2s;
 }
 
@@ -157,9 +157,9 @@ body {
 	display: inline-block;
 	width: 100%;
 	height: auto;
-	background-color: #262626;
+	background-color: #262c30 !important;
 	color: white;
-	box-shadow: 1px 2px 10px #080808;
+	/* box-shadow: 1px 2px 10px #080808; */
 	position: fixed;
 	z-index: 2;
 }
@@ -173,17 +173,18 @@ body {
 }
 
 .card {
-	background-color: #262626;
-	box-shadow: 1px 2px 10px #080808;
+	background-color: #262c30;
+	/* box-shadow: 1px 2px 10px #080808; */
+	border: none !important;
 }
 
 .btn-primary {
-	background-color: #0e52d3;
+	background-color: rgba(35, 108, 168, 1);
 	border: none;
 }
 
 .bg-primary {
-	background-color: #0e52d3 !important;
+	background-color: rgba(35, 108, 168, 1) !important;
 	border: none;
 }
 
